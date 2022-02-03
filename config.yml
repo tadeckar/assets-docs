@@ -1,12 +1,13 @@
 baseURL: "https://www-github3.cisco.com/pages/tadeckar/assets-docs/"
 languageCode: en-us
-title: CX Assets Wiki
-theme: hugo-theme-learn
+outputs:
+  home: [ "HTML", "RSS", "JSON"]
 publishDir: docs
 params:
   author: tadeckar
   themeVariant: assets
   disableNextPrev: true
   disableInlineCopyToClipBoard: true
-outputs:
-  home: [ "HTML", "RSS", "JSON"]
+  landingPageURL: "/pages/tadeckar/assets-docs/"
+title: CX Assets Wiki
+theme: hugo-theme-learn
