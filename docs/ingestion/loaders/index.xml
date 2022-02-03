@@ -12,7 +12,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/alerts/</guid>
-      <description>Alerts are loaded by the AlertsParquetDataLoader.py.</description>
+      <description>Alerts are loaded by the AlertsParquetDataLoader.py.
+Staging Tables  alert_fn_dcc alert_fn_dcn alert_fn_ib_data alert_fn_meraki alert_fn_telemetry alert_hweox_dcc alert_hweox_dcn alert_hweox_ib_data alert_hweox_meraki alert_hweox_telemetry alert_psirt_dcc alert_psirt_dcn alert_psirt_ib_data alert_psirt_meraki alert_psirt_telemetry alert_sweox_dcc alert_sweox_dcn alert_sweox_ib_data alert_sweox_meraki alert_sweox_telemetry  </description>
     </item>
     
     <item>
@@ -21,7 +22,28 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/</guid>
-      <description></description>
+      <description>Bulletins are loaded by the BulletinMasterParquetDataLoader.py.
+Staging Tables  alert_pas_hw_eox_bulletin_dcc alert_pas_hw_eox_bulletin_dcn alert_pas_hw_eox_bulletin_ib_data alert_pas_hw_eox_bulletin_meraki alert_pas_hw_eox_bulletin_telemetry alert_pas_sw_eox_bulletin_dcc alert_pas_sw_eox_bulletin_dcn alert_pas_sw_eox_bulletin_ib_data alert_pas_sw_eox_bulletin_meraki alert_pas_sw_eox_bulletin_telemetry fn_bulletin_master_dcc fn_bulletin_master_dcn fn_bulletin_master_ib_data fn_bulletin_master_meraki fn_bulletin_master_telemetry sa_bulletin_master_dcc sa_bulletin_master_dcn sa_bulletin_master_ib_data sa_bulletin_master_meraki sa_bulletin_master_telemetry  </description>
+    </item>
+    
+    <item>
+      <title>CLI</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/cli/</guid>
+      <description>CLI data is loaded by the CLIParquetDataLoader.py.
+Staging Tables  cli_telemetry  </description>
+    </item>
+    
+    <item>
+      <title>Config</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/config/</guid>
+      <description>Config data is loaded by the ConfigParquetDataLoader.py.
+Staging Tables  config_telemetry  </description>
     </item>
     
     <item>
@@ -30,7 +52,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/contracts/</guid>
-      <description></description>
+      <description>Contracts are loaded by the ContractParquetDataLoader.py.
+Staging Tables  contractcoverage_dcc contractcoverage_dcn contractcoverage_ib_data contractcoverage_meraki contractcoverage_telemetry  </description>
     </item>
     
     <item>
@@ -39,16 +62,28 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/equipments/</guid>
-      <description></description>
+      <description>Equipments are loaded by the EQParquetDataLoader.py.
+Staging Tables  equipment_dcc equipment_dcn equipment_ib_data equipment_meraki equipment_telemetry  </description>
     </item>
     
     <item>
-      <title>Features</title>
-      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/features/</link>
+      <title>Hybrid Subscriptions</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/hybrid-subscriptions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/features/</guid>
-      <description></description>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/hybrid-subscriptions/</guid>
+      <description>Hybrid Subscriptions are loaded by the HybridSubscriptionParquetDataLoader.py.
+Staging Tables  athena_subscription_stg  </description>
+    </item>
+    
+    <item>
+      <title>Licenses</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/licenses/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/licenses/</guid>
+      <description>Licenses are loaded by the LicenseParquetDataLoader.py.
+Staging Tables  meraki_license_sum_view_stage  </description>
     </item>
     
     <item>
@@ -57,7 +92,18 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/network-elements/</guid>
-      <description></description>
+      <description>Network Elements are loaded by the NEParquetDataLoader.py.
+Staging Tables  networkelement_dcc networkelement_dcn networkelement_ib_data networkelement_meraki networkelement_sub_stg networkelement_telemetry  </description>
+    </item>
+    
+    <item>
+      <title>Subscriptions</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/subscriptions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/subscriptions/</guid>
+      <description>Subscriptions are loaded by the SubscriptionParquetDataLoader.py.
+Staging Tables  subscription_stg  </description>
     </item>
     
   </channel>

@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>DataFileManager :: CX Assets Wiki</title>
+    <title>Licenses :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1643925624" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/ingestion/managers/data-file-manager/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/ingestion/loaders/licenses/">
     <nav id="sidebar" class="">
 
 
@@ -198,7 +198,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/" title="Loaders" class="dd-item
-        
+        parent
         
         
         ">
@@ -371,7 +371,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/licenses/" title="Licenses" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/licenses/" title="Licenses" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/ingestion/loaders/licenses/">
         Licenses
         
@@ -444,7 +444,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/managers/" title="Managers" class="dd-item
-        parent
+        
         
         
         ">
@@ -470,7 +470,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/managers/data-file-manager/" title="DataFileManager" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/managers/data-file-manager/" title="DataFileManager" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/ingestion/managers/data-file-manager/">
         DataFileManager
         
@@ -806,7 +806,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/ingestion/'>Ingestion</a> > <a href='/pages/tadeckar/assets-docs/ingestion/managers/'>Managers</a> > DataFileManager
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/ingestion/'>Ingestion</a> > <a href='/pages/tadeckar/assets-docs/ingestion/loaders/'>Loaders</a> > Licenses
           
         
           
@@ -821,7 +821,11 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#staging-tables">Staging Tables</a></li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -837,27 +841,18 @@
           
             <h1>
               
-              DataFileManager
+              Licenses
             </h1>
           
 
         
 
 
-<a href="https://www-github3.cisco.com/cxe/cp-asset-data-pipeline/blob/master/glue/cp-asset-data-import-job/csco/dp/manager/DataFileManager.py">
-  <i class="fab fa-github"></i>
-  View Source
-</a>
-
-<p>The DataFileManager is used for all data loading tasks. Its purpose is to choose one of the following Managers based on a given <a href="/glue/file-types">File Type</a> argument:</p>
-<p><code>ATHENA</code>:<br>
-<a href="/pages/tadeckar/assets-docs/glue/managers/hybrid-subscription-data-load-manager">HybridSubscriptionDataLoadManager</a></p>
-<p><code>INVENTORY_DATA_RECEIVED</code>:<br>
-<a href="/pages/tadeckar/assets-docs/glue/managers/inventory-data-load-manager">InventoryDataLoadManager</a></p>
-<p><code>MERAKI_LICENSE</code>:<br>
-<a href="/pages/tadeckar/assets-docs/glue/managers/license-data-load-manager">LicenseDataLoadManager</a></p>
-<p><code>CIBES_INVENTORY_DATA_RECEIVED</code> and <code>DNAC_DATA_RECEIVED</code> and all other file types:<br>
-<a href="/pages/tadeckar/assets-docs/glue/managers/parquet-inv-data-load-manager">ParquetInvDataLoadManager</a></p>
+<p>Licenses are loaded by the <a href="https://www-github3.cisco.com/cxe/cp-asset-data-pipeline/blob/master/glue/cp-asset-data-import-job/csco/dp/job/LicenseParquetDataLoader.py">LicenseParquetDataLoader.py</a>.</p>
+<h2 id="staging-tables">Staging Tables</h2>
+<ul>
+<li>meraki_license_sum_view_stage</li>
+</ul>
 
 
 <footer class="footline">
@@ -962,8 +957,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -977,6 +970,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1090,6 +1086,26 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -1117,6 +1133,22 @@
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
             
             
@@ -1133,47 +1165,10 @@
             
         
                     
-            
-        
-                    
                         
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 

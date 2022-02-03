@@ -8,6 +8,10 @@
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/categories/</loc>
   </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/cli/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/config/</loc>
+  </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/contracts/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/data-load-types/</loc>
@@ -20,11 +24,11 @@
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/equipments/</loc>
   </url><url>
-    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/features/</loc>
-  </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/file-types/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/hybrid-subscriptions/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/hybrid-subscription-data-load-manager/</loc>
   </url><url>
@@ -33,6 +37,8 @@
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/inventory-data-load-manager/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/licenses/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/</loc>
   </url><url>
@@ -49,6 +55,8 @@
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/staging-tables/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/subscriptions/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/tags/</loc>
   </url><url>
