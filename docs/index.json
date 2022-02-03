@@ -1,0 +1,190 @@
+[
+{
+	"uri": "http://example.org/ingestion/loaders/alerts/",
+	"title": "Alerts",
+	"tags": [],
+	"description": "",
+	"content": "Alerts are loaded by the AlertsParquetDataLoader.py.\n"
+},
+{
+	"uri": "http://example.org/ingestion/loaders/bulletins/",
+	"title": "Bulletins",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://example.org/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://example.org/ingestion/loaders/contracts/",
+	"title": "Contracts",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://example.org/ingestion/types/data-load-types/",
+	"title": "Data Load Types",
+	"tags": [],
+	"description": "",
+	"content": " View Source  CIBES BULLETIN_MSTR_PARQ_DATA_LOAD = \u0026#39;CIBES-BULLETIN-MASTER\u0026#39; NETWORK_ELEMENTS_PARQ_DATA_LOAD = \u0026#39;CIBES-NETWORK-ELEMENTS\u0026#39; EQUIPMENTS_PARQ_DATA_LOAD = \u0026#39;CIBES-EQUIPMENTS\u0026#39; ALERTS_PARQ_DATA_LOAD = \u0026#39;CIBES-ALERTS\u0026#39; CONTRACTS_PARQ_DATA_LOAD = \u0026#39;CIBES-CONTRACTS\u0026#39; DNAC DNAC_BULLETIN_MSTR_PARQ_DATA_LOAD = \u0026#39;DNAC-BULLETIN-MASTER\u0026#39; DNAC_NETWORK_ELEMENTS_PARQ_DATA_LOAD = \u0026#39;DNAC-NETWORK-ELEMENTS\u0026#39; DNAC_EQUIPMENTS_PARQ_DATA_LOAD = \u0026#39;DNAC-EQUIPMENTS\u0026#39; DNAC_ALERTS_PARQ_DATA_LOAD = \u0026#39;DNAC-ALERTS\u0026#39; DNAC_CONTRACTS_PARQ_DATA_LOAD = \u0026#39;DNAC-CONTRACTS\u0026#39; DNAC_CLI_PARQ_DATA_LOAD = \u0026#39;DNAC-CLI\u0026#39; DNAC_CONFIG_PARQ_DATA_LOAD = \u0026#39;DNAC-CONFIG\u0026#39; Hybrid HYBRID_SUBS_DATA_LOAD = \u0026#34;ATHENA-SUBSCRIPTION\u0026#34; IBES BULLETIN_MSTR_DATA_LOAD = \u0026#39;IBES-BULLETIN-MASTER\u0026#39; NETWORK_ELEMENTS_DATA_LOAD = \u0026#39;IBES-NETWORK-ELEMENTS\u0026#39; EQUIPMENTS_DATA_LOAD = \u0026#39;IBES-EQUIPMENTS\u0026#39; ALERTS_DATA_LOAD = \u0026#39;IBES-ALERTS\u0026#39; CONTRACTS_DATA_LOAD = \u0026#39;IBES-CONTRACTS\u0026#39; FEATURES_DATA_LOAD = \u0026#39;IBES-FEATURES\u0026#39; License LICENSE_MERAKI = \u0026#39;LICENSE-MERAKI\u0026#39; XAAS NETWORK_ELEMENTS_SUBS_PARQ_DATA_LOAD = \u0026#39;XAAS-NETWORK-ELEMENTS-SUBS\u0026#39; SUBSCRIPTION_PARQ_DATA_LOAD = \u0026#34;XAAS-SUBSCRIPTION\u0026#34; Other CONTRACT_SUMMARY_DATA_LOAD = \u0026#39;CCCS-CONTRACT-SUMMARY\u0026#39; "
+},
+{
+	"uri": "http://example.org/database/",
+	"title": "Database",
+	"tags": [],
+	"description": "",
+	"content": "  Staging Tables   Stored Procedures   "
+},
+{
+	"uri": "http://example.org/ingestion/managers/data-file-manager/",
+	"title": "DataFileManager",
+	"tags": [],
+	"description": "",
+	"content": " View Source  The DataFileManager is used for all data loading tasks. Its purpose is to choose one of the following Managers based on a given File Type argument:\nATHENA:\nHybridSubscriptionDataLoadManager\nINVENTORY_DATA_RECEIVED:\nInventoryDataLoadManager\nMERAKI_LICENSE:\nLicenseDataLoadManager\nCIBES_INVENTORY_DATA_RECEIVED and DNAC_DATA_RECEIVED and all other file types:\nParquetInvDataLoadManager\n"
+},
+{
+	"uri": "http://example.org/ingestion/managers/data-load-manager/",
+	"title": "DataLoadManager",
+	"tags": [],
+	"description": "",
+	"content": " View Source  Similar to DataFileManager, the DataLoadManager simply picks a Loader to use given a Data Load Type.\n"
+},
+{
+	"uri": "http://example.org/ingestion/loaders/equipments/",
+	"title": "Equipments",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://example.org/ingestion/loaders/features/",
+	"title": "Features",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://example.org/ingestion/types/file-types/",
+	"title": "File Types",
+	"tags": [],
+	"description": "",
+	"content": " View Source  IBES_INV_UPLOAD = \u0026#39;INVENTORY_DATA_RECEIVED\u0026#39; CIBES_INV_UPLOAD = \u0026#39;CIBES_INVENTORY_DATA_RECEIVED\u0026#39; MERAKI_LICENSE = \u0026#39;MERAKI_LICENSE\u0026#39; CC_CONTACT_SUM_UPLOAD = \u0026#39;CC-CONTACT-SUM-UPLOAD\u0026#39; CIBES_XAAS_INVENTORY_UPLOAD = \u0026#39;XAAS_INVENTORY_DATA_RECEIVED\u0026#39; HYBRID_CLOUD =\u0026#39;ATHENA\u0026#39; DNAC_UPLOAD = \u0026#39;DNAC_DATA_RECEIVED\u0026#39; "
+},
+{
+	"uri": "http://example.org/",
+	"title": "Home",
+	"tags": [],
+	"description": "",
+	"content": "Table of Contents  Database   Ingestion   "
+},
+{
+	"uri": "http://example.org/ingestion/managers/hybrid-subscription-data-load-manager/",
+	"title": "HybridSubscriptionDataLoadManager",
+	"tags": [],
+	"description": "",
+	"content": " View Source  Loads data of the HYBRID_CLOUD File Type.\nFirstly, the HSDLM checks whether or not data for the given wfId has already been loaded. If the data has already been loaded, the data is cleared from the athena_subscription_stg staging table for the given customerId/wfId before execution proceeds to the next step.\nNext, a thread is spun up to load the data, executing the DataLoadManager, which in turn executes a Loader for the Hybrid Data Load Type.\nThe NotificationManager is also used record the data load processing start/end times, as well as to delete rows when wfId data has already been loaded.\n"
+},
+{
+	"uri": "http://example.org/ingestion/",
+	"title": "Ingestion",
+	"tags": [],
+	"description": "",
+	"content": "The repositories associated with AWS Glue are:\n cp-asset-data-pipeline: Ingest Data to MySQL from Parquet files in S3 cp-asset-data-export-pipeline: Export data to consumers (Insights)  Overview At a high level, a Lambda function listens for SQS events. Upon receiving, the Glue ETL Job is triggered. The job downloads files from an S3 bucket, parses them, and stores results in staging tables of the RDS MySQL database.\nThe SQS message\u0026rsquo;s recordType property signals the type of data that should be loaded. The graph below depicts the flow of logic through the Glue ETL Job.\ngraph TD; RT{SQS recordType} --|CSDF_AMP_TELE| PINV(ParqeutInvDataLoadManager) RT --|CSDF_SUBSCRIPTION| PINV RT --|CIBES_INVENTORY_DATA_RECEIVED| PINV RT --|DNAC_DATA_RECEIVED| PINV RT --|MERAKI_LICENSE| LIC(LicenseDataLoadManager) RT --|XAAS_INVENTORY_DATA_RECEIVED| PINV RT --|DCC_SUB| PINV RT --|ATHENA| HYB(HybridSubscriptionDataLoadManager) PINV -- PINVD{SQS mgmtSystemType} PINVD --|DCC_SUB| DCC_SUBL(DataLoadManager) DCC_SUBL -- DCC_SUBL_NEPDL(NEParquetDataLoader) DCC_SUBL -- DCC_SUBL_SPDL(SubscriptionParquetDataLoader) PINVD --|DNAC_DL| DNAC_DLL(DataLoadManager) DNAC_DLL -- DNAC_DLL_NEPDL(NEParquetDataLoader) DNAC_DLL -- DNAC_DLL_EQPDL(EQParquetDataLoader) DNAC_DLL -- DNAC_DLL_APDL(AlertsParquetDataLoader) DNAC_DLL -- DNAC_DLL_BMPDL(BulletinMasterParquetDataLoader) DNAC_DLL -- DNAC_DLL_CPDL(ContractParquetDataLoader) DNAC_DLL -- DNAC_DLL_CLIPDL(CLIParquetDataLoader) DNAC_DLL -- DNAC_DLL_CONFIGPDL(ConfigParquetDataLoader) PINVD --|else| PINVD_ELSE(DataLoadManager) PINVD_ELSE -- ELSE_BMPDL(BulletinMasterParquetDataLoader) PINVD_ELSE -- ELSE_NEPDL(NEParquetDataLoader) PINVD_ELSE -- ELSE_EQPDL(EQParquetDataLoader) PINVD_ELSE -- ELSE_APDL(AlertsParquetDataLoader) PINVD_ELSE -- ELSE_CPDL(ContractParquetDataLoader) click PINV \"/ingestion/managers/parquet-inv-data-load-manager/\" click DCC_SUBL \"/ingestion/managers/data-load-manager/\" click DNAC_DLL \"/ingestion/managers/data-load-manager/\" click PINVD_ELSE \"/ingestion/managers/data-load-manager/\" LIC -- LIC_DLM(DataLoadManager) LIC_DLM -- LPDL(LicenseParquetDataLoader) click LIC \"/ingestion/managers/license-data-load-manager/\" click LIC_DLM \"/ingestion/managers/data-load-manager/\" HYB -- HYB_DLM(DataLoadManager) HYB_DLM -- HSPDL(HybridSubscriptionParquetDataLoader) click HYB \"/ingestion/managers/hybrid-subscription-data-load-manager/\" click HYB_DLM \"/ingestion/managers/data-load-manager/\"  Contents  Loaders   Managers   Schema   Types   Workflow   "
+},
+{
+	"uri": "http://example.org/ingestion/managers/inventory-data-load-manager/",
+	"title": "InventoryDataLoadManager",
+	"tags": [],
+	"description": "",
+	"content": " View Source  Loads data of the IBES_INV_UPLOAD File Type.\nFirstly, the IDLM tries to create a partition using the add_base_table_partions_prc stored procedure. If the partition already exists, processing is skipped.\nNext, a thread is spun up to load the data, executing the DataLoadManager, which in turn executes a Loader of IBES Data Load Type.\nThe NotificationManager is also used record the data load processing start/end times.\n"
+},
+{
+	"uri": "http://example.org/ingestion/managers/license-data-load-manager/",
+	"title": "LicenseDataLoadManager",
+	"tags": [],
+	"description": "",
+	"content": " View Source  Loads data of the MERAKI_LICENSE File Type.\nFirstly, the LDLM checks whether or not data for the given wfId has already been loaded. If the data has already been loaded, the data is cleared from the meraki_license_sum_view_stage staging table for the given customerId/wfId before execution proceeds to the next step.\nNext, a thread is spun up to load the data, executing the DataLoadManager, which in turn executes a Loader for the License Data Load Type.\nThe NotificationManager is also used record the data load processing start/end times, as well as to delete rows when wfId data has already been loaded.\n"
+},
+{
+	"uri": "http://example.org/ingestion/loaders/",
+	"title": "Loaders",
+	"tags": [],
+	"description": "",
+	"content": "The IBES Data Loader State of the Glue workflow contains tasks for loading various datasets:\n Alerts   Bulletins   Contracts   Equipments   Features   Network Elements   "
+},
+{
+	"uri": "http://example.org/ingestion/managers/",
+	"title": "Managers",
+	"tags": [],
+	"description": "",
+	"content": "The main Glue function determines what to load using the file_type argument (see File Types). This argument is passed to a \u0026ldquo;Manager\u0026rdquo; to determine how the data is handled.\nThe DataFileManager is used in all scenarios. This contains logic to return a \u0026ldquo;Request Handler\u0026rdquo;, which is another \u0026ldquo;Manager\u0026rdquo; for a particular data type.\nThe \u0026ldquo;Request Handler\u0026rdquo; returned by the DataFileManager will be one of the following:\n InventoryDataLoadManager ParquetDataLoadManager LicenseDataLoadManager HybridSubscriptionDataLoadManager  Each of these implements a common interface:\nhandleRequest: Generic handler for loading data.\nsubmitDataLoadRequest: Begins the data loading job.\nprocessDataFile: Creates a thread pool to handle data loading.\nThe general flow of Manager execution is:\n handleRequest start.*Processing processDataFile submitDataLoadRequest  The submitDataLoadRequest function instantiates a DataLoadManager which returns a Loader class to further handle the request.\nMore Info  DataFileManager   DataLoadManager   HybridSubscriptionDataLoadManager   InventoryDataLoadManager   LicenseDataLoadManager   NotificationManager   ParquetInvDataLoadManager   "
+},
+{
+	"uri": "http://example.org/ingestion/loaders/network-elements/",
+	"title": "Network Elements",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://example.org/ingestion/managers/notification-manager/",
+	"title": "NotificationManager",
+	"tags": [],
+	"description": "",
+	"content": " View Source  The NotificationManager is a utility class that houses a variety of functions for modifying the asset_inventory_notification and asset_data_load_notification tables.\nThe NotificationManager also houses the (seemingly unrelated) function to delete all rows matching a given customerId/wfId for a given table.\n"
+},
+{
+	"uri": "http://example.org/ingestion/managers/parquet-inv-data-load-manager/",
+	"title": "ParquetInvDataLoadManager",
+	"tags": [],
+	"description": "",
+	"content": " View Source  Loads data of the CIBES_INV_UPLOAD and DNAC_UPLOAD File Types.\nFirstly, the PIDLM checks the SQS message for mgmtSystemType. If the value of this property is not DCC_SUB, PIDLM tries to create a partition using the add_base_table_partions_prc stored procedure. Otherwise, processing begins regardless.\nWhen mgmtSystemType === \u0026quot;DCC_SUB\u0026quot;, and the partition is created successfully, processing begins. If the partition already exists, the base table partitions are cleared using the delete_raw_data_wfid_prc stored procedure, then processing begins.\nNext, a thread is spun up to load the data, executing the DataLoadManager, which in turn executes a Loader of either XAAS, DNAC, or CIBES Data Load Types, dependent on the mgmtSystemType. See mapping below.\nWhen mgmtSystemType is \u0026quot;DCC_SUB\u0026quot;, Data Load Type is XAAS.\nWhen mgmtSystemType is \u0026quot;DNAC_DL\u0026quot;, Data Load Type is DNAC.\nWhen mgmtSystemType is neither \u0026quot;DCC_SUB\u0026quot; nor \u0026quot;DNAC_DL\u0026quot;, Data Load Type is CIBES.\nThe NotificationManager is also used record the data load processing start/end times.\n"
+},
+{
+	"uri": "http://example.org/ingestion/schema/",
+	"title": "Schema",
+	"tags": [],
+	"description": "",
+	"content": " View Source  "
+},
+{
+	"uri": "http://example.org/database/staging-tables/",
+	"title": "Staging Tables",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://example.org/database/stored-procedures/",
+	"title": "Stored Procedures",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://example.org/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "http://example.org/ingestion/types/",
+	"title": "Types",
+	"tags": [],
+	"description": "",
+	"content": "  Data Load Types   File Types   "
+},
+{
+	"uri": "http://example.org/ingestion/workflow/",
+	"title": "Workflow",
+	"tags": [],
+	"description": "",
+	"content": " graph LR; subgraph Verify Data Load VDL{Verify Data load} end subgraph Notify Success VDL -- NS(Notify) end subgraph Notify Failure VDL -- NF(Notify) end subgraph IBES Data Loader LBM(Load Bulletin Master) -- VDL LNE(Load Network Element) -- VDL LE(Load Equipments) -- VDL LA(Load Alerts) -- VDL LC(Load Contracts) -- VDL LF(Load Features) -- VDL end subgraph Pre Processor P(Preprocess) -- LBM P(Preprocess) -- LNE P(Preprocess) -- LE P(Preprocess) -- LA P(Preprocess) -- LC P(Preprocess) -- LF end  The Glue workflow begins at the Pre Processor state. This state is type: Pass which allows for state that does not produce any work. Next, the IBES Data Loader state loads the data from S3 into the SQL DB. Finally, the Verify Data Load state checks that all tasks within the IBES Data Loader state were successful. Based on the results, state transitions to either Notify Success or Notify Failure, at which time the workflow is complete.\nSee Loaders for more information on the tasks within the IBES Data Loader state.\n"
+}]

@@ -1,0 +1,12 @@
+baseURL: http://example.org/
+languageCode: en-us
+title: CX Assets Wiki
+theme: hugo-theme-learn
+publishDir: docs
+params:
+  author: tadeckar
+  themeVariant: assets
+  disableNextPrev: true
+  disableInlineCopyToClipBoard: true
+outputs:
+  home: [ "HTML", "RSS", "JSON"]

@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.92.0" />
+    <meta name="description" content="">
+<meta name="author" content="tadeckar">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>DataFileManager :: CX Assets Wiki</title>
+
+    
+    <link href="/css/nucleus.css?1643911773" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1643911773" rel="stylesheet">
+    <link href="/css/hybrid.css?1643911773" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1643911773" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1643911773" rel="stylesheet">
+    <link href="/css/auto-complete.css?1643911773" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1643911773" rel="stylesheet">
+    <link href="/css/theme.css?1643911773" rel="stylesheet">
+    <link href="/css/tabs.css?1643911773" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1643911773" rel="stylesheet">
+    
+    <link href="/css/theme-assets.css?1643911773" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1643911773"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/ingestion/managers/data-file-manager/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <h3 class="title">CX Assets Wiki</h3>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1643911773"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1643911773"></script>
+<script type="text/javascript">
+    
+        var baseurl = "http:\/\/example.org\/";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1643911773"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/database/" title="Database" class="dd-item
+        
+        
+        
+        ">
+      <a href="/database/">
+          Database
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/database/staging-tables/" title="Staging Tables" class="dd-item ">
+        <a href="/database/staging-tables/">
+        Staging Tables
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/database/stored-procedures/" title="Stored Procedures" class="dd-item ">
+        <a href="/database/stored-procedures/">
+        Stored Procedures
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ingestion/" title="Ingestion" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/ingestion/">
+          Ingestion
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ingestion/loaders/" title="Loaders" class="dd-item
+        
+        
+        
+        ">
+      <a href="/ingestion/loaders/">
+          Loaders
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ingestion/loaders/alerts/" title="Alerts" class="dd-item ">
+        <a href="/ingestion/loaders/alerts/">
+        Alerts
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ingestion/loaders/bulletins/" title="Bulletins" class="dd-item ">
+        <a href="/ingestion/loaders/bulletins/">
+        Bulletins
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ingestion/loaders/contracts/" title="Contracts" class="dd-item ">
+        <a href="/ingestion/loaders/contracts/">
+        Contracts
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ingestion/loaders/equipments/" title="Equipments" class="dd-item ">
+        <a href="/ingestion/loaders/equipments/">
+        Equipments
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ingestion/loaders/features/" title="Features" class="dd-item ">
+        <a href="/ingestion/loaders/features/">
+        Features
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ingestion/loaders/network-elements/" title="Network Elements" class="dd-item ">
+        <a href="/ingestion/loaders/network-elements/">
+        Network Elements
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ingestion/managers/" title="Managers" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/ingestion/managers/">
+          Managers
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ingestion/managers/data-file-manager/" title="DataFileManager" class="dd-item active">
+        <a href="/ingestion/managers/data-file-manager/">
+        DataFileManager
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ingestion/managers/data-load-manager/" title="DataLoadManager" class="dd-item ">
+        <a href="/ingestion/managers/data-load-manager/">
+        DataLoadManager
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ingestion/managers/hybrid-subscription-data-load-manager/" title="HybridSubscriptionDataLoadManager" class="dd-item ">
+        <a href="/ingestion/managers/hybrid-subscription-data-load-manager/">
+        HybridSubscriptionDataLoadManager
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ingestion/managers/inventory-data-load-manager/" title="InventoryDataLoadManager" class="dd-item ">
+        <a href="/ingestion/managers/inventory-data-load-manager/">
+        InventoryDataLoadManager
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ingestion/managers/license-data-load-manager/" title="LicenseDataLoadManager" class="dd-item ">
+        <a href="/ingestion/managers/license-data-load-manager/">
+        LicenseDataLoadManager
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ingestion/managers/notification-manager/" title="NotificationManager" class="dd-item ">
+        <a href="/ingestion/managers/notification-manager/">
+        NotificationManager
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ingestion/managers/parquet-inv-data-load-manager/" title="ParquetInvDataLoadManager" class="dd-item ">
+        <a href="/ingestion/managers/parquet-inv-data-load-manager/">
+        ParquetInvDataLoadManager
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ingestion/schema/" title="Schema" class="dd-item
+        
+        
+        
+        ">
+      <a href="/ingestion/schema/">
+          Schema
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ingestion/types/" title="Types" class="dd-item
+        
+        
+        
+        ">
+      <a href="/ingestion/types/">
+          Types
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ingestion/types/data-load-types/" title="Data Load Types" class="dd-item ">
+        <a href="/ingestion/types/data-load-types/">
+        Data Load Types
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ingestion/types/file-types/" title="File Types" class="dd-item ">
+        <a href="/ingestion/types/file-types/">
+        File Types
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ingestion/workflow/" title="Workflow" class="dd-item
+        
+        
+        
+        ">
+      <a href="/ingestion/workflow/">
+          Workflow
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Home</a> > <a href='/ingestion/'>Ingestion</a> > <a href='/ingestion/managers/'>Managers</a> > DataFileManager
+          
+        
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              DataFileManager
+            </h1>
+          
+
+        
+
+
+<a href="https://www-github3.cisco.com/cxe/cp-asset-data-pipeline/blob/master/glue/cp-asset-data-import-job/csco/dp/manager/DataFileManager.py">
+  <i class="fab fa-github"></i>
+  View Source
+</a>
+
+<p>The DataFileManager is used for all data loading tasks. Its purpose is to choose one of the following Managers based on a given <a href="/glue/file-types">File Type</a> argument:</p>
+<p><code>ATHENA</code>:<br>
+<a href="/glue/managers/hybrid-subscription-data-load-manager">HybridSubscriptionDataLoadManager</a></p>
+<p><code>INVENTORY_DATA_RECEIVED</code>:<br>
+<a href="/glue/managers/inventory-data-load-manager">InventoryDataLoadManager</a></p>
+<p><code>MERAKI_LICENSE</code>:<br>
+<a href="/glue/managers/license-data-load-manager">LicenseDataLoadManager</a></p>
+<p><code>CIBES_INVENTORY_DATA_RECEIVED</code> and <code>DNAC_DATA_RECEIVED</code> and all other file types:<br>
+<a href="/glue/managers/parquet-inv-data-load-manager">ParquetInvDataLoadManager</a></p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1643911773"></script>
+    <script src="/js/perfect-scrollbar.min.js?1643911773"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1643911773"></script>
+    <script src="/js/jquery.sticky.js?1643911773"></script>
+    <script src="/js/featherlight.min.js?1643911773"></script>
+    <script src="/js/highlight.pack.js?1643911773"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1643911773"></script>
+    <script src="/js/learn.js?1643911773"></script>
+    <script src="/js/hugo-learn.js?1643911773"></script>
+    
+        
+            <script src="/mermaid/mermaid.js?1643911773"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

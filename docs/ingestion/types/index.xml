@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Types on CX Assets Wiki</title>
+    <link>http://example.org/ingestion/types/</link>
+    <description>Recent content in Types on CX Assets Wiki</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/ingestion/types/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Data Load Types</title>
+      <link>http://example.org/ingestion/types/data-load-types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/ingestion/types/data-load-types/</guid>
+      <description> View Source  CIBES BULLETIN_MSTR_PARQ_DATA_LOAD = &amp;#39;CIBES-BULLETIN-MASTER&amp;#39; NETWORK_ELEMENTS_PARQ_DATA_LOAD = &amp;#39;CIBES-NETWORK-ELEMENTS&amp;#39; EQUIPMENTS_PARQ_DATA_LOAD = &amp;#39;CIBES-EQUIPMENTS&amp;#39; ALERTS_PARQ_DATA_LOAD = &amp;#39;CIBES-ALERTS&amp;#39; CONTRACTS_PARQ_DATA_LOAD = &amp;#39;CIBES-CONTRACTS&amp;#39; DNAC DNAC_BULLETIN_MSTR_PARQ_DATA_LOAD = &amp;#39;DNAC-BULLETIN-MASTER&amp;#39; DNAC_NETWORK_ELEMENTS_PARQ_DATA_LOAD = &amp;#39;DNAC-NETWORK-ELEMENTS&amp;#39; DNAC_EQUIPMENTS_PARQ_DATA_LOAD = &amp;#39;DNAC-EQUIPMENTS&amp;#39; DNAC_ALERTS_PARQ_DATA_LOAD = &amp;#39;DNAC-ALERTS&amp;#39; DNAC_CONTRACTS_PARQ_DATA_LOAD = &amp;#39;DNAC-CONTRACTS&amp;#39; DNAC_CLI_PARQ_DATA_LOAD = &amp;#39;DNAC-CLI&amp;#39; DNAC_CONFIG_PARQ_DATA_LOAD = &amp;#39;DNAC-CONFIG&amp;#39; Hybrid HYBRID_SUBS_DATA_LOAD = &amp;#34;ATHENA-SUBSCRIPTION&amp;#34; IBES BULLETIN_MSTR_DATA_LOAD = &amp;#39;IBES-BULLETIN-MASTER&amp;#39; NETWORK_ELEMENTS_DATA_LOAD = &amp;#39;IBES-NETWORK-ELEMENTS&amp;#39; EQUIPMENTS_DATA_LOAD = &amp;#39;IBES-EQUIPMENTS&amp;#39; ALERTS_DATA_LOAD = &amp;#39;IBES-ALERTS&amp;#39; CONTRACTS_DATA_LOAD = &amp;#39;IBES-CONTRACTS&amp;#39; FEATURES_DATA_LOAD = &amp;#39;IBES-FEATURES&amp;#39; License LICENSE_MERAKI = &amp;#39;LICENSE-MERAKI&amp;#39; XAAS NETWORK_ELEMENTS_SUBS_PARQ_DATA_LOAD = &amp;#39;XAAS-NETWORK-ELEMENTS-SUBS&amp;#39; SUBSCRIPTION_PARQ_DATA_LOAD = &amp;#34;XAAS-SUBSCRIPTION&amp;#34; Other CONTRACT_SUMMARY_DATA_LOAD = &amp;#39;CCCS-CONTRACT-SUMMARY&amp;#39; </description>
+    </item>
+    
+    <item>
+      <title>File Types</title>
+      <link>http://example.org/ingestion/types/file-types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/ingestion/types/file-types/</guid>
+      <description> View Source  IBES_INV_UPLOAD = &amp;#39;INVENTORY_DATA_RECEIVED&amp;#39; CIBES_INV_UPLOAD = &amp;#39;CIBES_INVENTORY_DATA_RECEIVED&amp;#39; MERAKI_LICENSE = &amp;#39;MERAKI_LICENSE&amp;#39; CC_CONTACT_SUM_UPLOAD = &amp;#39;CC-CONTACT-SUM-UPLOAD&amp;#39; CIBES_XAAS_INVENTORY_UPLOAD = &amp;#39;XAAS_INVENTORY_DATA_RECEIVED&amp;#39; HYBRID_CLOUD =&amp;#39;ATHENA&amp;#39; DNAC_UPLOAD = &amp;#39;DNAC_DATA_RECEIVED&amp;#39; </description>
+    </item>
+    
+  </channel>
+</rss>
