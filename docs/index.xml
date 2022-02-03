@@ -2,52 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on CX Assets Wiki</title>
-    <link>http://example.org/</link>
+    <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/</link>
     <description>Recent content in Home on CX Assets Wiki</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://www-github3.cisco.com/pages/tadeckar/assets-docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Alerts</title>
-      <link>http://example.org/ingestion/loaders/alerts/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/alerts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/loaders/alerts/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/alerts/</guid>
       <description>Alerts are loaded by the AlertsParquetDataLoader.py.</description>
     </item>
     
     <item>
       <title>Bulletins</title>
-      <link>http://example.org/ingestion/loaders/bulletins/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/loaders/bulletins/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Contracts</title>
-      <link>http://example.org/ingestion/loaders/contracts/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/contracts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/loaders/contracts/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/contracts/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data Load Types</title>
-      <link>http://example.org/ingestion/types/data-load-types/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/data-load-types/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/types/data-load-types/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/data-load-types/</guid>
       <description> View Source  CIBES BULLETIN_MSTR_PARQ_DATA_LOAD = &amp;#39;CIBES-BULLETIN-MASTER&amp;#39; NETWORK_ELEMENTS_PARQ_DATA_LOAD = &amp;#39;CIBES-NETWORK-ELEMENTS&amp;#39; EQUIPMENTS_PARQ_DATA_LOAD = &amp;#39;CIBES-EQUIPMENTS&amp;#39; ALERTS_PARQ_DATA_LOAD = &amp;#39;CIBES-ALERTS&amp;#39; CONTRACTS_PARQ_DATA_LOAD = &amp;#39;CIBES-CONTRACTS&amp;#39; DNAC DNAC_BULLETIN_MSTR_PARQ_DATA_LOAD = &amp;#39;DNAC-BULLETIN-MASTER&amp;#39; DNAC_NETWORK_ELEMENTS_PARQ_DATA_LOAD = &amp;#39;DNAC-NETWORK-ELEMENTS&amp;#39; DNAC_EQUIPMENTS_PARQ_DATA_LOAD = &amp;#39;DNAC-EQUIPMENTS&amp;#39; DNAC_ALERTS_PARQ_DATA_LOAD = &amp;#39;DNAC-ALERTS&amp;#39; DNAC_CONTRACTS_PARQ_DATA_LOAD = &amp;#39;DNAC-CONTRACTS&amp;#39; DNAC_CLI_PARQ_DATA_LOAD = &amp;#39;DNAC-CLI&amp;#39; DNAC_CONFIG_PARQ_DATA_LOAD = &amp;#39;DNAC-CONFIG&amp;#39; Hybrid HYBRID_SUBS_DATA_LOAD = &amp;#34;ATHENA-SUBSCRIPTION&amp;#34; IBES BULLETIN_MSTR_DATA_LOAD = &amp;#39;IBES-BULLETIN-MASTER&amp;#39; NETWORK_ELEMENTS_DATA_LOAD = &amp;#39;IBES-NETWORK-ELEMENTS&amp;#39; EQUIPMENTS_DATA_LOAD = &amp;#39;IBES-EQUIPMENTS&amp;#39; ALERTS_DATA_LOAD = &amp;#39;IBES-ALERTS&amp;#39; CONTRACTS_DATA_LOAD = &amp;#39;IBES-CONTRACTS&amp;#39; FEATURES_DATA_LOAD = &amp;#39;IBES-FEATURES&amp;#39; License LICENSE_MERAKI = &amp;#39;LICENSE-MERAKI&amp;#39; XAAS NETWORK_ELEMENTS_SUBS_PARQ_DATA_LOAD = &amp;#39;XAAS-NETWORK-ELEMENTS-SUBS&amp;#39; SUBSCRIPTION_PARQ_DATA_LOAD = &amp;#34;XAAS-SUBSCRIPTION&amp;#34; Other CONTRACT_SUMMARY_DATA_LOAD = &amp;#39;CCCS-CONTRACT-SUMMARY&amp;#39; </description>
     </item>
     
     <item>
       <title>DataFileManager</title>
-      <link>http://example.org/ingestion/managers/data-file-manager/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/data-file-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/managers/data-file-manager/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/data-file-manager/</guid>
       <description>View Source  The DataFileManager is used for all data loading tasks. Its purpose is to choose one of the following Managers based on a given File Type argument:
 ATHENA:
 HybridSubscriptionDataLoadManager
@@ -61,46 +61,46 @@ ParquetInvDataLoadManager</description>
     
     <item>
       <title>DataLoadManager</title>
-      <link>http://example.org/ingestion/managers/data-load-manager/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/managers/data-load-manager/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/</guid>
       <description>View Source  Similar to DataFileManager, the DataLoadManager simply picks a Loader to use given a Data Load Type.</description>
     </item>
     
     <item>
       <title>Equipments</title>
-      <link>http://example.org/ingestion/loaders/equipments/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/equipments/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/loaders/equipments/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/equipments/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Features</title>
-      <link>http://example.org/ingestion/loaders/features/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/features/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/loaders/features/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/features/</guid>
       <description></description>
     </item>
     
     <item>
       <title>File Types</title>
-      <link>http://example.org/ingestion/types/file-types/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/file-types/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/types/file-types/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/file-types/</guid>
       <description> View Source  IBES_INV_UPLOAD = &amp;#39;INVENTORY_DATA_RECEIVED&amp;#39; CIBES_INV_UPLOAD = &amp;#39;CIBES_INVENTORY_DATA_RECEIVED&amp;#39; MERAKI_LICENSE = &amp;#39;MERAKI_LICENSE&amp;#39; CC_CONTACT_SUM_UPLOAD = &amp;#39;CC-CONTACT-SUM-UPLOAD&amp;#39; CIBES_XAAS_INVENTORY_UPLOAD = &amp;#39;XAAS_INVENTORY_DATA_RECEIVED&amp;#39; HYBRID_CLOUD =&amp;#39;ATHENA&amp;#39; DNAC_UPLOAD = &amp;#39;DNAC_DATA_RECEIVED&amp;#39; </description>
     </item>
     
     <item>
       <title>HybridSubscriptionDataLoadManager</title>
-      <link>http://example.org/ingestion/managers/hybrid-subscription-data-load-manager/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/hybrid-subscription-data-load-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/managers/hybrid-subscription-data-load-manager/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/hybrid-subscription-data-load-manager/</guid>
       <description>View Source  Loads data of the HYBRID_CLOUD File Type.
 Firstly, the HSDLM checks whether or not data for the given wfId has already been loaded. If the data has already been loaded, the data is cleared from the athena_subscription_stg staging table for the given customerId/wfId before execution proceeds to the next step.
 Next, a thread is spun up to load the data, executing the DataLoadManager, which in turn executes a Loader for the Hybrid Data Load Type.</description>
@@ -108,10 +108,10 @@ Next, a thread is spun up to load the data, executing the DataLoadManager, which
     
     <item>
       <title>InventoryDataLoadManager</title>
-      <link>http://example.org/ingestion/managers/inventory-data-load-manager/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/inventory-data-load-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/managers/inventory-data-load-manager/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/inventory-data-load-manager/</guid>
       <description>View Source  Loads data of the IBES_INV_UPLOAD File Type.
 Firstly, the IDLM tries to create a partition using the add_base_table_partions_prc stored procedure. If the partition already exists, processing is skipped.
 Next, a thread is spun up to load the data, executing the DataLoadManager, which in turn executes a Loader of IBES Data Load Type.
@@ -120,10 +120,10 @@ The NotificationManager is also used record the data load processing start/end t
     
     <item>
       <title>LicenseDataLoadManager</title>
-      <link>http://example.org/ingestion/managers/license-data-load-manager/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/managers/license-data-load-manager/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/</guid>
       <description>View Source  Loads data of the MERAKI_LICENSE File Type.
 Firstly, the LDLM checks whether or not data for the given wfId has already been loaded. If the data has already been loaded, the data is cleared from the meraki_license_sum_view_stage staging table for the given customerId/wfId before execution proceeds to the next step.
 Next, a thread is spun up to load the data, executing the DataLoadManager, which in turn executes a Loader for the License Data Load Type.</description>
@@ -131,29 +131,29 @@ Next, a thread is spun up to load the data, executing the DataLoadManager, which
     
     <item>
       <title>Network Elements</title>
-      <link>http://example.org/ingestion/loaders/network-elements/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/network-elements/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/loaders/network-elements/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/network-elements/</guid>
       <description></description>
     </item>
     
     <item>
       <title>NotificationManager</title>
-      <link>http://example.org/ingestion/managers/notification-manager/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/notification-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/managers/notification-manager/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/notification-manager/</guid>
       <description>View Source  The NotificationManager is a utility class that houses a variety of functions for modifying the asset_inventory_notification and asset_data_load_notification tables.
 The NotificationManager also houses the (seemingly unrelated) function to delete all rows matching a given customerId/wfId for a given table.</description>
     </item>
     
     <item>
       <title>ParquetInvDataLoadManager</title>
-      <link>http://example.org/ingestion/managers/parquet-inv-data-load-manager/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/parquet-inv-data-load-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/managers/parquet-inv-data-load-manager/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/parquet-inv-data-load-manager/</guid>
       <description>View Source  Loads data of the CIBES_INV_UPLOAD and DNAC_UPLOAD File Types.
 Firstly, the PIDLM checks the SQS message for mgmtSystemType. If the value of this property is not DCC_SUB, PIDLM tries to create a partition using the add_base_table_partions_prc stored procedure. Otherwise, processing begins regardless.
 When mgmtSystemType === &amp;quot;DCC_SUB&amp;quot;, and the partition is created successfully, processing begins. If the partition already exists, the base table partitions are cleared using the delete_raw_data_wfid_prc stored procedure, then processing begins.</description>
@@ -161,19 +161,19 @@ When mgmtSystemType === &amp;quot;DCC_SUB&amp;quot;, and the partition is create
     
     <item>
       <title>Staging Tables</title>
-      <link>http://example.org/database/staging-tables/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/staging-tables/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/database/staging-tables/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/staging-tables/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Stored Procedures</title>
-      <link>http://example.org/database/stored-procedures/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/database/stored-procedures/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/</guid>
       <description></description>
     </item>
     

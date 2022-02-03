@@ -8,7 +8,7 @@ The repositories associated with AWS Glue are:
 - [cp-asset-data-export-pipeline](https://www-github3.cisco.com/cxe/cp-asset-data-export-pipeline): Export data to consumers (Insights)
 
 ## Overview
-![Overview](/images/ingestion.png)
+![Overview](/pages/tadeckar/assets-docs/images/ingestion.png)
 
 At a high level, a Lambda function listens for SQS events. Upon receiving, the Glue ETL Job is triggered. The job downloads files from an S3 bucket, parses them, and stores results in staging tables of the RDS MySQL database.
 
@@ -43,20 +43,20 @@ graph TD;
   PINVD_ELSE --> ELSE_EQPDL(EQParquetDataLoader)
   PINVD_ELSE --> ELSE_APDL(AlertsParquetDataLoader)
   PINVD_ELSE --> ELSE_CPDL(ContractParquetDataLoader)
-  click PINV "/ingestion/managers/parquet-inv-data-load-manager/"
-  click DCC_SUBL "/ingestion/managers/data-load-manager/"
-  click DNAC_DLL "/ingestion/managers/data-load-manager/"
-  click PINVD_ELSE "/ingestion/managers/data-load-manager/"
+  click PINV "/pages/tadeckar/assets-docs/ingestion/managers/parquet-inv-data-load-manager/"
+  click DCC_SUBL "/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/"
+  click DNAC_DLL "/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/"
+  click PINVD_ELSE "/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/"
 
   LIC --> LIC_DLM(DataLoadManager)
   LIC_DLM --> LPDL(LicenseParquetDataLoader)
-  click LIC "/ingestion/managers/license-data-load-manager/"
-  click LIC_DLM "/ingestion/managers/data-load-manager/"
+  click LIC "/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/"
+  click LIC_DLM "/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/"
 
   HYB --> HYB_DLM(DataLoadManager)
   HYB_DLM --> HSPDL(HybridSubscriptionParquetDataLoader)
-  click HYB "/ingestion/managers/hybrid-subscription-data-load-manager/"
-  click HYB_DLM "/ingestion/managers/data-load-manager/"
+  click HYB "/pages/tadeckar/assets-docs/ingestion/managers/hybrid-subscription-data-load-manager/"
+  click HYB_DLM "/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/"
 
 {{< /mermaid >}}
 

@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Managers on CX Assets Wiki</title>
-    <link>http://example.org/ingestion/managers/</link>
+    <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/</link>
     <description>Recent content in Managers on CX Assets Wiki</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/ingestion/managers/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DataFileManager</title>
-      <link>http://example.org/ingestion/managers/data-file-manager/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/data-file-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/managers/data-file-manager/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/data-file-manager/</guid>
       <description>View Source  The DataFileManager is used for all data loading tasks. Its purpose is to choose one of the following Managers based on a given File Type argument:
 ATHENA:
 HybridSubscriptionDataLoadManager
@@ -25,19 +25,19 @@ ParquetInvDataLoadManager</description>
     
     <item>
       <title>DataLoadManager</title>
-      <link>http://example.org/ingestion/managers/data-load-manager/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/managers/data-load-manager/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/</guid>
       <description>View Source  Similar to DataFileManager, the DataLoadManager simply picks a Loader to use given a Data Load Type.</description>
     </item>
     
     <item>
       <title>HybridSubscriptionDataLoadManager</title>
-      <link>http://example.org/ingestion/managers/hybrid-subscription-data-load-manager/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/hybrid-subscription-data-load-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/managers/hybrid-subscription-data-load-manager/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/hybrid-subscription-data-load-manager/</guid>
       <description>View Source  Loads data of the HYBRID_CLOUD File Type.
 Firstly, the HSDLM checks whether or not data for the given wfId has already been loaded. If the data has already been loaded, the data is cleared from the athena_subscription_stg staging table for the given customerId/wfId before execution proceeds to the next step.
 Next, a thread is spun up to load the data, executing the DataLoadManager, which in turn executes a Loader for the Hybrid Data Load Type.</description>
@@ -45,10 +45,10 @@ Next, a thread is spun up to load the data, executing the DataLoadManager, which
     
     <item>
       <title>InventoryDataLoadManager</title>
-      <link>http://example.org/ingestion/managers/inventory-data-load-manager/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/inventory-data-load-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/managers/inventory-data-load-manager/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/inventory-data-load-manager/</guid>
       <description>View Source  Loads data of the IBES_INV_UPLOAD File Type.
 Firstly, the IDLM tries to create a partition using the add_base_table_partions_prc stored procedure. If the partition already exists, processing is skipped.
 Next, a thread is spun up to load the data, executing the DataLoadManager, which in turn executes a Loader of IBES Data Load Type.
@@ -57,10 +57,10 @@ The NotificationManager is also used record the data load processing start/end t
     
     <item>
       <title>LicenseDataLoadManager</title>
-      <link>http://example.org/ingestion/managers/license-data-load-manager/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/managers/license-data-load-manager/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/</guid>
       <description>View Source  Loads data of the MERAKI_LICENSE File Type.
 Firstly, the LDLM checks whether or not data for the given wfId has already been loaded. If the data has already been loaded, the data is cleared from the meraki_license_sum_view_stage staging table for the given customerId/wfId before execution proceeds to the next step.
 Next, a thread is spun up to load the data, executing the DataLoadManager, which in turn executes a Loader for the License Data Load Type.</description>
@@ -68,20 +68,20 @@ Next, a thread is spun up to load the data, executing the DataLoadManager, which
     
     <item>
       <title>NotificationManager</title>
-      <link>http://example.org/ingestion/managers/notification-manager/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/notification-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/managers/notification-manager/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/notification-manager/</guid>
       <description>View Source  The NotificationManager is a utility class that houses a variety of functions for modifying the asset_inventory_notification and asset_data_load_notification tables.
 The NotificationManager also houses the (seemingly unrelated) function to delete all rows matching a given customerId/wfId for a given table.</description>
     </item>
     
     <item>
       <title>ParquetInvDataLoadManager</title>
-      <link>http://example.org/ingestion/managers/parquet-inv-data-load-manager/</link>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/parquet-inv-data-load-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/ingestion/managers/parquet-inv-data-load-manager/</guid>
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/parquet-inv-data-load-manager/</guid>
       <description>View Source  Loads data of the CIBES_INV_UPLOAD and DNAC_UPLOAD File Types.
 Firstly, the PIDLM checks the SQS message for mgmtSystemType. If the value of this property is not DCC_SUB, PIDLM tries to create a partition using the add_base_table_partions_prc stored procedure. Otherwise, processing begins regardless.
 When mgmtSystemType === &amp;quot;DCC_SUB&amp;quot;, and the partition is created successfully, processing begins. If the partition already exists, the base table partitions are cleared using the delete_raw_data_wfid_prc stored procedure, then processing begins.</description>

@@ -2,58 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/ingestion/loaders/alerts/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/alerts/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/loaders/bulletins/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/</loc>
   </url><url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/categories/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/loaders/contracts/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/contracts/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/types/data-load-types/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/data-load-types/</loc>
   </url><url>
-    <loc>http://example.org/database/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/managers/data-file-manager/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/data-file-manager/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/managers/data-load-manager/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/loaders/equipments/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/equipments/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/loaders/features/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/features/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/types/file-types/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/file-types/</loc>
   </url><url>
-    <loc>http://example.org/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/managers/hybrid-subscription-data-load-manager/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/hybrid-subscription-data-load-manager/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/managers/inventory-data-load-manager/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/inventory-data-load-manager/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/managers/license-data-load-manager/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/loaders/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/managers/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/loaders/network-elements/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/network-elements/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/managers/notification-manager/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/notification-manager/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/managers/parquet-inv-data-load-manager/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/parquet-inv-data-load-manager/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/schema/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/</loc>
   </url><url>
-    <loc>http://example.org/database/staging-tables/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/staging-tables/</loc>
   </url><url>
-    <loc>http://example.org/database/stored-procedures/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/</loc>
   </url><url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/tags/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/types/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/</loc>
   </url><url>
-    <loc>http://example.org/ingestion/workflow/</loc>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/workflow/</loc>
   </url>
 </urlset>

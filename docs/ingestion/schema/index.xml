@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Schema on CX Assets Wiki</title>
-    <link>http://example.org/ingestion/schema/</link>
+    <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/</link>
     <description>Recent content in Schema on CX Assets Wiki</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://example.org/ingestion/schema/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
