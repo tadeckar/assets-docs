@@ -116,7 +116,7 @@
 	"title": "InventoryDataLoadManager",
 	"tags": [],
 	"description": "",
-	"content": " View Source  Loads data of the IBES_INV_UPLOAD File Type.\nFirstly, the IDLM tries to create a partition using the add_base_table_partions_prc stored procedure. If the partition already exists, processing is skipped.\nNext, a thread is spun up to load the data, executing the DataLoadManager, which in turn executes a Loader of IBES Data Load Type.\nThe NotificationManager is also used record the data load processing start/end times.\n"
+	"content": " View Source  The InventoryDataLoadManager is not currently in use.\n Loads data of the IBES_INV_UPLOAD File Type.\nFirstly, the IDLM tries to create a partition using the add_base_table_partions_prc stored procedure. If the partition already exists, processing is skipped.\nNext, a thread is spun up to load the data, executing the DataLoadManager, which in turn executes a Loader of IBES Data Load Type.\nThe NotificationManager is also used record the data load processing start/end times.\n"
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/",

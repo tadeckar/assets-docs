@@ -7,13 +7,13 @@ title = "DataFileManager"
 The DataFileManager is used for all data loading tasks. Its purpose is to choose one of the following Managers based on a given [File Type](/glue/file-types) argument:
 
 `ATHENA`:  
-[HybridSubscriptionDataLoadManager](/pages/tadeckar/assets-docs/glue/managers/hybrid-subscription-data-load-manager)  
+[HybridSubscriptionDataLoadManager]({{< ILink href="/ingestion/managers/hybrid-subscription-data-load-manager" >}})  
 
 `INVENTORY_DATA_RECEIVED`:  
-[InventoryDataLoadManager](/pages/tadeckar/assets-docs/glue/managers/inventory-data-load-manager)  
+[InventoryDataLoadManager]({{< ILink href="/ingestion/managers/inventory-data-load-manager" >}})  
 
 `MERAKI_LICENSE`:  
-[LicenseDataLoadManager](/pages/tadeckar/assets-docs/glue/managers/license-data-load-manager)  
+[LicenseDataLoadManager]({{< ILink href="/ingestion/managers/license-data-load-manager" >}})  
 
 `CIBES_INVENTORY_DATA_RECEIVED` and `DNAC_DATA_RECEIVED` and all other file types:   
-[ParquetInvDataLoadManager](/pages/tadeckar/assets-docs/glue/managers/parquet-inv-data-load-manager)
+[ParquetInvDataLoadManager]({{< ILink href="/ingestion/managers/parquet-inv-data-load-manager" >}})

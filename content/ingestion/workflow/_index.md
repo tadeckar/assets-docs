@@ -33,4 +33,4 @@ graph LR;
 
 The Glue workflow begins at the **Pre Processor** state. This state is `type: Pass` which allows for state that does not produce any work. Next, the **IBES Data Loader** state loads the data from S3 into the SQL DB. Finally, the **Verify Data Load** state checks that all tasks within the **IBES Data Loader** state were successful. Based on the results, state transitions to either **Notify Success** or **Notify Failure**, at which time the workflow is complete.
 
-See [Loaders](/pages/tadeckar/assets-docs/ingestion/loaders) for more information on the tasks within the **IBES Data Loader** state.
+See [Loaders]({{< ILink href="/ingestion/loaders" >}}) for more information on the tasks within the **IBES Data Loader** state.

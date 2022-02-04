@@ -49,7 +49,8 @@ Next, a thread is spun up to load the data, executing the DataLoadManager, which
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/inventory-data-load-manager/</guid>
-      <description>View Source  Loads data of the IBES_INV_UPLOAD File Type.
+      <description>View Source  The InventoryDataLoadManager is not currently in use.
+ Loads data of the IBES_INV_UPLOAD File Type.
 Firstly, the IDLM tries to create a partition using the add_base_table_partions_prc stored procedure. If the partition already exists, processing is skipped.
 Next, a thread is spun up to load the data, executing the DataLoadManager, which in turn executes a Loader of IBES Data Load Type.
 The NotificationManager is also used record the data load processing start/end times.</description>

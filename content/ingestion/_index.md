@@ -8,7 +8,7 @@ The repositories associated with AWS Glue are:
 - [cp-asset-data-export-pipeline](https://www-github3.cisco.com/cxe/cp-asset-data-export-pipeline): Export data to consumers (Insights)
 
 ## Overview
-![Overview](/pages/tadeckar/assets-docs/images/ingestion.png)
+![Overview]({{< ILink href="/images/ingestion.png" >}})
 
 At a high level, a Lambda function listens for SQS events. Upon receiving, the Glue ETL Job is triggered. The job downloads files from an S3 bucket, parses them, and stores results in staging tables of the RDS MySQL database.
 

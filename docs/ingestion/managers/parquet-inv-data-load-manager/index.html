@@ -12,22 +12,22 @@
     <title>ParquetInvDataLoadManager :: CX Assets Wiki</title>
 
     
-    <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1643925624" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/fontawesome-all.min.css?1643925624" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/hybrid.css?1643925624" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/featherlight.min.css?1643925624" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/perfect-scrollbar.min.css?1643925624" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/auto-complete.css?1643925624" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/atom-one-dark-reasonable.css?1643925624" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/theme.css?1643925624" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/tabs.css?1643925624" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/hugo-theme.css?1643925624" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1643987323" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/fontawesome-all.min.css?1643987323" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/hybrid.css?1643987323" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/featherlight.min.css?1643987323" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/perfect-scrollbar.min.css?1643987323" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/auto-complete.css?1643987323" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/atom-one-dark-reasonable.css?1643987323" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/theme.css?1643987323" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/tabs.css?1643987323" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/hugo-theme.css?1643987323" rel="stylesheet">
     
-    <link href="/pages/tadeckar/assets-docs/css/theme-assets.css?1643925624" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/theme-assets.css?1643987323" rel="stylesheet">
     
     
 
-    <script src="/pages/tadeckar/assets-docs/js/jquery-3.3.1.min.js?1643925624"></script>
+    <script src="/pages/tadeckar/assets-docs/js/jquery-3.3.1.min.js?1643987323"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,14 +58,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/lunr.min.js?1643925624"></script>
-<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/auto-complete.js?1643925624"></script>
+<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/lunr.min.js?1643987323"></script>
+<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/auto-complete.js?1643987323"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/www-github3.cisco.com\/pages\/tadeckar\/assets-docs\/";
     
 </script>
-<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/search.js?1643925624"></script>
+<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/search.js?1643987323"></script>
 
     
   </div>
@@ -849,14 +849,20 @@
   View Source
 </a>
 
-<p>Loads data of the <code>CIBES_INV_UPLOAD</code> and <code>DNAC_UPLOAD</code> <a href="/pages/tadeckar/assets-docs/ingestion/types/file-types">File Types</a>.</p>
+<p>Loads data of the <code>CIBES_INV_UPLOAD</code> and <code>DNAC_UPLOAD</code> <a href="/pages/tadeckar/assets-docs/ingestion/types/file-types
+">File Types</a>.</p>
 <p>Firstly, the PIDLM checks the SQS message for <code>mgmtSystemType</code>. If the value of this property is not <code>DCC_SUB</code>, PIDLM tries to create a partition using the <code>add_base_table_partions_prc</code> stored procedure. Otherwise, processing begins regardless.</p>
 <p>When <code>mgmtSystemType === &quot;DCC_SUB&quot;</code>, and the partition is created successfully, processing begins. If the partition already exists, the base table partitions are cleared using the <code>delete_raw_data_wfid_prc</code> stored procedure, then processing begins.</p>
-<p>Next, a thread is spun up to load the data, executing the <a href="/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager">DataLoadManager</a>, which in turn executes a Loader of either <a href="/pages/tadeckar/assets-docs/ingestion/types/data-load-types/#xaas">XAAS</a>, <a href="/pages/tadeckar/assets-docs/ingestion/types/data-load-types/#dnac">DNAC</a>, or <a href="/pages/tadeckar/assets-docs/ingestion/types/data-load-types/#cibes">CIBES</a> Data Load Types, dependent on the <code>mgmtSystemType</code>. See mapping below.</p>
+<p>Next, a thread is spun up to load the data, executing the <a href="/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager
+">DataLoadManager</a>, which in turn executes a Loader of either <a href="/pages/tadeckar/assets-docs/ingestion/types/data-load-types/#xaas
+">XAAS</a>, <a href="/pages/tadeckar/assets-docs/ingestion/types/data-load-types/#dnac
+">DNAC</a>, or <a href="/pages/tadeckar/assets-docs/ingestion/types/data-load-types/#cibes
+">CIBES</a> Data Load Types, dependent on the <code>mgmtSystemType</code>. See mapping below.</p>
 <p>When <code>mgmtSystemType</code> is <code>&quot;DCC_SUB&quot;</code>, Data Load Type is XAAS.<br>
 When <code>mgmtSystemType</code> is <code>&quot;DNAC_DL&quot;</code>, Data Load Type is DNAC.<br>
 When <code>mgmtSystemType</code> is neither  <code>&quot;DCC_SUB&quot;</code> nor <code>&quot;DNAC_DL&quot;</code>, Data Load Type is CIBES.</p>
-<p>The <a href="/pages/tadeckar/assets-docs/ingestion/managers/notification-manager">NotificationManager</a> is also used record the data load processing start/end times.</p>
+<p>The <a href="/pages/tadeckar/assets-docs/ingestion/managers/notification-manager
+">NotificationManager</a> is also used record the data load processing start/end times.</p>
 
 
 <footer class="footline">
@@ -1369,19 +1375,19 @@ When <code>mgmtSystemType</code> is neither  <code>&quot;DCC_SUB&quot;</code> no
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/pages/tadeckar/assets-docs/js/clipboard.min.js?1643925624"></script>
-    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.min.js?1643925624"></script>
-    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.jquery.min.js?1643925624"></script>
-    <script src="/pages/tadeckar/assets-docs/js/jquery.sticky.js?1643925624"></script>
-    <script src="/pages/tadeckar/assets-docs/js/featherlight.min.js?1643925624"></script>
-    <script src="/pages/tadeckar/assets-docs/js/highlight.pack.js?1643925624"></script>
+    <script src="/pages/tadeckar/assets-docs/js/clipboard.min.js?1643987323"></script>
+    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.min.js?1643987323"></script>
+    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.jquery.min.js?1643987323"></script>
+    <script src="/pages/tadeckar/assets-docs/js/jquery.sticky.js?1643987323"></script>
+    <script src="/pages/tadeckar/assets-docs/js/featherlight.min.js?1643987323"></script>
+    <script src="/pages/tadeckar/assets-docs/js/highlight.pack.js?1643987323"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/pages/tadeckar/assets-docs/js/modernizr.custom-3.6.0.js?1643925624"></script>
-    <script src="/pages/tadeckar/assets-docs/js/learn.js?1643925624"></script>
-    <script src="/pages/tadeckar/assets-docs/js/hugo-learn.js?1643925624"></script>
+    <script src="/pages/tadeckar/assets-docs/js/modernizr.custom-3.6.0.js?1643987323"></script>
+    <script src="/pages/tadeckar/assets-docs/js/learn.js?1643987323"></script>
+    <script src="/pages/tadeckar/assets-docs/js/hugo-learn.js?1643987323"></script>
     
         
-            <script src="/pages/tadeckar/assets-docs/mermaid/mermaid.js?1643925624"></script>
+            <script src="/pages/tadeckar/assets-docs/mermaid/mermaid.js?1643987323"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
