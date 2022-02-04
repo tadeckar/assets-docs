@@ -47,16 +47,32 @@ graph TD;
   click DCC_SUBL "/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/"
   click DNAC_DLL "/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/"
   click PINVD_ELSE "/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/"
+  click DCC_SUBL_NEPDL "/pages/tadeckar/assets-docs/ingestion/loaders/network-elements/"
+  click DCC_SUBL_SPDL "/pages/tadeckar/assets-docs/ingestion/loaders/subscriptions/"
+  click DNAC_DLL_NEPDL "/pages/tadeckar/assets-docs/ingestion/loaders/network-elements/"
+  click DNAC_DLL_EQPDL "/pages/tadeckar/assets-docs/ingestion/loaders/equipments/"
+  click DNAC_DLL_APDL "/pages/tadeckar/assets-docs/ingestion/loaders/alerts/"
+  click DNAC_DLL_BMPDL "/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/"
+  click DNAC_DLL_CPDL "/pages/tadeckar/assets-docs/ingestion/loaders/contracts/"
+  click DNAC_DLL_CLIPDL "/pages/tadeckar/assets-docs/ingestion/loaders/cli/"
+  click DNAC_DLL_CONFIGPDL "/pages/tadeckar/assets-docs/ingestion/loaders/config/"
+  click ELSE_BMPDL "/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/"
+  click ELSE_NEPDL "/pages/tadeckar/assets-docs/ingestion/loaders/network-elements/"
+  click ELSE_EQPDL "/pages/tadeckar/assets-docs/ingestion/loaders/equipments/"
+  click ELSE_APDL "/pages/tadeckar/assets-docs/ingestion/loaders/alerts/"
+  click ELSE_CPDL "/pages/tadeckar/assets-docs/ingestion/loaders/contracts/"
 
   LIC --> LIC_DLM(DataLoadManager)
   LIC_DLM --> LPDL(LicenseParquetDataLoader)
   click LIC "/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/"
   click LIC_DLM "/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/"
+  click LPDL "/pages/tadeckar/assets-docs/ingestion/loaders/licenses/"
 
   HYB --> HYB_DLM(DataLoadManager)
   HYB_DLM --> HSPDL(HybridSubscriptionParquetDataLoader)
   click HYB "/pages/tadeckar/assets-docs/ingestion/managers/hybrid-subscription-data-load-manager/"
   click HYB_DLM "/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/"
+  click HSPDL "/pages/tadeckar/assets-docs/ingestion/loaders/hybrid-subscriptions/"
 
 {{< /mermaid >}}
 
