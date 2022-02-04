@@ -5,40 +5,40 @@ title = "Subscriptions Schema"
 {{< mermaid >}}
 classDiagram
   class Subscription{
-    +String managedNeId
-    +String neId
-    +String coverageStatus
-    +String serviceProgram
-    +String contractNumber
-    +String serviceLevel
-    +String serviceLevelDescription
+    +Integer erpSalesOrderNumber
+    +Integer licenseTermInMonths
+    +Long subscriptionCreateDate
+    +Long subscriptionProductQuantity
     +Long termEndDate
     +Long termStartDate
-    +String subscriptionType
-    +String termsAndContentCd
-    +Long subscriptionCreateDate
-    +String subscriptionStatus
-    +String subscriptionReferenceId
-    +String subscriptionBillToSiteUseCustName
-    +String subscriptionBillToSiteUseId
-    +String subscriptionProductClass
-    +Long subscriptionProductQuantity
+    +String contractEntitlementDescr
+    +String contractNumber
+    +String coverageStatus
     +String endCustomerGuAddressLine1
     +String endCustomerGuAddressLine2
     +String endCustomerGuAddressLine3
     +String endCustomerGuAddressLine4
     +String endCustomerGuCityName
-    +String endCustomerGuState
-    +String endCustomerGuPostalCd
     +String endCustomerGuCountry
+    +String endCustomerGuPostalCd
+    +String endCustomerGuState
+    +String managedNeId
+    +String monetizationTypeCd
+    +String neId
     +String partnerBeGeoId
     +String partnerBeGeoName
     +String partnerBeId
     +String partnerBeName
-    +String monetizationTypeCd
-    +String contractEntitlementDescr
-    +Integer licenseTermInMonths
+    +String serviceLevel
+    +String serviceLevelDescription
+    +String serviceProgram
+    +String subscriptionBillToSiteUseCustName
+    +String subscriptionBillToSiteUseId
+    +String subscriptionProductClass
+    +String subscriptionReferenceId
+    +String subscriptionStatus
+    +String subscriptionType
+    +String termsAndContentCd
     +String webOrderId
-    +Integer erpSalesOrderNumber
   }
 {{< /mermaid >}}
