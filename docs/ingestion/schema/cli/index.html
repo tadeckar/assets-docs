@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.92.0" />
+    <meta name="description" content="">
+<meta name="author" content="tadeckar">
+
+    <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
+
+    <title>CLI Schema :: CX Assets Wiki</title>
+
+    
+    <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1644001328" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/fontawesome-all.min.css?1644001328" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/hybrid.css?1644001328" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/featherlight.min.css?1644001328" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/perfect-scrollbar.min.css?1644001328" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/auto-complete.css?1644001328" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/atom-one-dark-reasonable.css?1644001328" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/theme.css?1644001328" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/tabs.css?1644001328" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/hugo-theme.css?1644001328" rel="stylesheet">
+    
+    <link href="/pages/tadeckar/assets-docs/css/theme-assets.css?1644001328" rel="stylesheet">
+    
+    
+
+    <script src="/pages/tadeckar/assets-docs/js/jquery-3.3.1.min.js?1644001328"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/pages/tadeckar/assets-docs/ingestion/schema/cli/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <h3 class="title">CX Assets Wiki</h3>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/lunr.min.js?1644001328"></script>
+<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/auto-complete.js?1644001328"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/www-github3.cisco.com\/pages\/tadeckar\/assets-docs\/";
+    
+</script>
+<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/search.js?1644001328"></script>
+
+    
+  </div>
+  
+    <section id="homelinks">
+      <ul>
+        <li>
+            <a class="padding" href='/pages/tadeckar/assets-docs/'><i class='fas fa-home'></i> Home</a>
+        </li>
+      </ul>
+    </section>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/pages/tadeckar/assets-docs/database/" title="Database" class="dd-item
+        
+        
+        
+        ">
+      <a href="/pages/tadeckar/assets-docs/database/">
+          Database
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/staging-tables/" title="Staging Tables" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/database/staging-tables/">
+        Staging Tables
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/" title="Stored Procedures" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/database/stored-procedures/">
+        Stored Procedures
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/" title="Ingestion" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/pages/tadeckar/assets-docs/ingestion/">
+          Ingestion
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/" title="Loaders" class="dd-item
+        
+        
+        
+        ">
+      <a href="/pages/tadeckar/assets-docs/ingestion/loaders/">
+          Loaders
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/alerts/" title="Alerts" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/loaders/alerts/">
+        Alerts
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/" title="Bulletins" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/">
+        Bulletins
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/cli/" title="CLI" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/loaders/cli/">
+        CLI
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/config/" title="Config" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/loaders/config/">
+        Config
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/contracts/" title="Contracts" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/loaders/contracts/">
+        Contracts
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/equipments/" title="Equipments" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/loaders/equipments/">
+        Equipments
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/hybrid-subscriptions/" title="Hybrid Subscriptions" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/loaders/hybrid-subscriptions/">
+        Hybrid Subscriptions
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/licenses/" title="Licenses" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/loaders/licenses/">
+        Licenses
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/network-elements/" title="Network Elements" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/loaders/network-elements/">
+        Network Elements
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/subscriptions/" title="Subscriptions" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/loaders/subscriptions/">
+        Subscriptions
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/managers/" title="Managers" class="dd-item
+        
+        
+        
+        ">
+      <a href="/pages/tadeckar/assets-docs/ingestion/managers/">
+          Managers
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/managers/data-file-manager/" title="DataFileManager" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/managers/data-file-manager/">
+        DataFileManager
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/" title="DataLoadManager" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/">
+        DataLoadManager
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/managers/hybrid-subscription-data-load-manager/" title="HybridSubscriptionDataLoadManager" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/managers/hybrid-subscription-data-load-manager/">
+        HybridSubscriptionDataLoadManager
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/managers/inventory-data-load-manager/" title="InventoryDataLoadManager" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/managers/inventory-data-load-manager/">
+        InventoryDataLoadManager
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/" title="LicenseDataLoadManager" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/">
+        LicenseDataLoadManager
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/managers/notification-manager/" title="NotificationManager" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/managers/notification-manager/">
+        NotificationManager
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/managers/parquet-inv-data-load-manager/" title="ParquetInvDataLoadManager" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/managers/parquet-inv-data-load-manager/">
+        ParquetInvDataLoadManager
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/" title="Schema" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/pages/tadeckar/assets-docs/ingestion/schema/">
+          Schema
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/alerts/" title="Alerts Schema" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/schema/alerts/">
+        Alerts Schema
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/bulletins/" title="Bulletins Schema" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/schema/bulletins/">
+        Bulletins Schema
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/cli/" title="CLI Schema" class="dd-item active">
+        <a href="/pages/tadeckar/assets-docs/ingestion/schema/cli/">
+        CLI Schema
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/config/" title="Config Schema" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/schema/config/">
+        Config Schema
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/contracts/" title="Contracts Schema" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/schema/contracts/">
+        Contracts Schema
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/equipments/" title="Equipments Schema" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/schema/equipments/">
+        Equipments Schema
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/hybrid-subscriptions/" title="Hybrid Subscriptions Schema" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/schema/hybrid-subscriptions/">
+        Hybrid Subscriptions Schema
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/licenses/" title="Licenses Schema" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/schema/licenses/">
+        Licenses Schema
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/network-elements/" title="Network Elements Schema" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/schema/network-elements/">
+        Network Elements Schema
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/subscriptions/" title="Subscriptions Schema" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/schema/subscriptions/">
+        Subscriptions Schema
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/types/" title="Types" class="dd-item
+        
+        
+        
+        ">
+      <a href="/pages/tadeckar/assets-docs/ingestion/types/">
+          Types
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/types/data-load-types/" title="Data Load Types" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/types/data-load-types/">
+        Data Load Types
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/types/file-types/" title="File Types" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/types/file-types/">
+        File Types
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/workflow/" title="Workflow" class="dd-item
+        
+        
+        
+        ">
+      <a href="/pages/tadeckar/assets-docs/ingestion/workflow/">
+          Workflow
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/ingestion/'>Ingestion</a> > <a href='/pages/tadeckar/assets-docs/ingestion/schema/'>Schema</a> > CLI Schema
+          
+        
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              CLI Schema
+            </h1>
+          
+
+        
+
+
+
+<div class="mermaid" align="center">
+classDiagram
+  class Cli {
+    +String commandName
+    +String commandOutput
+  }
+</div>
+
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/pages/tadeckar/assets-docs/js/clipboard.min.js?1644001328"></script>
+    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.min.js?1644001328"></script>
+    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.jquery.min.js?1644001328"></script>
+    <script src="/pages/tadeckar/assets-docs/js/jquery.sticky.js?1644001328"></script>
+    <script src="/pages/tadeckar/assets-docs/js/featherlight.min.js?1644001328"></script>
+    <script src="/pages/tadeckar/assets-docs/js/highlight.pack.js?1644001328"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/pages/tadeckar/assets-docs/js/modernizr.custom-3.6.0.js?1644001328"></script>
+    <script src="/pages/tadeckar/assets-docs/js/learn.js?1644001328"></script>
+    <script src="/pages/tadeckar/assets-docs/js/hugo-learn.js?1644001328"></script>
+    
+        
+            <script src="/pages/tadeckar/assets-docs/mermaid/mermaid.js?1644001328"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

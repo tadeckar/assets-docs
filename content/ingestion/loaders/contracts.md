@@ -4,6 +4,8 @@ title = "Contracts"
 
 Contracts are loaded by the [ContractParquetDataLoader.py](https://www-github3.cisco.com/cxe/cp-asset-data-pipeline/blob/master/glue/cp-asset-data-import-job/csco/dp/job/ContractParquetDataLoader.py).
 
+### [Schema]({{< ILink href="/ingestion/schema/contracts">}})
+
 ## Staging Tables
 - contractcoverage_dcc
 - contractcoverage_dcn

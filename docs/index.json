@@ -4,14 +4,28 @@
 	"title": "Alerts",
 	"tags": [],
 	"description": "",
-	"content": "Alerts are loaded by the AlertsParquetDataLoader.py.\nStaging Tables  alert_fn_dcc alert_fn_dcn alert_fn_ib_data alert_fn_meraki alert_fn_telemetry alert_hweox_dcc alert_hweox_dcn alert_hweox_ib_data alert_hweox_meraki alert_hweox_telemetry alert_psirt_dcc alert_psirt_dcn alert_psirt_ib_data alert_psirt_meraki alert_psirt_telemetry alert_sweox_dcc alert_sweox_dcn alert_sweox_ib_data alert_sweox_meraki alert_sweox_telemetry  "
+	"content": "Alerts are loaded by the AlertsParquetDataLoader.py.\nSchema Staging Tables  alert_fn_dcc alert_fn_dcn alert_fn_ib_data alert_fn_meraki alert_fn_telemetry alert_hweox_dcc alert_hweox_dcn alert_hweox_ib_data alert_hweox_meraki alert_hweox_telemetry alert_psirt_dcc alert_psirt_dcn alert_psirt_ib_data alert_psirt_meraki alert_psirt_telemetry alert_sweox_dcc alert_sweox_dcn alert_sweox_ib_data alert_sweox_meraki alert_sweox_telemetry  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/alerts/",
+	"title": "Alerts Schema",
+	"tags": [],
+	"description": "",
+	"content": " classDiagram class AlertsFn{ +Long createdAt +Long fieldNoticeId +Long updatedAt +String cavbuid +String caveat +String cavid +String createdBy +String customerId +String distributionCode +String equipmentType +String fieldNoticeName +String hostname +String hwId +String id +String managementAddress +String neId +String productFamily +String productId +String serialNumber +String softwareType +String updatedBy +String vulnerabilityReason +String vulnerabilityStatus +String wfId } class AlertsHwEox{ +Long createdAt +Long updatedAt +String bulletinName +String cavbuid +String cavid +String createdBy +String customerId +String equipmentType +String hardwareEoxId +String hostname +String hwId +String id +String managementAddress +String neId +String productId +String updatedBy +String wfId } class AlertsPsirt{ +Long createdAt +Long psirtId +Long updatedAt +String cavbuid +String caveat +String cavid +String createdBy +String customerId +String cveId +String cvssBaseScore +String cxLevel +String equipmentType +String headlineName +String hostname +String hwId +String id +String managementAddress +String neId +String productFamily +String productId +String publicReleaseInd +String severity +String softwareType +String softwareVersion +String solutionIds +String updatedBy +String usecaseIds +String vulnerabilityReason +String vulnerabilityStatus +String wfId } class AlertsSwEox{ +Long createdAt +Long updatedAt +String bulletinHeadline +String cavbuid +String cavid +String createdBy +String customerId +String equipmentType +String hostname +String id +String managementAddress +String neId +String productId +String softwareEoxId +String softwareType +String softwareVersion +String updatedBy +String wfId }  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/",
 	"title": "Bulletins",
 	"tags": [],
 	"description": "",
-	"content": "Bulletins are loaded by the BulletinMasterParquetDataLoader.py.\nStaging Tables  alert_pas_hw_eox_bulletin_dcc alert_pas_hw_eox_bulletin_dcn alert_pas_hw_eox_bulletin_ib_data alert_pas_hw_eox_bulletin_meraki alert_pas_hw_eox_bulletin_telemetry alert_pas_sw_eox_bulletin_dcc alert_pas_sw_eox_bulletin_dcn alert_pas_sw_eox_bulletin_ib_data alert_pas_sw_eox_bulletin_meraki alert_pas_sw_eox_bulletin_telemetry fn_bulletin_master_dcc fn_bulletin_master_dcn fn_bulletin_master_ib_data fn_bulletin_master_meraki fn_bulletin_master_telemetry sa_bulletin_master_dcc sa_bulletin_master_dcn sa_bulletin_master_ib_data sa_bulletin_master_meraki sa_bulletin_master_telemetry  "
+	"content": "Bulletins are loaded by the BulletinMasterParquetDataLoader.py.\nSchema Staging Tables  alert_pas_hw_eox_bulletin_dcc alert_pas_hw_eox_bulletin_dcn alert_pas_hw_eox_bulletin_ib_data alert_pas_hw_eox_bulletin_meraki alert_pas_hw_eox_bulletin_telemetry alert_pas_sw_eox_bulletin_dcc alert_pas_sw_eox_bulletin_dcn alert_pas_sw_eox_bulletin_ib_data alert_pas_sw_eox_bulletin_meraki alert_pas_sw_eox_bulletin_telemetry fn_bulletin_master_dcc fn_bulletin_master_dcn fn_bulletin_master_ib_data fn_bulletin_master_meraki fn_bulletin_master_telemetry sa_bulletin_master_dcc sa_bulletin_master_dcn sa_bulletin_master_ib_data sa_bulletin_master_meraki sa_bulletin_master_telemetry  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/bulletins/",
+	"title": "Bulletins Schema",
+	"tags": [],
+	"description": "",
+	"content": " classDiagram class FnBulletin{ +Long fieldNoticeId +Long firstPublishDate +Long lastRevisionDate +String background +String caveat +String distributionCode +String fieldNoticeName +String fieldNoticeTypeCode +String fieldNoticeUrl +String generatedAt +String hardwareLevels +String isSerialNumberAvailableCode +String problemDescription +String problemSymptoms +String publish_user_id +String recordType +String recordVersion +String status +String upgradeProgam +String workaround } class PasHwEoxBulletin{ +Date createdDate +Long currentMilestone +Long currentMilestoneDate +Long endOfBuEngineeringSupportTacDate +Long endOfHardwareNewServiceAttachmentDate +Long endOfHardwareRoutineFailureAnalysisDate +Long endOfHardwareServiceContractRenewalDate +Long endOfLastDateOfSupport +Long endOfLastHardwareShipDate +Long endOfLifeExternalAnnouncementDate +Long endOfLifeInternalAnnouncementDate +Long endOfSaleDate +Long endOfSignatureReleasesDate +Long endOfSoftwareAvailabilityDate +Long endOfSoftwareLicenseAvailabilityDate +Long endOfSoftwareMaintenanceReleasesDate +Long endOfSoftwareVulnerabilityOrSecuritySupportDate +Long hardwareEoXId +Long nextMilestone +Long nextMilestoneDate +Long postDate +String bulletinName +String bulletinNumber +String bulletinPid +String bulletinURL +String generatedAt +String migrationInfo +String milestoneInfo +String recordType +String recordVersion } class PasSwEoxBulletin{ +Date createdDate +Long currentMilestone +Long currentMilestoneDate +Long endOfBuEngineeringSupportTacDate +Long endOfEngineeringDate +Long endOfHardwareNewServiceAttachmentDate +Long endOfHardwareRoutineFailureAnalysisDate +Long endOfHardwareServiceContractRenewalDate +Long endOfLastDateOfSupport +Long endOfLastHardwareShipDate +Long endOfLifeDate +Long endOfLifeExternalAnnouncementDate +Long endOfLifeInternalAnnouncementDate +Long endOfSaleDate +Long endOfSignatureReleasesDate +Long endOfSoftwareAvailabilityDate +Long endOfSoftwareLicenseAvailabilityDate +Long endOfSoftwareMaintenanceReleasesDate +Long endOfSoftwareVulnerabilityOrSecuritySupportDate +Long nextMilestone +Long nextMilestoneDate +Long postDate +Long softwareEoXId +String bulletinHeadline +String bulletinNumber +String bulletinURL +String generatedAt +String migrationInfo +String milestoneInfo +String recordType +String recordVersion } class SaBulletin{ +Long createdDate +Long documentId +Long internalAnnounceDate +Long psirtId +Long publishDate +Long revisedDate +Long signatureReleaseDate +Long softwareReleaseDate +Long softwareVossDate +String advisoryId +String affectedImageName +String alertStatusCd +String announceTypeName +String caveat +String codeName +String cveId +String cvssBaseScore +String cvssTemporalScore +String defectId +String detailText +String generatedAt +String headlineName +String mappingStateName +String psirtUrlText +String publicReleaseInd +String recordType +String recordVersion +String revisionNum +String severity +String summaryText }  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/categories/",
@@ -25,21 +39,42 @@
 	"title": "CLI",
 	"tags": [],
 	"description": "",
-	"content": "CLI data is loaded by the CLIParquetDataLoader.py.\nStaging Tables  cli_telemetry  "
+	"content": "CLI data is loaded by the CLIParquetDataLoader.py.\nSchema Staging Tables  cli_telemetry  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/cli/",
+	"title": "CLI Schema",
+	"tags": [],
+	"description": "",
+	"content": " classDiagram class Cli { +String commandName +String commandOutput }  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/config/",
 	"title": "Config",
 	"tags": [],
 	"description": "",
-	"content": "Config data is loaded by the ConfigParquetDataLoader.py.\nStaging Tables  config_telemetry  "
+	"content": "Config data is loaded by the ConfigParquetDataLoader.py.\nSchema Staging Tables  config_telemetry  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/config/",
+	"title": "Config Schema",
+	"tags": [],
+	"description": "",
+	"content": " classDiagram class Config{ +String config +String configName }  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/contracts/",
 	"title": "Contracts",
 	"tags": [],
 	"description": "",
-	"content": "Contracts are loaded by the ContractParquetDataLoader.py.\nStaging Tables  contractcoverage_dcc contractcoverage_dcn contractcoverage_ib_data contractcoverage_meraki contractcoverage_telemetry  "
+	"content": "Contracts are loaded by the ContractParquetDataLoader.py.\nSchema Staging Tables  contractcoverage_dcc contractcoverage_dcn contractcoverage_ib_data contractcoverage_meraki contractcoverage_telemetry  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/contracts/",
+	"title": "Contracts Schema",
+	"tags": [],
+	"description": "",
+	"content": " classDiagram class ContractNE{ +Boolean isCollector +Long InstallationDate +Long contractEndDate +Long contractId +Long contractStartDate +Long coverageEndDate +Long coverageStartDate +Long generatedAt +Long instanceId +Long lastCoverageEndDate +Long warrantyEndDate +Long warrantyStartDate +String BillToCrPartyId +String CavBUName +String CavName +String ComponentType +String InstallAtCustomerName +String InstallAtSiteGuId +String InstallAtSiteGuName +String InstallAtSitePartyId +String InstallCustomerAddrLine3 +String InstallationQuantity +String InstanceCreationDtm +String InstanceLastUpdateDtm +String PartnerBeName +String ProductShipmentConfirmedDtm +String SalesOrderNumber +String ServiceLevel +String billToAddress1 +String billToAddress2 +String billToCity +String billToCountry +String billToPostalCode +String billToProvince +String billToSiteName +String billToState +String cavbuid +String cavid +String collectorId +String contractNumber +String contractOwner +String contractStatus +String coverageStatus +String createdAt +String createdBy +String customerId +String customerName +String cxLevel +String endOfSaleDate +String genPartyId +String hwId +String ibAvailabilityFlag +String id +String installAddress1 +String installAddress2 +String installCity +String installCountry +String installPostalCode +String installProvince +String installSiteName +String installState +String instanceStatus +String itemTypeCode +String lastDateOfSupport +String licenseTermInMonth +String managedNeId +String mgmtSystemAddr +String mgmtSystemHostname +String mgmtSystemId +String mgmtSystemType +String neId +String parentInstanceId +String parentSerialNumber +String partnerBeGeoId +String partnerBeGeoName +String partnerBeId +String prdtSetupClassificationCd +String productEndCrPartyIdInt +String productId +String serialNumber +String serviceLineStatus +String serviceProgram +String sfcFlag +String slaCode +String slaDescription +String sourceNeId +String telemetryAvailablityFlag +String termsAndContentCd +String updatedAt +String updatedBy +String warrantyType +String wfId }  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/data-load-types/",
@@ -74,7 +109,14 @@
 	"title": "Equipments",
 	"tags": [],
 	"description": "",
-	"content": "Equipments are loaded by the EQParquetDataLoader.py.\nStaging Tables  equipment_dcc equipment_dcn equipment_ib_data equipment_meraki equipment_telemetry  "
+	"content": "Equipments are loaded by the EQParquetDataLoader.py.\nSchemas Staging Tables  equipment_dcc equipment_dcn equipment_ib_data equipment_meraki equipment_telemetry  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/equipments/",
+	"title": "Equipments Schema",
+	"tags": [],
+	"description": "",
+	"content": " classDiagram class Equipment{ +Boolean isCollector +Long createdAt +Long generatedAt +Long updatedAt +String cavbuid +String cavid +String collectedPid +String collectedSerialNum +String collectorId +String containingHwId +String createdBy +String customerId +String equipmentType +String genPartyId +String hostname +String hwId +String ibAvailabilityFlag +String id +String installProductType +String itemTypeCode +String managedNeId +String managementAddress +String manufacturer +String mgmtSystemAddr +String mgmtSystemHostname +String mgmtSystemId +String mgmtSystemType +String neId +String pceMultiPid +String pcePhysicalType +String pcePid +String pceProductDescription +String pceProductFamily +String pceProductName +String pceProductType +String pceRuleId +String prdtSetupClassificationCd +String productClass +String productDescription +String productFamily +String productId +String productName +String productType +String productsubtype +String serialNumber +String snasItemType +String snasProductFamily +String snasSerialNumber +String snasValidationCode +String snasValidationSource +String sourceNeId +String tags +String telemetryAvailablityFlag +String termsAndContentCd +String updatedBy +String wfId }  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/file-types/",
@@ -95,7 +137,14 @@
 	"title": "Hybrid Subscriptions",
 	"tags": [],
 	"description": "",
-	"content": "Hybrid Subscriptions are loaded by the HybridSubscriptionParquetDataLoader.py.\nStaging Tables  athena_subscription_stg  "
+	"content": "Hybrid Subscriptions are loaded by the HybridSubscriptionParquetDataLoader.py.\nSchema Staging Tables  athena_subscription_stg  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/hybrid-subscriptions/",
+	"title": "Hybrid Subscriptions Schema",
+	"tags": [],
+	"description": "",
+	"content": " classDiagram class Subscription{ +Integer erpSalesOrderNumber +Integer licenseTermInMonths +Long subscriptionCreateDate +Long subscriptionProductQuantity +Long termEndDate +Long termStartDate +String contractEntitlementDescr +String contractNumber +String coverageStatus +String endCustomerGuAddressLine1 +String endCustomerGuAddressLine2 +String endCustomerGuAddressLine3 +String endCustomerGuAddressLine4 +String endCustomerGuCityName +String endCustomerGuCountry +String endCustomerGuPostalCd +String endCustomerGuState +String managedNeId +String monetizationTypeCd +String neId +String partnerBeGeoId +String partnerBeGeoName +String partnerBeId +String partnerBeName +String serviceLevel +String serviceLevelDescription +String serviceProgram +String subscriptionBillToSiteUseCustName +String subscriptionBillToSiteUseId +String subscriptionProductClass +String subscriptionReferenceId +String subscriptionStatus +String subscriptionType +String termsAndContentCd +String webOrderId } class HybridSubscription{ +Long deploymentEndDate +Long deploymentStartDate +Long subscriptionEndDate +Long subscriptionStartDate +String assetCategory +String cavBuId +String cavBuName +String cavId +String cavName +String deploymentId +String offerType +String portalCustomerId +String primaryDataRegion +String serialNumber +String subscriptionRefId +String technology +String usageStatus +String useCaseOrworkLoad }  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/hybrid-subscription-data-load-manager/",
@@ -130,7 +179,14 @@
 	"title": "Licenses",
 	"tags": [],
 	"description": "",
-	"content": "Licenses are loaded by the LicenseParquetDataLoader.py.\nStaging Tables  meraki_license_sum_view_stage  "
+	"content": "Licenses are loaded by the LicenseParquetDataLoader.py.\nSchema Staging Tables  meraki_license_sum_view_stage  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/licenses/",
+	"title": "Licenses Schema",
+	"tags": [],
+	"description": "",
+	"content": " classDiagram class License { (\"customerId\", \"string\", \"customerId\", \"string\"), (\"cavId\", \"string\", \"cavId\", \"string\"), (\"cavName\", \"string\", \"cavName\", \"string\"), (\"cavBUId\", \"string\", \"cavBUId\", \"string\"), (\"cavBUName\", \"string\", \"cavBUName\", \"string\"), (\"orgId\", \"string\", \"orgId\", \"string\"), (\"orgName\", \"string\", \"orgName\", \"string\"), (\"licenseLevel\", \"string\", \"licenseLevel\", \"string\"), (\"purchaseQuantity\", \"long\", \"purchasedQuantity\", \"integer\"), (\"licenseEndDate\", \"long\", \"licenseEndDate\", \"long\"), (\"licenseStatus\", \"string\", \"licenseStatus\", \"string\"), (\"licenseType\", \"string\", \"licenseType\", \"string\"), (\"sourceLicenseStatus\", \"string\", \"sourceLicenseStatus\", \"string\"), (\"isPDL\", \"boolean\", \"isPDL\", \"boolean\"), (\"wfId\", \"string\", \"wfId\", \"string\"), (\"generatedAt\", \"long\", \"generatedAt\", \"long\") }  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/",
@@ -151,7 +207,14 @@
 	"title": "Network Elements",
 	"tags": [],
 	"description": "",
-	"content": "Network Elements are loaded by the NEParquetDataLoader.py.\nStaging Tables  networkelement_dcc networkelement_dcn networkelement_ib_data networkelement_meraki networkelement_sub_stg networkelement_telemetry  "
+	"content": "Network Elements are loaded by the NEParquetDataLoader.py.\nSchema Staging Tables  networkelement_dcc networkelement_dcn networkelement_ib_data networkelement_meraki networkelement_sub_stg networkelement_telemetry  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/network-elements/",
+	"title": "Network Elements Schema",
+	"tags": [],
+	"description": "",
+	"content": " classDiagram class NetworkElement { +Boolean isCollector +Boolean isManagedNe +Boolean isPDL +Boolean isScanCapable +Integer nodeId +Long configUpdateCollTime +Long createdAt +Long generatedAt +Long installedMemory +Long lastReceivedDate +Long lastUpdateDate +Long ldos +Long licenseActivationDate +Long licenseEndDate +Long systemUpTime +Long timeOfLastReset +Long updatedAt +String CavBUName +String CavName +String OrganizationUnit_id +String S3ObjectDetails +String associatedWlcIp +String baseProductId +String cavbuid +String cavid +String collectorId +String createdBy +String customerId +String cxLevel +String datasource +String family +String genPartyId +String hostname +String ibAvailabilityFlag +String id +String imageName +String instanceStatus +String ipAddress +String itemTypeCode +String lastResetReason +String licenseLevel +String licenseStatus +String licenseType +String managedNeId +String managementAddress +String mgmtSystemAddr +String mgmtSystemHostname +String mgmtSystemId +String mgmtSystemName +String mgmtSystemTimeZone +String mgmtSystemType +String neId +String neName +String neRegistrationStatus +String networkId +String networkName +String networkUrl +String orgId +String orgName +String orgUrl +String partnerBeGeoId +String partnerBeGeoName +String partnerId +String partnerInfo +String partnerName +String prdtSetupClassificationCd +String productDescription +String productEndCrPartyIdInt +String productFamily +String productId +String productName +String productType +String reachabilityFailureReason +String reachabilityStatus +String registeredDeviceMoId +String role +String serialNumber +String serviceLevel +String siteHierarchy +String siteId +String siteNameHierarchy +String smartLicenseProductId +String smartLicenseVirtualAccountName +String softwareType +String softwareVersion +String solution +String solutionInfo +String sourceLicenseStatus +String sourceNeId +String subPartyId +String sysObjectId +String tagId +String tagName +String tags +String telemetryAvailabilityFlag +String termsAndContentCd +String udiProductIdentifier +String updatedBy +String usecase +String validatedImageName +String warrantyType +String wfId }  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/notification-manager/",
@@ -193,7 +256,14 @@
 	"title": "Subscriptions",
 	"tags": [],
 	"description": "",
-	"content": "Subscriptions are loaded by the SubscriptionParquetDataLoader.py.\nStaging Tables  subscription_stg  "
+	"content": "Subscriptions are loaded by the SubscriptionParquetDataLoader.py.\nSchema Staging Tables  subscription_stg  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/subscriptions/",
+	"title": "Subscriptions Schema",
+	"tags": [],
+	"description": "",
+	"content": " classDiagram class Subscription{ +String managedNeId +String neId +String coverageStatus +String serviceProgram +String contractNumber +String serviceLevel +String serviceLevelDescription +Long termEndDate +Long termStartDate +String subscriptionType +String termsAndContentCd +Long subscriptionCreateDate +String subscriptionStatus +String subscriptionReferenceId +String subscriptionBillToSiteUseCustName +String subscriptionBillToSiteUseId +String subscriptionProductClass +Long subscriptionProductQuantity +String endCustomerGuAddressLine1 +String endCustomerGuAddressLine2 +String endCustomerGuAddressLine3 +String endCustomerGuAddressLine4 +String endCustomerGuCityName +String endCustomerGuState +String endCustomerGuPostalCd +String endCustomerGuCountry +String partnerBeGeoId +String partnerBeGeoName +String partnerBeId +String partnerBeName +String monetizationTypeCd +String contractEntitlementDescr +Integer licenseTermInMonths +String webOrderId +Integer erpSalesOrderNumber }  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/tags/",
