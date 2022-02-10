@@ -292,7 +292,8 @@ When mgmtSystemType === &amp;quot;DCC_SUB&amp;quot;, and the partition is create
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/</guid>
-      <description></description>
+      <description>Recurring Stored Procedures
+[ { &amp;#34;Name&amp;#34; : &amp;#34;athena_sub_process_01&amp;#34;, &amp;#34;Interval value&amp;#34; : &amp;#34;10&amp;#34;, &amp;#34;Interval field&amp;#34; : &amp;#34;SECOND&amp;#34;, ... }, { &amp;#34;Name&amp;#34; : &amp;#34;clean_base_part_invalid_status&amp;#34;, &amp;#34;Interval value&amp;#34; : &amp;#34;1&amp;#34;, &amp;#34;Interval field&amp;#34; : &amp;#34;DAY&amp;#34;, ... }, { &amp;#34;Name&amp;#34; : &amp;#34;clean_stale_datamerge&amp;#34;, &amp;#34;Interval value&amp;#34; : &amp;#34;30&amp;#34;, &amp;#34;Interval field&amp;#34; : &amp;#34;MINUTE&amp;#34;, ... }, { &amp;#34;Name&amp;#34; : &amp;#34;clean_stale_partitions&amp;#34;, &amp;#34;Interval value&amp;#34; : &amp;#34;1&amp;#34;, &amp;#34;Interval field&amp;#34; : &amp;#34;DAY&amp;#34;, ... }, { &amp;#34;Name&amp;#34; : &amp;#34;clean_sum_part_invalid_status&amp;#34;, &amp;#34;Interval value&amp;#34; : &amp;#34;1&amp;#34;, &amp;#34;Interval field&amp;#34; : &amp;#34;DAY&amp;#34;, .</description>
     </item>
     
     <item>
