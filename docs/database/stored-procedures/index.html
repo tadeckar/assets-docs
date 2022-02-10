@@ -12,22 +12,22 @@
     <title>Stored Procedures :: CX Assets Wiki</title>
 
     
-    <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1644508165" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/fontawesome-all.min.css?1644508165" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/hybrid.css?1644508165" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/featherlight.min.css?1644508165" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/perfect-scrollbar.min.css?1644508165" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/auto-complete.css?1644508165" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/atom-one-dark-reasonable.css?1644508165" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/theme.css?1644508165" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/tabs.css?1644508165" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/hugo-theme.css?1644508165" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1644516155" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/fontawesome-all.min.css?1644516155" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/hybrid.css?1644516155" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/featherlight.min.css?1644516155" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/perfect-scrollbar.min.css?1644516155" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/auto-complete.css?1644516155" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/atom-one-dark-reasonable.css?1644516155" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/theme.css?1644516155" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/tabs.css?1644516155" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/hugo-theme.css?1644516155" rel="stylesheet">
     
-    <link href="/pages/tadeckar/assets-docs/css/theme-assets.css?1644508165" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/theme-assets.css?1644516155" rel="stylesheet">
     
     
 
-    <script src="/pages/tadeckar/assets-docs/js/jquery-3.3.1.min.js?1644508165"></script>
+    <script src="/pages/tadeckar/assets-docs/js/jquery-3.3.1.min.js?1644516155"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,14 +58,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/lunr.min.js?1644508165"></script>
-<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/auto-complete.js?1644508165"></script>
+<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/lunr.min.js?1644516155"></script>
+<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/auto-complete.js?1644516155"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/www-github3.cisco.com\/pages\/tadeckar\/assets-docs\/";
     
 </script>
-<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/search.js?1644508165"></script>
+<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/search.js?1644516155"></script>
 
     
   </div>
@@ -109,6 +109,27 @@
           
 
         
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/recurring-events/" title="Recurring Events" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/database/recurring-events/">
+        Recurring Events
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
           
             
             
@@ -1035,7 +1056,15 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#stored-procedures">Stored Procedures</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1058,100 +1087,8 @@
         
 
 
-<p>Recurring Stored Procedures</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-	{
-		<span style="color:#f92672">&#34;Name&#34;</span> : <span style="color:#e6db74">&#34;athena_sub_process_01&#34;</span>,
-		<span style="color:#f92672">&#34;Interval value&#34;</span> : <span style="color:#e6db74">&#34;10&#34;</span>,
-		<span style="color:#f92672">&#34;Interval field&#34;</span> : <span style="color:#e6db74">&#34;SECOND&#34;</span>,
-        <span style="color:#960050;background-color:#1e0010">...</span>
-	},
-	{
-		<span style="color:#f92672">&#34;Name&#34;</span> : <span style="color:#e6db74">&#34;clean_base_part_invalid_status&#34;</span>,
-		<span style="color:#f92672">&#34;Interval value&#34;</span> : <span style="color:#e6db74">&#34;1&#34;</span>,
-		<span style="color:#f92672">&#34;Interval field&#34;</span> : <span style="color:#e6db74">&#34;DAY&#34;</span>,
-        <span style="color:#960050;background-color:#1e0010">...</span>
-	},
-	{
-		<span style="color:#f92672">&#34;Name&#34;</span> : <span style="color:#e6db74">&#34;clean_stale_datamerge&#34;</span>,
-		<span style="color:#f92672">&#34;Interval value&#34;</span> : <span style="color:#e6db74">&#34;30&#34;</span>,
-		<span style="color:#f92672">&#34;Interval field&#34;</span> : <span style="color:#e6db74">&#34;MINUTE&#34;</span>,
-        <span style="color:#960050;background-color:#1e0010">...</span>
-	},
-	{
-		<span style="color:#f92672">&#34;Name&#34;</span> : <span style="color:#e6db74">&#34;clean_stale_partitions&#34;</span>,
-		<span style="color:#f92672">&#34;Interval value&#34;</span> : <span style="color:#e6db74">&#34;1&#34;</span>,
-		<span style="color:#f92672">&#34;Interval field&#34;</span> : <span style="color:#e6db74">&#34;DAY&#34;</span>,
-        <span style="color:#960050;background-color:#1e0010">...</span>
-	},
-	{
-		<span style="color:#f92672">&#34;Name&#34;</span> : <span style="color:#e6db74">&#34;clean_sum_part_invalid_status&#34;</span>,
-		<span style="color:#f92672">&#34;Interval value&#34;</span> : <span style="color:#e6db74">&#34;1&#34;</span>,
-		<span style="color:#f92672">&#34;Interval field&#34;</span> : <span style="color:#e6db74">&#34;DAY&#34;</span>,
-        <span style="color:#960050;background-color:#1e0010">...</span>
-	},
-	{
-		<span style="color:#f92672">&#34;Name&#34;</span> : <span style="color:#e6db74">&#34;data_merge_process_01&#34;</span>,
-		<span style="color:#f92672">&#34;Interval value&#34;</span> : <span style="color:#e6db74">&#34;20&#34;</span>,
-		<span style="color:#f92672">&#34;Interval field&#34;</span> : <span style="color:#e6db74">&#34;SECOND&#34;</span>,
-        <span style="color:#960050;background-color:#1e0010">...</span>
-	},
-	{
-		<span style="color:#f92672">&#34;Name&#34;</span> : <span style="color:#e6db74">&#34;data_process_writer_cleanup_script&#34;</span>,
-		<span style="color:#f92672">&#34;Interval value&#34;</span> : <span style="color:#e6db74">&#34;1&#34;</span>,
-		<span style="color:#f92672">&#34;Interval field&#34;</span> : <span style="color:#e6db74">&#34;DAY&#34;</span>,
-        <span style="color:#960050;background-color:#1e0010">...</span>
-	},
-	{
-		<span style="color:#f92672">&#34;Name&#34;</span> : <span style="color:#e6db74">&#34;drop_pending_partitions&#34;</span>,
-		<span style="color:#f92672">&#34;Interval value&#34;</span> : <span style="color:#e6db74">&#34;1&#34;</span>,
-		<span style="color:#f92672">&#34;Interval field&#34;</span> : <span style="color:#e6db74">&#34;DAY&#34;</span>,
-        <span style="color:#960050;background-color:#1e0010">...</span>
-	},
-	{
-		<span style="color:#f92672">&#34;Name&#34;</span> : <span style="color:#e6db74">&#34;iso_data_merge_cleanup_process&#34;</span>,
-		<span style="color:#f92672">&#34;Interval value&#34;</span> : <span style="color:#e6db74">&#34;4&#34;</span>,
-		<span style="color:#f92672">&#34;Interval field&#34;</span> : <span style="color:#e6db74">&#34;HOUR&#34;</span>,
-        <span style="color:#960050;background-color:#1e0010">...</span>
-	},
-	{
-		<span style="color:#f92672">&#34;Name&#34;</span> : <span style="color:#e6db74">&#34;iso_data_merge_process_01&#34;</span>,
-		<span style="color:#f92672">&#34;Interval value&#34;</span> : <span style="color:#e6db74">&#34;30&#34;</span>,
-		<span style="color:#f92672">&#34;Interval field&#34;</span> : <span style="color:#e6db74">&#34;SECOND&#34;</span>,
-        <span style="color:#960050;background-color:#1e0010">...</span>
-	},
-	{
-		<span style="color:#f92672">&#34;Name&#34;</span> : <span style="color:#e6db74">&#34;meraki_license_process_01&#34;</span>,
-		<span style="color:#f92672">&#34;Interval value&#34;</span> : <span style="color:#e6db74">&#34;30&#34;</span>,
-		<span style="color:#f92672">&#34;Interval field&#34;</span> : <span style="color:#e6db74">&#34;SECOND&#34;</span>,
-        <span style="color:#960050;background-color:#1e0010">...</span>
-	},
-	{
-		<span style="color:#f92672">&#34;Name&#34;</span> : <span style="color:#e6db74">&#34;retry_failed_data_process_writer&#34;</span>,
-		<span style="color:#f92672">&#34;Interval value&#34;</span> : <span style="color:#e6db74">&#34;12&#34;</span>,
-		<span style="color:#f92672">&#34;Interval field&#34;</span> : <span style="color:#e6db74">&#34;HOUR&#34;</span>,
-        <span style="color:#960050;background-color:#1e0010">...</span>
-	},
-	{
-		<span style="color:#f92672">&#34;Name&#34;</span> : <span style="color:#e6db74">&#34;stale_inprogress_upload_cleanup&#34;</span>,
-		<span style="color:#f92672">&#34;Interval value&#34;</span> : <span style="color:#e6db74">&#34;30&#34;</span>,
-		<span style="color:#f92672">&#34;Interval field&#34;</span> : <span style="color:#e6db74">&#34;MINUTE&#34;</span>,
-        <span style="color:#960050;background-color:#1e0010">...</span>
-	},
-	{
-		<span style="color:#f92672">&#34;Name&#34;</span> : <span style="color:#e6db74">&#34;sub_data_merge_process_01&#34;</span>,
-		<span style="color:#f92672">&#34;Interval value&#34;</span> : <span style="color:#e6db74">&#34;30&#34;</span>,
-		<span style="color:#f92672">&#34;Interval field&#34;</span> : <span style="color:#e6db74">&#34;SECOND&#34;</span>,
-        <span style="color:#960050;background-color:#1e0010">...</span>
-	},
-	{
-		<span style="color:#f92672">&#34;Name&#34;</span> : <span style="color:#e6db74">&#34;xass_asset_process_01&#34;</span>,
-		<span style="color:#f92672">&#34;Interval value&#34;</span> : <span style="color:#e6db74">&#34;30&#34;</span>,
-		<span style="color:#f92672">&#34;Interval field&#34;</span> : <span style="color:#e6db74">&#34;SECOND&#34;</span>,
-        <span style="color:#960050;background-color:#1e0010">...</span>
-	}
-]
-</code></pre></div>
+<h3 id="stored-procedures">Stored Procedures</h3>
+
 
 <footer class="footline">
 	
@@ -1204,6 +1141,22 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1816,19 +1769,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/pages/tadeckar/assets-docs/js/clipboard.min.js?1644508165"></script>
-    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.min.js?1644508165"></script>
-    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.jquery.min.js?1644508165"></script>
-    <script src="/pages/tadeckar/assets-docs/js/jquery.sticky.js?1644508165"></script>
-    <script src="/pages/tadeckar/assets-docs/js/featherlight.min.js?1644508165"></script>
-    <script src="/pages/tadeckar/assets-docs/js/highlight.pack.js?1644508165"></script>
+    <script src="/pages/tadeckar/assets-docs/js/clipboard.min.js?1644516155"></script>
+    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.min.js?1644516155"></script>
+    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.jquery.min.js?1644516155"></script>
+    <script src="/pages/tadeckar/assets-docs/js/jquery.sticky.js?1644516155"></script>
+    <script src="/pages/tadeckar/assets-docs/js/featherlight.min.js?1644516155"></script>
+    <script src="/pages/tadeckar/assets-docs/js/highlight.pack.js?1644516155"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/pages/tadeckar/assets-docs/js/modernizr.custom-3.6.0.js?1644508165"></script>
-    <script src="/pages/tadeckar/assets-docs/js/learn.js?1644508165"></script>
-    <script src="/pages/tadeckar/assets-docs/js/hugo-learn.js?1644508165"></script>
+    <script src="/pages/tadeckar/assets-docs/js/modernizr.custom-3.6.0.js?1644516155"></script>
+    <script src="/pages/tadeckar/assets-docs/js/learn.js?1644516155"></script>
+    <script src="/pages/tadeckar/assets-docs/js/hugo-learn.js?1644516155"></script>
     
         
-            <script src="/pages/tadeckar/assets-docs/mermaid/mermaid.js?1644508165"></script>
+            <script src="/pages/tadeckar/assets-docs/mermaid/mermaid.js?1644516155"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
