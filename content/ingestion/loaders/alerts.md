@@ -4,7 +4,7 @@ title = "Alerts"
 
 Alerts are loaded by the [AlertsParquetDataLoader.py](https://www-github3.cisco.com/cxe/cp-asset-data-pipeline/blob/master/glue/cp-asset-data-import-job/csco/dp/job/AlertsParquetDataLoader.py).
 
-### [Schema]({{< ILink href="/ingestion/schemas/alerts">}})
+### [Schema]({{< ILink href="/ingestion/schema/alerts">}})
 
 ### Staging Tables
 - alert_fn_dcc
