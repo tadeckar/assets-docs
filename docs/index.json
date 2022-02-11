@@ -4,7 +4,7 @@
 	"title": "add_base_table_partions_prc",
 	"tags": [],
 	"description": "",
-	"content": "What does it do? Adds a partition to tables defined in the partition_tables table. (Called from Glue ETL Job.)   More Details    Get a cursor on partition_tables table where partitionTag and mgmtSystemType match input params that selects tableName. Get a count of wfIds for the given partitionTag. If the count is 0:   Insert all input params into the base_table_partition_info table Open a read loop over the cursor that, if partition on table doesn\u0026rsquo;t already exist, adds the partition to the table.   \nReferenced Tables  base_table_partition_info partition_automation_logs partition_tables  "
+	"content": "What does it do? Adds a partition to tables defined in the partition_tables table. (Called from Glue ETL Job.)   More Details    Get a cursor on partition_tables table where partitionTag and mgmtSystemType match input params that selects tableName. Get a count of wfIds for the given partitionTag. If the count is 0:  Insert all input params into the base_table_partition_info table Open a read loop over the cursor that, if partition on table doesn\u0026rsquo;t already exist, adds the partition to the table.     \nReferenced Tables  base_table_partition_info partition_automation_logs partition_tables  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/alerts/",
@@ -25,7 +25,7 @@
 	"title": "athena_asset_notification_prc",
 	"tags": [],
 	"description": "",
-	"content": " This procedure runs every 10 seconds.\n What does it do? Checks for any rows of the asset_data_load_notification table that are in the SUBMITTED state. If there are any, it updates the state to INPROGRESS, then runs the athena_dcc_dcn_data_process_prc procedure. Afterwards, it changes the state of those rows again to SUCCESS.\n  More Details    Gets a cursor over the asset_data_load_notification table for rows where:   processingStatus is SUBMITTED and dataSource is ATHENA and the customerId has no other rows where processingStatus is INPROGRESS  Gets counts of:   AMP subscriptions where processingStatus is SUBMITTED AMP subscriptions where processingStatus is INPROGRESS  Gets the max parallel limit for INPROGRESS uploads from upd_or_async_prop_master table If SUBMITTED count is \u0026gt; 0 and the INPROGRESS count is less than the max parallel limit:   Start a read loop that:  First checks for INPROGRESS count, if count \u0026gt; 0 then log info message and continue Get the wfId from a row Update rows from SUBMITTED to INPROGRESS processingStatus If any rows were updated, call the athena_dcc_dcn_data_process_prc with customerId and wfId Finally, set the processingStatus of the updated rows to SUCCESS      Referenced Tables  asset_data_load_notification upd_or_async_prop_master  Referenced Stored Procedures  amp_log_msg_prc athena_dcc_dcn_data_process_prc  "
+	"content": " This procedure runs every 10 seconds.\n What does it do? Checks for any rows of the asset_data_load_notification table that are in the SUBMITTED state. If there are any, it updates the state to INPROGRESS, then runs the athena_dcc_dcn_data_process_prc procedure. Afterwards, it changes the state of those rows again to SUCCESS.\n  More Details    Gets a cursor over the asset_data_load_notification table for rows where:  processingStatus is SUBMITTED and dataSource is ATHENA and the customerId has no other rows where processingStatus is INPROGRESS   Gets counts of:  AMP subscriptions where processingStatus is SUBMITTED AMP subscriptions where processingStatus is INPROGRESS   Gets the max parallel limit for INPROGRESS uploads from upd_or_async_prop_master table If SUBMITTED count is \u0026gt; 0 and the INPROGRESS count is less than the max parallel limit:  Start a read loop that:  First checks for INPROGRESS count, if count \u0026gt; 0 then log info message and continue Get the wfId from a row Update rows from SUBMITTED to INPROGRESS processingStatus If any rows were updated, call the athena_dcc_dcn_data_process_prc with customerId and wfId Finally, set the processingStatus of the updated rows to SUCCESS        Referenced Tables  asset_data_load_notification upd_or_async_prop_master  Referenced Stored Procedures  amp_log_msg_prc athena_dcc_dcn_data_process_prc  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/",
@@ -54,6 +54,13 @@
 	"tags": [],
 	"description": "",
 	"content": " This procedure runs once every day.\n What does it do? Checks rows in base_table_partition_info table where lastUpdateDate is over 4 days ago, drops those partitions, and deletes the rows.   More Details    Get a cursor over base_table_partition_info where lastUpdateDate is over 4 days ago. Loop over the cursor, performing the following tasks  Call the drop_partions_prc stored procedure Delete rows from base_table_partition_info where  lastUpdateDate is over 2 days ago partitionStatus is I       \nReferenced Tables  base_table_partition_info partition_automation_logs  Referenced Stored Procedures  drop_partions_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/clean_stale_datamerge_prc/",
+	"title": "clean_stale_datamerge_prc",
+	"tags": [],
+	"description": "",
+	"content": " This procedure runs every 30 minutes.\n What does it do? Updates status of long-running (over 2-day old) notifications from INPROGRESS to FAILED.   More Details    Gets a cursor over asset_inventory_notification where  processingStatus is INPROGRESS processingStart was over 2 days ago   Loop over cursor, updating each row\u0026rsquo;s processingStatus to FAILED   \nReferenced Tables  asset_inventory_notification data_merge_logs  Referenced Stored Procedures  log_msg_prc  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/cli/",
@@ -277,7 +284,7 @@
 	"title": "Stored Procedures",
 	"tags": [],
 	"description": "",
-	"content": "  add_base_table_partions_prc   athena_asset_notification_prc   clean_invalid_status_prc   "
+	"content": "  add_base_table_partions_prc   athena_asset_notification_prc   clean_invalid_status_prc   clean_stale_datamerge_prc   "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/subscriptions/",

@@ -18,6 +18,8 @@
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/clean_invalid_status_prc/</loc>
   </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/clean_stale_datamerge_prc/</loc>
+  </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/cli/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/cli/</loc>
