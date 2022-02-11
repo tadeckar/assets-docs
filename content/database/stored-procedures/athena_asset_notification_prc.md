@@ -6,7 +6,7 @@ title = "athena_asset_notification_prc"
 This procedure runs every 10 seconds.
 {{% /notice %}}
 
-### What does it do?:
+### What does it do?
 Checks for any rows of the `asset_data_load_notification` table that are in the `SUBMITTED` state. If there are any, it updates the state to `INPROGRESS`, then runs the `athena_dcc_dcn_data_process_prc` procedure. Afterwards, it changes the state of those rows again to `SUCCESS`.
 
 {{% expand "More Details" %}}
@@ -27,10 +27,10 @@ Checks for any rows of the `asset_data_load_notification` table that are in the 
     - Finally, set the **processingStatus** of the updated rows to `SUCCESS`
 {{% /expand %}}
 
-### Related Tables:
+### Related Tables
 - asset_data_load_notification
 - upd_or_async_prop_master
 
-### Stored Procedure Calls:
+### Stored Procedure Calls
 - amp_log_msg_prc
 - athena_dcc_dcn_data_process_prc
