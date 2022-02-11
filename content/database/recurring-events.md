@@ -5,7 +5,7 @@ title = "Recurring Events"
 #### Event to Stored Procedure Mapping
 - **athena_sub_process_01**: [athena_asset_notification_prc]({{< ILink href="/database/stored-procedures/athena_asset_notification_prc" >}}) - every 10 seconds
 - **clean_base_part_invalid_status**: [clean_invalid_status_prc]({{< ILink href="/database/stored-procedures/clean_invalid_status_prc" >}}) - every 1 day
-- **clean_stale_datamerge**: `clean_stale_datamerge_prc` - every 30 minutes
+- **clean_stale_datamerge**: [clean_stale_datamerge_prc]({{< ILink href="/database/stored-procedures/clean_stale_datamerge_prc" >}}) - every 30 minutes
 - **clean_stale_partitions**: `drop_stale_partions_prc` - every 1 day
 - **clean_sum_part_invalid_status**: `clean_invalid_wfId_status_sum_tables_prc` - every 1 day
 - **data_merge_process_01**: `inv_upload_notification_prc` - every 20 seconds
