@@ -49,6 +49,13 @@
 	"content": ""
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/clean_invalid_status_prc/",
+	"title": "clean_invalid_status_prc",
+	"tags": [],
+	"description": "",
+	"content": " This procedure runs once every day.\n What does it do? Checks rows in base_table_partition_info table where lastUpdateDate is over 4 days ago, drops those partitions, and deletes the rows.   More Details    Get a cursor over base_table_partition_info where lastUpdateDate is over 4 days ago. Loop over the cursor, performing the following tasks  Call the drop_partions_prc stored procedure Delete rows from base_table_partition_info where  lastUpdateDate is over 2 days ago partitionStatus is I       \nRelated Tables  base_table_partition_info partition_automation_logs  Stored Procedure Calls  drop_partions_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/cli/",
 	"title": "CLI",
 	"tags": [],
@@ -270,7 +277,7 @@
 	"title": "Stored Procedures",
 	"tags": [],
 	"description": "",
-	"content": "  add_base_table_partions_prc   athena_asset_notification_prc   "
+	"content": "  add_base_table_partions_prc   athena_asset_notification_prc   clean_invalid_status_prc   "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/subscriptions/",

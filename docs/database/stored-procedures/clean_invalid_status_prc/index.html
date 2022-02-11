@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>Equipments Schema :: CX Assets Wiki</title>
+    <title>clean_invalid_status_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1644610583" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/ingestion/schema/equipments/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/clean_invalid_status_prc/">
     <nav id="sidebar" class="">
 
 
@@ -93,7 +93,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/" title="Database" class="dd-item
-        
+        parent
         
         
         ">
@@ -164,7 +164,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/" title="Stored Procedures" class="dd-item
-        
+        parent
         
         
         ">
@@ -232,7 +232,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/clean_invalid_status_prc/" title="clean_invalid_status_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/clean_invalid_status_prc/" title="clean_invalid_status_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/clean_invalid_status_prc/">
         clean_invalid_status_prc
         
@@ -270,7 +270,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/" title="Ingestion" class="dd-item
-        parent
+        
         
         
         ">
@@ -728,7 +728,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/" title="Schema" class="dd-item
-        parent
+        
         
         
         ">
@@ -859,7 +859,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/equipments/" title="Equipments Schema" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/equipments/" title="Equipments Schema" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/ingestion/schema/equipments/">
         Equipments Schema
         
@@ -1127,7 +1127,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/ingestion/'>Ingestion</a> > <a href='/pages/tadeckar/assets-docs/ingestion/schema/'>Schema</a> > Equipments Schema
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > clean_invalid_status_prc
           
         
           
@@ -1142,7 +1142,17 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-does-it-do">What does it do?</a></li>
+        <li><a href="#related-tables">Related Tables</a></li>
+        <li><a href="#stored-procedure-calls">Stored Procedure Calls</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1158,7 +1168,7 @@
           
             <h1>
               
-              Equipments Schema
+              clean_invalid_status_prc
             </h1>
           
 
@@ -1166,68 +1176,49 @@
 
 
 
-<div class="mermaid" align="center">
-classDiagram
-  class Equipment{
-    +Boolean isCollector
-    +Long createdAt
-    +Long generatedAt
-    +Long updatedAt
-    +String cavbuid
-    +String cavid
-    +String collectedPid
-    +String collectedSerialNum
-    +String collectorId
-    +String containingHwId
-    +String createdBy
-    +String customerId
-    +String equipmentType
-    +String genPartyId
-    +String hostname
-    +String hwId
-    +String ibAvailabilityFlag
-    +String id
-    +String installProductType
-    +String itemTypeCode
-    +String managedNeId
-    +String managementAddress
-    +String manufacturer
-    +String mgmtSystemAddr
-    +String mgmtSystemHostname
-    +String mgmtSystemId
-    +String mgmtSystemType
-    +String neId
-    +String pceMultiPid
-    +String pcePhysicalType
-    +String pcePid
-    +String pceProductDescription
-    +String pceProductFamily
-    +String pceProductName
-    +String pceProductType
-    +String pceRuleId
-    +String prdtSetupClassificationCd
-    +String productClass
-    +String productDescription
-    +String productFamily
-    +String productId
-    +String productName
-    +String productType
-    +String productsubtype
-    +String serialNumber
-    +String snasItemType
-    +String snasProductFamily
-    +String snasSerialNumber
-    +String snasValidationCode
-    +String snasValidationSource
-    +String sourceNeId
-    +String tags
-    +String telemetryAvailablityFlag
-    +String termsAndContentCd
-    +String updatedBy
-    +String wfId
-  }
+<div class="notices note" ><p>This procedure runs once every day.</p>
 </div>
 
+<h3 id="what-does-it-do">What does it do?</h3>
+<p>Checks rows in <code>base_table_partition_info</code> table where <strong>lastUpdateDate</strong> is over 4 days ago, drops those partitions, and deletes the rows.
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	More Details
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <ol>
+<li>Get a cursor over <code>base_table_partition_info</code> where <strong>lastUpdateDate</strong> is over 4 days ago.</li>
+<li>Loop over the cursor, performing the following tasks
+<ol>
+<li>Call the <code>drop_partions_prc</code> stored procedure</li>
+<li>Delete rows from <code>base_table_partition_info</code> where
+<ul>
+<li><strong>lastUpdateDate</strong> is over 2 days ago</li>
+<li><strong>partitionStatus</strong> is <code>I</code></li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+</div></p>
+<h3 id="related-tables">Related Tables</h3>
+<ul>
+<li>base_table_partition_info</li>
+<li>partition_automation_logs</li>
+</ul>
+<h3 id="stored-procedure-calls">Stored Procedure Calls</h3>
+<ul>
+<li>drop_partions_prc</li>
+</ul>
 
 
 <footer class="footline">
@@ -1265,8 +1256,6 @@ classDiagram
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -1282,6 +1271,9 @@ classDiagram
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1315,6 +1307,7 @@ classDiagram
             
                 
                     
+                    
                 
                 
 
@@ -1327,6 +1320,9 @@ classDiagram
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1360,203 +1356,6 @@ classDiagram
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1571,6 +1370,27 @@ classDiagram
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
                     
                         
             
@@ -1697,42 +1517,6 @@ classDiagram
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -1781,6 +1565,22 @@ classDiagram
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
             
             
@@ -1802,6 +1602,21 @@ classDiagram
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1819,8 +1634,181 @@ classDiagram
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 

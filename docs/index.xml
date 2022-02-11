@@ -65,6 +65,16 @@ Schema Staging Tables  alert_pas_hw_eox_bulletin_dcc alert_pas_hw_eox_bulletin_d
     </item>
     
     <item>
+      <title>clean_invalid_status_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/clean_invalid_status_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/clean_invalid_status_prc/</guid>
+      <description>This procedure runs once every day.
+ What does it do? Checks rows in base_table_partition_info table where lastUpdateDate is over 4 days ago, drops those partitions, and deletes the rows.   More Details    Get a cursor over base_table_partition_info where lastUpdateDate is over 4 days ago. Loop over the cursor, performing the following tasks  Call the drop_partions_prc stored procedure Delete rows from base_table_partition_info where  lastUpdateDate is over 2 days ago partitionStatus is I</description>
+    </item>
+    
+    <item>
       <title>CLI</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/cli/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
