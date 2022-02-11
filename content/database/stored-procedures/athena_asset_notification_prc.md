@@ -27,10 +27,10 @@ Checks for any rows of the `asset_data_load_notification` table that are in the 
     - Finally, set the **processingStatus** of the updated rows to `SUCCESS`
 {{% /expand %}}
 
-### Related Tables
+### Referenced Tables
 - asset_data_load_notification
 - upd_or_async_prop_master
 
-### Stored Procedure Calls
+### Referenced Stored Procedures
 - amp_log_msg_prc
 - athena_dcc_dcn_data_process_prc

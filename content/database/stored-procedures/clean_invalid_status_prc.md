@@ -17,9 +17,9 @@ Checks rows in `base_table_partition_info` table where **lastUpdateDate** is ove
       - **partitionStatus** is `I`
 {{% /expand %}}
 
-### Related Tables
+### Referenced Tables
 - base_table_partition_info
 - partition_automation_logs
 
-### Stored Procedure Calls
+### Referenced Stored Procedures
 - drop_partions_prc
