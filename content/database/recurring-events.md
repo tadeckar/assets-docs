@@ -11,7 +11,7 @@ title = "Recurring Events"
 - **data_merge_process_01**: [inv_upload_notification_prc]({{< ILink href="/database/stored-procedures/inv_upload_notification_prc" >}}) - every 20 seconds
 - **data_process_writer_cleanup_script**: [stale_uploads_cleanup_prc]({{< ILink href="/database/stored-procedures/stale_uploads_cleanup_prc" >}}) - every 1 day
 - **drop_pending_partitions**: [drop_pending_wfid_status_sum_tables_prc]({{< ILink href="/database/stored-procedures/drop_pending_wfid_status_sum_tables_prc" >}}) - every 1 day
-- **iso_data_merge_cleanup_process**: `cleanup_longrunning_iso_data_prc` - every 4 hours
+- **iso_data_merge_cleanup_process**: [cleanup_longrunning_iso_data_prc]({{< ILink href="/database/stored-procedures/cleanup_longrunning_iso_data_prc" >}}) - every 4 hours
 - **iso_data_merge_process_01**: `amp_upload_notification_prc` - every 30 seconds
 - **meraki_license_process_01**: `meraki_license_notification_prc` - every 30 seconds
 - **retry_failed_data_process_writer**: `retry_failed_uploads_prc` - every 12 hours
