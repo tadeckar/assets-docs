@@ -10,7 +10,7 @@ The InventoryDataLoadManager is not currently in use.
 
 Loads data of the `IBES_INV_UPLOAD` [File Type]({{< ILink href="/ingestion/types/file-types" >}}).
 
-Firstly, the IDLM tries to create a partition using the `add_base_table_partions_prc` stored procedure. If the partition already exists, processing is skipped.
+Firstly, the IDLM tries to create a partition using the [add_base_table_partions_prc]({{< ILink href="/database/stored-procedures/add_base_table_partions_prc" >}}) stored procedure. If the partition already exists, processing is skipped.
 
 Next, a thread is spun up to load the data, executing the [DataLoadManager]({{< ILink href="/ingestion/managers/data-load-manager" >}}), which in turn executes a Loader of [IBES Data Load Type]({{< ILink href="/ingestion/types/data-load-types/#ibes" >}}).
 

@@ -6,9 +6,9 @@ title = "ParquetInvDataLoadManager"
 
 Loads data of the `CIBES_INV_UPLOAD` and `DNAC_UPLOAD` [File Types]({{< ILink href="/ingestion/types/file-types" >}}).
 
-Firstly, the PIDLM checks the SQS message for `mgmtSystemType`. If the value of this property is not `DCC_SUB`, PIDLM tries to create a partition using the `add_base_table_partions_prc` stored procedure. Otherwise, processing begins regardless.
+Firstly, the PIDLM checks the SQS message for `mgmtSystemType`. If the value of this property is not `DCC_SUB`, PIDLM tries to create a partition using the [add_base_table_partions_prc]({{< ILink href="/database/stored-procedures/add_base_table_partions_prc" >}} ) stored procedure. Otherwise, processing begins regardless.
 
-When `mgmtSystemType === "DCC_SUB"`, and the partition is created successfully, processing begins. If the partition already exists, the base table partitions are cleared using the `delete_raw_data_wfid_prc` stored procedure, then processing begins.
+When `mgmtSystemType === "DCC_SUB"`, and the partition is created successfully, processing begins. If the partition already exists, the base table partitions are cleared using the [delete_raw_data_wfid_prc]({{< ILink href="/database/stored-procedures/delete_raw_data_wfid_prc" >}}) stored procedure, then processing begins.
 
 Next, a thread is spun up to load the data, executing the [DataLoadManager]({{< ILink href="/ingestion/managers/data-load-manager" >}}), which in turn executes a Loader of either [XAAS]({{< ILink href="/ingestion/types/data-load-types/#xaas" >}}), [DNAC]({{< ILink href="/ingestion/types/data-load-types/#dnac" >}}), or [CIBES]({{< ILink href="/ingestion/types/data-load-types/#cibes" >}}) Data Load Types, dependent on the `mgmtSystemType`. See mapping below.
 
