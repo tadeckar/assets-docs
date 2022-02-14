@@ -274,6 +274,16 @@ Next, a thread is spun up to load the data, executing the DataLoadManager, which
     </item>
     
     <item>
+      <title>inv_upload_notification_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/inv_upload_notification_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/inv_upload_notification_prc/</guid>
+      <description>This procedure runs every 20 seconds.
+ What does it do? Checks for rows in asset_inventory_notification that are in SUBMITTED state. Changes the state to INPROGRESS and calls the update_raw_data_process_prc stored procedure on the rows. On completion, changes the state to SUCCESS.   More Details    Gets a cursor on asset_inventory_notification where  processingStatus is SUBMITTED and no other rows of the selected customerId have processingStatus that is INPROGRESS   Get a count of the number of SUBMITTED rows and a count of the number of INPROGRESS rows.</description>
+    </item>
+    
+    <item>
       <title>InventoryDataLoadManager</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/inventory-data-load-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

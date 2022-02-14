@@ -85,5 +85,15 @@ Referenced Tables  asset_inventory_notification data_merge_logs  Referenced Stor
  What does it do? Drops partitions in which the partition_description in the INFORMATION_SCHEMA db PARTITIONS table does not match up to any partitionValues in the base_table_partition_info or customer_partition_info tables.   More Details    Gets a cursor over INFORMATION_SCHEMA db PARTITIONS table where:  partition_description is not in any partitionValues from base_table_partition_info and partition_description is not in any partitionValues from customer_partition_info   Opens a read loop on the cursor that drops each partition from the table it&amp;rsquo;s part of.</description>
     </item>
     
+    <item>
+      <title>inv_upload_notification_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/inv_upload_notification_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/inv_upload_notification_prc/</guid>
+      <description>This procedure runs every 20 seconds.
+ What does it do? Checks for rows in asset_inventory_notification that are in SUBMITTED state. Changes the state to INPROGRESS and calls the update_raw_data_process_prc stored procedure on the rows. On completion, changes the state to SUCCESS.   More Details    Gets a cursor on asset_inventory_notification where  processingStatus is SUBMITTED and no other rows of the selected customerId have processingStatus that is INPROGRESS   Get a count of the number of SUBMITTED rows and a count of the number of INPROGRESS rows.</description>
+    </item>
+    
   </channel>
 </rss>
