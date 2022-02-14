@@ -385,6 +385,16 @@ When mgmtSystemType === &amp;quot;DCC_SUB&amp;quot;, and the partition is create
     </item>
     
     <item>
+      <title>stale_uploads_cleanup_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/stale_uploads_cleanup_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/stale_uploads_cleanup_prc/</guid>
+      <description>This procedure runs once every day.
+ What does it do? Updates the processingStatus of 2-day-old rows in asset_inventory_notification to be FAILED after first verifying whether or not the device count for the customerId/wfId is changing within a 3-minute timespan.   More Details    Get a cursor over asset_inventory_notification where  processingStart is greater than 2 days ago, is also not null/undefined, and processingStatus is STARTED   Open a read loop on the cursor that  Gets a device count by  When mgmtSystemType is DNAC:  Get a count of rows in networkelement_telemetry table that match the row&amp;rsquo;s customerId/wfId.</description>
+    </item>
+    
+    <item>
       <title>Subscriptions</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/subscriptions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

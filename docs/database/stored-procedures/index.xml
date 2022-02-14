@@ -95,5 +95,15 @@ Referenced Tables  asset_inventory_notification data_merge_logs  Referenced Stor
  What does it do? Checks for rows in asset_inventory_notification that are in SUBMITTED state. Changes the state to INPROGRESS and calls the update_raw_data_process_prc stored procedure on the rows. On completion, changes the state to SUCCESS.   More Details    Gets a cursor on asset_inventory_notification where  processingStatus is SUBMITTED and no other rows of the selected customerId have processingStatus that is INPROGRESS   Get a count of the number of SUBMITTED rows and a count of the number of INPROGRESS rows.</description>
     </item>
     
+    <item>
+      <title>stale_uploads_cleanup_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/stale_uploads_cleanup_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/stale_uploads_cleanup_prc/</guid>
+      <description>This procedure runs once every day.
+ What does it do? Updates the processingStatus of 2-day-old rows in asset_inventory_notification to be FAILED after first verifying whether or not the device count for the customerId/wfId is changing within a 3-minute timespan.   More Details    Get a cursor over asset_inventory_notification where  processingStart is greater than 2 days ago, is also not null/undefined, and processingStatus is STARTED   Open a read loop on the cursor that  Gets a device count by  When mgmtSystemType is DNAC:  Get a count of rows in networkelement_telemetry table that match the row&amp;rsquo;s customerId/wfId.</description>
+    </item>
+    
   </channel>
 </rss>
