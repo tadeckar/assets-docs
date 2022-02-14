@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>Licenses Schema :: CX Assets Wiki</title>
+    <title>delete_raw_data_wfid_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1644852363" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/ingestion/schema/licenses/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/delete_raw_data_wfid_prc/">
     <nav id="sidebar" class="">
 
 
@@ -93,7 +93,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/" title="Database" class="dd-item
-        
+        parent
         
         
         ">
@@ -164,7 +164,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/" title="Stored Procedures" class="dd-item
-        
+        parent
         
         
         ">
@@ -274,7 +274,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/delete_raw_data_wfid_prc/" title="delete_raw_data_wfid_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/delete_raw_data_wfid_prc/" title="delete_raw_data_wfid_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/delete_raw_data_wfid_prc/">
         delete_raw_data_wfid_prc
         
@@ -312,7 +312,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/" title="Ingestion" class="dd-item
-        parent
+        
         
         
         ">
@@ -770,7 +770,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/" title="Schema" class="dd-item
-        parent
+        
         
         
         ">
@@ -943,7 +943,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/licenses/" title="Licenses Schema" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/licenses/" title="Licenses Schema" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/ingestion/schema/licenses/">
         Licenses Schema
         
@@ -1169,7 +1169,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/ingestion/'>Ingestion</a> > <a href='/pages/tadeckar/assets-docs/ingestion/schema/'>Schema</a> > Licenses Schema
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > delete_raw_data_wfid_prc
           
         
           
@@ -1184,7 +1184,16 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-does-it-do">What does it do?</a></li>
+        <li><a href="#referenced-tables">Referenced Tables</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1200,36 +1209,169 @@
           
             <h1>
               
-              Licenses Schema
+              delete_raw_data_wfid_prc
             </h1>
           
 
         
 
 
+<h3 id="what-does-it-do">What does it do?</h3>
+<p>Deletes rows matching <strong>customerId</strong>/<strong>wfId</strong> from tables based on a given <strong>mgmtSystemType</strong>.
 
-<div class="mermaid" align="center">
-classDiagram
-  class License {
-    +Boolean isPDL
-    +Long generatedAt
-    +Long licenseEndDate
-    +Long purchasedQuantity
-    +String cavBUId
-    +String cavBUName
-    +String cavId
-    +String cavName
-    +String customerId
-    +String licenseLevel
-    +String licenseStatus
-    +String licenseType
-    +String orgId
-    +String orgName
-    +String sourceLicenseStatus
-    +String wfId
-  }
-</div>
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	More Details
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <ol>
+<li>Deletes rows that match <strong>customerId</strong>/<strong>wfId</strong> from <code>base_table_partition_info</code>.</li>
+<li>Deletes rows that match <strong>customerId</strong>/<strong>wfId</strong> from tables based on <strong>mgmtSystemType</strong>.
+<ul>
+<li>When <strong>mgmtSystemType</strong> is <code>DNAC</code>, deletes from tables:
+<ul>
+<li>active_dnac_ne</li>
+<li>alert_fn_telemetry</li>
+<li>alert_hweox_telemetry</li>
+<li>alert_pas_hw_eox_bulletin_dnac</li>
+<li>alert_pas_sw_eox_bulletin_dnac</li>
+<li>alert_psirt_telemetry</li>
+<li>alert_sweox_telemetry</li>
+<li>asset_feature_telemetry</li>
+<li>equipment_telemetry</li>
+<li>fn_bulletin_master_dnac</li>
+<li>networkelement_telemetry</li>
+<li>sa_bulletin_master_dnac</li>
+</ul>
+</li>
+<li>When <strong>mgmtSystemType</strong> is <code>APIC</code>, deletes from tables:
+<ul>
+<li>alert_fn_dcn</li>
+<li>alert_hweox_dcn</li>
+<li>alert_pas_hw_eox_bulletin_dcn</li>
+<li>alert_pas_sw_eox_bulletin_dcn</li>
+<li>alert_psirt_dcn</li>
+<li>alert_sweox_dcn</li>
+<li>equipment_dcn</li>
+<li>fn_bulletin_master_dcn</li>
+<li>networkelement_dcn</li>
+<li>sa_bulletin_master_dcn</li>
+</ul>
+</li>
+<li>When <strong>mgmtSystemType</strong> is <code>CSDFIB</code>, deletes from tables:
+<ul>
+<li>alert_fn_ib_data</li>
+<li>alert_hweox_ib_data</li>
+<li>alert_pas_hw_eox_bulletin_ib_data</li>
+<li>alert_pas_sw_eox_bulletin_ib_data</li>
+<li>alert_psirt_ib_data</li>
+<li>alert_sweox_ib_data</li>
+<li>contractcoverage_ib_data</li>
+<li>equipment_ib_data</li>
+<li>fn_bulletin_master_ib_data</li>
+<li>networkelement_ib_data</li>
+<li>sa_bulletin_master_ib_data</li>
+</ul>
+</li>
+<li>When <strong>mgmtSystemType</strong> is <code>MERAKI</code>, deletes from tables:
+<ul>
+<li>alert_fn_meraki</li>
+<li>alert_hweox_meraki</li>
+<li>alert_pas_hw_eox_bulletin_meraki</li>
+<li>alert_pas_sw_eox_bulletin_meraki</li>
+<li>alert_psirt_meraki</li>
+<li>alert_sweox_meraki</li>
+<li>contractcoverage_meraki</li>
+<li>equipment_meraki</li>
+<li>fn_bulletin_master_meraki</li>
+<li>networkelement_meraki</li>
+<li>sa_bulletin_master_meraki</li>
+</ul>
+</li>
+<li>When <strong>mgmtSystemType</strong> is <code>DCC</code>, deletes from tables:
+<ul>
+<li>alert_fn_dcc</li>
+<li>alert_hweox_dcc</li>
+<li>alert_pas_hw_eox_bulletin_dcc</li>
+<li>alert_pas_sw_eox_bulletin_dcc</li>
+<li>alert_psirt_dcc</li>
+<li>alert_sweox_dcc</li>
+<li>equipment_dcc</li>
+<li>fn_bulletin_master_dcc</li>
+<li>networkelement_dcc</li>
+<li>sa_bulletin_master_dcc</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
 
+    </div>
+</div></p>
+<h3 id="referenced-tables">Referenced Tables</h3>
+<ul>
+<li>active_dnac_ne</li>
+<li>alert_fn_dcc</li>
+<li>alert_fn_dcn</li>
+<li>alert_fn_ib_data</li>
+<li>alert_fn_meraki</li>
+<li>alert_fn_telemetry</li>
+<li>alert_hweox_dcc</li>
+<li>alert_hweox_dcn</li>
+<li>alert_hweox_ib_data</li>
+<li>alert_hweox_meraki</li>
+<li>alert_hweox_telemetry</li>
+<li>alert_pas_hw_eox_bulletin_dcc</li>
+<li>alert_pas_hw_eox_bulletin_dcn</li>
+<li>alert_pas_hw_eox_bulletin_dnac</li>
+<li>alert_pas_hw_eox_bulletin_ib_data</li>
+<li>alert_pas_hw_eox_bulletin_meraki</li>
+<li>alert_pas_sw_eox_bulletin_dcc</li>
+<li>alert_pas_sw_eox_bulletin_dcn</li>
+<li>alert_pas_sw_eox_bulletin_dnac</li>
+<li>alert_pas_sw_eox_bulletin_ib_data</li>
+<li>alert_pas_sw_eox_bulletin_meraki</li>
+<li>alert_psirt_dcc</li>
+<li>alert_psirt_dcn</li>
+<li>alert_psirt_ib_data</li>
+<li>alert_psirt_meraki</li>
+<li>alert_psirt_telemetry</li>
+<li>alert_sweox_dcc</li>
+<li>alert_sweox_dcn</li>
+<li>alert_sweox_ib_data</li>
+<li>alert_sweox_meraki</li>
+<li>alert_sweox_telemetry</li>
+<li>asset_feature_telemetry</li>
+<li>base_table_partition_info</li>
+<li>contractcoverage_ib_data</li>
+<li>contractcoverage_meraki</li>
+<li>equipment_dcc</li>
+<li>equipment_dcn</li>
+<li>equipment_ib_data</li>
+<li>equipment_meraki</li>
+<li>equipment_telemetry</li>
+<li>fn_bulletin_master_dcc</li>
+<li>fn_bulletin_master_dcn</li>
+<li>fn_bulletin_master_dnac</li>
+<li>fn_bulletin_master_ib_data</li>
+<li>fn_bulletin_master_meraki</li>
+<li>networkelement_dcc</li>
+<li>networkelement_dcn</li>
+<li>networkelement_ib_data</li>
+<li>networkelement_meraki</li>
+<li>networkelement_telemetry</li>
+<li>sa_bulletin_master_dcc</li>
+<li>sa_bulletin_master_dcn</li>
+<li>sa_bulletin_master_dnac</li>
+<li>sa_bulletin_master_ib_data</li>
+<li>sa_bulletin_master_meraki</li>
+</ul>
 
 
 <footer class="footline">
@@ -1267,8 +1409,6 @@ classDiagram
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -1284,6 +1424,9 @@ classDiagram
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1317,123 +1460,6 @@ classDiagram
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -1447,6 +1473,9 @@ classDiagram
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1512,6 +1541,7 @@ classDiagram
             
                 
                     
+                    
                 
                 
 
@@ -1519,6 +1549,12 @@ classDiagram
                     
                     
 
+                    
+            
+        
+                    
+            
+        
                     
             
         
@@ -1528,83 +1564,18 @@ classDiagram
             
                 
                     
+                        
+                        
+                    
                 
                 
 
                     
-                    
-                    
-
-                    
-            
-        
                     
                         
-            
-            
-                
-                    
-                
-                
-
-                    
                     
                     
 
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
                     
                         
             
@@ -1731,42 +1702,6 @@ classDiagram
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -1814,6 +1749,22 @@ classDiagram
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
                         
             
@@ -1868,6 +1819,21 @@ classDiagram
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1885,8 +1851,181 @@ classDiagram
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
