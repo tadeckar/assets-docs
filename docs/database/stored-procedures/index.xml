@@ -76,6 +76,16 @@ Referenced Tables  asset_inventory_notification data_merge_logs  Referenced Stor
     </item>
     
     <item>
+      <title>drop_pending_wfid_status_sum_tables_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/drop_pending_wfid_status_sum_tables_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/drop_pending_wfid_status_sum_tables_prc/</guid>
+      <description>This procedure runs once every day.
+ What does it do? Calls the drop_partions_prc stored procedure on rows of the customer_partition_info table that have been in P state for over a day.   More Details    Get a cursor over customer_partition_info where  lastUpdateDate is &amp;gt; 1 day go and partitionStatus is P   Open a read loop on the cursor that  Calls the drop_partions_prc stored procedure with fields from the row Deletes the row from customer_partition_info</description>
+    </item>
+    
+    <item>
       <title>drop_stale_partions_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/drop_stale_partions_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -154,6 +154,13 @@
 	"content": "What does it do? Drops a partition from all tables that it is a part of.   More Details    Gets a cursor over partition_tables where partitionTag matches the given parameter. Create a read loop on the cursor that:  Gets a count of rows in INFORMATION_SCHEMA db PARTITIONS table where:  TABLE_NAME matches the rows tableName and partition_description matches the given partitionValue parameter.   If the count from the previous step is \u0026gt; 1:  Get the rows from the INFORMATION_SCHEMA db PARTITIONS table that match the row from the cursor Use the partition_name field from the result to drop that partition from each table       \nReferenced Tables  partition_automation_logs partition_tables  "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/drop_pending_wfid_status_sum_tables_prc/",
+	"title": "drop_pending_wfid_status_sum_tables_prc",
+	"tags": [],
+	"description": "",
+	"content": " This procedure runs once every day.\n What does it do? Calls the drop_partions_prc stored procedure on rows of the customer_partition_info table that have been in P state for over a day.   More Details    Get a cursor over customer_partition_info where  lastUpdateDate is \u0026gt; 1 day go and partitionStatus is P   Open a read loop on the cursor that  Calls the drop_partions_prc stored procedure with fields from the row Deletes the row from customer_partition_info     \nReferenced Tables  customer_partition_info partition_automation_logs  Referenced Stored Procedures  drop_partions_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/drop_stale_partions_prc/",
 	"title": "drop_stale_partions_prc",
 	"tags": [],
@@ -326,7 +333,7 @@
 	"title": "Stored Procedures",
 	"tags": [],
 	"description": "",
-	"content": "  add_base_table_partions_prc   athena_asset_notification_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_stale_partions_prc   inv_upload_notification_prc   stale_uploads_cleanup_prc   "
+	"content": "  add_base_table_partions_prc   athena_asset_notification_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   stale_uploads_cleanup_prc   "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/subscriptions/",
