@@ -187,6 +187,16 @@ ParquetInvDataLoadManager</description>
     </item>
     
     <item>
+      <title>drop_stale_partions_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/drop_stale_partions_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/drop_stale_partions_prc/</guid>
+      <description>This procedure runs once every day.
+ What does it do? Drops partitions in which the partition_description in the INFORMATION_SCHEMA db PARTITIONS table does not match up to any partitionValues in the base_table_partition_info or customer_partition_info tables.   More Details    Gets a cursor over INFORMATION_SCHEMA db PARTITIONS table where:  partition_description is not in any partitionValues from base_table_partition_info and partition_description is not in any partitionValues from customer_partition_info   Opens a read loop on the cursor that drops each partition from the table it&amp;rsquo;s part of.</description>
+    </item>
+    
+    <item>
       <title>Equipments</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/equipments/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
