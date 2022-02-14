@@ -7,7 +7,7 @@ title = "Recurring Events"
 - **clean_base_part_invalid_status**: [clean_invalid_status_prc]({{< ILink href="/database/stored-procedures/clean_invalid_status_prc" >}}) - every 1 day
 - **clean_stale_datamerge**: [clean_stale_datamerge_prc]({{< ILink href="/database/stored-procedures/clean_stale_datamerge_prc" >}}) - every 30 minutes
 - **clean_stale_partitions**: [drop_stale_partions_prc]({{< ILink href="/database/stored-procedures/drop_stale_partions_prc" >}}) - every 1 day
-- **clean_sum_part_invalid_status**: `clean_invalid_wfId_status_sum_tables_prc` - every 1 day
+- **clean_sum_part_invalid_status**: [clean_invalid_wfId_status_sum_tables_prc]({{< ILink href="/database/stored-procedures/clean_invalid_wfid_status_sum_tables_prc" >}}) - every 1 day
 - **data_merge_process_01**: `inv_upload_notification_prc` - every 20 seconds
 - **data_process_writer_cleanup_script**: `stale_uploads_cleanup_prc` - every 1 day
 - **drop_pending_partitions**: `drop_pending_wfid_status_sum_tables_prc` - every 1 day

@@ -22,4 +22,4 @@ Checks rows in `base_table_partition_info` table where **lastUpdateDate** is ove
 - partition_automation_logs
 
 ### Referenced Stored Procedures
-- drop_partions_prc
+- [drop_partions_prc]({{< ILink href="/database/stored-procedures/drop_partions_prc" >}})
