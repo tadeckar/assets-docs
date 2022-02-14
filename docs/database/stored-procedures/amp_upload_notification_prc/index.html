@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>Ingestion :: CX Assets Wiki</title>
+    <title>amp_upload_notification_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1644874040" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/ingestion/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/amp_upload_notification_prc/">
     <nav id="sidebar" class="">
 
 
@@ -93,7 +93,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/" title="Database" class="dd-item
-        
+        parent
         
         
         ">
@@ -164,7 +164,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/" title="Stored Procedures" class="dd-item
-        
+        parent
         
         
         ">
@@ -211,7 +211,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/amp_upload_notification_prc/" title="amp_upload_notification_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/amp_upload_notification_prc/" title="amp_upload_notification_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_upload_notification_prc/">
         amp_upload_notification_prc
         
@@ -480,8 +480,8 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/" title="Ingestion" class="dd-item
-        parent
-        active
+        
+        
         
         ">
       <a href="/pages/tadeckar/assets-docs/ingestion/">
@@ -1329,7 +1329,19 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > Ingestion
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > amp_upload_notification_prc
+          
+        
+          
+        
           
         
           
@@ -1342,9 +1354,11 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#overview">Overview</a>
+    <li>
       <ul>
-        <li><a href="#contents">Contents</a></li>
+        <li><a href="#what-does-it-do">What does it do?</a></li>
+        <li><a href="#referenced-tables">Referenced Tables</a></li>
+        <li><a href="#referenced-stored-procedures">Referenced Stored Procedures</a></li>
       </ul>
     </li>
   </ul>
@@ -1364,7 +1378,7 @@
           
             <h1>
               
-              Ingestion
+              amp_upload_notification_prc
             </h1>
           
 
@@ -1372,177 +1386,65 @@
 
 
 
-	<p>The repositories associated with AWS Glue are:</p>
-<ul>
-<li><a href="https://www-github3.cisco.com/cxe/cp-asset-data-pipeline">cp-asset-data-pipeline</a>: Ingest Data to MySQL from Parquet files in S3</li>
-<li><a href="https://www-github3.cisco.com/cxe/cp-asset-data-export-pipeline">cp-asset-data-export-pipeline</a>: Export data to consumers (Insights)</li>
-</ul>
-<h2 id="overview">Overview</h2>
-<p><img src="/pages/tadeckar/assets-docs/images/ingestion.png
-" alt="Overview"></p>
-<p>At a high level, a Lambda function listens for SQS events. Upon receiving, the Glue ETL Job is triggered. The job downloads files from an S3 bucket, parses them, and stores results in staging tables of the RDS MySQL database.</p>
-<p>The SQS message&rsquo;s <code>recordType</code> property signals the type of data that should be loaded. The graph below depicts the flow of logic through the Glue ETL Job.</p>
-
-<div class="mermaid" align="center">
-graph TD;
-  RT{SQS recordType} -->|CSDF_AMP_TELE| PINV(ParqeutInvDataLoadManager)
-  RT -->|CSDF_SUBSCRIPTION| PINV
-  RT -->|CIBES_INVENTORY_DATA_RECEIVED| PINV
-  RT -->|DNAC_DATA_RECEIVED| PINV
-  RT -->|MERAKI_LICENSE| LIC(LicenseDataLoadManager)
-  RT -->|XAAS_INVENTORY_DATA_RECEIVED| PINV
-  RT -->|DCC_SUB| PINV
-  RT -->|ATHENA| HYB(HybridSubscriptionDataLoadManager)
-
-  PINV --> PINVD{SQS mgmtSystemType}
-  PINVD -->|DCC_SUB| DCC_SUBL(DataLoadManager)
-  DCC_SUBL --> DCC_SUBL_NEPDL(NEParquetDataLoader)
-  DCC_SUBL --> DCC_SUBL_SPDL(SubscriptionParquetDataLoader)
-  PINVD -->|DNAC_DL| DNAC_DLL(DataLoadManager)
-  DNAC_DLL --> DNAC_DLL_NEPDL(NEParquetDataLoader)
-  DNAC_DLL --> DNAC_DLL_EQPDL(EQParquetDataLoader)
-  DNAC_DLL --> DNAC_DLL_APDL(AlertsParquetDataLoader)
-  DNAC_DLL --> DNAC_DLL_BMPDL(BulletinMasterParquetDataLoader)
-  DNAC_DLL --> DNAC_DLL_CPDL(ContractParquetDataLoader)
-  DNAC_DLL --> DNAC_DLL_CLIPDL(CLIParquetDataLoader)
-  DNAC_DLL --> DNAC_DLL_CONFIGPDL(ConfigParquetDataLoader)
-  PINVD -->|else| PINVD_ELSE(DataLoadManager)
-  PINVD_ELSE --> ELSE_BMPDL(BulletinMasterParquetDataLoader)
-  PINVD_ELSE --> ELSE_NEPDL(NEParquetDataLoader)
-  PINVD_ELSE --> ELSE_EQPDL(EQParquetDataLoader)
-  PINVD_ELSE --> ELSE_APDL(AlertsParquetDataLoader)
-  PINVD_ELSE --> ELSE_CPDL(ContractParquetDataLoader)
-  click PINV "/pages/tadeckar/assets-docs/ingestion/managers/parquet-inv-data-load-manager/"
-  click DCC_SUBL "/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/"
-  click DNAC_DLL "/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/"
-  click PINVD_ELSE "/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/"
-  click DCC_SUBL_NEPDL "/pages/tadeckar/assets-docs/ingestion/loaders/network-elements/"
-  click DCC_SUBL_SPDL "/pages/tadeckar/assets-docs/ingestion/loaders/subscriptions/"
-  click DNAC_DLL_NEPDL "/pages/tadeckar/assets-docs/ingestion/loaders/network-elements/"
-  click DNAC_DLL_EQPDL "/pages/tadeckar/assets-docs/ingestion/loaders/equipments/"
-  click DNAC_DLL_APDL "/pages/tadeckar/assets-docs/ingestion/loaders/alerts/"
-  click DNAC_DLL_BMPDL "/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/"
-  click DNAC_DLL_CPDL "/pages/tadeckar/assets-docs/ingestion/loaders/contracts/"
-  click DNAC_DLL_CLIPDL "/pages/tadeckar/assets-docs/ingestion/loaders/cli/"
-  click DNAC_DLL_CONFIGPDL "/pages/tadeckar/assets-docs/ingestion/loaders/config/"
-  click ELSE_BMPDL "/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/"
-  click ELSE_NEPDL "/pages/tadeckar/assets-docs/ingestion/loaders/network-elements/"
-  click ELSE_EQPDL "/pages/tadeckar/assets-docs/ingestion/loaders/equipments/"
-  click ELSE_APDL "/pages/tadeckar/assets-docs/ingestion/loaders/alerts/"
-  click ELSE_CPDL "/pages/tadeckar/assets-docs/ingestion/loaders/contracts/"
-
-  LIC --> LIC_DLM(DataLoadManager)
-  LIC_DLM --> LPDL(LicenseParquetDataLoader)
-  click LIC "/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/"
-  click LIC_DLM "/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/"
-  click LPDL "/pages/tadeckar/assets-docs/ingestion/loaders/licenses/"
-
-  HYB --> HYB_DLM(DataLoadManager)
-  HYB_DLM --> HSPDL(HybridSubscriptionParquetDataLoader)
-  click HYB "/pages/tadeckar/assets-docs/ingestion/managers/hybrid-subscription-data-load-manager/"
-  click HYB_DLM "/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/"
-  click HSPDL "/pages/tadeckar/assets-docs/ingestion/loaders/hybrid-subscriptions/"
-
+<div class="notices note" ><p>This procedure runs every 30 seconds.</p>
 </div>
 
-<h3 id="contents">Contents</h3>
+<h3 id="what-does-it-do">What does it do?</h3>
+<p>Checks for rows in <code>asset_data_load_notification</code> in <code>SUBMITTED</code> state. Transitions the rows to <code>INPROGRESS</code> state and calls the <code>iso_data_process_wrap_prc</code> stored procedure. Afterwards, updates the state of the rows to <code>SUCCESS</code>.
 
-
-
-
-
-
-
-<ul class="children children-li">
-	
-
-	
-		
-			
-		
-	
-
-	
-
-	
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/ingestion/loaders/" >Loaders</a>
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	More Details
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <ol>
+<li>Get a cursor over the <code>asset_data_load_notification</code> table where:
+<ul>
+<li><strong>processingStatus</strong> is <code>SUBMITTED</code> and</li>
+<li><strong>dataSource</strong> is <code>CSDF_AMP_TELE</code> and</li>
+<li>None of the rows for same <strong>customerId</strong> are <code>INPROGRESS</code></li>
+</ul>
 </li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/ingestion/managers/" >Managers</a>
+<li>Get a counts for
+<ul>
+<li><code>SUBMITTED</code> notifications and</li>
+<li><code>INPROGRESS</code> notifications</li>
+</ul>
 </li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/ingestion/schema/" >Schema</a>
+<li>Get the max parallel limit of amp uploads from the <code>upd_or_async_prop_master</code> table.</li>
+<li>If the <code>SUBMITTED</code> count is &gt; 0 and <code>INPROGRESS</code> count is less than the max parallel limit, open a read loop that:
+<ol>
+<li>Counts the number of <code>INPROGRESS</code> rows for the given <strong>customerId</strong></li>
+<li>If the count is 0 (none <code>INPROGRESS</code>), get the <strong>wfId</strong> from a <code>SUBMITTED</code> row.</li>
+<li>Update the status to <code>INPROGRESS</code> of <code>SUBMITTED</code> rows with the <strong>wfId</strong> from the previous step.</li>
+<li>Call the <code>iso_data_process_wrap_prc</code> stored procedure with input data from the row.</li>
+<li>Update the status to <code>SUCCESS</code> on the affected rows.</li>
+</ol>
 </li>
-				
+</ol>
 
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/ingestion/types/" >Types</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/ingestion/workflow/" >Workflow</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-
-	
+    </div>
+</div></p>
+<h3 id="referenced-tables">Referenced Tables</h3>
+<ul>
+<li>asset_data_load_notification</li>
+<li>amp_data_merge_logs</li>
+<li>upd_or_async_prop_master</li>
+</ul>
+<h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
+<ul>
+<li>amp_log_msg_prc</li>
+<li>iso_data_process_wrap_prc</li>
 </ul>
 
 
-
-
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -1577,8 +1479,6 @@ graph TD;
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -1594,6 +1494,9 @@ graph TD;
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1627,6 +1530,7 @@ graph TD;
             
                 
                     
+                    
                 
                 
 
@@ -1639,6 +1543,9 @@ graph TD;
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1656,21 +1563,6 @@ graph TD;
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1688,37 +1580,8 @@ graph TD;
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
                     
                 
                 
@@ -1843,6 +1706,54 @@ graph TD;
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1853,7 +1764,6 @@ graph TD;
             
             
                 
-                    
                     
                 
                 
@@ -1869,9 +1779,6 @@ graph TD;
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2452,3 +2359,4 @@ graph TD;
 
   </body>
 </html>
+
