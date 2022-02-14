@@ -56,6 +56,13 @@
 	"content": " This procedure runs once every day.\n What does it do? Checks rows in base_table_partition_info table where lastUpdateDate is over 4 days ago, drops those partitions, and deletes the rows.   More Details    Get a cursor over base_table_partition_info where lastUpdateDate is over 4 days ago. Loop over the cursor, performing the following tasks  Call the drop_partions_prc stored procedure Delete rows from base_table_partition_info where  lastUpdateDate is over 2 days ago partitionStatus is I       \nReferenced Tables  base_table_partition_info partition_automation_logs  Referenced Stored Procedures  drop_partions_prc  "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/clean_invalid_wfid_status_sum_tables_prc/",
+	"title": "clean_invalid_wfId_status_sum_tables_prc",
+	"tags": [],
+	"description": "",
+	"content": " This procedure runs once every day.\n What does it do? Drops partitions for rows in customer_partition_info where partitionStatus is I and lastUpdateDate is greater than 4 days ago. Then, deletes the rows from customer_partition_info.   More Details    Get a cursor over customer_partition_info where:  partitionStatus is I and lastUpdateDate is greater than 4 days ago.   Open a read loop over the cursor that:  Calls the drop_partions_prc stored procedure with data from row as params. Deletes the row from customer_partition_info where lastUpdateDate is greater than 2 days ago.     \nReferenced Tables  customer_partition_info partition_automation_logs  Referenced Stored Procedures  drop_partions_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/clean_stale_datamerge_prc/",
 	"title": "clean_stale_datamerge_prc",
 	"tags": [],
@@ -138,6 +145,13 @@
 	"tags": [],
 	"description": "",
 	"content": "What does it do? Deletes rows matching customerId/wfId from tables based on a given mgmtSystemType.   More Details    Deletes rows that match customerId/wfId from base_table_partition_info. Deletes rows that match customerId/wfId from tables based on mgmtSystemType.  When mgmtSystemType is DNAC, deletes from tables:  active_dnac_ne alert_fn_telemetry alert_hweox_telemetry alert_pas_hw_eox_bulletin_dnac alert_pas_sw_eox_bulletin_dnac alert_psirt_telemetry alert_sweox_telemetry asset_feature_telemetry equipment_telemetry fn_bulletin_master_dnac networkelement_telemetry sa_bulletin_master_dnac   When mgmtSystemType is APIC, deletes from tables:  alert_fn_dcn alert_hweox_dcn alert_pas_hw_eox_bulletin_dcn alert_pas_sw_eox_bulletin_dcn alert_psirt_dcn alert_sweox_dcn equipment_dcn fn_bulletin_master_dcn networkelement_dcn sa_bulletin_master_dcn   When mgmtSystemType is CSDFIB, deletes from tables:  alert_fn_ib_data alert_hweox_ib_data alert_pas_hw_eox_bulletin_ib_data alert_pas_sw_eox_bulletin_ib_data alert_psirt_ib_data alert_sweox_ib_data contractcoverage_ib_data equipment_ib_data fn_bulletin_master_ib_data networkelement_ib_data sa_bulletin_master_ib_data   When mgmtSystemType is MERAKI, deletes from tables:  alert_fn_meraki alert_hweox_meraki alert_pas_hw_eox_bulletin_meraki alert_pas_sw_eox_bulletin_meraki alert_psirt_meraki alert_sweox_meraki contractcoverage_meraki equipment_meraki fn_bulletin_master_meraki networkelement_meraki sa_bulletin_master_meraki   When mgmtSystemType is DCC, deletes from tables:  alert_fn_dcc alert_hweox_dcc alert_pas_hw_eox_bulletin_dcc alert_pas_sw_eox_bulletin_dcc alert_psirt_dcc alert_sweox_dcc equipment_dcc fn_bulletin_master_dcc networkelement_dcc sa_bulletin_master_dcc       \nReferenced Tables  active_dnac_ne alert_fn_dcc alert_fn_dcn alert_fn_ib_data alert_fn_meraki alert_fn_telemetry alert_hweox_dcc alert_hweox_dcn alert_hweox_ib_data alert_hweox_meraki alert_hweox_telemetry alert_pas_hw_eox_bulletin_dcc alert_pas_hw_eox_bulletin_dcn alert_pas_hw_eox_bulletin_dnac alert_pas_hw_eox_bulletin_ib_data alert_pas_hw_eox_bulletin_meraki alert_pas_sw_eox_bulletin_dcc alert_pas_sw_eox_bulletin_dcn alert_pas_sw_eox_bulletin_dnac alert_pas_sw_eox_bulletin_ib_data alert_pas_sw_eox_bulletin_meraki alert_psirt_dcc alert_psirt_dcn alert_psirt_ib_data alert_psirt_meraki alert_psirt_telemetry alert_sweox_dcc alert_sweox_dcn alert_sweox_ib_data alert_sweox_meraki alert_sweox_telemetry asset_feature_telemetry base_table_partition_info contractcoverage_ib_data contractcoverage_meraki equipment_dcc equipment_dcn equipment_ib_data equipment_meraki equipment_telemetry fn_bulletin_master_dcc fn_bulletin_master_dcn fn_bulletin_master_dnac fn_bulletin_master_ib_data fn_bulletin_master_meraki networkelement_dcc networkelement_dcn networkelement_ib_data networkelement_meraki networkelement_telemetry sa_bulletin_master_dcc sa_bulletin_master_dcn sa_bulletin_master_dnac sa_bulletin_master_ib_data sa_bulletin_master_meraki  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/drop_partions_prc/",
+	"title": "drop_partions_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? Drops a partition from all tables that it is a part of.   More Details    Gets a cursor over partition_tables where partitionTag matches the given parameter. Create a read loop on the cursor that:  Gets a count of rows in INFORMATION_SCHEMA db PARTITIONS table where:  TABLE_NAME matches the rows tableName and partition_description matches the given partitionValue parameter.   If the count from the previous step is \u0026gt; 1:  Get the rows from the INFORMATION_SCHEMA db PARTITIONS table that match the row from the cursor Use the partition_name field from the result to drop that partition from each table       \nReferenced Tables  partition_automation_logs partition_tables  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/drop_stale_partions_prc/",
@@ -298,7 +312,7 @@
 	"title": "Stored Procedures",
 	"tags": [],
 	"description": "",
-	"content": "  add_base_table_partions_prc   athena_asset_notification_prc   clean_invalid_status_prc   clean_stale_datamerge_prc   delete_raw_data_wfid_prc   drop_stale_partions_prc   "
+	"content": "  add_base_table_partions_prc   athena_asset_notification_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_stale_partions_prc   "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/subscriptions/",

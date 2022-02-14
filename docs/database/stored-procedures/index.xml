@@ -37,6 +37,16 @@
     </item>
     
     <item>
+      <title>clean_invalid_wfId_status_sum_tables_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/clean_invalid_wfid_status_sum_tables_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/clean_invalid_wfid_status_sum_tables_prc/</guid>
+      <description>This procedure runs once every day.
+ What does it do? Drops partitions for rows in customer_partition_info where partitionStatus is I and lastUpdateDate is greater than 4 days ago. Then, deletes the rows from customer_partition_info.   More Details    Get a cursor over customer_partition_info where:  partitionStatus is I and lastUpdateDate is greater than 4 days ago.   Open a read loop over the cursor that:  Calls the drop_partions_prc stored procedure with data from row as params.</description>
+    </item>
+    
+    <item>
       <title>clean_stale_datamerge_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/clean_stale_datamerge_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -54,6 +64,15 @@ Referenced Tables  asset_inventory_notification data_merge_logs  Referenced Stor
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/delete_raw_data_wfid_prc/</guid>
       <description>What does it do? Deletes rows matching customerId/wfId from tables based on a given mgmtSystemType.   More Details    Deletes rows that match customerId/wfId from base_table_partition_info. Deletes rows that match customerId/wfId from tables based on mgmtSystemType.  When mgmtSystemType is DNAC, deletes from tables:  active_dnac_ne alert_fn_telemetry alert_hweox_telemetry alert_pas_hw_eox_bulletin_dnac alert_pas_sw_eox_bulletin_dnac alert_psirt_telemetry alert_sweox_telemetry asset_feature_telemetry equipment_telemetry fn_bulletin_master_dnac networkelement_telemetry sa_bulletin_master_dnac   When mgmtSystemType is APIC, deletes from tables:  alert_fn_dcn alert_hweox_dcn alert_pas_hw_eox_bulletin_dcn alert_pas_sw_eox_bulletin_dcn alert_psirt_dcn alert_sweox_dcn equipment_dcn fn_bulletin_master_dcn networkelement_dcn sa_bulletin_master_dcn   When mgmtSystemType is CSDFIB, deletes from tables:  alert_fn_ib_data alert_hweox_ib_data alert_pas_hw_eox_bulletin_ib_data alert_pas_sw_eox_bulletin_ib_data alert_psirt_ib_data alert_sweox_ib_data contractcoverage_ib_data equipment_ib_data fn_bulletin_master_ib_data networkelement_ib_data sa_bulletin_master_ib_data   When mgmtSystemType is MERAKI, deletes from tables:  alert_fn_meraki alert_hweox_meraki alert_pas_hw_eox_bulletin_meraki alert_pas_sw_eox_bulletin_meraki alert_psirt_meraki alert_sweox_meraki contractcoverage_meraki equipment_meraki fn_bulletin_master_meraki networkelement_meraki sa_bulletin_master_meraki   When mgmtSystemType is DCC, deletes from tables:  alert_fn_dcc alert_hweox_dcc alert_pas_hw_eox_bulletin_dcc alert_pas_sw_eox_bulletin_dcc alert_psirt_dcc alert_sweox_dcc equipment_dcc fn_bulletin_master_dcc networkelement_dcc sa_bulletin_master_dcc</description>
+    </item>
+    
+    <item>
+      <title>drop_partions_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/drop_partions_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/drop_partions_prc/</guid>
+      <description>What does it do? Drops a partition from all tables that it is a part of.   More Details    Gets a cursor over partition_tables where partitionTag matches the given parameter. Create a read loop on the cursor that:  Gets a count of rows in INFORMATION_SCHEMA db PARTITIONS table where:  TABLE_NAME matches the rows tableName and partition_description matches the given partitionValue parameter.   If the count from the previous step is &amp;gt; 1:  Get the rows from the INFORMATION_SCHEMA db PARTITIONS table that match the row from the cursor Use the partition_name field from the result to drop that partition from each table</description>
     </item>
     
     <item>
