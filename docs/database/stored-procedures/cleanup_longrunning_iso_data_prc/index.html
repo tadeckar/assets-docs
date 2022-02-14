@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>Config Schema :: CX Assets Wiki</title>
+    <title>cleanup_longrunning_iso_data_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1644871335" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/ingestion/schema/config/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/cleanup_longrunning_iso_data_prc/">
     <nav id="sidebar" class="">
 
 
@@ -93,7 +93,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/" title="Database" class="dd-item
-        
+        parent
         
         
         ">
@@ -164,7 +164,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/" title="Stored Procedures" class="dd-item
-        
+        parent
         
         
         ">
@@ -295,7 +295,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/cleanup_longrunning_iso_data_prc/" title="cleanup_longrunning_iso_data_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/cleanup_longrunning_iso_data_prc/" title="cleanup_longrunning_iso_data_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/cleanup_longrunning_iso_data_prc/">
         cleanup_longrunning_iso_data_prc
         
@@ -459,7 +459,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/" title="Ingestion" class="dd-item
-        parent
+        
         
         
         ">
@@ -917,7 +917,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/" title="Schema" class="dd-item
-        parent
+        
         
         
         ">
@@ -1006,7 +1006,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/config/" title="Config Schema" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/schema/config/" title="Config Schema" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/ingestion/schema/config/">
         Config Schema
         
@@ -1316,7 +1316,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/ingestion/'>Ingestion</a> > <a href='/pages/tadeckar/assets-docs/ingestion/schema/'>Schema</a> > Config Schema
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > cleanup_longrunning_iso_data_prc
           
         
           
@@ -1331,7 +1331,17 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-does-it-do">What does it do?</a></li>
+        <li><a href="#referenced-tables">Referenced Tables</a></li>
+        <li><a href="#referenced-stored-procedures">Referenced Stored Procedures</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1347,7 +1357,7 @@
           
             <h1>
               
-              Config Schema
+              cleanup_longrunning_iso_data_prc
             </h1>
           
 
@@ -1355,14 +1365,55 @@
 
 
 
-<div class="mermaid" align="center">
-classDiagram
-  class Config{
-    +String config
-    +String configName
-  }
+<div class="notices note" ><p>This procedure runs every 4 hours.</p>
 </div>
 
+<h3 id="what-does-it-do">What does it do?</h3>
+<p>Checks for rows of <code>asset_data_load_notification</code> that have been <code>INPROGRESS</code> for over 2 hours. Updates the status of those rows to <code>SUBMITTED</code>. Also, updates rows that have been <code>SCHEDULED</code> for over 2 hours to <code>RECEIVED</code>.
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	More Details
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <ol>
+<li>Get a cursor over the <code>asset_data_load_notification</code> where
+<ul>
+<li><strong>processingStart</strong> is over 2 hours ago, also not null/undefined, and</li>
+<li><strong>processingStatus</strong> is <code>INPROGRESS</code></li>
+</ul>
+</li>
+<li>Get a count of rows in the <code>asset_data_load_notification</code> table where
+<ul>
+<li><strong>processingStart</strong> is over 2 hours ago, also not null/undefined, and</li>
+<li><strong>processingStatus</strong> is <code>INPROGRESS</code> or <code>SCHEDULED</code></li>
+</ul>
+</li>
+<li>If the count is &gt; 0, open a read loop on the cursor that
+<ol>
+<li>Update the <strong>processingStatus</strong> to <code>SUBMITTED</code> and the <strong>processingEnd</strong> to the current time for any <code>INPROGRESS</code> rows that were started over 2 hours ago.</li>
+<li>Update the <strong>processingStatus</strong> to <code>RECEIVED</code> and the <strong>processingEnd</strong> to the current time for any <code>SCHEDULED</code> rows that were started over 2 hours ago.</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+</div></p>
+<h3 id="referenced-tables">Referenced Tables</h3>
+<ul>
+<li>asset_data_load_notification</li>
+<li>data_merge_logs</li>
+</ul>
+<h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
+<ul>
+<li>amp_log_msg_prc</li>
+</ul>
 
 
 <footer class="footline">
@@ -1400,8 +1451,6 @@ classDiagram
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -1417,6 +1466,9 @@ classDiagram
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1450,6 +1502,7 @@ classDiagram
             
                 
                     
+                    
                 
                 
 
@@ -1463,53 +1516,8 @@ classDiagram
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1591,21 +1599,6 @@ classDiagram
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1623,139 +1616,8 @@ classDiagram
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1850,6 +1712,24 @@ classDiagram
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
                     
                         
             
@@ -1976,30 +1856,10 @@ classDiagram
             
         
                     
-            
-        
-                    
                         
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -2044,11 +1904,26 @@ classDiagram
             
         
                     
+            
+        
+                    
                         
             
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -2066,8 +1941,181 @@ classDiagram
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 

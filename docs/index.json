@@ -70,6 +70,13 @@
 	"content": " This procedure runs every 30 minutes.\n What does it do? Updates status of long-running (over 2-day old) notifications from INPROGRESS to FAILED.   More Details    Gets a cursor over asset_inventory_notification where  processingStatus is INPROGRESS processingStart was over 2 days ago   Loop over cursor, updating each row\u0026rsquo;s processingStatus to FAILED   \nReferenced Tables  asset_inventory_notification data_merge_logs  Referenced Stored Procedures  log_msg_prc  "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/cleanup_longrunning_iso_data_prc/",
+	"title": "cleanup_longrunning_iso_data_prc",
+	"tags": [],
+	"description": "",
+	"content": " This procedure runs every 4 hours.\n What does it do? Checks for rows of asset_data_load_notification that have been INPROGRESS for over 2 hours. Updates the status of those rows to SUBMITTED. Also, updates rows that have been SCHEDULED for over 2 hours to RECEIVED.   More Details    Get a cursor over the asset_data_load_notification where  processingStart is over 2 hours ago, also not null/undefined, and processingStatus is INPROGRESS   Get a count of rows in the asset_data_load_notification table where  processingStart is over 2 hours ago, also not null/undefined, and processingStatus is INPROGRESS or SCHEDULED   If the count is \u0026gt; 0, open a read loop on the cursor that  Update the processingStatus to SUBMITTED and the processingEnd to the current time for any INPROGRESS rows that were started over 2 hours ago. Update the processingStatus to RECEIVED and the processingEnd to the current time for any SCHEDULED rows that were started over 2 hours ago.     \nReferenced Tables  asset_data_load_notification data_merge_logs  Referenced Stored Procedures  amp_log_msg_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/cli/",
 	"title": "CLI",
 	"tags": [],
@@ -333,7 +340,7 @@
 	"title": "Stored Procedures",
 	"tags": [],
 	"description": "",
-	"content": "  add_base_table_partions_prc   athena_asset_notification_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   stale_uploads_cleanup_prc   "
+	"content": "  add_base_table_partions_prc   athena_asset_notification_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   stale_uploads_cleanup_prc   "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/subscriptions/",
