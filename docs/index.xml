@@ -416,6 +416,16 @@ When mgmtSystemType === &amp;quot;DCC_SUB&amp;quot;, and the partition is create
     </item>
     
     <item>
+      <title>retry_failed_uploads_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/retry_failed_uploads_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/retry_failed_uploads_prc/</guid>
+      <description>This procedure runs every 12 hours.
+ What does it do? Check for FAILED/SUSPENDED rows in asset_inventory_notification that were started over 12 hours ago and have not been retried. For each row, partitions are dropped if they exist and rows are deleted from the base_table_partition_info table. The row status is updated to RECEIVED. Also, all rows of the asset_contract_notification where the processing was started over 24 hours ago in FAILED/SUSPENDED state.</description>
+    </item>
+    
+    <item>
       <title>Staging Tables</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/staging-tables/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

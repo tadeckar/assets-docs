@@ -329,6 +329,13 @@
 	"content": "Event to Stored Procedure Mapping  athena_sub_process_01: athena_asset_notification_prc - every 10 seconds clean_base_part_invalid_status: clean_invalid_status_prc - every 1 day clean_stale_datamerge: clean_stale_datamerge_prc - every 30 minutes clean_stale_partitions: drop_stale_partions_prc - every 1 day clean_sum_part_invalid_status: clean_invalid_wfId_status_sum_tables_prc - every 1 day data_merge_process_01: inv_upload_notification_prc - every 20 seconds data_process_writer_cleanup_script: stale_uploads_cleanup_prc - every 1 day drop_pending_partitions: drop_pending_wfid_status_sum_tables_prc - every 1 day iso_data_merge_cleanup_process: cleanup_longrunning_iso_data_prc - every 4 hours iso_data_merge_process_01: amp_upload_notification_prc - every 30 seconds meraki_license_process_01: meraki_license_notification_prc - every 30 seconds retry_failed_data_process_writer: retry_failed_uploads_prc - every 12 hours stale_inprogress_upload_cleanup: stale_inprogress_data_cleanup_prc - every 30 minutes sub_data_merge_process_01: amp_subscription_notification_prc - every 30 seconds xass_asset_process_01: xaas_asset_notification_prc - every 30 seconds  "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/retry_failed_uploads_prc/",
+	"title": "retry_failed_uploads_prc",
+	"tags": [],
+	"description": "",
+	"content": " This procedure runs every 12 hours.\n What does it do? Check for FAILED/SUSPENDED rows in asset_inventory_notification that were started over 12 hours ago and have not been retried. For each row, partitions are dropped if they exist and rows are deleted from the base_table_partition_info table. The row status is updated to RECEIVED. Also, all rows of the asset_contract_notification where the processing was started over 24 hours ago in FAILED/SUSPENDED state.   More Details    Gets a cursor over asset_inventory_notification where  processingStart is over 12 hours ago, also not null/undefined, and processingStatus is either FAILED or SUSPENDED and retrycount is 0   Open a read loop on the cursor that:  Checks if the wfId is already present in the customer_partition_info and if not  Check if any uploads for the same mgmtSystemId with processingStart in the last 12 hours are in SUCCESS state. If none are, then Call the drop_partions_prc on the customerId/wfId Delete the rows from the base_table_partition_info table Update the rows in asset_inventory_notification that are in FAILED/SUSPENDED state by:  setting the processingStatus to RECEIVED and setting the retryCount to 1 setting the recordType to either\na. INVENTORY_DATA_RECEIVED if mgmtSystemType is DNAC or CSDFIB, or\nb. CIBES_INVENTORY_DATA_RECEIVED otherwise       Update all rows in asset_contract_notification that were started over 24 hours ago and in FAILED/SUSPENDED state by:  setting processingStatus to RECEIEVED setting retryCount to 1     \nReferenced Tables  asset_contract_notification asset_inventory_notification base_table_partition_info customer_partition_info partition_automation_logs  Referenced Stored Procedures  drop_partions_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/",
 	"title": "Schema",
 	"tags": [],
@@ -354,7 +361,7 @@
 	"title": "Stored Procedures",
 	"tags": [],
 	"description": "",
-	"content": "  add_base_table_partions_prc   amp_upload_notification_prc   athena_asset_notification_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   meraki_license_notification_prc   stale_uploads_cleanup_prc   "
+	"content": "  add_base_table_partions_prc   amp_upload_notification_prc   athena_asset_notification_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   meraki_license_notification_prc   retry_failed_uploads_prc   stale_uploads_cleanup_prc   "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/subscriptions/",

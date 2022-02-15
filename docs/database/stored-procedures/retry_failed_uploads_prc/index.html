@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>Contracts :: CX Assets Wiki</title>
+    <title>retry_failed_uploads_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1644944448" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/ingestion/loaders/contracts/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/retry_failed_uploads_prc/">
     <nav id="sidebar" class="">
 
 
@@ -93,7 +93,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/" title="Database" class="dd-item
-        
+        parent
         
         
         ">
@@ -164,7 +164,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/" title="Stored Procedures" class="dd-item
-        
+        parent
         
         
         ">
@@ -463,7 +463,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/retry_failed_uploads_prc/" title="retry_failed_uploads_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/retry_failed_uploads_prc/" title="retry_failed_uploads_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/retry_failed_uploads_prc/">
         retry_failed_uploads_prc
         
@@ -522,7 +522,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/" title="Ingestion" class="dd-item
-        parent
+        
         
         
         ">
@@ -551,7 +551,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/" title="Loaders" class="dd-item
-        parent
+        
         
         
         ">
@@ -661,7 +661,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/contracts/" title="Contracts" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/contracts/" title="Contracts" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/ingestion/loaders/contracts/">
         Contracts
         
@@ -1379,7 +1379,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/ingestion/'>Ingestion</a> > <a href='/pages/tadeckar/assets-docs/ingestion/loaders/'>Loaders</a> > Contracts
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > retry_failed_uploads_prc
           
         
           
@@ -1398,10 +1398,11 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#schemahahahugoshortcode-s0-hbhb"><a href="HAHAHUGOSHORTCODE-s0-HBHB">Schema</a></a></li>
+        <li><a href="#what-does-it-do">What does it do?</a></li>
+        <li><a href="#referenced-tables">Referenced Tables</a></li>
+        <li><a href="#referenced-stored-procedures">Referenced Stored Procedures</a></li>
       </ul>
     </li>
-    <li><a href="#staging-tables">Staging Tables</a></li>
   </ul>
 </nav>
     </div>
@@ -1419,23 +1420,81 @@
           
             <h1>
               
-              Contracts
+              retry_failed_uploads_prc
             </h1>
           
 
         
 
 
-<p>Contracts are loaded by the <a href="https://www-github3.cisco.com/cxe/cp-asset-data-pipeline/blob/master/glue/cp-asset-data-import-job/csco/dp/job/ContractParquetDataLoader.py">ContractParquetDataLoader.py</a>.</p>
-<h3 id="schemahahahugoshortcode-s0-hbhb"><a href="/pages/tadeckar/assets-docs/ingestion/schema/contracts
-">Schema</a></h3>
-<h2 id="staging-tables">Staging Tables</h2>
+
+<div class="notices note" ><p>This procedure runs every 12 hours.</p>
+</div>
+
+<h3 id="what-does-it-do">What does it do?</h3>
+<p>Check for <code>FAILED</code>/<code>SUSPENDED</code> rows in <code>asset_inventory_notification</code> that were started over 12 hours ago and have not been retried. For each row, partitions are dropped if they exist and rows are deleted from the <code>base_table_partition_info</code> table. The row status is updated to <code>RECEIVED</code>. Also, all rows of the <code>asset_contract_notification</code> where the processing was started over 24 hours ago in <code>FAILED</code>/<code>SUSPENDED</code> state.
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	More Details
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <ol>
+<li>Gets a cursor over <code>asset_inventory_notification</code> where
 <ul>
-<li>contractcoverage_dcc</li>
-<li>contractcoverage_dcn</li>
-<li>contractcoverage_ib_data</li>
-<li>contractcoverage_meraki</li>
-<li>contractcoverage_telemetry</li>
+<li><strong>processingStart</strong> is over 12 hours ago, also not null/undefined, and</li>
+<li><strong>processingStatus</strong> is either <code>FAILED</code> or <code>SUSPENDED</code> and</li>
+<li><strong>retrycount</strong> is 0</li>
+</ul>
+</li>
+<li>Open a read loop on the cursor that:
+<ol>
+<li>Checks if the <strong>wfId</strong> is already present in the <code>customer_partition_info</code> and if not
+<ol>
+<li>Check if any uploads for the same <strong>mgmtSystemId</strong> with <strong>processingStart</strong> in the last 12 hours are in <code>SUCCESS</code> state. If none are, then</li>
+<li>Call the <code>drop_partions_prc</code> on the <strong>customerId</strong>/<strong>wfId</strong></li>
+<li>Delete the rows from the <code>base_table_partition_info</code> table</li>
+<li>Update the rows in <code>asset_inventory_notification</code> that are in <code>FAILED</code>/<code>SUSPENDED</code> state by:
+<ul>
+<li>setting the <strong>processingStatus</strong> to <code>RECEIVED</code> and</li>
+<li>setting the <strong>retryCount</strong> to  1</li>
+<li>setting the <strong>recordType</strong> to either<br>
+a. <code>INVENTORY_DATA_RECEIVED</code> if <strong>mgmtSystemType</strong> is <code>DNAC</code> or <code>CSDFIB</code>, or<br>
+b. <code>CIBES_INVENTORY_DATA_RECEIVED</code> otherwise</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Update all rows in <code>asset_contract_notification</code> that were started over 24 hours ago and in <code>FAILED</code>/<code>SUSPENDED</code> state by:
+<ul>
+<li>setting <strong>processingStatus</strong> to <code>RECEIEVED</code></li>
+<li>setting <strong>retryCount</strong> to 1</li>
+</ul>
+</li>
+</ol>
+
+    </div>
+</div></p>
+<h3 id="referenced-tables">Referenced Tables</h3>
+<ul>
+<li>asset_contract_notification</li>
+<li>asset_inventory_notification</li>
+<li>base_table_partition_info</li>
+<li>customer_partition_info</li>
+<li>partition_automation_logs</li>
+</ul>
+<h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
+<ul>
+<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/drop_partions_prc
+">drop_partions_prc</a></li>
 </ul>
 
 
@@ -1474,8 +1533,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -1491,6 +1548,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1524,6 +1584,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1537,21 +1598,8 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
+                        
                     
                 
                 
@@ -1761,6 +1809,26 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -1783,7 +1851,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1799,7 +1866,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1807,41 +1873,6 @@
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1880,6 +1911,21 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1897,8 +1943,21 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
-                        
+            
+            
+                
                     
                 
                 
