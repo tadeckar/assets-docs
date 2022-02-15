@@ -126,6 +126,16 @@ Referenced Tables  asset_inventory_notification data_merge_logs  Referenced Stor
     </item>
     
     <item>
+      <title>meraki_license_notification_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_license_notification_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_license_notification_prc/</guid>
+      <description>This procedure runs every 30 seconds.
+ What does it do? Checks for SUBMITTED rows in asset_data_load_notification. Transitions them to INPROGRESS state and then calls the meraki_lic_process_wrap_prc stored procedure. Afterward, updates the state to SUCCESS for the affected rows.   More Details    Gets a cursor over asset_data_load_notification where:  processingStatus is SUBMITTED and dataSource is MERAKI_LICENSE and the customerId has no other rows where processingStatus is INPROGRESS   Get counts for:  Number of rows in SUBMITTED state Number of rows in INPROGRESS state   Get the max number of parallel uploads from the upd_or_async_prop_master table If SUBMITTED count &amp;gt; 0 and INPROGRESS count &amp;lt; max parallel uploads, open a read loop that:  Checks if any rows are INPROGRESS for the current customerId.</description>
+    </item>
+    
+    <item>
       <title>stale_uploads_cleanup_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/stale_uploads_cleanup_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

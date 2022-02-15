@@ -287,6 +287,13 @@
 	"content": "The main Glue function determines what to load using the file_type argument (see File Types). This argument is passed to a \u0026ldquo;Manager\u0026rdquo; to determine how the data is handled.\nThe DataFileManager is used in all scenarios. This contains logic to return a \u0026ldquo;Request Handler\u0026rdquo;, which is another \u0026ldquo;Manager\u0026rdquo; for a particular data type.\nThe \u0026ldquo;Request Handler\u0026rdquo; returned by the DataFileManager will be one of the following:\n InventoryDataLoadManager ParquetDataLoadManager LicenseDataLoadManager HybridSubscriptionDataLoadManager  Each of these implements a common interface:\nhandleRequest: Generic handler for loading data.\nsubmitDataLoadRequest: Begins the data loading job.\nprocessDataFile: Creates a thread pool to handle data loading.\nThe general flow of Manager execution is:\n handleRequest start.*Processing processDataFile submitDataLoadRequest  The submitDataLoadRequest function instantiates a DataLoadManager which returns a Loader class to further handle the request.\nMore Info  DataFileManager   DataLoadManager   HybridSubscriptionDataLoadManager   InventoryDataLoadManager   LicenseDataLoadManager   NotificationManager   ParquetInvDataLoadManager   "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_license_notification_prc/",
+	"title": "meraki_license_notification_prc",
+	"tags": [],
+	"description": "",
+	"content": " This procedure runs every 30 seconds.\n What does it do? Checks for SUBMITTED rows in asset_data_load_notification. Transitions them to INPROGRESS state and then calls the meraki_lic_process_wrap_prc stored procedure. Afterward, updates the state to SUCCESS for the affected rows.   More Details    Gets a cursor over asset_data_load_notification where:  processingStatus is SUBMITTED and dataSource is MERAKI_LICENSE and the customerId has no other rows where processingStatus is INPROGRESS   Get counts for:  Number of rows in SUBMITTED state Number of rows in INPROGRESS state   Get the max number of parallel uploads from the upd_or_async_prop_master table If SUBMITTED count \u0026gt; 0 and INPROGRESS count \u0026lt; max parallel uploads, open a read loop that:  Checks if any rows are INPROGRESS for the current customerId. If so: does nothing, otherwise Gets the wfId Updates processingStatus to INPROGRESS on rows where customerId/wfId match and processingStatus is SUBMITTED. If any were updated, call the meraki_lic_process_wrap_prc stored procedure on the customerId/wfId. Update processingStatus to SUCCESS for affected rows.     \nReferenced Tables  amp_data_merge_logs asset_data_load_notification upd_or_async_prop_master  Referenced Stored Procedures  amp_log_msg_prc meraki_lic_process_wrap_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/network-elements/",
 	"title": "Network Elements",
 	"tags": [],
@@ -347,7 +354,7 @@
 	"title": "Stored Procedures",
 	"tags": [],
 	"description": "",
-	"content": "  add_base_table_partions_prc   amp_upload_notification_prc   athena_asset_notification_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   stale_uploads_cleanup_prc   "
+	"content": "  add_base_table_partions_prc   amp_upload_notification_prc   athena_asset_notification_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   meraki_license_notification_prc   stale_uploads_cleanup_prc   "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/subscriptions/",
