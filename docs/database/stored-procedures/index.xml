@@ -146,6 +146,17 @@ Referenced Tables  asset_inventory_notification data_merge_logs  Referenced Stor
     </item>
     
     <item>
+      <title>stale_inprogress_data_cleanup_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/stale_inprogress_data_cleanup_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/stale_inprogress_data_cleanup_prc/</guid>
+      <description>This procedure runs every 30 minutes.
+ What does it do? Updates the processingStatus from INPROGRESS to SUCCESS for rows in the asset_inventory_notification table that started over 1 hour ago when partitionStatus in the customer_partition_info table is A (Active.)
+Also updates the processingStatus from INPROGRESS to SUCCESS for rows in the asset_inventory_notification table that were started over 6 hours ago and are not found in customer_partition_info or base_table_partition_info.   More Details    Get a cursor over asset_inventory_notification where  processingStart is over 1 hour ago, also not null/undefined, and processingStatus is INPROGRESS partitionStatus from customer_partition_info table is A (Active)   Open a read loop on the cursor that updates the processingStatus to SUCCESS and sets processingEnd to the current time.</description>
+    </item>
+    
+    <item>
       <title>stale_uploads_cleanup_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/stale_uploads_cleanup_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
