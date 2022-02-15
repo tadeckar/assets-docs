@@ -14,7 +14,7 @@ title = "Recurring Events"
 - **iso_data_merge_cleanup_process**: [cleanup_longrunning_iso_data_prc]({{< ILink href="/database/stored-procedures/cleanup_longrunning_iso_data_prc" >}}) - every 4 hours
 - **iso_data_merge_process_01**: [amp_upload_notification_prc]({{< ILink href="/database/stored-procedures/amp_upload_notification_prc" >}}) - every 30 seconds
 - **meraki_license_process_01**: [meraki_license_notification_prc]({{< ILink href="/database/stored-procedures/meraki_license_notification_prc" >}}) - every 30 seconds
-- **retry_failed_data_process_writer**: `retry_failed_uploads_prc` - every 12 hours
+- **retry_failed_data_process_writer**: [retry_failed_uploads_prc]({{< ILink href="/database/stored-procedures/retry_failed_uploads_prc" >}}) - every 12 hours
 - **stale_inprogress_upload_cleanup**: `stale_inprogress_data_cleanup_prc` - every 30 minutes
 - **sub_data_merge_process_01**: `amp_subscription_notification_prc` - every 30 seconds
 - **xass_asset_process_01**: `xaas_asset_notification_prc` - every 30 seconds
