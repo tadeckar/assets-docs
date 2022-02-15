@@ -16,5 +16,5 @@ title = "Recurring Events"
 - **meraki_license_process_01**: [meraki_license_notification_prc]({{< ILink href="/database/stored-procedures/meraki_license_notification_prc" >}}) - every 30 seconds
 - **retry_failed_data_process_writer**: [retry_failed_uploads_prc]({{< ILink href="/database/stored-procedures/retry_failed_uploads_prc" >}}) - every 12 hours
 - **stale_inprogress_upload_cleanup**: [stale_inprogress_data_cleanup_prc]({{< ILink href="/database/stored-procedures/stale_inprogress_data_cleanup_prc" >}}) - every 30 minutes
-- **sub_data_merge_process_01**: `amp_subscription_notification_prc` - every 30 seconds
+- **sub_data_merge_process_01**: [amp_subscription_notification_prc]({{< ILink href="/database/stored-procedures/amp_subscription_notification_prc" >}}) - every 30 seconds
 - **xass_asset_process_01**: `xaas_asset_notification_prc` - every 30 seconds
