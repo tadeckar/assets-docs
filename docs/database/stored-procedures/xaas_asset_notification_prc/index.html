@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>Alerts :: CX Assets Wiki</title>
+    <title>xaas_asset_notification_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1644952891" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/ingestion/loaders/alerts/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/">
     <nav id="sidebar" class="">
 
 
@@ -93,7 +93,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/" title="Database" class="dd-item
-        
+        parent
         
         
         ">
@@ -164,7 +164,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/" title="Stored Procedures" class="dd-item
-        
+        parent
         
         
         ">
@@ -547,7 +547,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/" title="xaas_asset_notification_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/" title="xaas_asset_notification_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/">
         xaas_asset_notification_prc
         
@@ -585,7 +585,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/" title="Ingestion" class="dd-item
-        parent
+        
         
         
         ">
@@ -614,7 +614,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/" title="Loaders" class="dd-item
-        parent
+        
         
         
         ">
@@ -640,7 +640,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/alerts/" title="Alerts" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/alerts/" title="Alerts" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/ingestion/loaders/alerts/">
         Alerts
         
@@ -1442,7 +1442,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/ingestion/'>Ingestion</a> > <a href='/pages/tadeckar/assets-docs/ingestion/loaders/'>Loaders</a> > Alerts
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > xaas_asset_notification_prc
           
         
           
@@ -1461,8 +1461,9 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#schemahahahugoshortcode-s0-hbhb"><a href="HAHAHUGOSHORTCODE-s0-HBHB">Schema</a></a></li>
-        <li><a href="#staging-tables">Staging Tables</a></li>
+        <li><a href="#what-does-it-do">What does it do?</a></li>
+        <li><a href="#referenced-tables">Referenced Tables</a></li>
+        <li><a href="#referenced-stored-procedures">Referenced Stored Procedures</a></li>
       </ul>
     </li>
   </ul>
@@ -1482,38 +1483,69 @@
           
             <h1>
               
-              Alerts
+              xaas_asset_notification_prc
             </h1>
           
 
         
 
 
-<p>Alerts are loaded by the <a href="https://www-github3.cisco.com/cxe/cp-asset-data-pipeline/blob/master/glue/cp-asset-data-import-job/csco/dp/job/AlertsParquetDataLoader.py">AlertsParquetDataLoader.py</a>.</p>
-<h3 id="schemahahahugoshortcode-s0-hbhb"><a href="/pages/tadeckar/assets-docs/ingestion/schema/alerts
-">Schema</a></h3>
-<h3 id="staging-tables">Staging Tables</h3>
+
+<div class="notices note" ><p>This procedure runs every 30 seconds.</p>
+</div>
+
+<h3 id="what-does-it-do">What does it do?</h3>
+<p>Checks for rows in <code>asset_data_load_notification</code> in <code>SUBMITTED</code> state where <strong>dataSource</strong> is <code>DCC_SUB</code>. Transitions the rows to <code>INPROGRESS</code> state and calls the <code>iso_data_process_wrap_prc</code> stored procedure. Afterwards, updates the state of the rows to <code>SUCCESS</code>.
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	More Details
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <ol>
+<li>Get a cursor over <code>asset_data_load_notification</code> where
 <ul>
-<li>alert_fn_dcc</li>
-<li>alert_fn_dcn</li>
-<li>alert_fn_ib_data</li>
-<li>alert_fn_meraki</li>
-<li>alert_fn_telemetry</li>
-<li>alert_hweox_dcc</li>
-<li>alert_hweox_dcn</li>
-<li>alert_hweox_ib_data</li>
-<li>alert_hweox_meraki</li>
-<li>alert_hweox_telemetry</li>
-<li>alert_psirt_dcc</li>
-<li>alert_psirt_dcn</li>
-<li>alert_psirt_ib_data</li>
-<li>alert_psirt_meraki</li>
-<li>alert_psirt_telemetry</li>
-<li>alert_sweox_dcc</li>
-<li>alert_sweox_dcn</li>
-<li>alert_sweox_ib_data</li>
-<li>alert_sweox_meraki</li>
-<li>alert_sweox_telemetry</li>
+<li><strong>processingStatus</strong> is <code>SUBMITTED</code> and</li>
+<li><strong>dataSource</strong> is <code>DCC_SUB</code></li>
+<li>None of the rows for same <strong>customerId</strong> are <code>INPROGRESS</code></li>
+</ul>
+</li>
+<li>Get counts for
+<ul>
+<li>rows in <code>SUBMITTED</code> state</li>
+<li>rows in <code>INPROGRESS</code> state</li>
+</ul>
+</li>
+<li>Get the max parallel limit of amp uploads from the <code>upd_or_async_prop_master</code> table.</li>
+<li>If the <code>SUBMITTED</code> count is &gt; 0 and <code>INPROGRESS</code> count is less than the max parallel limit, open a read loop that:
+<ol>
+<li>Counts the number of <code>INPROGRESS</code> rows for the given <strong>customerId</strong></li>
+<li>If the count is 0 (none <code>INPROGRESS</code>), get the <strong>wfId</strong> from a <code>SUBMITTED</code> row.</li>
+<li>Update the status to <code>INPROGRESS</code> of <code>SUBMITTED</code> rows with the <strong>wfId</strong> from the previous step.</li>
+<li>Call the <code>xaas_asset_process_wrap_prc</code> stored procedure with input data from the row.</li>
+<li>Update the status to <code>SUCCESS</code> on the affected rows.</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+</div></p>
+<h3 id="referenced-tables">Referenced Tables</h3>
+<ul>
+<li>amp_data_merge_logs</li>
+<li>asset_data_load_notification</li>
+<li>upd_or_async_prop_master</li>
+</ul>
+<h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
+<ul>
+<li>amp_log_msg_prc</li>
+<li>xaas_asset_process_wrap_prc</li>
 </ul>
 
 
@@ -1552,8 +1584,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -1569,6 +1599,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1602,6 +1635,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1615,37 +1649,8 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
                     
                 
                 
@@ -1898,41 +1903,21 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
                         
             
@@ -1951,6 +1936,12 @@
             
         
                     
+            
+        
+                    
+            
+        
+                    
                         
             
             
@@ -1958,6 +1949,50 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 

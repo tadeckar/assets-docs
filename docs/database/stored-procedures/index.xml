@@ -176,5 +176,15 @@ Also updates the processingStatus from INPROGRESS to SUCCESS for rows in the ass
  What does it do? Updates the processingStatus of 2-day-old rows in asset_inventory_notification to be FAILED after first verifying whether or not the device count for the customerId/wfId is changing within a 3-minute timespan.   More Details    Get a cursor over asset_inventory_notification where  processingStart is greater than 2 days ago, is also not null/undefined, and processingStatus is STARTED   Open a read loop on the cursor that  Gets a device count by  When mgmtSystemType is DNAC:  Get a count of rows in networkelement_telemetry table that match the row&amp;rsquo;s customerId/wfId.</description>
     </item>
     
+    <item>
+      <title>xaas_asset_notification_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/</guid>
+      <description>This procedure runs every 30 seconds.
+ What does it do? Checks for rows in asset_data_load_notification in SUBMITTED state where dataSource is DCC_SUB. Transitions the rows to INPROGRESS state and calls the iso_data_process_wrap_prc stored procedure. Afterwards, updates the state of the rows to SUCCESS.   More Details    Get a cursor over asset_data_load_notification where  processingStatus is SUBMITTED and dataSource is DCC_SUB None of the rows for same customerId are INPROGRESS   Get counts for  rows in SUBMITTED state rows in INPROGRESS state   Get the max parallel limit of amp uploads from the upd_or_async_prop_master table.</description>
+    </item>
+    
   </channel>
 </rss>

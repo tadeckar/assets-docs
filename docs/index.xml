@@ -484,5 +484,15 @@ Schema Staging Tables  subscription_stg  </description>
       <description> classDiagram class Subscription{ +Integer erpSalesOrderNumber +Integer licenseTermInMonths +Long subscriptionCreateDate +Long subscriptionProductQuantity +Long termEndDate +Long termStartDate +String contractEntitlementDescr +String contractNumber +String coverageStatus +String endCustomerGuAddressLine1 +String endCustomerGuAddressLine2 +String endCustomerGuAddressLine3 +String endCustomerGuAddressLine4 +String endCustomerGuCityName +String endCustomerGuCountry +String endCustomerGuPostalCd +String endCustomerGuState +String managedNeId +String monetizationTypeCd +String neId +String partnerBeGeoId +String partnerBeGeoName +String partnerBeId +String partnerBeName +String serviceLevel +String serviceLevelDescription +String serviceProgram +String subscriptionBillToSiteUseCustName +String subscriptionBillToSiteUseId +String subscriptionProductClass +String subscriptionReferenceId +String subscriptionStatus +String subscriptionType +String termsAndContentCd +String webOrderId }  </description>
     </item>
     
+    <item>
+      <title>xaas_asset_notification_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/</guid>
+      <description>This procedure runs every 30 seconds.
+ What does it do? Checks for rows in asset_data_load_notification in SUBMITTED state where dataSource is DCC_SUB. Transitions the rows to INPROGRESS state and calls the iso_data_process_wrap_prc stored procedure. Afterwards, updates the state of the rows to SUCCESS.   More Details    Get a cursor over asset_data_load_notification where  processingStatus is SUBMITTED and dataSource is DCC_SUB None of the rows for same customerId are INPROGRESS   Get counts for  rows in SUBMITTED state rows in INPROGRESS state   Get the max parallel limit of amp uploads from the upd_or_async_prop_master table.</description>
+    </item>
+    
   </channel>
 </rss>

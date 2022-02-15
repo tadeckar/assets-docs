@@ -119,5 +119,7 @@
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/workflow/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/</loc>
   </url>
 </urlset>
