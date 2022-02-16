@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>cleanup_longrunning_iso_data_prc :: CX Assets Wiki</title>
+    <title>athena_dcc_dcn_data_process_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645041086" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/cleanup_longrunning_iso_data_prc/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/athena_dcc_dcn_data_process_prc/">
     <nav id="sidebar" class="">
 
 
@@ -295,7 +295,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/athena_dcc_dcn_data_process_prc/" title="athena_dcc_dcn_data_process_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/athena_dcc_dcn_data_process_prc/" title="athena_dcc_dcn_data_process_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/athena_dcc_dcn_data_process_prc/">
         athena_dcc_dcn_data_process_prc
         
@@ -379,7 +379,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/cleanup_longrunning_iso_data_prc/" title="cleanup_longrunning_iso_data_prc" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/cleanup_longrunning_iso_data_prc/" title="cleanup_longrunning_iso_data_prc" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/cleanup_longrunning_iso_data_prc/">
         cleanup_longrunning_iso_data_prc
         
@@ -1581,7 +1581,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > cleanup_longrunning_iso_data_prc
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > athena_dcc_dcn_data_process_prc
           
         
           
@@ -1622,19 +1622,15 @@
           
             <h1>
               
-              cleanup_longrunning_iso_data_prc
+              athena_dcc_dcn_data_process_prc
             </h1>
           
 
         
 
 
-
-<div class="notices note" ><p>This procedure runs every 4 hours.</p>
-</div>
-
 <h3 id="what-does-it-do">What does it do?</h3>
-<p>Checks for rows of <code>asset_data_load_notification</code> that have been <code>INPROGRESS</code> for over 2 hours. Updates the status of those rows to <code>SUBMITTED</code>. Also, updates rows that have been <code>SCHEDULED</code> for over 2 hours to <code>RECEIVED</code>.
+<p>Removes all rows from the <code>athena_subscription_stg</code> table that have a stale <strong>wfId</strong>. Calls stored procedures to process the athena subscriptions. Then, syncs the athena subscriptions to the <code>all_asset_view</code> and <code>all_asset_track_view</code> tables.
 
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
@@ -1648,37 +1644,53 @@
     </div>
     <div class="expand-content" style="display: none;">
         <ol>
-<li>Get a cursor over the <code>asset_data_load_notification</code> where
+<li>Deletes stale records from the <code>athena_subscription_stg</code> table where
 <ul>
-<li><strong>processingStart</strong> is over 2 hours ago, also not null/undefined, and</li>
-<li><strong>processingStatus</strong> is <code>INPROGRESS</code></li>
+<li><strong>customerId</strong> matches the stored procedure input param</li>
+<li><strong>wfId</strong> does not match the stored procedure input param</li>
 </ul>
 </li>
-<li>Get a count of rows in the <code>asset_data_load_notification</code> table where
-<ul>
-<li><strong>processingStart</strong> is over 2 hours ago, also not null/undefined, and</li>
-<li><strong>processingStatus</strong> is <code>INPROGRESS</code> or <code>SCHEDULED</code></li>
-</ul>
-</li>
-<li>If the count is &gt; 0, open a read loop on the cursor that
+<li>Count the rows in the <code>customer_partition_info</code> table that match the <strong>customerId</strong> where <strong>partitionStatus</strong> is <code>A</code>.</li>
+<li>If the count is 1:
 <ol>
-<li>Update the <strong>processingStatus</strong> to <code>SUBMITTED</code> and the <strong>processingEnd</strong> to the current time for any <code>INPROGRESS</code> rows that were started over 2 hours ago.</li>
-<li>Update the <strong>processingStatus</strong> to <code>RECEIVED</code> and the <strong>processingEnd</strong> to the current time for any <code>SCHEDULED</code> rows that were started over 2 hours ago.</li>
+<li>Get the wfId from the <code>customer_partition_info</code> table</li>
+<li>Call the following stored procedures with <strong>customerId</strong>/<strong>wfId</strong> as parameters:
+<ul>
+<li>athena_dcc_stg_data_process_prc</li>
+<li>athena_dcn_stg_data_process_prc</li>
+<li>athena_ib_stg_data_process_prc</li>
+</ul>
+</li>
 </ol>
 </li>
+<li>Get a count of any rows in <code>athena_subscription_stg</code> where <strong>assetCategory</strong> is <code>Cisco Plus</code> that are not present in the <code>all_asset_view</code> table.</li>
+<li>If the count is &gt; 0:
+<ol>
+<li>Update rows in <code>all_asset_view</code> so that fields match rows in <code>athena_subscription_stg</code>.</li>
+<li>Update rows in <code>all_asset_track_view</code> so that fields match rows in <code>athena_subscription_stg</code>.</li>
+</ol>
+</li>
+<li>Get a count of any rows in <code>all_asset_view</code> where <strong>assetCategory</strong> is <code>Cisco Plus</code> that are not present in the <code>athena_subscription_stg</code> table.</li>
+<li>If the count is &gt; 0 update <strong>assetCategory</strong> to <code>Cisco</code> for the rows in <code>all_asset_view</code> and <code>all_asset_track_view</code> that matched previous count.</li>
 </ol>
 
     </div>
 </div></p>
 <h3 id="referenced-tables">Referenced Tables</h3>
 <ul>
-<li>asset_data_load_notification</li>
-<li>data_merge_logs</li>
+<li>amp_data_merge_logs</li>
+<li>athena_subscription_stg</li>
+<li>customer_partition_info</li>
+<li>all_asset_view</li>
+<li>all_asset_track_view</li>
 </ul>
 <h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
 <ul>
 <li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc
 ">amp_log_msg_prc</a></li>
+<li>athena_dcc_stg_data_process_prc</li>
+<li>athena_dcn_stg_data_process_prc</li>
+<li>athena_ib_stg_data_process_prc</li>
 </ul>
 
 
@@ -1865,6 +1877,26 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -1928,26 +1960,6 @@
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
