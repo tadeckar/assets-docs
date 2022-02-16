@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>inv_upload_notification_prc :: CX Assets Wiki</title>
+    <title>log_msg_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645041976" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/inv_upload_notification_prc/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc/">
     <nav id="sidebar" class="">
 
 
@@ -484,7 +484,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/inv_upload_notification_prc/" title="inv_upload_notification_prc" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/inv_upload_notification_prc/" title="inv_upload_notification_prc" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/inv_upload_notification_prc/">
         inv_upload_notification_prc
         
@@ -526,7 +526,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc/" title="log_msg_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc/" title="log_msg_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc/">
         log_msg_prc
         
@@ -1602,7 +1602,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > inv_upload_notification_prc
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > log_msg_prc
           
         
           
@@ -1623,7 +1623,6 @@
       <ul>
         <li><a href="#what-does-it-do">What does it do?</a></li>
         <li><a href="#referenced-tables">Referenced Tables</a></li>
-        <li><a href="#referenced-stored-procedures">Referenced Stored Procedures</a></li>
       </ul>
     </li>
   </ul>
@@ -1643,62 +1642,18 @@
           
             <h1>
               
-              inv_upload_notification_prc
+              log_msg_prc
             </h1>
           
 
         
 
 
-
-<div class="notices note" ><p>This procedure runs every 20 seconds.</p>
-</div>
-
 <h3 id="what-does-it-do">What does it do?</h3>
-<p>Checks for rows in <code>asset_inventory_notification</code> that are in <code>SUBMITTED</code> state. Changes the state to <code>INPROGRESS</code> and calls the <code>update_raw_data_process_prc</code> stored procedure on the rows. On completion, changes the state to <code>SUCCESS</code>.
-
-<div class="expand">
-    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
-        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
-        <span>
-        
-    	
-    	More Details
-    	
-    	</span>
-    </div>
-    <div class="expand-content" style="display: none;">
-        <ol>
-<li>Gets a cursor on <code>asset_inventory_notification</code> where
-<ul>
-<li><strong>processingStatus</strong> is <code>SUBMITTED</code> and</li>
-<li>no other rows of the selected <strong>customerId</strong> have <strong>processingStatus</strong> that is <code>INPROGRESS</code></li>
-</ul>
-</li>
-<li>Get a count of the number of <code>SUBMITTED</code> rows and a count of the number of <code>INPROGRESS</code> rows.</li>
-<li>If <code>SUBMITTED</code> count is &gt; 0 and <code>INPROGRESS</code> count is &lt; 5, begin a read loop over the cursor that:
-<ol>
-<li>Check for any <code>INPROGRESS</code> rows on the given <strong>customerId</strong>. If the count is &gt; 0, do not proceed.</li>
-<li>Select one <code>SUBMITTED</code> row from <code>asset_inventory_notification</code> that matches the <strong>customerId</strong>.</li>
-<li>Update <strong>processingStatus</strong> to be <code>INPROGRESS</code> for all rows that match <strong>customerId</strong>, <strong>wfId</strong>, <strong>processingStatus</strong>, <strong>mgmtSystemType</strong>, and <strong>mgmtSystemId</strong> of previously selected row.</li>
-<li>If &gt; 0 rows were updated, call the <code>update_raw_data_process_prc</code> stored procedure with fields from the row.</li>
-<li>Update <strong>processingStatus</strong> to be <code>SUCCESS</code> for the affected rows.</li>
-</ol>
-</li>
-</ol>
-
-    </div>
-</div></p>
+<p>Inserts a row into the <code>data_merge_logs</code> table given <strong>customerId</strong>, <strong>wfId</strong>, <strong>function_name</strong>, and <strong>msg</strong>, along with the current timestamp.</p>
 <h3 id="referenced-tables">Referenced Tables</h3>
 <ul>
-<li>asset_inventory_notification</li>
 <li>data_merge_logs</li>
-</ul>
-<h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
-<ul>
-<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc
-">log_msg_prc</a></li>
-<li>update_raw_data_process_prc</li>
 </ul>
 
 
@@ -2029,26 +1984,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -2080,6 +2015,26 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 

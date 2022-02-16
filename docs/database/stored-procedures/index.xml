@@ -164,6 +164,16 @@ Referenced Tables  asset_inventory_notification data_merge_logs  Referenced Stor
     </item>
     
     <item>
+      <title>log_msg_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc/</guid>
+      <description>What does it do? Inserts a row into the data_merge_logs table given customerId, wfId, function_name, and msg, along with the current timestamp.
+Referenced Tables  data_merge_logs  </description>
+    </item>
+    
+    <item>
       <title>meraki_license_notification_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_license_notification_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

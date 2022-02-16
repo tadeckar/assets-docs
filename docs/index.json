@@ -315,6 +315,13 @@
 	"content": "The IBES Data Loader State of the Glue workflow contains tasks for loading various datasets:\n Alerts   Bulletins   CLI   Config   Contracts   Equipments   Hybrid Subscriptions   Licenses   Network Elements   Subscriptions   "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc/",
+	"title": "log_msg_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? Inserts a row into the data_merge_logs table given customerId, wfId, function_name, and msg, along with the current timestamp.\nReferenced Tables  data_merge_logs  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/",
 	"title": "Managers",
 	"tags": [],
@@ -410,7 +417,7 @@
 	"title": "Stored Procedures",
 	"tags": [],
 	"description": "",
-	"content": "  add_base_table_partions_prc   amp_log_msg_prc   amp_subscription_notification_prc   amp_upload_notification_prc   athena_asset_notification_prc   athena_dcc_dcn_data_process_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   iso_data_process_wrap_prc   meraki_license_notification_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   sub_data_process_wrap_prc   xaas_asset_notification_prc   "
+	"content": "  add_base_table_partions_prc   amp_log_msg_prc   amp_subscription_notification_prc   amp_upload_notification_prc   athena_asset_notification_prc   athena_dcc_dcn_data_process_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   iso_data_process_wrap_prc   log_msg_prc   meraki_license_notification_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   sub_data_process_wrap_prc   xaas_asset_notification_prc   "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sub_data_process_wrap_prc/",
