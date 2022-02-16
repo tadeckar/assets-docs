@@ -7,7 +7,7 @@ This procedure runs every 30 seconds.
 {{% /notice %}}
 
 ### What does it do?
-Checks for rows in `asset_data_load_notification` in `SUBMITTED` state where **dataSource** is `CSDF_SUBSCRIPTION`. Transitions the rows to `INPROGRESS` state and calls the `iso_data_process_wrap_prc` stored procedure. Afterwards, updates the state of the rows to `SUCCESS`.
+Checks for rows in `asset_data_load_notification` in `SUBMITTED` state where **dataSource** is `CSDF_SUBSCRIPTION`. Transitions the rows to `INPROGRESS` state and calls the [sub_data_process_wrap_prc]({{< ILink href="/database/stored-procedures/sub_data_process_wrap_prc" >}}) stored procedure. Afterwards, updates the state of the rows to `SUCCESS`.
 {{% expand "More Details" %}}
 1. Get a cursor over `asset_data_load_notification` where
    - **processingStatus** is `SUBMITTED` and
