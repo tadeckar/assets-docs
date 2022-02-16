@@ -7,7 +7,7 @@ This procedure runs every 10 seconds.
 {{% /notice %}}
 
 ### What does it do?
-Checks for any rows of the `asset_data_load_notification` table that are in the `SUBMITTED` state. If there are any, it updates the state to `INPROGRESS`, then runs the `athena_dcc_dcn_data_process_prc` procedure. Afterwards, it changes the state of those rows again to `SUCCESS`.
+Checks for any rows of the `asset_data_load_notification` table that are in the `SUBMITTED` state. If there are any, it updates the state to `INPROGRESS`, then runs the [athena_dcc_dcn_data_process_prc]({{< ILink href="/database/stored-procedures/athena_dcc_dcn_data_process_prc">}}) procedure. Afterwards, it changes the state of those rows again to `SUCCESS`.
 
 {{% expand "More Details" %}}
 1. Gets a cursor over the `asset_data_load_notification` table for rows where:
@@ -23,7 +23,7 @@ Checks for any rows of the `asset_data_load_notification` table that are in the 
      - First checks for `INPROGRESS` count, if count > 0 then log info message and continue
      - Get the wfId from a row
      - Update rows from `SUBMITTED` to `INPROGRESS` **processingStatus**
-     - If any rows were updated, call the `athena_dcc_dcn_data_process_prc` with customerId and wfId
+     - If any rows were updated, call the [athena_dcc_dcn_data_process_prc]({{< ILink href="/database/stored-procedures/athena_dcc_dcn_data_process_prc">}}) with customerId and wfId
      - Finally, set the **processingStatus** of the updated rows to `SUCCESS`
 {{% /expand %}}
 
@@ -33,4 +33,4 @@ Checks for any rows of the `asset_data_load_notification` table that are in the 
 
 ### Referenced Stored Procedures
 - [amp_log_msg_prc]({{< ILink href="/database/stored-procedures/amp_log_msg_prc" >}})
-- athena_dcc_dcn_data_process_prc
+- [athena_dcc_dcn_data_process_prc]({{< ILink href="/database/stored-procedures/athena_dcc_dcn_data_process_prc">}})
