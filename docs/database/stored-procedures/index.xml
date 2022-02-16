@@ -42,7 +42,7 @@ Referenced Tables  amp_data_merge_logs  </description>
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_upload_notification_prc/</guid>
       <description>This procedure runs every 30 seconds.
- What does it do? Checks for rows in asset_data_load_notification in SUBMITTED state where dataSource is CSDF_AMP_TELE. Transitions the rows to INPROGRESS state and calls the [iso_data_process_wrap_prc]({{ ILink href=&amp;quot;/database/stored-procedures/iso_data_process_wrap_prc&amp;quot; }}) stored procedure. Afterwards, updates the state of the rows to SUCCESS.   More Details    Get a cursor over the asset_data_load_notification table where:  processingStatus is SUBMITTED and dataSource is CSDF_AMP_TELE and None of the rows for same customerId are INPROGRESS   Get a counts for  SUBMITTED notifications and INPROGRESS notifications   Get the max parallel limit of amp uploads from the upd_or_async_prop_master table.</description>
+ What does it do? Checks for rows in asset_data_load_notification in SUBMITTED state where dataSource is CSDF_AMP_TELE. Transitions the rows to INPROGRESS state and calls the iso_data_process_wrap_prc stored procedure. Afterwards, updates the state of the rows to SUCCESS.   More Details    Get a cursor over the asset_data_load_notification table where:  processingStatus is SUBMITTED and dataSource is CSDF_AMP_TELE and None of the rows for same customerId are INPROGRESS   Get a counts for  SUBMITTED notifications and INPROGRESS notifications   Get the max parallel limit of amp uploads from the upd_or_async_prop_master table.</description>
     </item>
     
     <item>
