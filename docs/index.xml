@@ -414,6 +414,15 @@ Referenced Tables  data_merge_logs  </description>
     </item>
     
     <item>
+      <title>meraki_lic_process_wrap_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_lic_process_wrap_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_lic_process_wrap_prc/</guid>
+      <description>What does it do? Creates summary views for meraki licenses.   More Details    Get a count of rows matching customerId/wfId in the customer_wfid_info table. If count is 0, add a row. Call the meraki_license_sum_view_prc stored procedure with customerId/wfId as input. Delete the row (if it exists) from the customer_wfid_info table where  customerId matches and module is MERAKI_LICENSE and wfIdStatus is A   Update wfIdStatus to A from the row in the customer_wfid_info table where  customerId matches and module is MERAKI_LICENSE and wfIdStatus is I   Delete the previous wfId rows from the meraki_license_sum_view_stage table where  customerId matches input and wfId does not match input and wfId does not match any wfId in asset_data_load_notification where processingStatus is SUBMITTED</description>
+    </item>
+    
+    <item>
       <title>meraki_license_notification_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_license_notification_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

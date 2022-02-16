@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>xaas_asset_notification_prc :: CX Assets Wiki</title>
+    <title>meraki_lic_process_wrap_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645047397" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/meraki_lic_process_wrap_prc/">
     <nav id="sidebar" class="">
 
 
@@ -547,7 +547,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/meraki_lic_process_wrap_prc/" title="meraki_lic_process_wrap_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/meraki_lic_process_wrap_prc/" title="meraki_lic_process_wrap_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/meraki_lic_process_wrap_prc/">
         meraki_lic_process_wrap_prc
         
@@ -694,7 +694,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/" title="xaas_asset_notification_prc" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/" title="xaas_asset_notification_prc" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/">
         xaas_asset_notification_prc
         
@@ -1644,7 +1644,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > xaas_asset_notification_prc
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > meraki_lic_process_wrap_prc
           
         
           
@@ -1685,19 +1685,15 @@
           
             <h1>
               
-              xaas_asset_notification_prc
+              meraki_lic_process_wrap_prc
             </h1>
           
 
         
 
 
-
-<div class="notices note" ><p>This procedure runs every 30 seconds.</p>
-</div>
-
 <h3 id="what-does-it-do">What does it do?</h3>
-<p>Checks for rows in <code>asset_data_load_notification</code> in <code>SUBMITTED</code> state where <strong>dataSource</strong> is <code>DCC_SUB</code>. Transitions the rows to <code>INPROGRESS</code> state and calls the <code>xaas_asset_process_wrap_prc</code> stored procedure. Afterwards, updates the state of the rows to <code>SUCCESS</code>.
+<p>Creates summary views for meraki licenses.
 
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
@@ -1711,28 +1707,29 @@
     </div>
     <div class="expand-content" style="display: none;">
         <ol>
-<li>Get a cursor over <code>asset_data_load_notification</code> where
+<li>Get a count of rows matching <strong>customerId</strong>/<strong>wfId</strong> in the <code>customer_wfid_info</code> table.</li>
+<li>If count is 0, add a row.</li>
+<li>Call the <code>meraki_license_sum_view_prc</code> stored procedure with <strong>customerId</strong>/<strong>wfId</strong> as input.</li>
+<li>Delete the row (if it exists) from the <code>customer_wfid_info</code> table where
 <ul>
-<li><strong>processingStatus</strong> is <code>SUBMITTED</code> and</li>
-<li><strong>dataSource</strong> is <code>DCC_SUB</code></li>
-<li>None of the rows for same <strong>customerId</strong> are <code>INPROGRESS</code></li>
+<li><strong>customerId</strong> matches and</li>
+<li><strong>module</strong> is <code>MERAKI_LICENSE</code> and</li>
+<li><strong>wfIdStatus</strong> is <code>A</code></li>
 </ul>
 </li>
-<li>Get counts for
+<li>Update <strong>wfIdStatus</strong> to <code>A</code> from the row in the <code>customer_wfid_info</code> table where
 <ul>
-<li>rows in <code>SUBMITTED</code> state</li>
-<li>rows in <code>INPROGRESS</code> state</li>
+<li><strong>customerId</strong> matches and</li>
+<li><strong>module</strong> is <code>MERAKI_LICENSE</code> and</li>
+<li><strong>wfIdStatus</strong> is <code>I</code></li>
 </ul>
 </li>
-<li>Get the max parallel limit of amp uploads from the <code>upd_or_async_prop_master</code> table.</li>
-<li>If the <code>SUBMITTED</code> count is &gt; 0 and <code>INPROGRESS</code> count is less than the max parallel limit, open a read loop that:
-<ol>
-<li>Counts the number of <code>INPROGRESS</code> rows for the given <strong>customerId</strong></li>
-<li>If the count is 0 (none <code>INPROGRESS</code>), get the <strong>wfId</strong> from a <code>SUBMITTED</code> row.</li>
-<li>Update the status to <code>INPROGRESS</code> of <code>SUBMITTED</code> rows with the <strong>wfId</strong> from the previous step.</li>
-<li>Call the <code>xaas_asset_process_wrap_prc</code> stored procedure with input data from the row.</li>
-<li>Update the status to <code>SUCCESS</code> on the affected rows.</li>
-</ol>
+<li>Delete the previous <strong>wfId</strong> rows from the <code>meraki_license_sum_view_stage</code> table where
+<ul>
+<li><strong>customerId</strong> matches input and</li>
+<li><strong>wfId</strong> does not match input and</li>
+<li><strong>wfId</strong> does not match any <strong>wfId</strong> in <code>asset_data_load_notification</code> where <strong>processingStatus</strong> is <code>SUBMITTED</code></li>
+</ul>
 </li>
 </ol>
 
@@ -1742,13 +1739,13 @@
 <ul>
 <li>amp_data_merge_logs</li>
 <li>asset_data_load_notification</li>
-<li>upd_or_async_prop_master</li>
+<li>customer_wfid_info</li>
+<li>meraki_license_sum_view_stage</li>
 </ul>
 <h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
 <ul>
-<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc
-">amp_log_msg_prc</a></li>
-<li>xaas_asset_process_wrap_prc</li>
+<li>amp_log_msg_prc</li>
+<li>meraki_license_sum_view_prc</li>
 </ul>
 
 
@@ -2127,6 +2124,26 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -2234,23 +2251,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -2261,9 +2261,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 

@@ -329,6 +329,13 @@
 	"content": "The main Glue function determines what to load using the file_type argument (see File Types). This argument is passed to a \u0026ldquo;Manager\u0026rdquo; to determine how the data is handled.\nThe DataFileManager is used in all scenarios. This contains logic to return a \u0026ldquo;Request Handler\u0026rdquo;, which is another \u0026ldquo;Manager\u0026rdquo; for a particular data type.\nThe \u0026ldquo;Request Handler\u0026rdquo; returned by the DataFileManager will be one of the following:\n InventoryDataLoadManager ParquetDataLoadManager LicenseDataLoadManager HybridSubscriptionDataLoadManager  Each of these implements a common interface:\nhandleRequest: Generic handler for loading data.\nsubmitDataLoadRequest: Begins the data loading job.\nprocessDataFile: Creates a thread pool to handle data loading.\nThe general flow of Manager execution is:\n handleRequest start.*Processing processDataFile submitDataLoadRequest  The submitDataLoadRequest function instantiates a DataLoadManager which returns a Loader class to further handle the request.\nMore Info  DataFileManager   DataLoadManager   HybridSubscriptionDataLoadManager   InventoryDataLoadManager   LicenseDataLoadManager   NotificationManager   ParquetInvDataLoadManager   "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_lic_process_wrap_prc/",
+	"title": "meraki_lic_process_wrap_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? Creates summary views for meraki licenses.   More Details    Get a count of rows matching customerId/wfId in the customer_wfid_info table. If count is 0, add a row. Call the meraki_license_sum_view_prc stored procedure with customerId/wfId as input. Delete the row (if it exists) from the customer_wfid_info table where  customerId matches and module is MERAKI_LICENSE and wfIdStatus is A   Update wfIdStatus to A from the row in the customer_wfid_info table where  customerId matches and module is MERAKI_LICENSE and wfIdStatus is I   Delete the previous wfId rows from the meraki_license_sum_view_stage table where  customerId matches input and wfId does not match input and wfId does not match any wfId in asset_data_load_notification where processingStatus is SUBMITTED     \nReferenced Tables  amp_data_merge_logs asset_data_load_notification customer_wfid_info meraki_license_sum_view_stage  Referenced Stored Procedures  amp_log_msg_prc meraki_license_sum_view_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_license_notification_prc/",
 	"title": "meraki_license_notification_prc",
 	"tags": [],
@@ -417,7 +424,7 @@
 	"title": "Stored Procedures",
 	"tags": [],
 	"description": "",
-	"content": "  add_base_table_partions_prc   amp_log_msg_prc   amp_subscription_notification_prc   amp_upload_notification_prc   athena_asset_notification_prc   athena_dcc_dcn_data_process_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   iso_data_process_wrap_prc   log_msg_prc   meraki_license_notification_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   sub_data_process_wrap_prc   update_raw_data_process_prc   xaas_asset_notification_prc   "
+	"content": "  add_base_table_partions_prc   amp_log_msg_prc   amp_subscription_notification_prc   amp_upload_notification_prc   athena_asset_notification_prc   athena_dcc_dcn_data_process_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   iso_data_process_wrap_prc   log_msg_prc   meraki_lic_process_wrap_prc   meraki_license_notification_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   sub_data_process_wrap_prc   update_raw_data_process_prc   xaas_asset_notification_prc   "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sub_data_process_wrap_prc/",
