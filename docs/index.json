@@ -396,7 +396,14 @@
 	"title": "Stored Procedures",
 	"tags": [],
 	"description": "",
-	"content": "  add_base_table_partions_prc   amp_log_msg_prc   amp_subscription_notification_prc   amp_upload_notification_prc   athena_asset_notification_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   meraki_license_notification_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   xaas_asset_notification_prc   "
+	"content": "  add_base_table_partions_prc   amp_log_msg_prc   amp_subscription_notification_prc   amp_upload_notification_prc   athena_asset_notification_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   meraki_license_notification_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   sub_data_process_wrap_prc   xaas_asset_notification_prc   "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sub_data_process_wrap_prc/",
+	"title": "sub_data_process_wrap_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? Call stored procedures to create summary views for subscriptions, licenses, and contracts.   More Details    Get a count of the rows in the customer_wfId_info table that match customerId/wfId where  module is CSDF_SUBSCRIPTION and wfIdStatus is I   If the count is 0, then insert a row. Call stored procedures  Call the iso_subscription_prc stored procedure Call the iso_contract_sum_prc stored procedure Call the license_sum_view_prc stored procedure   Delete any row from the customer_wfId_info table matching customerId/wfId where wfIdStatus is A. Update wfIdStatus to A for any row from the customer_wfId_info table matching customerId/wfId where wfIdStatus is I. Delete any rows from the following tables that match customerId but don\u0026rsquo;t match wfId:  aav_subscriptions iso_contract_view license_sum_view     \nReferenced Tables  aav_subscriptions amp_data_merge_logs customer_wfid_info iso_contract_view license_sum_view  Referenced Stored Procedures  amp_log_msg_prc iso_contract_sum_prc iso_subscription_prc license_sum_view_prc  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/subscriptions/",
