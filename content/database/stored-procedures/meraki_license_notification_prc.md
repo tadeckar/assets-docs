@@ -32,4 +32,4 @@ Checks for `SUBMITTED` rows in `asset_data_load_notification`. Transitions them 
 
 ### Referenced Stored Procedures
 - [amp_log_msg_prc]({{< ILink href="/database/stored-procedures/amp_log_msg_prc" >}})
-- meraki_lic_process_wrap_prc
+- [meraki_lic_process_wrap_prc]({{< ILink href="/database/stored-procedures/meraki_lic_process_wrap_prc" >}})
