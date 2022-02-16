@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>Bulletins :: CX Assets Wiki</title>
+    <title>update_raw_data_process_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645045809" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/update_raw_data_process_prc/">
     <nav id="sidebar" class="">
 
 
@@ -93,7 +93,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/" title="Database" class="dd-item
-        
+        parent
         
         
         ">
@@ -164,7 +164,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/" title="Stored Procedures" class="dd-item
-        
+        parent
         
         
         ">
@@ -652,7 +652,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/update_raw_data_process_prc/" title="update_raw_data_process_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/update_raw_data_process_prc/" title="update_raw_data_process_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/update_raw_data_process_prc/">
         update_raw_data_process_prc
         
@@ -711,7 +711,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/" title="Ingestion" class="dd-item
-        parent
+        
         
         
         ">
@@ -740,7 +740,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/" title="Loaders" class="dd-item
-        parent
+        
         
         
         ">
@@ -787,7 +787,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/" title="Bulletins" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/" title="Bulletins" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/">
         Bulletins
         
@@ -1623,7 +1623,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/ingestion/'>Ingestion</a> > <a href='/pages/tadeckar/assets-docs/ingestion/loaders/'>Loaders</a> > Bulletins
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > update_raw_data_process_prc
           
         
           
@@ -1642,10 +1642,11 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#schemahahahugoshortcode-s0-hbhb"><a href="HAHAHUGOSHORTCODE-s0-HBHB">Schema</a></a></li>
+        <li><a href="#what-does-it-do">What does it do?</a></li>
+        <li><a href="#referenced-tables">Referenced Tables</a></li>
+        <li><a href="#referenced-stored-procedures">Referenced Stored Procedures</a></li>
       </ul>
     </li>
-    <li><a href="#staging-tables">Staging Tables</a></li>
   </ul>
 </nav>
     </div>
@@ -1663,38 +1664,109 @@
           
             <h1>
               
-              Bulletins
+              update_raw_data_process_prc
             </h1>
           
 
         
 
 
-<p>Bulletins are loaded by the <a href="https://www-github3.cisco.com/cxe/cp-asset-data-pipeline/blob/master/glue/cp-asset-data-import-job/csco/dp/job/BulletinMasterParquetDataLoader.py">BulletinMasterParquetDataLoader.py</a>.</p>
-<h3 id="schemahahahugoshortcode-s0-hbhb"><a href="/pages/tadeckar/assets-docs/ingestion/schema/bulletins
-">Schema</a></h3>
-<h2 id="staging-tables">Staging Tables</h2>
+<h3 id="what-does-it-do">What does it do?</h3>
+<p>Gets counts for devices by <strong>mgmtSystemType</strong>. If counts are 0, removes relevant partitions. Otherwise, call stored procedures to create summary views and merge data.
+
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	More Details
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <ol>
+<li>Get a count of rows matching <strong>customerId</strong>/<strong>wfId</strong> from tables based on <strong>mgmtSystemType</strong> stored procedure input parameter:
+<table>
+<thead>
+<tr>
+<th><strong>mgmtSystemType</strong></th>
+<th><strong>Table</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CSDFIB</code></td>
+<td>networkelement_ib_data</td>
+</tr>
+<tr>
+<td><code>DNAC</code></td>
+<td>networkelement_telemetry</td>
+</tr>
+<tr>
+<td><code>APIC</code></td>
+<td>networkelement_dcn</td>
+</tr>
+<tr>
+<td><code>MERAKI</code></td>
+<td>networkelement_meraki</td>
+</tr>
+<tr>
+<td><code>DCC</code></td>
+<td>networkelement_dcc</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>If the row count is 0:
+<ol>
+<li>Update the <strong>partitionStatus</strong> to <code>D</code> for the <strong>customerId</strong>/<strong>wfId</strong> row in the <code>base_table_partition_info</code> table.</li>
+<li>Call the <code>drop_dnac_old_partions_prc</code> stored procedure</li>
+<li>Update the <strong>processingStatus</strong> to <code>NODATA</code> for rows in the <code>asset_inventory_notification</code> table where <strong>customerId</strong>/<strong>wfId</strong> match.</li>
+<li>Exit the current procedure.</li>
+</ol>
+</li>
+<li>Otherwise, count the number of rows in the <code>base_table_partition_info</code> table where the row matches the stored procedure&rsquo;s input parameters.</li>
+<li>If the count is &gt; 0:
+<ol>
+<li>Set the <strong>partitionStatus</strong> to <code>D</code> (Deleted) for the matching row in the <code>base_table_partition_info</code> table for any rows that were in <code>A</code> (Active) state.</li>
+<li>Set the <strong>partitionStatus</strong> to <code>A</code> (Active) for the matching row in the <code>base_table_partition_info</code> table for any rows that were in <code>I</code> (Inprogress) state.</li>
+<li>Call the <code>drop_dnac_old_partions_prc</code> stored procedure</li>
+<li>Delete rows in the <code>base_table_partition_info</code> table that are marked with <strong>partitionStatus</strong> as <code>D</code>.</li>
+</ol>
+</li>
+<li>Call the following stored procedures:
+<ol>
+<li><code>add_sumview_table_partions_prc</code></li>
+<li><code>data_merge_prc</code></li>
+<li><code>sum_table_data_update_prc</code></li>
+<li><code>update_sum_data_process_prc</code></li>
+</ol>
+</li>
+<li>Update the <strong>processingStatus</strong> to <code>SUCCESS</code> for relevant rows from the <code>asset_inventory_notification</code> table.</li>
+</ol>
+
+    </div>
+</div></p>
+<h3 id="referenced-tables">Referenced Tables</h3>
 <ul>
-<li>alert_pas_hw_eox_bulletin_dcc</li>
-<li>alert_pas_hw_eox_bulletin_dcn</li>
-<li>alert_pas_hw_eox_bulletin_ib_data</li>
-<li>alert_pas_hw_eox_bulletin_meraki</li>
-<li>alert_pas_hw_eox_bulletin_telemetry</li>
-<li>alert_pas_sw_eox_bulletin_dcc</li>
-<li>alert_pas_sw_eox_bulletin_dcn</li>
-<li>alert_pas_sw_eox_bulletin_ib_data</li>
-<li>alert_pas_sw_eox_bulletin_meraki</li>
-<li>alert_pas_sw_eox_bulletin_telemetry</li>
-<li>fn_bulletin_master_dcc</li>
-<li>fn_bulletin_master_dcn</li>
-<li>fn_bulletin_master_ib_data</li>
-<li>fn_bulletin_master_meraki</li>
-<li>fn_bulletin_master_telemetry</li>
-<li>sa_bulletin_master_dcc</li>
-<li>sa_bulletin_master_dcn</li>
-<li>sa_bulletin_master_ib_data</li>
-<li>sa_bulletin_master_meraki</li>
-<li>sa_bulletin_master_telemetry</li>
+<li>asset_inventory_notification</li>
+<li>base_table_partition_info</li>
+<li>data_merge_logs</li>
+<li>networkelement_dcc</li>
+<li>networkelement_dcn</li>
+<li>networkelement_ib_data</li>
+<li>networkelement_meraki</li>
+<li>networkelement_telemetry</li>
+</ul>
+<h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
+<ul>
+<li>add_sumview_table_partions_prc</li>
+<li>data_merge_prc</li>
+<li>drop_dnac_old_partions_prc</li>
+<li>log_msg_prc</li>
+<li>sum_table_data_update_prc</li>
+<li>update_sum_data_process_prc</li>
 </ul>
 
 
@@ -1733,8 +1805,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -1750,6 +1820,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1783,6 +1856,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1796,21 +1870,8 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
+                        
                     
                 
                 
@@ -2164,6 +2225,26 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -2186,7 +2267,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -2202,7 +2282,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -2215,9 +2294,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2235,7 +2311,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -2251,9 +2326,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
