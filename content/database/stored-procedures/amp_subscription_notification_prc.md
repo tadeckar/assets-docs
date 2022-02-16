@@ -21,7 +21,7 @@ Checks for rows in `asset_data_load_notification` in `SUBMITTED` state where **d
    1. Counts the number of `INPROGRESS` rows for the given **customerId**
    2. If the count is 0 (none `INPROGRESS`), get the **wfId** from a `SUBMITTED` row.
    3. Update the status to `INPROGRESS` of `SUBMITTED` rows with the **wfId** from the previous step.
-   4. Call the `sub_data_process_wrap_prc` stored procedure with input data from the row.
+   4. Call the [sub_data_process_wrap_prc]({{< ILink href="/database/stored-procedures/sub_data_process_wrap_prc" >}}) stored procedure with input data from the row.
    5. Update the status to `SUCCESS` on the affected rows.
 {{% /expand %}}
 
@@ -32,4 +32,4 @@ Checks for rows in `asset_data_load_notification` in `SUBMITTED` state where **d
 
 ### Referenced Stored Procedures
 - [amp_log_msg_prc]({{< ILink href="/database/stored-procedures/amp_log_msg_prc" >}})
-- sub_data_process_wrap_prc
+- [sub_data_process_wrap_prc]({{< ILink href="/database/stored-procedures/sub_data_process_wrap_prc" >}})
