@@ -51,7 +51,7 @@ Referenced Tables  amp_data_merge_logs  </description>
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_subscription_notification_prc/</guid>
       <description>This procedure runs every 30 seconds.
- What does it do? Checks for rows in asset_data_load_notification in SUBMITTED state where dataSource is CSDF_SUBSCRIPTION. Transitions the rows to INPROGRESS state and calls the iso_data_process_wrap_prc stored procedure. Afterwards, updates the state of the rows to SUCCESS.   More Details    Get a cursor over asset_data_load_notification where  processingStatus is SUBMITTED and dataSource is CSDF_SUBSCRIPTION None of the rows for same customerId are INPROGRESS   Get counts for  rows in SUBMITTED state rows in INPROGRESS state   Get the max parallel limit of amp uploads from the upd_or_async_prop_master table.</description>
+ What does it do? Checks for rows in asset_data_load_notification in SUBMITTED state where dataSource is CSDF_SUBSCRIPTION. Transitions the rows to INPROGRESS state and calls the sub_data_process_wrap_prc stored procedure. Afterwards, updates the state of the rows to SUCCESS.   More Details    Get a cursor over asset_data_load_notification where  processingStatus is SUBMITTED and dataSource is CSDF_SUBSCRIPTION None of the rows for same customerId are INPROGRESS   Get counts for  rows in SUBMITTED state rows in INPROGRESS state   Get the max parallel limit of amp uploads from the upd_or_async_prop_master table.</description>
     </item>
     
     <item>
@@ -61,7 +61,7 @@ Referenced Tables  amp_data_merge_logs  </description>
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_upload_notification_prc/</guid>
       <description>This procedure runs every 30 seconds.
- What does it do? Checks for rows in asset_data_load_notification in SUBMITTED state where dataSource is CSDF_AMP_TELE. Transitions the rows to INPROGRESS state and calls the iso_data_process_wrap_prc stored procedure. Afterwards, updates the state of the rows to SUCCESS.   More Details    Get a cursor over the asset_data_load_notification table where:  processingStatus is SUBMITTED and dataSource is CSDF_AMP_TELE and None of the rows for same customerId are INPROGRESS   Get a counts for  SUBMITTED notifications and INPROGRESS notifications   Get the max parallel limit of amp uploads from the upd_or_async_prop_master table.</description>
+ What does it do? Checks for rows in asset_data_load_notification in SUBMITTED state where dataSource is CSDF_AMP_TELE. Transitions the rows to INPROGRESS state and calls the [iso_data_process_wrap_prc]({{ ILink href=&amp;quot;/database/stored-procedures/iso_data_process_wrap_prc&amp;quot; }}) stored procedure. Afterwards, updates the state of the rows to SUCCESS.   More Details    Get a cursor over the asset_data_load_notification table where:  processingStatus is SUBMITTED and dataSource is CSDF_AMP_TELE and None of the rows for same customerId are INPROGRESS   Get a counts for  SUBMITTED notifications and INPROGRESS notifications   Get the max parallel limit of amp uploads from the upd_or_async_prop_master table.</description>
     </item>
     
     <item>
@@ -356,6 +356,15 @@ The NotificationManager is also used record the data load processing start/end t
     </item>
     
     <item>
+      <title>iso_data_process_wrap_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_data_process_wrap_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_data_process_wrap_prc/</guid>
+      <description>What does it do? Call stored procedures to create summary views for iso data.   More Details    Get a count of the rows in the customer_wfid_info table that match customerId/wfId where  module is CSDF_AMP_TELE and wfIdStatus is I   If the count is 0, then insert a row. Call stored procedures  Call the iso_sum_table_deletion_prc stored procedure Call the iso_daily_trend_prc stored procedure Call the iso_weekly_and_monthly_trend_prc stored procedure Call the iso_feature_usage_prc stored procedure Call the iso_feature_insight_trend_prc stored procedure Call the iso_summary_view_prc stored procedure   Delete any row from the customer_wfid_info table matching customerId/wfId where wfIdStatus is A.</description>
+    </item>
+    
+    <item>
       <title>LicenseDataLoadManager</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -490,7 +499,7 @@ Also updates the processingStatus from INPROGRESS to SUCCESS for rows in the ass
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sub_data_process_wrap_prc/</guid>
-      <description>What does it do? Call stored procedures to create summary views for subscriptions, licenses, and contracts.   More Details    Get a count of the rows in the customer_wfId_info table that match customerId/wfId where  module is CSDF_SUBSCRIPTION and wfIdStatus is I   If the count is 0, then insert a row. Call stored procedures  Call the iso_subscription_prc stored procedure Call the iso_contract_sum_prc stored procedure Call the license_sum_view_prc stored procedure   Delete any row from the customer_wfId_info table matching customerId/wfId where wfIdStatus is A.</description>
+      <description>What does it do? Call stored procedures to create summary views for subscriptions, licenses, and contracts.   More Details    Get a count of the rows in the customer_wfid_info table that match customerId/wfId where  module is CSDF_SUBSCRIPTION and wfIdStatus is I   If the count is 0, then insert a row. Call stored procedures  Call the iso_subscription_prc stored procedure Call the iso_contract_sum_prc stored procedure Call the license_sum_view_prc stored procedure   Delete any row from the customer_wfid_info table matching customerId/wfId where wfIdStatus is A.</description>
     </item>
     
     <item>
@@ -519,7 +528,7 @@ Schema Staging Tables  subscription_stg  </description>
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/</guid>
       <description>This procedure runs every 30 seconds.
- What does it do? Checks for rows in asset_data_load_notification in SUBMITTED state where dataSource is DCC_SUB. Transitions the rows to INPROGRESS state and calls the iso_data_process_wrap_prc stored procedure. Afterwards, updates the state of the rows to SUCCESS.   More Details    Get a cursor over asset_data_load_notification where  processingStatus is SUBMITTED and dataSource is DCC_SUB None of the rows for same customerId are INPROGRESS   Get counts for  rows in SUBMITTED state rows in INPROGRESS state   Get the max parallel limit of amp uploads from the upd_or_async_prop_master table.</description>
+ What does it do? Checks for rows in asset_data_load_notification in SUBMITTED state where dataSource is DCC_SUB. Transitions the rows to INPROGRESS state and calls the xaas_asset_process_wrap_prc stored procedure. Afterwards, updates the state of the rows to SUCCESS.   More Details    Get a cursor over asset_data_load_notification where  processingStatus is SUBMITTED and dataSource is DCC_SUB None of the rows for same customerId are INPROGRESS   Get counts for  rows in SUBMITTED state rows in INPROGRESS state   Get the max parallel limit of amp uploads from the upd_or_async_prop_master table.</description>
     </item>
     
   </channel>

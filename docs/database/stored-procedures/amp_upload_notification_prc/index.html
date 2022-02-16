@@ -12,22 +12,22 @@
     <title>amp_upload_notification_prc :: CX Assets Wiki</title>
 
     
-    <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645025950" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/fontawesome-all.min.css?1645025950" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/hybrid.css?1645025950" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/featherlight.min.css?1645025950" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/perfect-scrollbar.min.css?1645025950" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/auto-complete.css?1645025950" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/atom-one-dark-reasonable.css?1645025950" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/theme.css?1645025950" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/tabs.css?1645025950" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/hugo-theme.css?1645025950" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645029238" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/fontawesome-all.min.css?1645029238" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/hybrid.css?1645029238" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/featherlight.min.css?1645029238" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/perfect-scrollbar.min.css?1645029238" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/auto-complete.css?1645029238" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/atom-one-dark-reasonable.css?1645029238" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/theme.css?1645029238" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/tabs.css?1645029238" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/hugo-theme.css?1645029238" rel="stylesheet">
     
-    <link href="/pages/tadeckar/assets-docs/css/theme-assets.css?1645025950" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/theme-assets.css?1645029238" rel="stylesheet">
     
     
 
-    <script src="/pages/tadeckar/assets-docs/js/jquery-3.3.1.min.js?1645025950"></script>
+    <script src="/pages/tadeckar/assets-docs/js/jquery-3.3.1.min.js?1645029238"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,14 +58,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/lunr.min.js?1645025950"></script>
-<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/auto-complete.js?1645025950"></script>
+<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/lunr.min.js?1645029238"></script>
+<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/auto-complete.js?1645029238"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/www-github3.cisco.com\/pages\/tadeckar\/assets-docs\/";
     
 </script>
-<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/search.js?1645025950"></script>
+<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/search.js?1645029238"></script>
 
     
   </div>
@@ -466,6 +466,27 @@
       <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/inv_upload_notification_prc/" title="inv_upload_notification_prc" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/inv_upload_notification_prc/">
         inv_upload_notification_prc
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/iso_data_process_wrap_prc/" title="iso_data_process_wrap_prc" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_data_process_wrap_prc/">
+        iso_data_process_wrap_prc
         
         </a>
     </li>
@@ -1592,7 +1613,7 @@
 </div>
 
 <h3 id="what-does-it-do">What does it do?</h3>
-<p>Checks for rows in <code>asset_data_load_notification</code> in <code>SUBMITTED</code> state where <strong>dataSource</strong> is <code>CSDF_AMP_TELE</code>. Transitions the rows to <code>INPROGRESS</code> state and calls the <code>iso_data_process_wrap_prc</code> stored procedure. Afterwards, updates the state of the rows to <code>SUCCESS</code>.
+<p>Checks for rows in <code>asset_data_load_notification</code> in <code>SUBMITTED</code> state where <strong>dataSource</strong> is <code>CSDF_AMP_TELE</code>. Transitions the rows to <code>INPROGRESS</code> state and calls the [iso_data_process_wrap_prc]({{ ILink href=&quot;/database/stored-procedures/iso_data_process_wrap_prc&quot; }}) stored procedure. Afterwards, updates the state of the rows to <code>SUCCESS</code>.
 
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
@@ -1625,7 +1646,7 @@
 <li>Counts the number of <code>INPROGRESS</code> rows for the given <strong>customerId</strong></li>
 <li>If the count is 0 (none <code>INPROGRESS</code>), get the <strong>wfId</strong> from a <code>SUBMITTED</code> row.</li>
 <li>Update the status to <code>INPROGRESS</code> of <code>SUBMITTED</code> rows with the <strong>wfId</strong> from the previous step.</li>
-<li>Call the <code>iso_data_process_wrap_prc</code> stored procedure with input data from the row.</li>
+<li>Call the [iso_data_process_wrap_prc]({{ ILink href=&quot;/database/stored-procedures/iso_data_process_wrap_prc&quot; }}) stored procedure with input data from the row.</li>
 <li>Update the status to <code>SUCCESS</code> on the affected rows.</li>
 </ol>
 </li>
@@ -1643,7 +1664,7 @@
 <ul>
 <li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc
 ">amp_log_msg_prc</a></li>
-<li>iso_data_process_wrap_prc</li>
+<li>[iso_data_process_wrap_prc]({{ ILink href=&quot;/database/stored-procedures/iso_data_process_wrap_prc&quot; }})</li>
 </ul>
 
 
@@ -1817,6 +1838,22 @@
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -2684,19 +2721,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/pages/tadeckar/assets-docs/js/clipboard.min.js?1645025950"></script>
-    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.min.js?1645025950"></script>
-    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.jquery.min.js?1645025950"></script>
-    <script src="/pages/tadeckar/assets-docs/js/jquery.sticky.js?1645025950"></script>
-    <script src="/pages/tadeckar/assets-docs/js/featherlight.min.js?1645025950"></script>
-    <script src="/pages/tadeckar/assets-docs/js/highlight.pack.js?1645025950"></script>
+    <script src="/pages/tadeckar/assets-docs/js/clipboard.min.js?1645029238"></script>
+    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.min.js?1645029238"></script>
+    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.jquery.min.js?1645029238"></script>
+    <script src="/pages/tadeckar/assets-docs/js/jquery.sticky.js?1645029238"></script>
+    <script src="/pages/tadeckar/assets-docs/js/featherlight.min.js?1645029238"></script>
+    <script src="/pages/tadeckar/assets-docs/js/highlight.pack.js?1645029238"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/pages/tadeckar/assets-docs/js/modernizr.custom-3.6.0.js?1645025950"></script>
-    <script src="/pages/tadeckar/assets-docs/js/learn.js?1645025950"></script>
-    <script src="/pages/tadeckar/assets-docs/js/hugo-learn.js?1645025950"></script>
+    <script src="/pages/tadeckar/assets-docs/js/modernizr.custom-3.6.0.js?1645029238"></script>
+    <script src="/pages/tadeckar/assets-docs/js/learn.js?1645029238"></script>
+    <script src="/pages/tadeckar/assets-docs/js/hugo-learn.js?1645029238"></script>
     
         
-            <script src="/pages/tadeckar/assets-docs/mermaid/mermaid.js?1645025950"></script>
+            <script src="/pages/tadeckar/assets-docs/mermaid/mermaid.js?1645029238"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
