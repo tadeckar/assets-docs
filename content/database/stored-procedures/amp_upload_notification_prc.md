@@ -31,5 +31,5 @@ Checks for rows in `asset_data_load_notification` in `SUBMITTED` state where **d
 - upd_or_async_prop_master
 
 ### Referenced Stored Procedures
-- amp_log_msg_prc
+- [amp_log_msg_prc]({{< ILink href="/database/stored-procedures/amp_log_msg_prc" >}})
 - iso_data_process_wrap_prc

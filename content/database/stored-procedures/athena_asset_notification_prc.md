@@ -32,5 +32,5 @@ Checks for any rows of the `asset_data_load_notification` table that are in the 
 - upd_or_async_prop_master
 
 ### Referenced Stored Procedures
-- amp_log_msg_prc
+- [amp_log_msg_prc]({{< ILink href="/database/stored-procedures/amp_log_msg_prc" >}})
 - athena_dcc_dcn_data_process_prc

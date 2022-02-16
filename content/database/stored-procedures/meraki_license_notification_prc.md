@@ -31,5 +31,5 @@ Checks for `SUBMITTED` rows in `asset_data_load_notification`. Transitions them 
 - upd_or_async_prop_master
 
 ### Referenced Stored Procedures
-- amp_log_msg_prc
+- [amp_log_msg_prc]({{< ILink href="/database/stored-procedures/amp_log_msg_prc" >}})
 - meraki_lic_process_wrap_prc

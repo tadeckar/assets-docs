@@ -25,4 +25,4 @@ Checks for rows of `asset_data_load_notification` that have been `INPROGRESS` fo
 - data_merge_logs
 
 ### Referenced Stored Procedures
-- amp_log_msg_prc
+- [amp_log_msg_prc]({{< ILink href="/database/stored-procedures/amp_log_msg_prc" >}})
