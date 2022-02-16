@@ -26,5 +26,5 @@ Checks for rows in `asset_inventory_notification` that are in `SUBMITTED` state.
 - data_merge_logs
 
 ### Referenced Stored Procedures
-- log_msg_prc
+- [log_msg_prc]({{< ILink href="/database/stored-procedures/log_msg_prc" >}})
 - update_raw_data_process_prc

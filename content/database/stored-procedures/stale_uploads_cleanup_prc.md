@@ -30,4 +30,4 @@ Updates the **processingStatus** of 2-day-old rows in `asset_inventory_notificat
 - networkelement_telemetry
 
 ### Referenced Stored Procedures
-- log_msg_prc
+- [log_msg_prc]({{< ILink href="/database/stored-procedures/log_msg_prc" >}})

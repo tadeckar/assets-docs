@@ -21,4 +21,4 @@ Updates status of long-running (over 2-day old) notifications from `INPROGRESS` 
 
 
 ### Referenced Stored Procedures
-- log_msg_prc
+- [log_msg_prc]({{< ILink href="/database/stored-procedures/log_msg_prc" >}})

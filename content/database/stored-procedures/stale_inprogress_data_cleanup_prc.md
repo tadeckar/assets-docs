@@ -31,4 +31,4 @@ Also updates the **processingStatus** from `INPROGRESS` to `SUCCESS` for rows in
 - data_merge_logs
 
 ### Referenced Stored Procedures
-- log_msg_prc
+- [log_msg_prc]({{< ILink href="/database/stored-procedures/log_msg_prc" >}})
