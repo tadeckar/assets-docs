@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>Database :: CX Assets Wiki</title>
+    <title>xaas_asset_process_wrap_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645048411" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/database/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_process_wrap_prc/">
     <nav id="sidebar" class="">
 
 
@@ -94,7 +94,7 @@
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/" title="Database" class="dd-item
         parent
-        active
+        
         
         ">
       <a href="/pages/tadeckar/assets-docs/database/">
@@ -164,7 +164,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/" title="Stored Procedures" class="dd-item
-        
+        parent
         
         
         ">
@@ -715,7 +715,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_process_wrap_prc/" title="xaas_asset_process_wrap_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_process_wrap_prc/" title="xaas_asset_process_wrap_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_process_wrap_prc/">
         xaas_asset_process_wrap_prc
         
@@ -1657,7 +1657,19 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > Database
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > xaas_asset_process_wrap_prc
+          
+        
+          
+        
           
         
           
@@ -1668,7 +1680,17 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-does-it-do">What does it do?</a></li>
+        <li><a href="#referenced-tables">Referenced Tables</a></li>
+        <li><a href="#referenced-stored-procedures">Referenced Stored Procedures</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1684,85 +1706,72 @@
           
             <h1>
               
-              Database
+              xaas_asset_process_wrap_prc
             </h1>
           
 
         
 
 
+<h3 id="what-does-it-do">What does it do?</h3>
+<p>Call stored procedures to create summary views for XAAS assets.
 
-	
-
-
-
-
-
-
-<ul class="children children-li">
-	
-
-	
-		
-			
-		
-	
-
-	
-
-	
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/recurring-events/" >Recurring Events</a>
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	More Details
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <ol>
+<li>Get a count of the rows in the <code>customer_wfid_info</code> table that match <strong>customerId</strong>/<strong>wfId</strong> where
+<ul>
+<li><strong>module</strong> is <code>DCC_SUB</code> and</li>
+<li><strong>wfIdStatus</strong> is <code>I</code></li>
+</ul>
 </li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/staging-tables/" >Staging Tables</a>
+<li>If the count is 0, then insert a row.</li>
+<li>Call stored procedures
+<ol>
+<li>Call the <code>xaas_sub_data_process_prc</code> stored procedure</li>
+<li>Call the <code>xaas_sub_license_prc</code> stored procedure</li>
+</ol>
 </li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/" >Stored Procedures</a>
+<li>Delete any row from the <code>customer_wfid_info</code> table matching <strong>customerId</strong>/<strong>wfId</strong> where <strong>wfIdStatus</strong> is <code>A</code>.</li>
+<li>Update <strong>wfIdStatus</strong> to <code>A</code> for any row from the <code>customer_wfid_info</code> table matching <strong>customerId</strong>/<strong>wfId</strong> where <strong>wfIdStatus</strong> is <code>I</code>.</li>
+<li>Delete any rows from the following tables that match <strong>customerId</strong> but don&rsquo;t match <strong>wfId</strong>:
+<ul>
+<li><code>networkelement_sub_stg</code></li>
+<li><code>subscription_stg</code></li>
+</ul>
 </li>
-				
+</ol>
 
-				
-			
-			
-		
-	
-
-	
+    </div>
+</div></p>
+<h3 id="referenced-tables">Referenced Tables</h3>
+<ul>
+<li>amp_data_merge_logs</li>
+<li>customer_wfid_info</li>
+<li>networkelement_sub_stg</li>
+<li>subscription_stg</li>
+</ul>
+<h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
+<ul>
+<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc
+">amp_log_msg_prc</a></li>
+<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc
+">log_msg_prc</a></li>
+<li>xaas_sub_data_process_prc</li>
+<li>xaas_sub_license_prc</li>
 </ul>
 
 
-
-
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -1848,6 +1857,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1855,6 +1865,25 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -2245,21 +2274,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -2282,6 +2296,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2909,3 +2926,4 @@
 
   </body>
 </html>
+

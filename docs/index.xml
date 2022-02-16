@@ -568,5 +568,14 @@ Schema Staging Tables  subscription_stg  </description>
  What does it do? Checks for rows in asset_data_load_notification in SUBMITTED state where dataSource is DCC_SUB. Transitions the rows to INPROGRESS state and calls the xaas_asset_process_wrap_prc stored procedure. Afterwards, updates the state of the rows to SUCCESS.   More Details    Get a cursor over asset_data_load_notification where  processingStatus is SUBMITTED and dataSource is DCC_SUB None of the rows for same customerId are INPROGRESS   Get counts for  rows in SUBMITTED state rows in INPROGRESS state   Get the max parallel limit of amp uploads from the upd_or_async_prop_master table.</description>
     </item>
     
+    <item>
+      <title>xaas_asset_process_wrap_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_process_wrap_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_process_wrap_prc/</guid>
+      <description>What does it do? Call stored procedures to create summary views for XAAS assets.   More Details    Get a count of the rows in the customer_wfid_info table that match customerId/wfId where  module is DCC_SUB and wfIdStatus is I   If the count is 0, then insert a row. Call stored procedures  Call the xaas_sub_data_process_prc stored procedure Call the xaas_sub_license_prc stored procedure   Delete any row from the customer_wfid_info table matching customerId/wfId where wfIdStatus is A.</description>
+    </item>
+    
   </channel>
 </rss>
