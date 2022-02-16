@@ -21,6 +21,13 @@
 	"content": " classDiagram class AlertsFn{ +Long createdAt +Long fieldNoticeId +Long updatedAt +String cavbuid +String caveat +String cavid +String createdBy +String customerId +String distributionCode +String equipmentType +String fieldNoticeName +String hostname +String hwId +String id +String managementAddress +String neId +String productFamily +String productId +String serialNumber +String softwareType +String updatedBy +String vulnerabilityReason +String vulnerabilityStatus +String wfId } class AlertsHwEox{ +Long createdAt +Long updatedAt +String bulletinName +String cavbuid +String cavid +String createdBy +String customerId +String equipmentType +String hardwareEoxId +String hostname +String hwId +String id +String managementAddress +String neId +String productId +String updatedBy +String wfId } class AlertsPsirt{ +Long createdAt +Long psirtId +Long updatedAt +String cavbuid +String caveat +String cavid +String createdBy +String customerId +String cveId +String cvssBaseScore +String cxLevel +String equipmentType +String headlineName +String hostname +String hwId +String id +String managementAddress +String neId +String productFamily +String productId +String publicReleaseInd +String severity +String softwareType +String softwareVersion +String solutionIds +String updatedBy +String usecaseIds +String vulnerabilityReason +String vulnerabilityStatus +String wfId } class AlertsSwEox{ +Long createdAt +Long updatedAt +String bulletinHeadline +String cavbuid +String cavid +String createdBy +String customerId +String equipmentType +String hostname +String id +String managementAddress +String neId +String productId +String softwareEoxId +String softwareType +String softwareVersion +String updatedBy +String wfId }  "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc/",
+	"title": "amp_log_msg_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? Inserts a row into the amp_data_merge_logs table given customerId, wfId, function_name, and msg, along with the current timestamp.\nReferenced Tables  amp_data_merge_logs  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_subscription_notification_prc/",
 	"title": "amp_subscription_notification_prc",
 	"tags": [],
@@ -133,6 +140,13 @@
 	"content": " classDiagram class ContractNE{ +Boolean isCollector +Long InstallationDate +Long contractEndDate +Long contractId +Long contractStartDate +Long coverageEndDate +Long coverageStartDate +Long generatedAt +Long instanceId +Long lastCoverageEndDate +Long warrantyEndDate +Long warrantyStartDate +String BillToCrPartyId +String CavBUName +String CavName +String ComponentType +String InstallAtCustomerName +String InstallAtSiteGuId +String InstallAtSiteGuName +String InstallAtSitePartyId +String InstallCustomerAddrLine3 +String InstallationQuantity +String InstanceCreationDtm +String InstanceLastUpdateDtm +String PartnerBeName +String ProductShipmentConfirmedDtm +String SalesOrderNumber +String ServiceLevel +String billToAddress1 +String billToAddress2 +String billToCity +String billToCountry +String billToPostalCode +String billToProvince +String billToSiteName +String billToState +String cavbuid +String cavid +String collectorId +String contractNumber +String contractOwner +String contractStatus +String coverageStatus +String createdAt +String createdBy +String customerId +String customerName +String cxLevel +String endOfSaleDate +String genPartyId +String hwId +String ibAvailabilityFlag +String id +String installAddress1 +String installAddress2 +String installCity +String installCountry +String installPostalCode +String installProvince +String installSiteName +String installState +String instanceStatus +String itemTypeCode +String lastDateOfSupport +String licenseTermInMonth +String managedNeId +String mgmtSystemAddr +String mgmtSystemHostname +String mgmtSystemId +String mgmtSystemType +String neId +String parentInstanceId +String parentSerialNumber +String partnerBeGeoId +String partnerBeGeoName +String partnerBeId +String prdtSetupClassificationCd +String productEndCrPartyIdInt +String productId +String serialNumber +String serviceLineStatus +String serviceProgram +String sfcFlag +String slaCode +String slaDescription +String sourceNeId +String telemetryAvailablityFlag +String termsAndContentCd +String updatedAt +String updatedBy +String warrantyType +String wfId }  "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/services/cp-asset-group-api/",
+	"title": "cp-asset-group-api",
+	"tags": [],
+	"description": "",
+	"content": " View Source  Invokes Stored Procedures  contract_group_device_sum_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/data-load-types/",
 	"title": "Data Load Types",
 	"tags": [],
@@ -214,7 +228,7 @@
 	"title": "Home",
 	"tags": [],
 	"description": "",
-	"content": "Table of Contents  Database   Ingestion   "
+	"content": "Table of Contents  Database   Ingestion   Services   "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/hybrid-subscriptions/",
@@ -350,6 +364,13 @@
 	"content": " View Source   Alerts Schema   Bulletins Schema   CLI Schema   Config Schema   Contracts Schema   Equipments Schema   Hybrid Subscriptions Schema   Licenses Schema   Network Elements Schema   Subscriptions Schema   "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/services/",
+	"title": "Services",
+	"tags": [],
+	"description": "",
+	"content": "  cp-asset-group-api   "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/staging-tables/",
 	"title": "Staging Tables",
 	"tags": [],
@@ -375,7 +396,7 @@
 	"title": "Stored Procedures",
 	"tags": [],
 	"description": "",
-	"content": "  add_base_table_partions_prc   amp_subscription_notification_prc   amp_upload_notification_prc   athena_asset_notification_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   meraki_license_notification_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   xaas_asset_notification_prc   "
+	"content": "  add_base_table_partions_prc   amp_log_msg_prc   amp_subscription_notification_prc   amp_upload_notification_prc   athena_asset_notification_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   meraki_license_notification_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   xaas_asset_notification_prc   "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/subscriptions/",

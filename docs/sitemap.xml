@@ -8,6 +8,8 @@
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/alerts/</loc>
   </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc/</loc>
+  </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_subscription_notification_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_upload_notification_prc/</loc>
@@ -39,6 +41,8 @@
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/contracts/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/contracts/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/services/cp-asset-group-api/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/data-load-types/</loc>
   </url><url>
@@ -101,6 +105,8 @@
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/retry_failed_uploads_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/services/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/staging-tables/</loc>
   </url><url>

@@ -35,6 +35,16 @@ Schema Staging Tables  alert_fn_dcc alert_fn_dcn alert_fn_ib_data alert_fn_merak
     </item>
     
     <item>
+      <title>amp_log_msg_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc/</guid>
+      <description>What does it do? Inserts a row into the amp_data_merge_logs table given customerId, wfId, function_name, and msg, along with the current timestamp.
+Referenced Tables  amp_data_merge_logs  </description>
+    </item>
+    
+    <item>
       <title>amp_subscription_notification_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_subscription_notification_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -180,6 +190,15 @@ Schema Staging Tables  contractcoverage_dcc contractcoverage_dcn contractcoverag
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/contracts/</guid>
       <description> classDiagram class ContractNE{ +Boolean isCollector +Long InstallationDate +Long contractEndDate +Long contractId +Long contractStartDate +Long coverageEndDate +Long coverageStartDate +Long generatedAt +Long instanceId +Long lastCoverageEndDate +Long warrantyEndDate +Long warrantyStartDate +String BillToCrPartyId +String CavBUName +String CavName +String ComponentType +String InstallAtCustomerName +String InstallAtSiteGuId +String InstallAtSiteGuName +String InstallAtSitePartyId +String InstallCustomerAddrLine3 +String InstallationQuantity +String InstanceCreationDtm +String InstanceLastUpdateDtm +String PartnerBeName +String ProductShipmentConfirmedDtm +String SalesOrderNumber +String ServiceLevel +String billToAddress1 +String billToAddress2 +String billToCity +String billToCountry +String billToPostalCode +String billToProvince +String billToSiteName +String billToState +String cavbuid +String cavid +String collectorId +String contractNumber +String contractOwner +String contractStatus +String coverageStatus +String createdAt +String createdBy +String customerId +String customerName +String cxLevel +String endOfSaleDate +String genPartyId +String hwId +String ibAvailabilityFlag +String id +String installAddress1 +String installAddress2 +String installCity +String installCountry +String installPostalCode +String installProvince +String installSiteName +String installState +String instanceStatus +String itemTypeCode +String lastDateOfSupport +String licenseTermInMonth +String managedNeId +String mgmtSystemAddr +String mgmtSystemHostname +String mgmtSystemId +String mgmtSystemType +String neId +String parentInstanceId +String parentSerialNumber +String partnerBeGeoId +String partnerBeGeoName +String partnerBeId +String prdtSetupClassificationCd +String productEndCrPartyIdInt +String productId +String serialNumber +String serviceLineStatus +String serviceProgram +String sfcFlag +String slaCode +String slaDescription +String sourceNeId +String telemetryAvailablityFlag +String termsAndContentCd +String updatedAt +String updatedBy +String warrantyType +String wfId }  </description>
+    </item>
+    
+    <item>
+      <title>cp-asset-group-api</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/services/cp-asset-group-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/services/cp-asset-group-api/</guid>
+      <description> View Source  Invokes Stored Procedures  contract_group_device_sum_prc  </description>
     </item>
     
     <item>
