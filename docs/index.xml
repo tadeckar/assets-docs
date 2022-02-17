@@ -447,6 +447,15 @@ Referenced Tables  amp_data_merge_logs iso_daily_consumption_trend iso_daily_log
     </item>
     
     <item>
+      <title>iso_weekly_and_monthly_trend_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_weekly_and_monthly_trend_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_weekly_and_monthly_trend_prc/</guid>
+      <description>What does it do? Inserts rows into ISO weekly, monthly, and quarterly aggregation tables for login and consumption trends.   More Details    Insert rows into iso_weekly_login_trend using grouped data from iso_daily_login_trend. Insert rows into iso_weekly_consumption_trend using grouped data from iso_daily_consumption_trend. Insert rows into iso_monthly_login_trend using grouped data from iso_daily_login_trend. Insert rows into iso_monthly_consumption_trend using grouped data from iso_daily_consumption_trend. Insert rows into iso_quarterly_login_trend using grouped data from iso_daily_login_trend.</description>
+    </item>
+    
+    <item>
       <title>LicenseDataLoadManager</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
