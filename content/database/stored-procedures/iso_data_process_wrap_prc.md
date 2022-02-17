@@ -15,7 +15,7 @@ Call stored procedures to create summary views for iso data.
    3. Call the `iso_weekly_and_monthly_trend_prc` stored procedure
    4. Call the [iso_feature_usage_prc]({{< ILink href="/database/stored-procedures/iso_feature_usage_prc" >}}) stored procedure
    5. Call the [iso_feature_insight_trend_prc]({{< ILink href="/database/stored-procedures/iso_feature_insight_trend_prc" >}}) stored procedure
-   6. Call the `iso_summary_view_prc` stored procedure
+   6. Call the [iso_summary_view_prc]({{< ILink href="/database/stored-procedures/iso_summary_view_prc" >}}) stored procedure
 4. Delete any row from the `customer_wfid_info` table matching **customerId**/**wfId** where **wfIdStatus** is `A`.
 5. Update **wfIdStatus** to `A` for any row from the `customer_wfid_info` table matching **customerId**/**wfId** where **wfIdStatus** is `I`.
 6. Delete any rows from the following tables that match **customerId** but don't match **wfId**:
@@ -53,5 +53,5 @@ Call stored procedures to create summary views for iso data.
 - [iso_feature_insight_trend_prc]({{< ILink href="/database/stored-procedures/iso_feature_insight_trend_prc" >}})
 - [iso_feature_usage_prc]({{< ILink href="/database/stored-procedures/iso_feature_usage_prc" >}})
 - [iso_sum_table_deletion_prc]({{< ILink href="/database/stored-procedures/iso_sum_table_deletion_prc" >}})
-- iso_summary_view_prc
+- [iso_summary_view_prc]({{< ILink href="/database/stored-procedures/iso_summary_view_prc" >}})
 - iso_weekly_and_monthly_trend_prc
