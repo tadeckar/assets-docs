@@ -12,7 +12,7 @@ Call stored procedures to create summary views for iso data.
 3. Call stored procedures
    1. Call the [iso_sum_table_deletion_prc]({{< ILink href="/database/stored-procedures/iso_sum_table_deletion_prc" >}}) stored procedure
    2. Call the [iso_daily_trend_prc]({{< ILink href="/database/stored-procedures/iso_daily_trend_prc" >}}) stored procedure
-   3. Call the `iso_weekly_and_monthly_trend_prc` stored procedure
+   3. Call the [iso_weekly_and_monthly_trend_prc]({{< ILink href="/database/stored-procedures/iso_weekly_and_monthly_trend_prc" >}}) stored procedure
    4. Call the [iso_feature_usage_prc]({{< ILink href="/database/stored-procedures/iso_feature_usage_prc" >}}) stored procedure
    5. Call the [iso_feature_insight_trend_prc]({{< ILink href="/database/stored-procedures/iso_feature_insight_trend_prc" >}}) stored procedure
    6. Call the [iso_summary_view_prc]({{< ILink href="/database/stored-procedures/iso_summary_view_prc" >}}) stored procedure
@@ -54,4 +54,4 @@ Call stored procedures to create summary views for iso data.
 - [iso_feature_usage_prc]({{< ILink href="/database/stored-procedures/iso_feature_usage_prc" >}})
 - [iso_sum_table_deletion_prc]({{< ILink href="/database/stored-procedures/iso_sum_table_deletion_prc" >}})
 - [iso_summary_view_prc]({{< ILink href="/database/stored-procedures/iso_summary_view_prc" >}})
-- iso_weekly_and_monthly_trend_prc
+- [iso_weekly_and_monthly_trend_prc]({{< ILink href="/database/stored-procedures/iso_weekly_and_monthly_trend_prc" >}})
