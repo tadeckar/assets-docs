@@ -63,6 +63,13 @@
 	"content": "What does it do? Syncs rows between the athena_subscription_stg and networkelement_dcc tables.   More Details    Gets a count of rows in base_table_partition_info where  customerId matches input and mgmtSystemType is DCC and partitionStatus is A (Active)   If the count is 1 (customer has 1 active inv upload)  Get the wfId of the active partition Get a count of rows in the athena_subscription_stg table that are not in the networkelement_dcc table. If the count is \u0026gt; 0, update the rows in networkelement_dcc so that they are tagged with athena fields. Get a count of rows in the networkelement_dcc table that are not in the athena_subscription_stg table. If the count is \u0026gt; 0, update the rows in athena_subscription_stg removing the tagged athena fields.     \nReferenced Tables  amp_data_merge_logs athena_subscription_stg base_table_partition_info networkelement_dcc  Referenced Stored Procedures  amp_log_msg_prc  "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/athena_dcn_stg_data_process_prc/",
+	"title": "athena_dcn_stg_data_process_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? Syncs rows between the athena_subscription_stg and networkelement_dcn tables.   More Details    Gets a count of rows in base_table_partition_info where  customerId matches input and mgmtSystemType is APIC and partitionStatus is A (Active)   If the count is 1 (customer has 1 active inv upload)  Get the wfId of the active partition Get a count of rows in the athena_subscription_stg table that are not in the networkelement_dcn table. If the count is \u0026gt; 0, update the rows in networkelement_dcn so that they are tagged with athena fields. Get a count of rows in the networkelement_dcn table that are not in the athena_subscription_stg table. If the count is \u0026gt; 0, update the rows in athena_subscription_stg removing the tagged athena fields.     \nReferenced Tables  amp_data_merge_logs athena_subscription_stg base_table_partition_info networkelement_dcn  Referenced Stored Procedures  amp_log_msg_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/",
 	"title": "Bulletins",
 	"tags": [],
@@ -431,7 +438,7 @@
 	"title": "Stored Procedures",
 	"tags": [],
 	"description": "",
-	"content": "  add_base_table_partions_prc   amp_log_msg_prc   amp_subscription_notification_prc   amp_upload_notification_prc   athena_asset_notification_prc   athena_dcc_dcn_data_process_prc   athena_dcc_stg_data_process_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   iso_data_process_wrap_prc   log_msg_prc   meraki_lic_process_wrap_prc   meraki_license_notification_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   sub_data_process_wrap_prc   update_raw_data_process_prc   xaas_asset_notification_prc   xaas_asset_process_wrap_prc   "
+	"content": "  add_base_table_partions_prc   amp_log_msg_prc   amp_subscription_notification_prc   amp_upload_notification_prc   athena_asset_notification_prc   athena_dcc_dcn_data_process_prc   athena_dcc_stg_data_process_prc   athena_dcn_stg_data_process_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   iso_data_process_wrap_prc   log_msg_prc   meraki_lic_process_wrap_prc   meraki_license_notification_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   sub_data_process_wrap_prc   update_raw_data_process_prc   xaas_asset_notification_prc   xaas_asset_process_wrap_prc   "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sub_data_process_wrap_prc/",
