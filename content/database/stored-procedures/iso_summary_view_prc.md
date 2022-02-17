@@ -32,7 +32,7 @@ Populates data for the ISO Summary view tables.
     - iso_feature_usage
     - iso_feature_insight_trend
 12. Drop the `amp_ne_sol_map_tmp` temporary table.
-13. Call the `amp_neid_update_prc` stored procedure.
+13. Call the [amp_neid_update_prc]({{< ILink href="/database/stored-procedures/amp_neid_update_prc" >}}) stored procedure.
 {{% /expand %}}
 
 ### Referenced Tables
@@ -60,4 +60,4 @@ Populates data for the ISO Summary view tables.
 
 ### Referenced Stored Procedures
 - [amp_log_msg_prc]({{< ILink href="/database/stored-procedures/amp_log_msg_prc" >}})
-- amp_neid_update_prc
+- [amp_neid_update_prc]({{< ILink href="/database/stored-procedures/amp_neid_update_prc" >}})
