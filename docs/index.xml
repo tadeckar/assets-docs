@@ -428,6 +428,16 @@ The NotificationManager is also used record the data load processing start/end t
     </item>
     
     <item>
+      <title>iso_sum_table_deletion_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_sum_table_deletion_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_sum_table_deletion_prc/</guid>
+      <description>What does it do? Deletes all rows matching specified customerId/wfId from ISO summary tables.   More Details    Deletes rows matching customerId/wfId from the following tables:  iso_daily_login_trend iso_daily_consumption_trend iso_weekly_login_trend iso_weekly_consumption_trend iso_monthly_login_trend iso_monthly_consumption_trend iso_quarterly_login_trend iso_quarterly_consumption_trend iso_feature_usage iso_feature_insight_trend iso_summary_view     
+Referenced Tables  amp_data_merge_logs iso_daily_consumption_trend iso_daily_login_trend iso_feature_insight_trend iso_feature_usage iso_monthly_consumption_trend iso_monthly_login_trend iso_quarterly_consumption_trend iso_quarterly_login_trend iso_summary_view iso_weekly_consumption_trend iso_weekly_login_trend  Referenced Stored Procedures  amp_log_msg_prc  </description>
+    </item>
+    
+    <item>
       <title>LicenseDataLoadManager</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
