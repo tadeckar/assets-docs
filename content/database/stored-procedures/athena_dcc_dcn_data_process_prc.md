@@ -14,7 +14,7 @@ Removes all rows from the `athena_subscription_stg` table that have a stale **wf
    2. Call the following stored procedures with **customerId**/**wfId** as parameters:
       - [athena_dcc_stg_data_process_prc]({{< ILink href="/database/stored-procedures/athena_dcc_stg_data_process_prc" >}})
       - [athena_dcn_stg_data_process_prc]({{< ILink href="/database/stored-procedures/athena_dcn_stg_data_process_prc" >}}) 
-      - athena_ib_stg_data_process_prc
+      - [athena_ib_stg_data_process_prc]({{< ILink href="/database/stored-procedures/athena_ib_stg_data_process_prc" >}})
 4. Get a count of any rows in `athena_subscription_stg` where **assetCategory** is `Cisco Plus` that are not present in the `all_asset_view` table.
 5. If the count is > 0:
    1. Update rows in `all_asset_view` so that fields match rows in `athena_subscription_stg`.
@@ -34,4 +34,4 @@ Removes all rows from the `athena_subscription_stg` table that have a stale **wf
 - [amp_log_msg_prc]({{< ILink href="/database/stored-procedures/amp_log_msg_prc" >}})
 - [athena_dcc_stg_data_process_prc]({{< ILink href="/database/stored-procedures/athena_dcc_stg_data_process_prc" >}}) 
 - [athena_dcn_stg_data_process_prc]({{< ILink href="/database/stored-procedures/athena_dcn_stg_data_process_prc" >}}) 
-- athena_ib_stg_data_process_prc
+- [athena_ib_stg_data_process_prc]({{< ILink href="/database/stored-procedures/athena_ib_stg_data_process_prc" >}})
