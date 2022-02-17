@@ -284,6 +284,15 @@ Referenced Tables  data_merge_logs  </description>
     </item>
     
     <item>
+      <title>meraki_license_sum_view_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_license_sum_view_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_license_sum_view_prc/</guid>
+      <description>What does it do? Inserts rows into the license_sum_view table using values from meraki_license_sum_view_stage.   More Details    Get a count of rows in customer_wfid_info where  customerId matches input parameter and module is CSDF_SUBSCRIPTION and wfIdStatus is A (Active)   If the count is &amp;gt; 0:  Get the wfId from a row in customer_wfid_info. Get a count of rows in license_sum_view where  customerId matches input and wfId matches result from previous step and solutionIds is |52517223| (Meraki solutionId?</description>
+    </item>
+    
+    <item>
       <title>retry_failed_uploads_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/retry_failed_uploads_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
