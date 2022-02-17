@@ -84,6 +84,15 @@ Referenced Tables  amp_data_merge_logs  </description>
     </item>
     
     <item>
+      <title>athena_ib_stg_data_process_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/athena_ib_stg_data_process_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/athena_ib_stg_data_process_prc/</guid>
+      <description>What does it do? Syncs rows between the athena_subscription_stg and networkelement_ib_data tables.   More Details    Gets a count of rows in base_table_partition_info where  customerId matches input and mgmtSystemType is CSDFIB and partitionStatus is A (Active)   If the count is 1 (customer has 1 active inv upload)  Get the wfId of the active partition Get a count of rows in the athena_subscription_stg table that are not in the networkelement_ib_data table.</description>
+    </item>
+    
+    <item>
       <title>clean_invalid_status_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/clean_invalid_status_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
