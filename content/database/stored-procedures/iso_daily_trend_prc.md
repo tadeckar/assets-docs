@@ -28,4 +28,4 @@ Adds rows to ISO daily trend tables using values from ISO trend staging tables.
 - iso_user_login_trend_stg
 
 ### Referenced Stored Procedures
-- amp_log_msg_prc
+- [amp_log_msg_prc]({{< ILink href="/database/stored-procedures/amp_log_msg_prc" >}})
