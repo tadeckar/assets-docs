@@ -45,6 +45,15 @@ Referenced Tables  amp_data_merge_logs  </description>
     </item>
     
     <item>
+      <title>amp_neid_update_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_neid_update_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_neid_update_prc/</guid>
+      <description>What does it do? Inserts rows into the all_asset_view table using data from other various tables.   More Details    If input parameter wf is AMP:  Get a count of rows in customer_partition_info where  customerId matches input parameter and partitionStatus is A (Active)   If the count is 1:  Get the wfId from the customer_partition_info table Delete rows from all_asset_view where  customerId matches input and wfId matches the resulting wfId of previous step and there are rows of the iso_summary_view table where ampNeId match neId of all_asset_view   Insert rows into all_asset_view using values from iso_summary_view Get a count of rows using values from iso_summary_view and asset_group_master that do not have correlating rows in asset_group_device.</description>
+    </item>
+    
+    <item>
       <title>amp_subscription_notification_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_subscription_notification_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

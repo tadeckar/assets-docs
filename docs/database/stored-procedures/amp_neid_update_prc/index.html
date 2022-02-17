@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>Stored Procedures :: CX Assets Wiki</title>
+    <title>amp_neid_update_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645132144" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/amp_neid_update_prc/">
     <nav id="sidebar" class="">
 
 
@@ -165,7 +165,7 @@
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/" title="Stored Procedures" class="dd-item
         parent
-        active
+        
         
         ">
       <a href="/pages/tadeckar/assets-docs/database/stored-procedures/">
@@ -232,7 +232,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/amp_neid_update_prc/" title="amp_neid_update_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/amp_neid_update_prc/" title="amp_neid_update_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_neid_update_prc/">
         amp_neid_update_prc
         
@@ -1871,7 +1871,13 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > Stored Procedures
+            
+            
+          
+          
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > amp_neid_update_prc
+          
+        
           
         
           
@@ -1884,7 +1890,17 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-does-it-do">What does it do?</a></li>
+        <li><a href="#referenced-tables">Referenced Tables</a></li>
+        <li><a href="#referenced-stored-procedures">Referenced Stored Procedures</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -1900,512 +1916,94 @@
           
             <h1>
               
-              Stored Procedures
+              amp_neid_update_prc
             </h1>
           
 
         
 
 
+<h3 id="what-does-it-do">What does it do?</h3>
+<p>Inserts rows into the <code>all_asset_view</code> table using data from other various tables.
 
-	
-
-
-
-
-
-
-<ul class="children children-li">
-	
-
-	
-		
-	
-
-	
-
-	
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/add_base_table_partions_prc/" >add_base_table_partions_prc</a>
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	More Details
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <ol>
+<li>If input parameter <strong>wf</strong> is <code>AMP</code>:
+<ol>
+<li>Get a count of rows in <code>customer_partition_info</code> where
+<ul>
+<li><strong>customerId</strong> matches input parameter and</li>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active)</li>
+</ul>
 </li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc/" >amp_log_msg_prc</a>
+<li>If the count is 1:
+<ol>
+<li>Get the <strong>wfId</strong> from the <code>customer_partition_info</code> table</li>
+<li>Delete rows from <code>all_asset_view</code> where
+<ul>
+<li><strong>customerId</strong> matches input and</li>
+<li><strong>wfId</strong> matches the resulting <strong>wfId</strong> of previous step and</li>
+<li>there are rows of the <code>iso_summary_view</code> table where <strong>ampNeId</strong> match <strong>neId</strong> of <code>all_asset_view</code></li>
+</ul>
 </li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_neid_update_prc/" >amp_neid_update_prc</a>
+<li>Insert rows into <code>all_asset_view</code> using values from <code>iso_summary_view</code></li>
+<li>Get a count of rows using values from <code>iso_summary_view</code> and <code>asset_group_master</code> that do not have correlating rows in <code>asset_group_device</code>.</li>
+<li>If the count is &gt; 0:
+<ol>
+<li>Delete all rows from <code>asset_group_master</code> where
+<ul>
+<li><strong>customerId</strong> matches input and</li>
+<li>there are rows in <code>iso_summary_view</code> with matching <strong>neId</strong></li>
+</ul>
 </li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_subscription_notification_prc/" >amp_subscription_notification_prc</a>
+<li>Insert rows into <code>asset_group_device</code> using values from <code>iso_summary_view</code> and <code>asset_group_master</code>.</li>
+</ol>
 </li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_upload_notification_prc/" >amp_upload_notification_prc</a>
+<li>Delete rows from <code>contract_group_device_summary</code> where
+<ul>
+<li><strong>customerId</strong> matches input and</li>
+<li>there are rows of the <code>iso_summary_view</code> table where <strong>ampNeId</strong> match <strong>neId</strong> of <code>contract_group_device_summary</code></li>
+</ul>
 </li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/athena_asset_notification_prc/" >athena_asset_notification_prc</a>
+<li>Insert rows into <code>contract_group_device_summary</code> using values from <code>iso_summary_view</code>, <code>asset_group_device</code>, and <code>contract_view</code></li>
+</ol>
 </li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/athena_dcc_dcn_data_process_prc/" >athena_dcc_dcn_data_process_prc</a>
+</ol>
 </li>
-				
+<li>If input parameter <strong>wf</strong> is not <code>AMP</code>, insert rows into <code>all_asset_view</code> using values from <code>iso_summary_view</code>.</li>
+</ol>
 
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/athena_dcc_stg_data_process_prc/" >athena_dcc_stg_data_process_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/athena_dcn_stg_data_process_prc/" >athena_dcn_stg_data_process_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/athena_ib_stg_data_process_prc/" >athena_ib_stg_data_process_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/clean_invalid_status_prc/" >clean_invalid_status_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/clean_invalid_wfid_status_sum_tables_prc/" >clean_invalid_wfId_status_sum_tables_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/clean_stale_datamerge_prc/" >clean_stale_datamerge_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/cleanup_longrunning_iso_data_prc/" >cleanup_longrunning_iso_data_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/delete_raw_data_wfid_prc/" >delete_raw_data_wfid_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/drop_partions_prc/" >drop_partions_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/drop_pending_wfid_status_sum_tables_prc/" >drop_pending_wfid_status_sum_tables_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/drop_stale_partions_prc/" >drop_stale_partions_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/inv_upload_notification_prc/" >inv_upload_notification_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_daily_trend_prc/" >iso_daily_trend_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_data_process_wrap_prc/" >iso_data_process_wrap_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_feature_insight_trend_prc/" >iso_feature_insight_trend_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_feature_usage_prc/" >iso_feature_usage_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_sum_table_deletion_prc/" >iso_sum_table_deletion_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_summary_view_prc/" >iso_summary_view_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_weekly_and_monthly_trend_prc/" >iso_weekly_and_monthly_trend_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc/" >log_msg_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/meraki_lic_process_wrap_prc/" >meraki_lic_process_wrap_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/meraki_license_notification_prc/" >meraki_license_notification_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/retry_failed_uploads_prc/" >retry_failed_uploads_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/stale_inprogress_data_cleanup_prc/" >stale_inprogress_data_cleanup_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/stale_uploads_cleanup_prc/" >stale_uploads_cleanup_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/sub_data_process_wrap_prc/" >sub_data_process_wrap_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/update_raw_data_process_prc/" >update_raw_data_process_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/" >xaas_asset_notification_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_process_wrap_prc/" >xaas_asset_process_wrap_prc</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-
-	
+    </div>
+</div></p>
+<h3 id="referenced-tables">Referenced Tables</h3>
+<ul>
+<li>all_asset_view</li>
+<li>asset_group_device</li>
+<li>asset_group_master</li>
+<li>contract_group_device_summary</li>
+<li>customer_partition_info</li>
+<li>data_merge_logs</li>
+<li>iso_contract_view</li>
+<li>iso_summary_view</li>
+</ul>
+<h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
+<ul>
+<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc
+">log_msg_prc</a></li>
 </ul>
 
 
-
-
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -2540,6 +2138,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -2555,6 +2154,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3716,3 +3318,4 @@
 
   </body>
 </html>
+
