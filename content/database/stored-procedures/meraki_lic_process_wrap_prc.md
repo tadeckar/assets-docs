@@ -7,7 +7,7 @@ Creates summary views for meraki licenses.
 {{% expand "More Details" %}}
 1. Get a count of rows matching **customerId**/**wfId** in the `customer_wfid_info` table.
 2. If count is 0, add a row.
-3. Call the `meraki_license_sum_view_prc` stored procedure with **customerId**/**wfId** as input.
+3. Call the [meraki_license_sum_view_prc]({{< ILink href="/database/stored-procedures/meraki_license_sum_view_prc" >}}) stored procedure with **customerId**/**wfId** as input.
 4. Delete the row (if it exists) from the `customer_wfid_info` table where
    - **customerId** matches and
    - **module** is `MERAKI_LICENSE` and
@@ -29,5 +29,5 @@ Creates summary views for meraki licenses.
 - meraki_license_sum_view_stage
 
 ### Referenced Stored Procedures
-- amp_log_msg_prc
-- meraki_license_sum_view_prc
+- [amp_log_msg_prc]({{< ILink href="/database/stored-procedures/amp_log_msg_prc" >}})
+- [meraki_license_sum_view_prc]({{< ILink href="/database/stored-procedures/meraki_license_sum_view_prc" >}})
