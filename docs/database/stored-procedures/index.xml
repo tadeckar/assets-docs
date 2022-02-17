@@ -182,6 +182,15 @@ Referenced Tables  asset_inventory_notification data_merge_logs  Referenced Stor
     </item>
     
     <item>
+      <title>iso_daily_trend_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_daily_trend_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_daily_trend_prc/</guid>
+      <description>What does it do? Adds rows to ISO daily trend tables using values from ISO trend staging tables.   More Details    Delete rows from the iso_user_login_trend_stg table where  the wfId field doesn&amp;rsquo;t match the input wfId, or is null/undefined and there is no wfId row in asset_data_load_notification in SUBMITTED state   Delete rows from the iso_user_login_trend_stg table where  the wfId field doesn&amp;rsquo;t match the input wfId, or is null/undefined and there is no wfId row in asset_data_load_notification in SUBMITTED state   Delete rows from the iso_consumption_trend_stg table where  the wfId field doesn&amp;rsquo;t match the input wfId, or is null/undefined and there is no wfId row in asset_data_load_notification in SUBMITTED state   Insert new row into iso_daily_login_trend  using values from iso_user_login_trend_stg.</description>
+    </item>
+    
+    <item>
       <title>iso_data_process_wrap_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_data_process_wrap_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
