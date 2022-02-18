@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>LicenseDataLoadManager :: CX Assets Wiki</title>
+    <title>Lambdas :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645196303" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/ingestion/lambdas/">
     <nav id="sidebar" class="">
 
 
@@ -1013,8 +1013,8 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/lambdas/" title="Lambdas" class="dd-item
-        
-        
+        parent
+        active
         
         ">
       <a href="/pages/tadeckar/assets-docs/ingestion/lambdas/">
@@ -1337,7 +1337,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/managers/" title="Managers" class="dd-item
-        parent
+        
         
         
         ">
@@ -1447,7 +1447,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/" title="LicenseDataLoadManager" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/" title="LicenseDataLoadManager" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/">
         LicenseDataLoadManager
         
@@ -1970,13 +1970,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/ingestion/'>Ingestion</a> > <a href='/pages/tadeckar/assets-docs/ingestion/managers/'>Managers</a> > LicenseDataLoadManager
-          
-        
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/ingestion/'>Ingestion</a> > Lambdas
           
         
           
@@ -2005,29 +1999,70 @@
           
             <h1>
               
-              LicenseDataLoadManager
+              Lambdas
             </h1>
           
 
         
 
 
-<a href="https://www-github3.cisco.com/cxe/cp-asset-data-pipeline/blob/master/glue/cp-asset-data-import-job/csco/dp/manager/LicenseDataLoadManager.py">
-  <i class="fab fa-github"></i>
-  View Source
-</a>
 
-<p>Loads data of the <code>MERAKI_LICENSE</code> <a href="/pages/tadeckar/assets-docs/ingestion/types/file-types
-">File Type</a>.</p>
-<p>Firstly, the LDLM checks whether or not data for the given wfId has already been loaded. If the data has already been loaded, the data is cleared from the <code>meraki_license_sum_view_stage</code> staging table for the given customerId/wfId before execution proceeds to the next step.</p>
-<p>Next, a thread is spun up to load the data, executing the <a href="/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager
-">DataLoadManager</a>, which in turn executes a Loader for the <a href="/pages/tadeckar/assets-docs/ingestion/types/data-load-types#license
-">License Data Load Type</a>.</p>
-<p>The <a href="/pages/tadeckar/assets-docs/ingestion/managers/notification-manager
-">NotificationManager</a> is also used record the data load processing start/end times, as well as to delete rows when wfId data has already been loaded.</p>
+	
 
 
-<footer class="footline">
+
+
+
+
+<ul class="children children-li">
+	
+
+	
+		
+	
+
+	
+
+	
+		
+	
+		
+			
+				
+<li>
+<a href="/pages/tadeckar/assets-docs/ingestion/lambdas/cp-asset-csv-data-loader/" >cp-asset-csv-data-loader</a>
+</li>
+				
+
+				
+			
+			
+		
+	
+		
+			
+				
+<li>
+<a href="/pages/tadeckar/assets-docs/ingestion/lambdas/cp-assets-data-import-sf-trigger/" >cp-assets-data-import-sf-trigger</a>
+</li>
+				
+
+				
+			
+			
+		
+	
+
+	
+</ul>
+
+
+
+
+
+
+
+<footer class=" footline" >
 	
 </footer>
 
@@ -2739,6 +2774,20 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
                         
                         
                     
@@ -2749,6 +2798,169 @@
                     
                     
 
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -2882,190 +3094,6 @@
             
             
                 
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -3409,4 +3437,3 @@
 
   </body>
 </html>
-

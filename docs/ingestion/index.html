@@ -12,22 +12,22 @@
     <title>Ingestion :: CX Assets Wiki</title>
 
     
-    <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645133258" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/fontawesome-all.min.css?1645133258" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/hybrid.css?1645133258" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/featherlight.min.css?1645133258" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/perfect-scrollbar.min.css?1645133258" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/auto-complete.css?1645133258" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/atom-one-dark-reasonable.css?1645133258" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/theme.css?1645133258" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/tabs.css?1645133258" rel="stylesheet">
-    <link href="/pages/tadeckar/assets-docs/css/hugo-theme.css?1645133258" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645196303" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/fontawesome-all.min.css?1645196303" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/hybrid.css?1645196303" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/featherlight.min.css?1645196303" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/perfect-scrollbar.min.css?1645196303" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/auto-complete.css?1645196303" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/atom-one-dark-reasonable.css?1645196303" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/theme.css?1645196303" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/tabs.css?1645196303" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/hugo-theme.css?1645196303" rel="stylesheet">
     
-    <link href="/pages/tadeckar/assets-docs/css/theme-assets.css?1645133258" rel="stylesheet">
+    <link href="/pages/tadeckar/assets-docs/css/theme-assets.css?1645196303" rel="stylesheet">
     
     
 
-    <script src="/pages/tadeckar/assets-docs/js/jquery-3.3.1.min.js?1645133258"></script>
+    <script src="/pages/tadeckar/assets-docs/js/jquery-3.3.1.min.js?1645196303"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,14 +58,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/lunr.min.js?1645133258"></script>
-<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/auto-complete.js?1645133258"></script>
+<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/lunr.min.js?1645196303"></script>
+<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/auto-complete.js?1645196303"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/www-github3.cisco.com\/pages\/tadeckar\/assets-docs\/";
     
 </script>
-<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/search.js?1645133258"></script>
+<script type="text/javascript" src="/pages/tadeckar/assets-docs/js/search.js?1645196303"></script>
 
     
   </div>
@@ -1012,6 +1012,84 @@
  
   
     
+    <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/lambdas/" title="Lambdas" class="dd-item
+        
+        
+        
+        ">
+      <a href="/pages/tadeckar/assets-docs/ingestion/lambdas/">
+          Lambdas
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/lambdas/cp-asset-csv-data-loader/" title="cp-asset-csv-data-loader" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/lambdas/cp-asset-csv-data-loader/">
+        cp-asset-csv-data-loader
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/lambdas/cp-assets-data-import-sf-trigger/" title="cp-assets-data-import-sf-trigger" class="dd-item ">
+        <a href="/pages/tadeckar/assets-docs/ingestion/lambdas/cp-assets-data-import-sf-trigger/">
+        cp-assets-data-import-sf-trigger
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/loaders/" title="Loaders" class="dd-item
         
         
@@ -1903,6 +1981,8 @@
   <ul>
     <li><a href="#overview">Overview</a>
       <ul>
+        <li><a href="#parquet-ingestion">Parquet Ingestion</a></li>
+        <li><a href="#csdf-ingestion">CSDF Ingestion</a></li>
         <li><a href="#contents">Contents</a></li>
       </ul>
     </li>
@@ -1939,14 +2019,14 @@
 <h2 id="overview">Overview</h2>
 <p><img src="/pages/tadeckar/assets-docs/images/ingestion.png
 " alt="Overview"></p>
-<p>At a high level, a Lambda function listens for SQS events. Upon receiving, the Glue ETL Job is triggered. The job downloads files from an S3 bucket, parses them, and stores results in staging tables of the RDS MySQL database.</p>
+<p>At a high level, a Lambda function (<a href="/pages/tadeckar/assets-docs/ingestion/lambdas/cp-assets-data-import-sf-trigger
+">cp-assets-data-import-sf-trigger</a>) listens for SQS events. Upon receiving, the Glue ETL Job is triggered. The job downloads files from an S3 bucket, parses them, and stores results in staging tables of the RDS MySQL database.</p>
 <p>The SQS message&rsquo;s <code>recordType</code> property signals the type of data that should be loaded. The graph below depicts the flow of logic through the Glue ETL Job.</p>
+<h3 id="parquet-ingestion">Parquet Ingestion</h3>
 
 <div class="mermaid" align="center">
 graph TD;
-  RT{SQS recordType} -->|CSDF_AMP_TELE| PINV(ParqeutInvDataLoadManager)
-  RT -->|CSDF_SUBSCRIPTION| PINV
-  RT -->|CIBES_INVENTORY_DATA_RECEIVED| PINV
+  RT{SQS recordType} -->|CIBES_INVENTORY_DATA_RECEIVED| PINV
   RT -->|DNAC_DATA_RECEIVED| PINV
   RT -->|MERAKI_LICENSE| LIC(LicenseDataLoadManager)
   RT -->|XAAS_INVENTORY_DATA_RECEIVED| PINV
@@ -2001,9 +2081,17 @@ graph TD;
   click HYB "/pages/tadeckar/assets-docs/ingestion/managers/hybrid-subscription-data-load-manager/"
   click HYB_DLM "/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/"
   click HSPDL "/pages/tadeckar/assets-docs/ingestion/loaders/hybrid-subscriptions/"
-
 </div>
 
+<h3 id="csdf-ingestion">CSDF Ingestion</h3>
+<p>The CSDF flow consists only of a lambda function that inserts data into the MySQL.
+
+<div class="mermaid" align="center">
+graph TD;
+  RT{SQS recordType} -->|CSDF_AMP_TELE| L(CSV Data Loader Lambda)
+  RT -->|CSDF_SUBSCRIPTION| L
+</div>
+</p>
 <h3 id="contents">Contents</h3>
 
 
@@ -2024,6 +2112,19 @@ graph TD;
 	
 
 	
+		
+	
+		
+			
+				
+<li>
+<a href="/pages/tadeckar/assets-docs/ingestion/lambdas/" >Lambdas</a>
+</li>
+				
+
+				
+			
+			
 		
 	
 		
@@ -2856,6 +2957,54 @@ graph TD;
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
             
             
@@ -3405,19 +3554,19 @@ graph TD;
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/pages/tadeckar/assets-docs/js/clipboard.min.js?1645133258"></script>
-    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.min.js?1645133258"></script>
-    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.jquery.min.js?1645133258"></script>
-    <script src="/pages/tadeckar/assets-docs/js/jquery.sticky.js?1645133258"></script>
-    <script src="/pages/tadeckar/assets-docs/js/featherlight.min.js?1645133258"></script>
-    <script src="/pages/tadeckar/assets-docs/js/highlight.pack.js?1645133258"></script>
+    <script src="/pages/tadeckar/assets-docs/js/clipboard.min.js?1645196303"></script>
+    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.min.js?1645196303"></script>
+    <script src="/pages/tadeckar/assets-docs/js/perfect-scrollbar.jquery.min.js?1645196303"></script>
+    <script src="/pages/tadeckar/assets-docs/js/jquery.sticky.js?1645196303"></script>
+    <script src="/pages/tadeckar/assets-docs/js/featherlight.min.js?1645196303"></script>
+    <script src="/pages/tadeckar/assets-docs/js/highlight.pack.js?1645196303"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/pages/tadeckar/assets-docs/js/modernizr.custom-3.6.0.js?1645133258"></script>
-    <script src="/pages/tadeckar/assets-docs/js/learn.js?1645133258"></script>
-    <script src="/pages/tadeckar/assets-docs/js/hugo-learn.js?1645133258"></script>
+    <script src="/pages/tadeckar/assets-docs/js/modernizr.custom-3.6.0.js?1645196303"></script>
+    <script src="/pages/tadeckar/assets-docs/js/learn.js?1645196303"></script>
+    <script src="/pages/tadeckar/assets-docs/js/hugo-learn.js?1645196303"></script>
     
         
-            <script src="/pages/tadeckar/assets-docs/mermaid/mermaid.js?1645133258"></script>
+            <script src="/pages/tadeckar/assets-docs/mermaid/mermaid.js?1645196303"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

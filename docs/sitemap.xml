@@ -52,7 +52,11 @@
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/contracts/</loc>
   </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/lambdas/cp-asset-csv-data-loader/</loc>
+  </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/services/cp-asset-group-api/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/lambdas/cp-assets-data-import-sf-trigger/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/data-load-types/</loc>
   </url><url>
@@ -103,6 +107,8 @@
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_summary_view_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_weekly_and_monthly_trend_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/lambdas/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/</loc>
   </url><url>

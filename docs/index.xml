@@ -238,12 +238,31 @@ Schema Staging Tables  contractcoverage_dcc contractcoverage_dcn contractcoverag
     </item>
     
     <item>
+      <title>cp-asset-csv-data-loader</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/lambdas/cp-asset-csv-data-loader/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/lambdas/cp-asset-csv-data-loader/</guid>
+      <description> View Source  Loads CSV files for the CSDF_AMP_TELE and CSDF_SUBSCRIPTION recordTypes.
+CSDF_AMP_TELE    CSV File Staging Table     amp_connector_monthly_trend.csv iso_connector_monthly_trend_stg   amp_consumption_trend.csv iso_consumption_trend_stg   amp_deployment_details.csv iso_depolyment_details_stg   amp_user_login_details.csv iso_user_login_details_stg   amp_user_login_trend.csv iso_user_login_trend_stg    CSDF_SUBSCRIPTION    CSV File Staging Table     CSDFSubscription.csv iso_subscription_stg    </description>
+    </item>
+    
+    <item>
       <title>cp-asset-group-api</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/services/cp-asset-group-api/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/services/cp-asset-group-api/</guid>
       <description> View Source  Invokes Stored Procedures  contract_group_device_sum_prc  </description>
+    </item>
+    
+    <item>
+      <title>cp-assets-data-import-sf-trigger</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/lambdas/cp-assets-data-import-sf-trigger/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/lambdas/cp-assets-data-import-sf-trigger/</guid>
+      <description>View Source  Receives SQS events and parses information to trigger the step-function. The step-function then routes to either the cp-asset-csv-data-loader lambda function or the Glue ETL Job (starting at DataFileManager) based on the message&amp;rsquo;s recordType.</description>
     </item>
     
     <item>
@@ -597,7 +616,7 @@ When mgmtSystemType === &amp;quot;DCC_SUB&amp;quot;, and the partition is create
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/staging-tables/</guid>
-      <description>Alerts  alert_fn_dcc alert_fn_dcn alert_fn_ib_data alert_fn_meraki alert_fn_telemetry alert_fn_telemetry alert_hweox_dcc alert_hweox_dcn alert_hweox_ib_data alert_hweox_meraki alert_hweox_telemetry alert_hweox_telemetry alert_psirt_dcc alert_psirt_dcn alert_psirt_ib_data alert_psirt_meraki alert_psirt_telemetry alert_sweox_dcc alert_sweox_dcn alert_sweox_ib_data alert_sweox_meraki alert_sweox_telemetry alert_sweox_telemetry  Bulletins  alert_pas_hw_eox_bulletin_dcc alert_pas_hw_eox_bulletin_dcn alert_pas_hw_eox_bulletin_ib_data alert_pas_hw_eox_bulletin_ib_data alert_pas_hw_eox_bulletin_meraki alert_pas_hw_eox_bulletin_telemetry alert_pas_sw_eox_bulletin_dcc alert_pas_sw_eox_bulletin_dcn alert_pas_sw_eox_bulletin_ib_data alert_pas_sw_eox_bulletin_meraki alert_pas_sw_eox_bulletin_telemetry fn_bulletin_master_dcc fn_bulletin_master_dcn fn_bulletin_master_ib_data fn_bulletin_master_meraki fn_bulletin_master_telemetry sa_bulletin_master_dcc sa_bulletin_master_dcn sa_bulletin_master_ib_data sa_bulletin_master_meraki sa_bulletin_master_telemetry  CLI  cli_telemetry  Config  config_telemetry  Contracts  contractcoverage contractcoverage_dcc contractcoverage_dcn contractcoverage_ib_data contractcoverage_meraki contractcoverage_telemetry  Equipments  equipment_dcc equipment_dcn equipment_ib_data equipment_meraki equipment_telemetry equipment_telemetry  Hybrid Subscriptions  athena_subscription_stg  Network Elements  networkelement_dcc networkelement_dcn networkelement_ib_data networkelement_meraki networkelement_sub_stg networkelement_telemetry  Subscriptions  subscription_stg  Other  asset_feature_dcc asset_feature_dcn asset_feature_meraki asset_feature_telemetry  </description>
+      <description>Alerts  alert_fn_dcc alert_fn_dcn alert_fn_ib_data alert_fn_meraki alert_fn_telemetry alert_fn_telemetry alert_hweox_dcc alert_hweox_dcn alert_hweox_ib_data alert_hweox_meraki alert_hweox_telemetry alert_hweox_telemetry alert_psirt_dcc alert_psirt_dcn alert_psirt_ib_data alert_psirt_meraki alert_psirt_telemetry alert_sweox_dcc alert_sweox_dcn alert_sweox_ib_data alert_sweox_meraki alert_sweox_telemetry alert_sweox_telemetry  Bulletins  alert_pas_hw_eox_bulletin_dcc alert_pas_hw_eox_bulletin_dcn alert_pas_hw_eox_bulletin_ib_data alert_pas_hw_eox_bulletin_ib_data alert_pas_hw_eox_bulletin_meraki alert_pas_hw_eox_bulletin_telemetry alert_pas_sw_eox_bulletin_dcc alert_pas_sw_eox_bulletin_dcn alert_pas_sw_eox_bulletin_ib_data alert_pas_sw_eox_bulletin_meraki alert_pas_sw_eox_bulletin_telemetry fn_bulletin_master_dcc fn_bulletin_master_dcn fn_bulletin_master_ib_data fn_bulletin_master_meraki fn_bulletin_master_telemetry sa_bulletin_master_dcc sa_bulletin_master_dcn sa_bulletin_master_ib_data sa_bulletin_master_meraki sa_bulletin_master_telemetry  CLI  cli_telemetry  Config  config_telemetry  Contracts  contractcoverage contractcoverage_dcc contractcoverage_dcn contractcoverage_ib_data contractcoverage_meraki contractcoverage_telemetry  Equipments  equipment_dcc equipment_dcn equipment_ib_data equipment_meraki equipment_telemetry equipment_telemetry  Hybrid Subscriptions  athena_subscription_stg  Network Elements  networkelement_dcc networkelement_dcn networkelement_ib_data networkelement_meraki networkelement_sub_stg networkelement_telemetry  Subscriptions  subscription_stg  ISO  iso_connector_monthly_trend_stg iso_consumption_trend_stg iso_depolyment_details_stg iso_subscription_stg iso_user_login_details_stg iso_user_login_trend_stg  Other  asset_feature_dcc asset_feature_dcn asset_feature_meraki asset_feature_telemetry  </description>
     </item>
     
     <item>

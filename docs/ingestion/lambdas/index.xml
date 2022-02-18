@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lambdas on CX Assets Wiki</title>
+    <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/lambdas/</link>
+    <description>Recent content in Lambdas on CX Assets Wiki</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/lambdas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cp-asset-csv-data-loader</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/lambdas/cp-asset-csv-data-loader/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/lambdas/cp-asset-csv-data-loader/</guid>
+      <description> View Source  Loads CSV files for the CSDF_AMP_TELE and CSDF_SUBSCRIPTION recordTypes.
+CSDF_AMP_TELE    CSV File Staging Table     amp_connector_monthly_trend.csv iso_connector_monthly_trend_stg   amp_consumption_trend.csv iso_consumption_trend_stg   amp_deployment_details.csv iso_depolyment_details_stg   amp_user_login_details.csv iso_user_login_details_stg   amp_user_login_trend.csv iso_user_login_trend_stg    CSDF_SUBSCRIPTION    CSV File Staging Table     CSDFSubscription.csv iso_subscription_stg    </description>
+    </item>
+    
+    <item>
+      <title>cp-assets-data-import-sf-trigger</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/lambdas/cp-assets-data-import-sf-trigger/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/lambdas/cp-assets-data-import-sf-trigger/</guid>
+      <description>View Source  Receives SQS events and parses information to trigger the step-function. The step-function then routes to either the cp-asset-csv-data-loader lambda function or the Glue ETL Job (starting at DataFileManager) based on the message&amp;rsquo;s recordType.</description>
+    </item>
+    
+  </channel>
+</rss>
