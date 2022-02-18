@@ -81,6 +81,7 @@ The CSDF flow consists only of a lambda function that inserts data into the MySQ
 graph TD;
   RT{SQS recordType} -->|CSDF_AMP_TELE| L(CSV Data Loader Lambda)
   RT -->|CSDF_SUBSCRIPTION| L
+  click L "/pages/tadeckar/assets-docs/ingestion/lambdas/cp-asset-csv-data-loader/"
 {{< /mermaid >}}
 
 ### Contents
