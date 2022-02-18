@@ -10,15 +10,15 @@ The repositories associated with AWS Glue are:
 ## Overview
 ![Overview]({{< ILink href="/images/ingestion.png" >}})
 
-At a high level, a Lambda function listens for SQS events. Upon receiving, the Glue ETL Job is triggered. The job downloads files from an S3 bucket, parses them, and stores results in staging tables of the RDS MySQL database.
+At a high level, a Lambda function ([cp-assets-data-import-sf-trigger]({{< ILink href="/ingestion/lambdas/cp-assets-data-import-sf-trigger" >}})) listens for SQS events. Upon receiving, the Glue ETL Job is triggered. The job downloads files from an S3 bucket, parses them, and stores results in staging tables of the RDS MySQL database.
 
 The SQS message's `recordType` property signals the type of data that should be loaded. The graph below depicts the flow of logic through the Glue ETL Job.
 
+
+### Parquet Ingestion
 {{< mermaid >}}
 graph TD;
-  RT{SQS recordType} -->|CSDF_AMP_TELE| PINV(ParqeutInvDataLoadManager)
-  RT -->|CSDF_SUBSCRIPTION| PINV
-  RT -->|CIBES_INVENTORY_DATA_RECEIVED| PINV
+  RT{SQS recordType} -->|CIBES_INVENTORY_DATA_RECEIVED| PINV
   RT -->|DNAC_DATA_RECEIVED| PINV
   RT -->|MERAKI_LICENSE| LIC(LicenseDataLoadManager)
   RT -->|XAAS_INVENTORY_DATA_RECEIVED| PINV
@@ -73,7 +73,14 @@ graph TD;
   click HYB "/pages/tadeckar/assets-docs/ingestion/managers/hybrid-subscription-data-load-manager/"
   click HYB_DLM "/pages/tadeckar/assets-docs/ingestion/managers/data-load-manager/"
   click HSPDL "/pages/tadeckar/assets-docs/ingestion/loaders/hybrid-subscriptions/"
+{{< /mermaid >}}
 
+### CSDF Ingestion
+The CSDF flow consists only of a lambda function that inserts data into the MySQL.
+{{< mermaid >}}
+graph TD;
+  RT{SQS recordType} -->|CSDF_AMP_TELE| L(CSV Data Loader Lambda)
+  RT -->|CSDF_SUBSCRIPTION| L
 {{< /mermaid >}}
 
 ### Contents

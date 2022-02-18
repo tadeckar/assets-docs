@@ -77,6 +77,13 @@ title = "Staging Tables"
 - networkelement_telemetry
 #### [Subscriptions]({{< ILink href="/ingestion/loaders/subscriptions" >}})
 - subscription_stg
+#### ISO
+- iso_connector_monthly_trend_stg
+- iso_consumption_trend_stg
+- iso_depolyment_details_stg
+- iso_subscription_stg
+- iso_user_login_details_stg
+- iso_user_login_trend_stg
 #### Other
 - asset_feature_dcc
 - asset_feature_dcn
