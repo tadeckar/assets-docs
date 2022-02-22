@@ -420,6 +420,15 @@ The NotificationManager is also used record the data load processing start/end t
     </item>
     
     <item>
+      <title>iso_contract_sum_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_contract_sum_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_contract_sum_prc/</guid>
+      <description>What does it do? Syncs data from master tables to the iso_contract_view.   More Details    Delete all rows from iso_contract_view matching customerId/wfId. Insert rows from aav_subscriptions (and iso_pid_master for licenseType) into the iso_contract_view table. Update rows in iso_contract_view using values from csdf_contracts. Update rows in iso_contract_view using values from pid_solution_mapping (set useCaseIds and solutionIds.) Get a count of rows in iso_contract_view that are not in iso_summary_view (i.</description>
+    </item>
+    
+    <item>
       <title>iso_daily_trend_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_daily_trend_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

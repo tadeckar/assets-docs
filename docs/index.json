@@ -322,6 +322,13 @@
 	"content": " View Source  The InventoryDataLoadManager is not currently in use.\n Loads data of the IBES_INV_UPLOAD File Type.\nFirstly, the IDLM tries to create a partition using the add_base_table_partions_prc stored procedure. If the partition already exists, processing is skipped.\nNext, a thread is spun up to load the data, executing the DataLoadManager, which in turn executes a Loader of IBES Data Load Type.\nThe NotificationManager is also used record the data load processing start/end times.\n"
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_contract_sum_prc/",
+	"title": "iso_contract_sum_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? Syncs data from master tables to the iso_contract_view.   More Details    Delete all rows from iso_contract_view matching customerId/wfId. Insert rows from aav_subscriptions (and iso_pid_master for licenseType) into the iso_contract_view table. Update rows in iso_contract_view using values from csdf_contracts. Update rows in iso_contract_view using values from pid_solution_mapping (set useCaseIds and solutionIds.) Get a count of rows in iso_contract_view that are not in iso_summary_view (i.e. get new contracts.) If count is \u0026gt; 0:  Get a count of active partitions in customer_wfid_info where module is CSDF_AMP_TELE. If count is \u0026gt; 0, call the subscription_upd_prc and amp_neid_update_prc stored procedures.     \nReferenced Tables  aav_subscriptions amp_data_merge_logs csdf_contracts customer_wfid_info iso_contract_view iso_pid_master iso_summary_view pid_solution_mapping  Referenced Stored Procedures  amp_log_msg_prc amp_neid_update_prc iso_subscription_upd_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_daily_trend_prc/",
 	"title": "iso_daily_trend_prc",
 	"tags": [],
@@ -522,7 +529,7 @@
 	"title": "Stored Procedures",
 	"tags": [],
 	"description": "",
-	"content": "  add_base_table_partions_prc   amp_log_msg_prc   amp_neid_update_prc   amp_subscription_notification_prc   amp_upload_notification_prc   athena_asset_notification_prc   athena_dcc_dcn_data_process_prc   athena_dcc_stg_data_process_prc   athena_dcn_stg_data_process_prc   athena_ib_stg_data_process_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   iso_daily_trend_prc   iso_data_process_wrap_prc   iso_feature_insight_trend_prc   iso_feature_usage_prc   iso_sum_table_deletion_prc   iso_summary_view_prc   iso_weekly_and_monthly_trend_prc   log_msg_prc   meraki_lic_process_wrap_prc   meraki_license_notification_prc   meraki_license_sum_view_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   sub_data_process_wrap_prc   update_raw_data_process_prc   xaas_asset_notification_prc   xaas_asset_process_wrap_prc   "
+	"content": "  add_base_table_partions_prc   amp_log_msg_prc   amp_neid_update_prc   amp_subscription_notification_prc   amp_upload_notification_prc   athena_asset_notification_prc   athena_dcc_dcn_data_process_prc   athena_dcc_stg_data_process_prc   athena_dcn_stg_data_process_prc   athena_ib_stg_data_process_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   iso_contract_sum_prc   iso_daily_trend_prc   iso_data_process_wrap_prc   iso_feature_insight_trend_prc   iso_feature_usage_prc   iso_sum_table_deletion_prc   iso_summary_view_prc   iso_weekly_and_monthly_trend_prc   log_msg_prc   meraki_lic_process_wrap_prc   meraki_license_notification_prc   meraki_license_sum_view_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   sub_data_process_wrap_prc   update_raw_data_process_prc   xaas_asset_notification_prc   xaas_asset_process_wrap_prc   "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sub_data_process_wrap_prc/",
