@@ -12,7 +12,7 @@ Syncs data from master tables to the `iso_contract_view`.
 5. Get a count of rows in `iso_contract_view` that are not in `iso_summary_view` (i.e. get new contracts.)
 6. If count is > 0:
    1. Get a count of active partitions in `customer_wfid_info` where **module** is `CSDF_AMP_TELE`.
-   2. If count is > 0, call the `subscription_upd_prc` and `amp_neid_update_prc` stored procedures.
+   2. If count is > 0, call the [iso_subscription_upd_prc]({{< ILink href="/database/stored-procedures/iso_subscription_upd_prc" >}}) and [amp_neid_update_prc]({{< ILink href="/database/stored-procedures/amp_neid_update_prc" >}}) stored procedures.
 {{% /expand %}}
 
 ### Referenced Tables
@@ -27,5 +27,5 @@ Syncs data from master tables to the `iso_contract_view`.
 
 ### Referenced Stored Procedures
 - [amp_log_msg_prc]({{< ILink href="/database/stored-procedures/amp_log_msg_prc" >}})
-- amp_neid_update_prc
-- iso_subscription_upd_prc
+- [amp_neid_update_prc]({{< ILink href="/database/stored-procedures/amp_neid_update_prc" >}})
+- [iso_subscription_upd_prc]({{< ILink href="/database/stored-procedures/iso_subscription_upd_prc" >}})
