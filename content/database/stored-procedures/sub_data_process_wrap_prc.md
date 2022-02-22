@@ -31,5 +31,5 @@ Call stored procedures to create summary views for subscriptions, licenses, and 
 ### Referenced Stored Procedures
 - [amp_log_msg_prc]({{< ILink href="/database/stored-procedures/amp_log_msg_prc" >}})
 - [iso_contract_sum_prc]({{< ILink href="/database/stored-procedures/iso_contract_sum_prc" >}})
-- iso_subscription_prc
+- [iso_subscription_prc]({{< ILink href="/database/stored-procedures/iso_subscription_prc" >}})
 - license_sum_view_prc
