@@ -236,6 +236,16 @@ Referenced Tables  asset_inventory_notification data_merge_logs  Referenced Stor
     </item>
     
     <item>
+      <title>iso_subscription_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_subscription_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_subscription_prc/</guid>
+      <description>What does it do? Inserts rows into aav_subscriptions using values from iso_subscription_stg.   More Details    Delete rows from iso_subscription_stg where  customerId matches input and wfId does not match input and there is no row in asset_data_load_notification where processingStatus is SUBMITTED for the above wfId.   Delete all rows matching customerId/wfId in aav_subscriptions. Insert rows into aav_subscriptions using values from iso_subscription_stg.   
+Referenced Tables  aav_subscriptions amp_data_merge_logs iso_subscription_stg  Referenced Stored Procedures  amp_log_msg_prc  </description>
+    </item>
+    
+    <item>
       <title>iso_subscription_upd_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/iso_subscription_upd_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
