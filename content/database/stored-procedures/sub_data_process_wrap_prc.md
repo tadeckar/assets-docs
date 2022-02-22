@@ -11,7 +11,7 @@ Call stored procedures to create summary views for subscriptions, licenses, and 
 2. If the count is 0, then insert a row.
 3. Call stored procedures
    1. Call the `iso_subscription_prc` stored procedure
-   2. Call the `iso_contract_sum_prc` stored procedure
+   2. Call the [iso_contract_sum_prc]({{< ILink href="/database/stored-procedures/iso_contract_sum_prc" >}}) stored procedure
    3. Call the `license_sum_view_prc` stored procedure
 4. Delete any row from the `customer_wfid_info` table matching **customerId**/**wfId** where **wfIdStatus** is `A`.
 5. Update **wfIdStatus** to `A` for any row from the `customer_wfid_info` table matching **customerId**/**wfId** where **wfIdStatus** is `I`.
@@ -30,6 +30,6 @@ Call stored procedures to create summary views for subscriptions, licenses, and 
 
 ### Referenced Stored Procedures
 - [amp_log_msg_prc]({{< ILink href="/database/stored-procedures/amp_log_msg_prc" >}})
-- iso_contract_sum_prc
+- [iso_contract_sum_prc]({{< ILink href="/database/stored-procedures/iso_contract_sum_prc" >}})
 - iso_subscription_prc
 - license_sum_view_prc
