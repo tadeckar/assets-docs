@@ -399,6 +399,13 @@
 	"content": "  cp-asset-csv-data-loader   cp-assets-data-import-sf-trigger   "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/license_sum_view_prc/",
+	"title": "license_sum_view_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? Syncs the license_sum_view table with values from iso_subscription_stg.   More Details    Get a count of rows in the license_sum_view table matching customerId/wfId. If the count is \u0026gt; 0, delete those rows from license_sum_view. Call the athena_license_assetCategory_update_prc stored procedure with customerId/wfId Insert rows into license_sum_view using values from iso_subscription_stg if the SUBSCRIPTION_PRODUCT_FAMILY is not UCSBFC. Update useCaseIds, solutionIds, solutionInfo, licenseLevel, and level4CompName in license_sum_view using values from pid_solution_mapping. Get a count of rows in license_sum_view matching customerId/wfId where solutionIds is |52517223| (Meraki). If the count is \u0026gt; 0, delete those rows from license_sum_view. Get a count of rows in customer_wfid_info where  customerId matches input and module is MERAKI_LICENSE and wfIdStatus is A (Active)   If the count is \u0026gt; 0:  Get the wfId from customer_wfid_info. Get a count of rows in meraki_license_sum_view_stage matching customerId/wfId. If the count is \u0026gt; 0, insert rows into license_sum_view with values from meraki_license_sum_view_stage.     \nReferenced Tables  amp_data_merge_logs customer_wfid_info iso_subscription_stg license_sum_view meraki_license_sum_view_stage pid_solution_mapping  Referenced Stored Procedures  amp_log_msg_prc athena_license_assetCategory_update_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/",
 	"title": "LicenseDataLoadManager",
 	"tags": [],
@@ -543,7 +550,7 @@
 	"title": "Stored Procedures",
 	"tags": [],
 	"description": "",
-	"content": "  add_base_table_partions_prc   amp_log_msg_prc   amp_neid_update_prc   amp_subscription_notification_prc   amp_upload_notification_prc   athena_asset_notification_prc   athena_dcc_dcn_data_process_prc   athena_dcc_stg_data_process_prc   athena_dcn_stg_data_process_prc   athena_ib_stg_data_process_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   iso_contract_sum_prc   iso_daily_trend_prc   iso_data_process_wrap_prc   iso_feature_insight_trend_prc   iso_feature_usage_prc   iso_subscription_prc   iso_subscription_upd_prc   iso_sum_table_deletion_prc   iso_summary_view_prc   iso_weekly_and_monthly_trend_prc   log_msg_prc   meraki_lic_process_wrap_prc   meraki_license_notification_prc   meraki_license_sum_view_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   sub_data_process_wrap_prc   update_raw_data_process_prc   xaas_asset_notification_prc   xaas_asset_process_wrap_prc   "
+	"content": "  add_base_table_partions_prc   amp_log_msg_prc   amp_neid_update_prc   amp_subscription_notification_prc   amp_upload_notification_prc   athena_asset_notification_prc   athena_dcc_dcn_data_process_prc   athena_dcc_stg_data_process_prc   athena_dcn_stg_data_process_prc   athena_ib_stg_data_process_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   iso_contract_sum_prc   iso_daily_trend_prc   iso_data_process_wrap_prc   iso_feature_insight_trend_prc   iso_feature_usage_prc   iso_subscription_prc   iso_subscription_upd_prc   iso_sum_table_deletion_prc   iso_summary_view_prc   iso_weekly_and_monthly_trend_prc   license_sum_view_prc   log_msg_prc   meraki_lic_process_wrap_prc   meraki_license_notification_prc   meraki_license_sum_view_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   sub_data_process_wrap_prc   update_raw_data_process_prc   xaas_asset_notification_prc   xaas_asset_process_wrap_prc   "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sub_data_process_wrap_prc/",

@@ -512,6 +512,15 @@ Referenced Tables  amp_data_merge_logs iso_daily_consumption_trend iso_daily_log
     </item>
     
     <item>
+      <title>license_sum_view_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/license_sum_view_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/license_sum_view_prc/</guid>
+      <description>What does it do? Syncs the license_sum_view table with values from iso_subscription_stg.   More Details    Get a count of rows in the license_sum_view table matching customerId/wfId. If the count is &amp;gt; 0, delete those rows from license_sum_view. Call the athena_license_assetCategory_update_prc stored procedure with customerId/wfId Insert rows into license_sum_view using values from iso_subscription_stg if the SUBSCRIPTION_PRODUCT_FAMILY is not UCSBFC. Update useCaseIds, solutionIds, solutionInfo, licenseLevel, and level4CompName in license_sum_view using values from pid_solution_mapping.</description>
+    </item>
+    
+    <item>
       <title>LicenseDataLoadManager</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/license-data-load-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
