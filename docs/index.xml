@@ -44,6 +44,15 @@ Schema Staging Tables  alert_fn_dcc alert_fn_dcn alert_fn_ib_data alert_fn_merak
     </item>
     
     <item>
+      <title>alerts_master_data_merge_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/alerts_master_data_merge_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/alerts_master_data_merge_prc/</guid>
+      <description>What does it do? Calls stored procedures related to alerts data merge.   More Details    Calls the following stored procedures sequentially, based on mgmtSystemType:    mgmtSystemType Stored Procedure Calls     DNAC dnac_sa_bulletin_master_merge_prc   DNAC dnac_fn_bulletin_master_merge_prc   DNAC dnac_alert_pas_hw_eox_bulletin_merge_prc   DNAC dnac_alert_pas_sw_eox_bulletin_merge_prc   CSDFIB ib_sa_bulletin_master_merge_prc   CSDFIB ib_fn_bulletin_master_merge_prc   CSDFIB ib_alert_pas_hw_eox_bulletin_merge_prc   CSDFIB ib_alert_pas_sw_eox_bulletin_merge_prc   APIC dcn_sa_bulletin_master_merge_prc   APIC dcn_fn_bulletin_master_merge_prc   APIC dcn_alert_pas_hw_eox_bulletin_merge_prc   APIC dcn_alert_pas_sw_eox_bulletin_merge_prc   MERAKI meraki_sa_bulletin_master_merge_prc   MERAKI meraki_fn_bulletin_master_merge_prc   MERAKI meraki_alert_pas_hw_eox_bulletin_merge_prc   MERAKI meraki_alert_pas_sw_eox_bulletin_merge_prc   DCC dcc_sa_bulletin_master_merge_prc   DCC dcc_fn_bulletin_master_merge_prc   DCC dcc_alert_pas_hw_eox_bulletin_merge_prc   DCC dcc_alert_pas_sw_eox_bulletin_merge_prc</description>
+    </item>
+    
+    <item>
       <title>amp_log_msg_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -291,6 +300,16 @@ CSDF_AMP_TELE    CSV File Staging Table     amp_connector_monthly_trend.csv iso_
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/data-load-types/</guid>
       <description> View Source  CIBES BULLETIN_MSTR_PARQ_DATA_LOAD = &amp;#39;CIBES-BULLETIN-MASTER&amp;#39; NETWORK_ELEMENTS_PARQ_DATA_LOAD = &amp;#39;CIBES-NETWORK-ELEMENTS&amp;#39; EQUIPMENTS_PARQ_DATA_LOAD = &amp;#39;CIBES-EQUIPMENTS&amp;#39; ALERTS_PARQ_DATA_LOAD = &amp;#39;CIBES-ALERTS&amp;#39; CONTRACTS_PARQ_DATA_LOAD = &amp;#39;CIBES-CONTRACTS&amp;#39; DNAC DNAC_BULLETIN_MSTR_PARQ_DATA_LOAD = &amp;#39;DNAC-BULLETIN-MASTER&amp;#39; DNAC_NETWORK_ELEMENTS_PARQ_DATA_LOAD = &amp;#39;DNAC-NETWORK-ELEMENTS&amp;#39; DNAC_EQUIPMENTS_PARQ_DATA_LOAD = &amp;#39;DNAC-EQUIPMENTS&amp;#39; DNAC_ALERTS_PARQ_DATA_LOAD = &amp;#39;DNAC-ALERTS&amp;#39; DNAC_CONTRACTS_PARQ_DATA_LOAD = &amp;#39;DNAC-CONTRACTS&amp;#39; DNAC_CLI_PARQ_DATA_LOAD = &amp;#39;DNAC-CLI&amp;#39; DNAC_CONFIG_PARQ_DATA_LOAD = &amp;#39;DNAC-CONFIG&amp;#39; Hybrid HYBRID_SUBS_DATA_LOAD = &amp;#34;ATHENA-SUBSCRIPTION&amp;#34; IBES BULLETIN_MSTR_DATA_LOAD = &amp;#39;IBES-BULLETIN-MASTER&amp;#39; NETWORK_ELEMENTS_DATA_LOAD = &amp;#39;IBES-NETWORK-ELEMENTS&amp;#39; EQUIPMENTS_DATA_LOAD = &amp;#39;IBES-EQUIPMENTS&amp;#39; ALERTS_DATA_LOAD = &amp;#39;IBES-ALERTS&amp;#39; CONTRACTS_DATA_LOAD = &amp;#39;IBES-CONTRACTS&amp;#39; FEATURES_DATA_LOAD = &amp;#39;IBES-FEATURES&amp;#39; License LICENSE_MERAKI = &amp;#39;LICENSE-MERAKI&amp;#39; XAAS NETWORK_ELEMENTS_SUBS_PARQ_DATA_LOAD = &amp;#39;XAAS-NETWORK-ELEMENTS-SUBS&amp;#39; SUBSCRIPTION_PARQ_DATA_LOAD = &amp;#34;XAAS-SUBSCRIPTION&amp;#34; Other CONTRACT_SUMMARY_DATA_LOAD = &amp;#39;CCCS-CONTRACT-SUMMARY&amp;#39; </description>
+    </item>
+    
+    <item>
+      <title>data_merge_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/data_merge_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/data_merge_prc/</guid>
+      <description>What does it do? Calls stored procedures related to data merge.   More Details    Calls the following stored procedures sequentially:  alerts_master_data_merge_prc networkelement_data_merge_prc contract_data_merge_prc equipment_data_merge_prc psirt_alerts_data_merge_prc fn_alerts_data_merge_prc sweox_alerts_data_merge_prc hweox_alerts_data_merge_prc feature_data_merge_prc     
+Referenced Tables  data_merge_logs  Referenced Stored Procedures  alerts_master_data_merge_prc contract_data_merge_prc equipment_data_merge_prc feature_data_merge_prc fn_alerts_data_merge_prc hweox_alerts_data_merge_prc log_msg_prc networkelement_data_merge_prc psirt_alerts_data_merge_prc sweox_alerts_data_merge_prc  </description>
     </item>
     
     <item>

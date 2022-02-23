@@ -25,6 +25,15 @@
     </item>
     
     <item>
+      <title>alerts_master_data_merge_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/alerts_master_data_merge_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/alerts_master_data_merge_prc/</guid>
+      <description>What does it do? Calls stored procedures related to alerts data merge.   More Details    Calls the following stored procedures sequentially, based on mgmtSystemType:    mgmtSystemType Stored Procedure Calls     DNAC dnac_sa_bulletin_master_merge_prc   DNAC dnac_fn_bulletin_master_merge_prc   DNAC dnac_alert_pas_hw_eox_bulletin_merge_prc   DNAC dnac_alert_pas_sw_eox_bulletin_merge_prc   CSDFIB ib_sa_bulletin_master_merge_prc   CSDFIB ib_fn_bulletin_master_merge_prc   CSDFIB ib_alert_pas_hw_eox_bulletin_merge_prc   CSDFIB ib_alert_pas_sw_eox_bulletin_merge_prc   APIC dcn_sa_bulletin_master_merge_prc   APIC dcn_fn_bulletin_master_merge_prc   APIC dcn_alert_pas_hw_eox_bulletin_merge_prc   APIC dcn_alert_pas_sw_eox_bulletin_merge_prc   MERAKI meraki_sa_bulletin_master_merge_prc   MERAKI meraki_fn_bulletin_master_merge_prc   MERAKI meraki_alert_pas_hw_eox_bulletin_merge_prc   MERAKI meraki_alert_pas_sw_eox_bulletin_merge_prc   DCC dcc_sa_bulletin_master_merge_prc   DCC dcc_fn_bulletin_master_merge_prc   DCC dcc_alert_pas_hw_eox_bulletin_merge_prc   DCC dcc_alert_pas_sw_eox_bulletin_merge_prc</description>
+    </item>
+    
+    <item>
       <title>amp_log_msg_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -159,6 +168,16 @@ Referenced Tables  asset_inventory_notification data_merge_logs  Referenced Stor
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/cleanup_longrunning_iso_data_prc/</guid>
       <description>This procedure runs every 4 hours.
  What does it do? Checks for rows of asset_data_load_notification that have been INPROGRESS for over 2 hours. Updates the status of those rows to SUBMITTED. Also, updates rows that have been SCHEDULED for over 2 hours to RECEIVED.   More Details    Get a cursor over the asset_data_load_notification where  processingStart is over 2 hours ago, also not null/undefined, and processingStatus is INPROGRESS   Get a count of rows in the asset_data_load_notification table where  processingStart is over 2 hours ago, also not null/undefined, and processingStatus is INPROGRESS or SCHEDULED   If the count is &amp;gt; 0, open a read loop on the cursor that  Update the processingStatus to SUBMITTED and the processingEnd to the current time for any INPROGRESS rows that were started over 2 hours ago.</description>
+    </item>
+    
+    <item>
+      <title>data_merge_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/data_merge_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/data_merge_prc/</guid>
+      <description>What does it do? Calls stored procedures related to data merge.   More Details    Calls the following stored procedures sequentially:  alerts_master_data_merge_prc networkelement_data_merge_prc contract_data_merge_prc equipment_data_merge_prc psirt_alerts_data_merge_prc fn_alerts_data_merge_prc sweox_alerts_data_merge_prc hweox_alerts_data_merge_prc feature_data_merge_prc     
+Referenced Tables  data_merge_logs  Referenced Stored Procedures  alerts_master_data_merge_prc contract_data_merge_prc equipment_data_merge_prc feature_data_merge_prc fn_alerts_data_merge_prc hweox_alerts_data_merge_prc log_msg_prc networkelement_data_merge_prc psirt_alerts_data_merge_prc sweox_alerts_data_merge_prc  </description>
     </item>
     
     <item>
