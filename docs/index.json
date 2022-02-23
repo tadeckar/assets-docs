@@ -182,6 +182,13 @@
 	"content": " classDiagram class Config{ +String config +String configName }  "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/contract_data_merge_prc/",
+	"title": "contract_data_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? Merge data into the contractcoverage table using values from the contractcoverage_ib_data table.   More Details    Get a count of rows in contractcoverage that match customerId/wfId. If the count it \u0026gt; 0, delete the rows. Get a count of rows in the base_table_partition_info table where  customerId matches input and partitionStatus is A (Active) and partitionTag is BASE and mgmtSystemType is CSDFIB   If the count is \u0026gt; 0, get the wfId from the rows. If the wfId is not NULL:  Create a temp table dup_ne_tmp with distinct neId/serialNumber values from the networkelement table. If the dup_ne_tmp table has any rows, update neId values in contractcoverage_ib_data rows to match values from dup_ne_tmp   Insert rows into the contractcoverage table using values from contractcoverage_ib_data.   \nReferenced Tables  base_table_partition_info contractcoverage contractcoverage_ib_data data_merge_logs networkelement networkelement_ib_data  Referenced Stored Procedures  log_msg_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/contracts/",
 	"title": "Contracts",
 	"tags": [],
@@ -578,7 +585,7 @@
 	"title": "Stored Procedures",
 	"tags": [],
 	"description": "",
-	"content": "  add_base_table_partions_prc   add_sumview_table_partions_prc   alerts_master_data_merge_prc   amp_log_msg_prc   amp_neid_update_prc   amp_subscription_notification_prc   amp_upload_notification_prc   athena_asset_notification_prc   athena_dcc_dcn_data_process_prc   athena_dcc_stg_data_process_prc   athena_dcn_stg_data_process_prc   athena_ib_stg_data_process_prc   athena_license_assetCategory_update_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   data_merge_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   iso_contract_sum_prc   iso_daily_trend_prc   iso_data_process_wrap_prc   iso_feature_insight_trend_prc   iso_feature_usage_prc   iso_subscription_prc   iso_subscription_upd_prc   iso_sum_table_deletion_prc   iso_summary_view_prc   iso_weekly_and_monthly_trend_prc   license_sum_view_prc   log_msg_prc   meraki_lic_process_wrap_prc   meraki_license_notification_prc   meraki_license_sum_view_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   sub_data_process_wrap_prc   update_raw_data_process_prc   xaas_asset_notification_prc   xaas_asset_process_wrap_prc   "
+	"content": "  add_base_table_partions_prc   add_sumview_table_partions_prc   alerts_master_data_merge_prc   amp_log_msg_prc   amp_neid_update_prc   amp_subscription_notification_prc   amp_upload_notification_prc   athena_asset_notification_prc   athena_dcc_dcn_data_process_prc   athena_dcc_stg_data_process_prc   athena_dcn_stg_data_process_prc   athena_ib_stg_data_process_prc   athena_license_assetCategory_update_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   contract_data_merge_prc   data_merge_prc   delete_raw_data_wfid_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   inv_upload_notification_prc   iso_contract_sum_prc   iso_daily_trend_prc   iso_data_process_wrap_prc   iso_feature_insight_trend_prc   iso_feature_usage_prc   iso_subscription_prc   iso_subscription_upd_prc   iso_sum_table_deletion_prc   iso_summary_view_prc   iso_weekly_and_monthly_trend_prc   license_sum_view_prc   log_msg_prc   meraki_lic_process_wrap_prc   meraki_license_notification_prc   meraki_license_sum_view_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   sub_data_process_wrap_prc   update_raw_data_process_prc   xaas_asset_notification_prc   xaas_asset_process_wrap_prc   "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sub_data_process_wrap_prc/",

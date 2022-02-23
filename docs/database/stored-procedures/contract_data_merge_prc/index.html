@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>alerts_master_data_merge_prc :: CX Assets Wiki</title>
+    <title>contract_data_merge_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645645714" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/alerts_master_data_merge_prc/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/contract_data_merge_prc/">
     <nav id="sidebar" class="">
 
 
@@ -232,7 +232,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/alerts_master_data_merge_prc/" title="alerts_master_data_merge_prc" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/alerts_master_data_merge_prc/" title="alerts_master_data_merge_prc" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/alerts_master_data_merge_prc/">
         alerts_master_data_merge_prc
         
@@ -547,7 +547,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/contract_data_merge_prc/" title="contract_data_merge_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/contract_data_merge_prc/" title="contract_data_merge_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/contract_data_merge_prc/">
         contract_data_merge_prc
         
@@ -2163,7 +2163,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > alerts_master_data_merge_prc
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > contract_data_merge_prc
           
         
           
@@ -2204,7 +2204,7 @@
           
             <h1>
               
-              alerts_master_data_merge_prc
+              contract_data_merge_prc
             </h1>
           
 
@@ -2212,7 +2212,7 @@
 
 
 <h3 id="what-does-it-do">What does it do?</h3>
-<p>Calls stored procedures related to alerts data merge.
+<p>Merge data into the <code>contractcoverage</code> table using values from the <code>contractcoverage_ib_data</code> table.
 
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
@@ -2226,130 +2226,41 @@
     </div>
     <div class="expand-content" style="display: none;">
         <ol>
-<li>Calls the following stored procedures sequentially, based on <strong>mgmtSystemType</strong>:
-<table>
-<thead>
-<tr>
-<th><strong>mgmtSystemType</strong></th>
-<th><strong>Stored Procedure Calls</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>DNAC</code></td>
-<td>dnac_sa_bulletin_master_merge_prc</td>
-</tr>
-<tr>
-<td><code>DNAC</code></td>
-<td>dnac_fn_bulletin_master_merge_prc</td>
-</tr>
-<tr>
-<td><code>DNAC</code></td>
-<td>dnac_alert_pas_hw_eox_bulletin_merge_prc</td>
-</tr>
-<tr>
-<td><code>DNAC</code></td>
-<td>dnac_alert_pas_sw_eox_bulletin_merge_prc</td>
-</tr>
-<tr>
-<td><code>CSDFIB</code></td>
-<td>ib_sa_bulletin_master_merge_prc</td>
-</tr>
-<tr>
-<td><code>CSDFIB</code></td>
-<td>ib_fn_bulletin_master_merge_prc</td>
-</tr>
-<tr>
-<td><code>CSDFIB</code></td>
-<td>ib_alert_pas_hw_eox_bulletin_merge_prc</td>
-</tr>
-<tr>
-<td><code>CSDFIB</code></td>
-<td>ib_alert_pas_sw_eox_bulletin_merge_prc</td>
-</tr>
-<tr>
-<td><code>APIC</code></td>
-<td>dcn_sa_bulletin_master_merge_prc</td>
-</tr>
-<tr>
-<td><code>APIC</code></td>
-<td>dcn_fn_bulletin_master_merge_prc</td>
-</tr>
-<tr>
-<td><code>APIC</code></td>
-<td>dcn_alert_pas_hw_eox_bulletin_merge_prc</td>
-</tr>
-<tr>
-<td><code>APIC</code></td>
-<td>dcn_alert_pas_sw_eox_bulletin_merge_prc</td>
-</tr>
-<tr>
-<td><code>MERAKI</code></td>
-<td>meraki_sa_bulletin_master_merge_prc</td>
-</tr>
-<tr>
-<td><code>MERAKI</code></td>
-<td>meraki_fn_bulletin_master_merge_prc</td>
-</tr>
-<tr>
-<td><code>MERAKI</code></td>
-<td>meraki_alert_pas_hw_eox_bulletin_merge_prc</td>
-</tr>
-<tr>
-<td><code>MERAKI</code></td>
-<td>meraki_alert_pas_sw_eox_bulletin_merge_prc</td>
-</tr>
-<tr>
-<td><code>DCC</code></td>
-<td>dcc_sa_bulletin_master_merge_prc</td>
-</tr>
-<tr>
-<td><code>DCC</code></td>
-<td>dcc_fn_bulletin_master_merge_prc</td>
-</tr>
-<tr>
-<td><code>DCC</code></td>
-<td>dcc_alert_pas_hw_eox_bulletin_merge_prc</td>
-</tr>
-<tr>
-<td><code>DCC</code></td>
-<td>dcc_alert_pas_sw_eox_bulletin_merge_prc</td>
-</tr>
-</tbody>
-</table>
+<li>Get a count of rows in <code>contractcoverage</code> that match <strong>customerId</strong>/<strong>wfId</strong>.</li>
+<li>If the count it &gt; 0, delete the rows.</li>
+<li>Get a count of rows in the <code>base_table_partition_info</code> table where
+<ul>
+<li><strong>customerId</strong> matches input and</li>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>CSDFIB</code></li>
+</ul>
 </li>
+<li>If the count is &gt; 0, get the <strong>wfId</strong> from the rows.</li>
+<li>If the <strong>wfId</strong> is not <code>NULL</code>:
+<ol>
+<li>Create a temp table <code>dup_ne_tmp</code> with distinct <strong>neId</strong>/<strong>serialNumber</strong> values from the <code>networkelement</code> table.</li>
+<li>If the <code>dup_ne_tmp</code> table has any rows, update <strong>neId</strong> values in <code>contractcoverage_ib_data</code> rows to match values from <code>dup_ne_tmp</code></li>
+</ol>
+</li>
+<li>Insert rows into the <code>contractcoverage</code> table using values from <code>contractcoverage_ib_data</code>.</li>
 </ol>
 
     </div>
 </div></p>
 <h3 id="referenced-tables">Referenced Tables</h3>
 <ul>
+<li>base_table_partition_info</li>
+<li>contractcoverage</li>
+<li>contractcoverage_ib_data</li>
 <li>data_merge_logs</li>
+<li>networkelement</li>
+<li>networkelement_ib_data</li>
 </ul>
 <h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
 <ul>
-<li>dnac_alert_pas_sw_eox_bulletin_merge_prc</li>
-<li>dcc_alert_pas_hw_eox_bulletin_merge_prc</li>
-<li>dcc_alert_pas_sw_eox_bulletin_merge_prc</li>
-<li>dcc_fn_bulletin_master_merge_prc</li>
-<li>dcc_sa_bulletin_master_merge_prc</li>
-<li>dcn_alert_pas_hw_eox_bulletin_merge_prc</li>
-<li>dcn_alert_pas_sw_eox_bulletin_merge_prc</li>
-<li>dcn_fn_bulletin_master_merge_prc</li>
-<li>dcn_sa_bulletin_master_merge_prc</li>
-<li>dnac_alert_pas_hw_eox_bulletin_merge_prc</li>
-<li>dnac_fn_bulletin_master_merge_prc</li>
-<li>dnac_sa_bulletin_master_merge_prc</li>
-<li>ib_alert_pas_hw_eox_bulletin_merge_prc</li>
-<li>ib_alert_pas_sw_eox_bulletin_merge_prc</li>
-<li>ib_fn_bulletin_master_merge_prc</li>
-<li>ib_sa_bulletin_master_merge_prc</li>
 <li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc
 ">log_msg_prc</a></li>
-<li>meraki_alert_pas_hw_eox_bulletin_merge_prc</li>
-<li>meraki_alert_pas_sw_eox_bulletin_merge_prc</li>
-<li>meraki_fn_bulletin_master_merge_prc</li>
-<li>meraki_sa_bulletin_master_merge_prc</li>
 </ul>
 
 
@@ -2488,26 +2399,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -2747,6 +2638,26 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 

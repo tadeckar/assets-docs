@@ -247,6 +247,15 @@ Schema Staging Tables  config_telemetry  </description>
     </item>
     
     <item>
+      <title>contract_data_merge_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/contract_data_merge_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/contract_data_merge_prc/</guid>
+      <description>What does it do? Merge data into the contractcoverage table using values from the contractcoverage_ib_data table.   More Details    Get a count of rows in contractcoverage that match customerId/wfId. If the count it &amp;gt; 0, delete the rows. Get a count of rows in the base_table_partition_info table where  customerId matches input and partitionStatus is A (Active) and partitionTag is BASE and mgmtSystemType is CSDFIB   If the count is &amp;gt; 0, get the wfId from the rows.</description>
+    </item>
+    
+    <item>
       <title>Contracts</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/contracts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
