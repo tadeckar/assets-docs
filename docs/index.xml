@@ -121,6 +121,16 @@ Referenced Tables  amp_data_merge_logs  </description>
     </item>
     
     <item>
+      <title>athena_license_assetCategory_update_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/athena_license_assetcategory_update_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/athena_license_assetcategory_update_prc/</guid>
+      <description>What does it do? Updates assetCategory to Cisco Plus for rows in the iso_subscription_stg table where subscription_product_family is UCSBFC.   More Details    Update assetCategory to Cisco Plus for rows in iso_subscription_stg where  customerId/wfId match input and subscription_reference_id is found in the iso_subscription_stg table where  customerId/wfId match input and subscription_product_family is UCSBFC       
+Referenced Tables  amp_data_merge_logs iso_subscription_stg  Referenced Stored Procedures  amp_log_msg_prc  </description>
+    </item>
+    
+    <item>
       <title>Bulletins</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
