@@ -14,7 +14,7 @@ Calls stored procedures related to data merge.
    - fn_alerts_data_merge_prc
    - sweox_alerts_data_merge_prc
    - hweox_alerts_data_merge_prc
-   - feature_data_merge_prc
+   - [feature_data_merge_prc]({{< ILink href="/database/stored-procedures/feature_data_merge_prc" >}})
 {{% /expand %}}
 
 ### Referenced Tables
@@ -25,7 +25,7 @@ Calls stored procedures related to data merge.
 - [alerts_master_data_merge_prc]({{< ILink href="/database/stored-procedures/alerts_master_data_merge_prc" >}})
 - [contract_data_merge_prc]({{< ILink href="/database/stored-procedures/contract_data_merge_prc" >}})
 - [equipment_data_merge_prc]({{< ILink href="/database/stored-procedures/equipment_data_merge_prc" >}})
-- feature_data_merge_prc
+- [feature_data_merge_prc]({{< ILink href="/database/stored-procedures/feature_data_merge_prc" >}})
 - fn_alerts_data_merge_prc
 - hweox_alerts_data_merge_prc
 - [log_msg_prc]({{< ILink href="/database/stored-procedures/log_msg_prc" >}})
