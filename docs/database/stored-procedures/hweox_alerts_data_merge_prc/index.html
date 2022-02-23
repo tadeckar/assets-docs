@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>athena_license_assetCategory_update_prc :: CX Assets Wiki</title>
+    <title>hweox_alerts_data_merge_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645653572" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/athena_license_assetcategory_update_prc/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/hweox_alerts_data_merge_prc/">
     <nav id="sidebar" class="">
 
 
@@ -442,7 +442,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/athena_license_assetcategory_update_prc/" title="athena_license_assetCategory_update_prc" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/athena_license_assetcategory_update_prc/" title="athena_license_assetCategory_update_prc" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/athena_license_assetcategory_update_prc/">
         athena_license_assetCategory_update_prc
         
@@ -736,7 +736,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/hweox_alerts_data_merge_prc/" title="hweox_alerts_data_merge_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/hweox_alerts_data_merge_prc/" title="hweox_alerts_data_merge_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/hweox_alerts_data_merge_prc/">
         hweox_alerts_data_merge_prc
         
@@ -2247,7 +2247,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > athena_license_assetCategory_update_prc
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > hweox_alerts_data_merge_prc
           
         
           
@@ -2288,7 +2288,7 @@
           
             <h1>
               
-              athena_license_assetCategory_update_prc
+              hweox_alerts_data_merge_prc
             </h1>
           
 
@@ -2296,7 +2296,7 @@
 
 
 <h3 id="what-does-it-do">What does it do?</h3>
-<p>Updates <strong>assetCategory</strong> to <code>Cisco Plus</code> for rows in the <code>iso_subscription_stg</code> table where <strong>subscription_product_family</strong> is <code>UCSBFC</code>.
+<p>Insert rows into the <code>asset_inventory_alert_hweox</code> table using values from various other tables.
 
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
@@ -2310,30 +2310,91 @@
     </div>
     <div class="expand-content" style="display: none;">
         <ol>
-<li>Update <strong>assetCategory</strong> to <code>Cisco Plus</code> for rows in <code>iso_subscription_stg</code> where
+<li>Get a cursor over rows in the <code>base_table_partition_info</code> table where
 <ul>
-<li><strong>customerId</strong>/<strong>wfId</strong> match input and</li>
-<li><strong>subscription_reference_id</strong> is found in the <code>iso_subscription_stg</code> table where
-<ul>
-<li><strong>customerId</strong>/<strong>wfId</strong> match input and</li>
-<li><strong>subscription_product_family</strong> is <code>UCSBFC</code></li>
+<li><strong>customerId</strong> matches input and</li>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>DNAC</code> and</li>
+<li><strong>dnacId</strong> and <strong>customerId</strong> is in row of the <code>active_dnac_ne</code> table</li>
 </ul>
 </li>
+<li>Delete all rows for the given <strong>customerId</strong>/<strong>wfId</strong> from the <code>asset_inventory_alert_hweox</code> table.</li>
+<li>Get the <strong>wfId</strong> from rows in <code>base_table_partition_info</code> that match <strong>customerId</strong> where
+<ul>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>CSDFIB</code></li>
 </ul>
 </li>
+<li>Get a count of rows in <code>base_table_partition_info</code> that match <strong>customerId</strong>/<strong>wfId</strong> where
+<ul>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>DNAC</code> and</li>
+<li><strong>dnacId</strong> and <strong>customerId</strong> is in row of the <code>active_dnac_ne</code> table</li>
+</ul>
+</li>
+<li>If the count is &gt; 0, open a read loop on the cursor that inserts rows into the <code>asset_inventory_alert_hweox</code> table using values from the <code>alert_hweox_telemetry</code> table.</li>
+<li>Get a count of the rows in <code>base_table_partition_info</code> that match <strong>customerId</strong> where
+<ul>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>APIC</code></li>
+</ul>
+</li>
+<li>If the count is &gt; 0:
+<ol>
+<li>Get the <strong>wfId</strong> from rows of count in step 6.</li>
+<li>Insert rows into the <code>asset_inventory_alert_hweox</code> table using values from the <code>alert_hweox_dcn</code> table.</li>
+</ol>
+</li>
+<li>Get a count of the rows in <code>base_table_partition_info</code> that match <strong>customerId</strong> where
+<ul>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>MERAKI</code></li>
+</ul>
+</li>
+<li>If the count is &gt; 0:
+<ol>
+<li>Get the <strong>wfId</strong> from rows of count in step 6.</li>
+<li>Insert rows into the <code>asset_inventory_alert_hweox</code> table using values from the <code>alert_hweox_meraki</code> table.</li>
+</ol>
+</li>
+<li>If the <strong>wfId</strong> from step 3 is not null, insert rows into the <code>asset_inventory_alert_hweox</code> table using values from the <code>alert_hweox_ib_data</code> table.</li>
+<li>Get a count of the rows in <code>base_table_partition_info</code> that match <strong>customerId</strong> where</li>
+</ol>
+<ul>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>DCC</code></li>
+</ul>
+<ol start="12">
+<li>If the count is &gt; 0:</li>
+<li>Get the <strong>wfId</strong> from rows of count in step 6.</li>
+<li>Insert rows into the <code>asset_inventory_alert_hweox</code> table using values from the <code>alert_hweox_dcc</code> table.</li>
 </ol>
 
     </div>
 </div></p>
 <h3 id="referenced-tables">Referenced Tables</h3>
 <ul>
-<li>amp_data_merge_logs</li>
-<li>iso_subscription_stg</li>
+<li>active_dnac_ne</li>
+<li>alert_hweox_dcc</li>
+<li>alert_hweox_dcn</li>
+<li>alert_hweox_ib_data</li>
+<li>alert_hweox_meraki</li>
+<li>alert_hweox_telemetry</li>
+<li>asset_inventory_alert_hweox</li>
+<li>base_table_partition_info</li>
+<li>data_merge_logs</li>
+<li>networkelement</li>
 </ul>
 <h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
 <ul>
-<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc
-">amp_log_msg_prc</a></li>
+<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc
+">log_msg_prc</a></li>
 </ul>
 
 
@@ -2632,26 +2693,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -2875,6 +2916,26 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
