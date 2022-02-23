@@ -25,7 +25,7 @@ Gets counts for devices by **mgmtSystemType**. If counts are 0, removes relevant
    3. Call the `drop_dnac_old_partions_prc` stored procedure
    4. Delete rows in the `base_table_partition_info` table that are marked with **partitionStatus** as `D`.
 5. Call the following stored procedures:
-   1. `add_sumview_table_partions_prc`
+   1. [add_sumview_table_partions_prc]({{ ILink href="/database/stored-procedures/add_sumview_table_partions_prc" }})
    2. `data_merge_prc`
    3. `sum_table_data_update_prc`
    4. `update_sum_data_process_prc`
@@ -44,9 +44,9 @@ Gets counts for devices by **mgmtSystemType**. If counts are 0, removes relevant
 
 
 ### Referenced Stored Procedures
-- add_sumview_table_partions_prc
+- [add_sumview_table_partions_prc]({{ ILink href="/database/stored-procedures/add_sumview_table_partions_prc" }})
 - data_merge_prc
 - drop_dnac_old_partions_prc
-- log_msg_prc
+- [log_msg_prc]({{< ILink href="/database/stored-procedures/log_msg_prc" >}})
 - sum_table_data_update_prc
 - update_sum_data_process_prc
