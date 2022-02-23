@@ -386,6 +386,15 @@ ParquetInvDataLoadManager</description>
     </item>
     
     <item>
+      <title>equipment_data_merge_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/equipment_data_merge_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/equipment_data_merge_prc/</guid>
+      <description>What does it do? Inserts rows into the equipment table using values from equipment_telemetry and equipment_ib_data.   More Details    Get a cursor over rows in the base_table_partition_info table where  customerId matches input and partitionStatus is A (Active) and partitionTag is BASE and mgmtSystemType is DNAC and dnacId and customerId is in row of the active_dnac_ne table   Delete all rows for the given customerId/wfId from the equipment table.</description>
+    </item>
+    
+    <item>
       <title>Equipments</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/equipments/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
