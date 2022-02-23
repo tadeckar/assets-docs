@@ -7,7 +7,7 @@ Syncs the `license_sum_view` table with values from `iso_subscription_stg`.
 {{% expand "More Details" %}}
 1. Get a count of rows in the `license_sum_view` table matching **customerId**/**wfId**.
 2. If the count is > 0, delete those rows from `license_sum_view`.
-3. Call the `athena_license_assetCategory_update_prc` stored procedure with **customerId**/**wfId**
+3. Call the [athena_license_assetCategory_update_prc]({{< ILink href="/database/stored-procedures/athena_license_assetcategory_update_prc" >}}) stored procedure with **customerId**/**wfId**
 4. Insert rows into `license_sum_view` using values from `iso_subscription_stg` if the **SUBSCRIPTION_PRODUCT_FAMILY** is not `UCSBFC`.
 5. Update **useCaseIds**, **solutionIds**, **solutionInfo**, **licenseLevel**, and **level4CompName** in `license_sum_view` using values from `pid_solution_mapping`.
 6. Get a count of rows in `license_sum_view` matching **customerId**/**wfId** where **solutionIds** is `|52517223|` (Meraki).
@@ -32,4 +32,4 @@ Syncs the `license_sum_view` table with values from `iso_subscription_stg`.
 
 ### Referenced Stored Procedures
 - [amp_log_msg_prc]({{< ILink href="/database/stored-procedures/amp_log_msg_prc" >}})
-- athena_license_assetCategory_update_prc
+- [athena_license_assetCategory_update_prc]({{< ILink href="/database/stored-procedures/athena_license_assetcategory_update_prc" >}})
