@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>Tags :: CX Assets Wiki</title>
+    <title>add_sumview_table_partions_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645633174" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/tags/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/add_sumview_table_partions_prc/">
     <nav id="sidebar" class="">
 
 
@@ -93,7 +93,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/" title="Database" class="dd-item
-        
+        parent
         
         
         ">
@@ -164,7 +164,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/" title="Stored Procedures" class="dd-item
-        
+        parent
         
         
         ">
@@ -211,7 +211,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/add_sumview_table_partions_prc/" title="add_sumview_table_partions_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/add_sumview_table_partions_prc/" title="add_sumview_table_partions_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/add_sumview_table_partions_prc/">
         add_sumview_table_partions_prc
         
@@ -2092,7 +2092,19 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > Tags
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > add_sumview_table_partions_prc
+          
+        
+          
+        
           
         
           
@@ -2103,7 +2115,16 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-does-it-do">What does it do?</a></li>
+        <li><a href="#referenced-tables">Referenced Tables</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -2119,24 +2140,54 @@
           
             <h1>
               
-                tag ::
-              
-              Tags
+              add_sumview_table_partions_prc
             </h1>
           
 
         
 
 
+<h3 id="what-does-it-do">What does it do?</h3>
+<p>Adds partitions to the summary view tables.
 
-
-
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	More Details
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <ol>
+<li>Get a cursor over rows in the <code>partition_tables</code> table that match the <strong>partitionTag</strong> input parameter.</li>
+<li>Insert a row into the <code>customer_partition_info</code> table using input parameter values.</li>
+<li>Get the <strong>partitionId</strong> of the newly created partition.</li>
+<li>Open a read loop on the cursor that:
+<ol>
+<li>Gets a count of rows in the <code>INFORMATION_SCHEMA.PARTITIONS</code> table where
 <ul>
-	
+<li><strong>TABLE_NAME</strong> matches the <strong>tableName</strong> and</li>
+<li><strong>partition_description</strong> matches <strong>partitionValue</strong></li>
+</ul>
+</li>
+<li>If the count is 1, alter the table (given the <strong>tableName</strong>) by adding a partition.</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+</div></p>
+<h3 id="referenced-tables">Referenced Tables</h3>
+<ul>
+<li>customer_partition_info</li>
+<li>partition_automation_logs</li>
 </ul>
 
 
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -2171,8 +2222,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -2188,6 +2237,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2221,6 +2273,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -2233,6 +2286,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2250,6 +2306,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -2265,6 +2322,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3602,3 +3662,4 @@
 
   </body>
 </html>
+

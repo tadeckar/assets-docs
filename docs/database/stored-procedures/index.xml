@@ -16,6 +16,15 @@
     </item>
     
     <item>
+      <title>add_sumview_table_partions_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/add_sumview_table_partions_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/add_sumview_table_partions_prc/</guid>
+      <description>What does it do? Adds partitions to the summary view tables.   More Details    Get a cursor over rows in the partition_tables table that match the partitionTag input parameter. Insert a row into the customer_partition_info table using input parameter values. Get the partitionId of the newly created partition. Open a read loop on the cursor that:  Gets a count of rows in the INFORMATION_SCHEMA.PARTITIONS table where  TABLE_NAME matches the tableName and partition_description matches partitionValue   If the count is 1, alter the table (given the tableName) by adding a partition.</description>
+    </item>
+    
+    <item>
       <title>amp_log_msg_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
