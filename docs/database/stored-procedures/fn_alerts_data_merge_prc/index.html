@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>iso_data_process_wrap_prc :: CX Assets Wiki</title>
+    <title>fn_alerts_data_merge_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645652621" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/iso_data_process_wrap_prc/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/fn_alerts_data_merge_prc/">
     <nav id="sidebar" class="">
 
 
@@ -715,7 +715,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/fn_alerts_data_merge_prc/" title="fn_alerts_data_merge_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/fn_alerts_data_merge_prc/" title="fn_alerts_data_merge_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/fn_alerts_data_merge_prc/">
         fn_alerts_data_merge_prc
         
@@ -799,7 +799,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/iso_data_process_wrap_prc/" title="iso_data_process_wrap_prc" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/iso_data_process_wrap_prc/" title="iso_data_process_wrap_prc" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_data_process_wrap_prc/">
         iso_data_process_wrap_prc
         
@@ -2226,7 +2226,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > iso_data_process_wrap_prc
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > fn_alerts_data_merge_prc
           
         
           
@@ -2267,7 +2267,7 @@
           
             <h1>
               
-              iso_data_process_wrap_prc
+              fn_alerts_data_merge_prc
             </h1>
           
 
@@ -2275,7 +2275,7 @@
 
 
 <h3 id="what-does-it-do">What does it do?</h3>
-<p>Call stored procedures to create summary views for iso data.
+<p>Inserts rows into the <code>asset_inventory_alert_fn</code> table using values from other various tables.
 
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
@@ -2289,76 +2289,90 @@
     </div>
     <div class="expand-content" style="display: none;">
         <ol>
-<li>Get a count of the rows in the <code>customer_wfid_info</code> table that match <strong>customerId</strong>/<strong>wfId</strong> where
+<li>Get a cursor over rows in the <code>base_table_partition_info</code> table where
 <ul>
-<li><strong>module</strong> is <code>CSDF_AMP_TELE</code> and</li>
-<li><strong>wfIdStatus</strong> is <code>I</code></li>
+<li><strong>customerId</strong> matches input and</li>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>DNAC</code> and</li>
+<li><strong>dnacId</strong> and <strong>customerId</strong> is in row of the <code>active_dnac_ne</code> table</li>
 </ul>
 </li>
-<li>If the count is 0, then insert a row.</li>
-<li>Call stored procedures
+<li>Delete all rows for the given <strong>customerId</strong>/<strong>wfId</strong> from the <code>asset_inventory_alert_fn</code> table.</li>
+<li>Get the <strong>wfId</strong> from rows in <code>base_table_partition_info</code> that match <strong>customerId</strong> where
+<ul>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>CSDFIB</code></li>
+</ul>
+</li>
+<li>Get a count of rows in <code>base_table_partition_info</code> that match <strong>customerId</strong> where
+<ul>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>DNAC</code> and</li>
+<li><strong>dnacId</strong> and <strong>customerId</strong> is in row of the <code>active_dnac_ne</code> table</li>
+</ul>
+</li>
+<li>If the count is &gt; 0, open a read loop on the cursor that inserts rows into the <code>asset_inventory_alert_fn</code> table using values from the <code>alert_fn_telemetry</code> table.</li>
+<li>Get a count of the rows in <code>base_table_partition_info</code> that match <strong>customerId</strong> where
+<ul>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>APIC</code></li>
+</ul>
+</li>
+<li>If the count is &gt; 0:
 <ol>
-<li>Call the <a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_sum_table_deletion_prc">iso_sum_table_deletion_prc</a> stored procedure</li>
-<li>Call the <a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_daily_trend_prc">iso_daily_trend_prc</a> stored procedure</li>
-<li>Call the <a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_weekly_and_monthly_trend_prc">iso_weekly_and_monthly_trend_prc</a> stored procedure</li>
-<li>Call the <a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_feature_usage_prc">iso_feature_usage_prc</a> stored procedure</li>
-<li>Call the <a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_feature_insight_trend_prc">iso_feature_insight_trend_prc</a> stored procedure</li>
-<li>Call the <a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_summary_view_prc">iso_summary_view_prc</a> stored procedure</li>
+<li>Get the <strong>wfId</strong> from rows of count in step 6.</li>
+<li>Insert rows into the <code>asset_inventory_alert_fn</code> table using values from the <code>alert_fn_dcn</code> table.</li>
 </ol>
 </li>
-<li>Delete any row from the <code>customer_wfid_info</code> table matching <strong>customerId</strong>/<strong>wfId</strong> where <strong>wfIdStatus</strong> is <code>A</code>.</li>
-<li>Update <strong>wfIdStatus</strong> to <code>A</code> for any row from the <code>customer_wfid_info</code> table matching <strong>customerId</strong>/<strong>wfId</strong> where <strong>wfIdStatus</strong> is <code>I</code>.</li>
-<li>Delete any rows from the following tables that match <strong>customerId</strong> but don&rsquo;t match <strong>wfId</strong>:
+<li>Get a count of the rows in <code>base_table_partition_info</code> that match <strong>customerId</strong> where
 <ul>
-<li>iso_daily_consumption_trend</li>
-<li>iso_daily_login_trend</li>
-<li>iso_feature_insight_trend</li>
-<li>iso_feature_usage</li>
-<li>iso_monthly_consumption_trend</li>
-<li>iso_monthly_login_trend</li>
-<li>iso_quarterly_consumption_trend</li>
-<li>iso_quarterly_login_trend</li>
-<li>iso_summary_view</li>
-<li>iso_weekly_consumption_trend</li>
-<li>iso_weekly_login_trend</li>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>MERAKI</code></li>
 </ul>
 </li>
+<li>If the count is &gt; 0:
+<ol>
+<li>Get the <strong>wfId</strong> from rows of count in step 8.</li>
+<li>Insert rows into the <code>asset_inventory_alert_fn</code> table using values from the <code>alert_fn_meraki</code> table.</li>
+</ol>
+</li>
+<li>If the <strong>wfId</strong> from step 3 is not null, insert rows into the <code>asset_inventory_alert_fn</code> table using values from the <code>alert_fn_ib_data</code> table.</li>
+<li>Get a count of the rows in <code>base_table_partition_info</code> that match <strong>customerId</strong> where</li>
+</ol>
+<ul>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>DCC</code></li>
+</ul>
+<ol start="12">
+<li>If the count is &gt; 0:</li>
+<li>Get the <strong>wfId</strong> from rows of count in step 11.</li>
+<li>Insert rows into the <code>asset_inventory_alert_fn</code> table using values from the <code>alert_fn_dcc</code> table.</li>
 </ol>
 
     </div>
 </div></p>
 <h3 id="referenced-tables">Referenced Tables</h3>
 <ul>
-<li>amp_data_merge_logs</li>
-<li>customer_wfid_info</li>
-<li>iso_daily_consumption_trend</li>
-<li>iso_daily_login_trend</li>
-<li>iso_feature_insight_trend</li>
-<li>iso_feature_usage</li>
-<li>iso_monthly_consumption_trend</li>
-<li>iso_monthly_login_trend</li>
-<li>iso_quarterly_consumption_trend</li>
-<li>iso_quarterly_login_trend</li>
-<li>iso_summary_view</li>
-<li>iso_weekly_consumption_trend</li>
-<li>iso_weekly_login_trend</li>
+<li>active_dnac_ne</li>
+<li>alert_fn_dcn</li>
+<li>alert_fn_ib_data</li>
+<li>alert_fn_meraki</li>
+<li>alert_fn_telemetry</li>
+<li>asset_inventory_alert_fn</li>
+<li>base_table_partition_info</li>
+<li>data_merge_logs</li>
+<li>networkelement</li>
 </ul>
 <h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
 <ul>
-<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc
-">amp_log_msg_prc</a></li>
-<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_daily_trend_prc
-">iso_daily_trend_prc</a></li>
-<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_feature_insight_trend_prc
-">iso_feature_insight_trend_prc</a></li>
-<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_feature_usage_prc
-">iso_feature_usage_prc</a></li>
-<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_sum_table_deletion_prc
-">iso_sum_table_deletion_prc</a></li>
-<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_summary_view_prc
-">iso_summary_view_prc</a></li>
-<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_weekly_and_monthly_trend_prc
-">iso_weekly_and_monthly_trend_prc</a></li>
+<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc
+">log_msg_prc</a></li>
 </ul>
 
 
@@ -2865,6 +2879,26 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -2928,26 +2962,6 @@
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
