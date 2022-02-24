@@ -881,5 +881,14 @@ Referenced Tables  data_merge_logs  Referenced Stored Procedures  all_assets_tra
       <description>What does it do? Inserts rows into the all_asset_view table using values from other various tables.   More Details    If the wfType is DCC_SUB:  Count rows in the customer_partition_info table that match the customerId input where partitionStatus is A (Active). If the count is 1:  Call the following stored procedures in sequence:  xaas_neId_update_pr athena_xaas_assetCategory_update_prc   Insert rows into the all_asset_view table using values from the networkelement_sub_stg and subscription_stg tables.</description>
     </item>
     
+    <item>
+      <title>xaas_sub_license_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_sub_license_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_sub_license_prc/</guid>
+      <description>What does it do? Inserts rows into the device_license_view table using values from networkelement_sub_stg and subscription_stg.   More Details    Count rows in the device_license_view table matching customerId/wfId from input. If the count is &amp;gt; 0, delete all rows from device_license_view matching above count query where mgmtSystemType is DCC_SUB. Insert rows into device_license_view using values from networkelement_sub_stg and subscription_stg. Call the upd_athena_xaas_solutionId_prc stored procedure. Delete rows from device_license_view matching customerId where mgmtSystemType is DCC_SUB and wfId is not equal to the wfId from input.</description>
+    </item>
+    
   </channel>
 </rss>

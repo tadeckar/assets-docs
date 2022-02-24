@@ -209,5 +209,7 @@
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_process_wrap_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_sub_data_process_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_sub_license_prc/</loc>
   </url>
 </urlset>
