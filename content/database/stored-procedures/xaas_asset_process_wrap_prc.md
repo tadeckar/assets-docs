@@ -11,7 +11,7 @@ Call stored procedures to create summary views for XAAS assets.
 2. If the count is 0, then insert a row.
 3. Call stored procedures
    1. Call the [xaas_sub_data_process_prc]({{< ILink href="/database/stored-procedures/xaas_sub_data_process_prc" >}}) stored procedure
-   2. Call the `xaas_sub_license_prc` stored procedure
+   2. Call the [xaas_sub_license_prc]({{< ILink href="/database/stored-procedures/xaas_sub_license_prc" >}}) stored procedure
 4. Delete any row from the `customer_wfid_info` table matching **customerId**/**wfId** where **wfIdStatus** is `A`.
 5. Update **wfIdStatus** to `A` for any row from the `customer_wfid_info` table matching **customerId**/**wfId** where **wfIdStatus** is `I`.
 6. Delete any rows from the following tables that match **customerId** but don't match **wfId**:
@@ -29,4 +29,4 @@ Call stored procedures to create summary views for XAAS assets.
 - [amp_log_msg_prc]({{< ILink href="/database/stored-procedures/amp_log_msg_prc" >}})
 - [log_msg_prc]({{< ILink href="/database/stored-procedures/log_msg_prc" >}})
 - [xaas_sub_data_process_prc]({{< ILink href="/database/stored-procedures/xaas_sub_data_process_prc" >}})
-- xaas_sub_license_prc
+- [xaas_sub_license_prc]({{< ILink href="/database/stored-procedures/xaas_sub_license_prc" >}})
