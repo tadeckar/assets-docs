@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>iso_feature_insight_trend_prc :: CX Assets Wiki</title>
+    <title>sum_table_data_update_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645721604" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/iso_feature_insight_trend_prc/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/sum_table_data_update_prc/">
     <nav id="sidebar" class="">
 
 
@@ -862,7 +862,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/iso_feature_insight_trend_prc/" title="iso_feature_insight_trend_prc" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/iso_feature_insight_trend_prc/" title="iso_feature_insight_trend_prc" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_feature_insight_trend_prc/">
         iso_feature_insight_trend_prc
         
@@ -1240,7 +1240,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/sum_table_data_update_prc/" title="sum_table_data_update_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/sum_table_data_update_prc/" title="sum_table_data_update_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/sum_table_data_update_prc/">
         sum_table_data_update_prc
         
@@ -2352,7 +2352,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > iso_feature_insight_trend_prc
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > sum_table_data_update_prc
           
         
           
@@ -2393,7 +2393,7 @@
           
             <h1>
               
-              iso_feature_insight_trend_prc
+              sum_table_data_update_prc
             </h1>
           
 
@@ -2401,7 +2401,7 @@
 
 
 <h3 id="what-does-it-do">What does it do?</h3>
-<p>Adds rows to the <code>iso_feature_insight_trend</code> table using values from the <code>iso_connector_monthly_trend_stg</code> staging table.
+<p>Calls stored procedures related to updating summary tables.
 
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
@@ -2415,31 +2415,48 @@
     </div>
     <div class="expand-content" style="display: none;">
         <ol>
-<li>Get a cursor over rows in the <code>iso_feature_master</code> table where <strong>feature_type</strong> is <code>Connector</code>.</li>
-<li>Delete rows from the <code>iso_connector_monthly_trend_stg</code> table where
+<li>Calls the following stored procedures sequentially:
 <ul>
-<li>the <strong>wfId</strong> field doesn&rsquo;t match the input <strong>wfId</strong>, or is null/undefined and</li>
-<li>there is no <strong>wfId</strong> row in <code>asset_data_load_notification</code> in <code>SUBMITTED</code> state</li>
+<li>networkelement_sum_vw_prc</li>
+<li>equipment_sum_vw_prc</li>
+<li>contractcoverage_sum_vw_prc</li>
+<li>psirt_alert_sum_vw_prc</li>
+<li>fn_alert_sum_vw_prc</li>
+<li>hweox_alert_sum_vw_prc</li>
+<li>sweox_alert_sum_vw_prc</li>
+<li>all_assets_vw_prc</li>
+<li>all_assets_track_vw_prc</li>
+<li>default_group_device_sum_prc</li>
+<li>contract_group_device_sum_upl_prc</li>
+<li>all_csdf_contract_view_prc</li>
+<li>features_sum_vw_prc</li>
 </ul>
 </li>
-<li>Open a read loop on the cursor that inserts new row into <code>iso_feature_insight_trend </code> using values from <code>iso_connector_monthly_trend_stg</code>.</li>
 </ol>
 
     </div>
 </div></p>
 <h3 id="referenced-tables">Referenced Tables</h3>
 <ul>
-<li>amp_data_merge_logs</li>
-<li>asset_data_load_notification</li>
-<li>iso_connector_monthly_trend_stg</li>
-<li>iso_connector_monthly_trend_stg</li>
-<li>iso_feature_insight_trend</li>
-<li>iso_feature_master</li>
+<li>data_merge_logs</li>
 </ul>
 <h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
 <ul>
-<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc
-">amp_log_msg_prc</a></li>
+<li>all_assets_track_vw_prc</li>
+<li>all_assets_vw_prc</li>
+<li>all_csdf_contract_view_prc</li>
+<li>contract_group_device_sum_upl_prc</li>
+<li>contractcoverage_sum_vw_prc</li>
+<li>default_group_device_sum_prc</li>
+<li>equipment_sum_vw_prc</li>
+<li>features_sum_vw_prc</li>
+<li>fn_alert_sum_vw_prc</li>
+<li>hweox_alert_sum_vw_prc</li>
+<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc
+">log_msg_prc</a></li>
+<li>networkelement_sum_vw_prc</li>
+<li>psirt_alert_sum_vw_prc</li>
+<li>sweox_alert_sum_vw_prc</li>
 </ul>
 
 
@@ -3058,26 +3075,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -3365,6 +3362,26 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 

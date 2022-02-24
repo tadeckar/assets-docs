@@ -481,6 +481,16 @@ Also updates the processingStatus from INPROGRESS to SUCCESS for rows in the ass
     </item>
     
     <item>
+      <title>sum_table_data_update_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sum_table_data_update_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sum_table_data_update_prc/</guid>
+      <description>What does it do? Calls stored procedures related to updating summary tables.   More Details    Calls the following stored procedures sequentially:  networkelement_sum_vw_prc equipment_sum_vw_prc contractcoverage_sum_vw_prc psirt_alert_sum_vw_prc fn_alert_sum_vw_prc hweox_alert_sum_vw_prc sweox_alert_sum_vw_prc all_assets_vw_prc all_assets_track_vw_prc default_group_device_sum_prc contract_group_device_sum_upl_prc all_csdf_contract_view_prc features_sum_vw_prc     
+Referenced Tables  data_merge_logs  Referenced Stored Procedures  all_assets_track_vw_prc all_assets_vw_prc all_csdf_contract_view_prc contract_group_device_sum_upl_prc contractcoverage_sum_vw_prc default_group_device_sum_prc equipment_sum_vw_prc features_sum_vw_prc fn_alert_sum_vw_prc hweox_alert_sum_vw_prc log_msg_prc networkelement_sum_vw_prc psirt_alert_sum_vw_prc sweox_alert_sum_vw_prc  </description>
+    </item>
+    
+    <item>
       <title>sweox_alerts_data_merge_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sweox_alerts_data_merge_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
