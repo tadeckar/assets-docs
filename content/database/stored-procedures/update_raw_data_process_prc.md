@@ -27,7 +27,7 @@ Gets counts for devices by **mgmtSystemType**. If counts are 0, removes relevant
 5. Call the following stored procedures:
    1. [add_sumview_table_partions_prc]({{< ILink href="/database/stored-procedures/add_sumview_table_partions_prc" >}})
    2. [data_merge_prc]({{< ILink href="/database/stored-procedures/data_merge_prc" >}})
-   3. `sum_table_data_update_prc`
+   3. [sum_table_data_update_prc]({{< ILink href="/database/stored-procedures/sum_table_data_update_prc" >}})
    4. `update_sum_data_process_prc`
 6. Update the **processingStatus** to `SUCCESS` for relevant rows from the `asset_inventory_notification` table.
 {{% /expand %}}
@@ -48,5 +48,5 @@ Gets counts for devices by **mgmtSystemType**. If counts are 0, removes relevant
 - [data_merge_prc]({{< ILink href="/database/stored-procedures/data_merge_prc" >}})
 - [drop_dnac_old_partions_prc]({{< ILink href="/database/stored-procedures/drop_dnac_old_partions_prc" >}})
 - [log_msg_prc]({{< ILink href="/database/stored-procedures/log_msg_prc" >}})
-- sum_table_data_update_prc
+- [sum_table_data_update_prc]({{< ILink href="/database/stored-procedures/sum_table_data_update_prc" >}})
 - update_sum_data_process_prc
