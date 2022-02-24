@@ -422,6 +422,15 @@ Referenced Tables  data_merge_logs  </description>
     </item>
     
     <item>
+      <title>psirt_alerts_data_merge_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/psirt_alerts_data_merge_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/psirt_alerts_data_merge_prc/</guid>
+      <description>What does it do? Insert rows into the asset_inventory_alert_psirt table using values from various other tables.   More Details    Get a cursor over rows in the base_table_partition_info table where  customerId matches input and partitionStatus is A (Active) and partitionTag is BASE and mgmtSystemType is DNAC and dnacId and customerId is in row of the active_dnac_ne table   Delete all rows for the given customerId/wfId from the asset_inventory_alert_psirt table.</description>
+    </item>
+    
+    <item>
       <title>retry_failed_uploads_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/retry_failed_uploads_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -459,6 +468,15 @@ Also updates the processingStatus from INPROGRESS to SUCCESS for rows in the ass
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sub_data_process_wrap_prc/</guid>
       <description>What does it do? Call stored procedures to create summary views for subscriptions, licenses, and contracts.   More Details    Get a count of the rows in the customer_wfid_info table that match customerId/wfId where  module is CSDF_SUBSCRIPTION and wfIdStatus is I   If the count is 0, then insert a row. Call stored procedures  Call the iso_subscription_prc stored procedure Call the iso_contract_sum_prc stored procedure Call the license_sum_view_prc stored procedure   Delete any row from the customer_wfid_info table matching customerId/wfId where wfIdStatus is A.</description>
+    </item>
+    
+    <item>
+      <title>sweox_alerts_data_merge_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sweox_alerts_data_merge_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sweox_alerts_data_merge_prc/</guid>
+      <description>What does it do? Insert rows into the asset_inventory_alert_sweox table using values from various other tables.   More Details    Get a cursor over rows in the base_table_partition_info table where  customerId matches input and partitionStatus is A (Active) and partitionTag is BASE and mgmtSystemType is DNAC and dnacId and customerId is in row of the active_dnac_ne table   Delete all rows for the given customerId/wfId from the asset_inventory_alert_sweox table.</description>
     </item>
     
     <item>

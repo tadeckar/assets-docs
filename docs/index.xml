@@ -721,6 +721,15 @@ When mgmtSystemType === &amp;quot;DCC_SUB&amp;quot;, and the partition is create
     </item>
     
     <item>
+      <title>psirt_alerts_data_merge_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/psirt_alerts_data_merge_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/psirt_alerts_data_merge_prc/</guid>
+      <description>What does it do? Insert rows into the asset_inventory_alert_psirt table using values from various other tables.   More Details    Get a cursor over rows in the base_table_partition_info table where  customerId matches input and partitionStatus is A (Active) and partitionTag is BASE and mgmtSystemType is DNAC and dnacId and customerId is in row of the active_dnac_ne table   Delete all rows for the given customerId/wfId from the asset_inventory_alert_psirt table.</description>
+    </item>
+    
+    <item>
       <title>Recurring Events</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/recurring-events/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -795,6 +804,15 @@ Schema Staging Tables  subscription_stg  </description>
       
       <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/subscriptions/</guid>
       <description> classDiagram class Subscription{ +Integer erpSalesOrderNumber +Integer licenseTermInMonths +Long subscriptionCreateDate +Long subscriptionProductQuantity +Long termEndDate +Long termStartDate +String contractEntitlementDescr +String contractNumber +String coverageStatus +String endCustomerGuAddressLine1 +String endCustomerGuAddressLine2 +String endCustomerGuAddressLine3 +String endCustomerGuAddressLine4 +String endCustomerGuCityName +String endCustomerGuCountry +String endCustomerGuPostalCd +String endCustomerGuState +String managedNeId +String monetizationTypeCd +String neId +String partnerBeGeoId +String partnerBeGeoName +String partnerBeId +String partnerBeName +String serviceLevel +String serviceLevelDescription +String serviceProgram +String subscriptionBillToSiteUseCustName +String subscriptionBillToSiteUseId +String subscriptionProductClass +String subscriptionReferenceId +String subscriptionStatus +String subscriptionType +String termsAndContentCd +String webOrderId }  </description>
+    </item>
+    
+    <item>
+      <title>sweox_alerts_data_merge_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sweox_alerts_data_merge_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sweox_alerts_data_merge_prc/</guid>
+      <description>What does it do? Insert rows into the asset_inventory_alert_sweox table using values from various other tables.   More Details    Get a cursor over rows in the base_table_partition_info table where  customerId matches input and partitionStatus is A (Active) and partitionTag is BASE and mgmtSystemType is DNAC and dnacId and customerId is in row of the active_dnac_ne table   Delete all rows for the given customerId/wfId from the asset_inventory_alert_sweox table.</description>
     </item>
     
     <item>
