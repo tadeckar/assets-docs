@@ -536,5 +536,14 @@ Referenced Tables  data_merge_logs  Referenced Stored Procedures  all_assets_tra
       <description>What does it do? Call stored procedures to create summary views for XAAS assets.   More Details    Get a count of the rows in the customer_wfid_info table that match customerId/wfId where  module is DCC_SUB and wfIdStatus is I   If the count is 0, then insert a row. Call stored procedures  Call the xaas_sub_data_process_prc stored procedure Call the xaas_sub_license_prc stored procedure   Delete any row from the customer_wfid_info table matching customerId/wfId where wfIdStatus is A.</description>
     </item>
     
+    <item>
+      <title>xaas_sub_data_process_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_sub_data_process_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_sub_data_process_prc/</guid>
+      <description>What does it do? Inserts rows into the all_asset_view table using values from other various tables.   More Details    If the wfType is DCC_SUB:  Count rows in the customer_partition_info table that match the customerId input where partitionStatus is A (Active). If the count is 1:  Call the following stored procedures in sequence:  xaas_neId_update_pr athena_xaas_assetCategory_update_prc   Insert rows into the all_asset_view table using values from the networkelement_sub_stg and subscription_stg tables.</description>
+    </item>
+    
   </channel>
 </rss>
