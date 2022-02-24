@@ -23,7 +23,7 @@ Inserts rows into the `equipment` table using values from `equipment_telemetry` 
 7. If the count is > 0, open a read loop on the cursor (from step 1) that inserts rows into the `equipment` table using values the `equipment_telemetry` table.
 8. Call the following stored procedures in sequence:
    1. [equipment_apic_data_merge_prc]({{< ILink href="/database/stored-procedures/equipment_apic_data_merge_prc" >}})
-   2. equipment_meraki_data_merge_prc
+   2. [equipment_meraki_data_merge_prc]({{< ILink href="/database/stored-procedures/equipment_meraki_data_merge_prc" >}})
    2. equipment_dcc_data_merge_prc
 9. If the **wfId** from step 5 is not null, insert rows into the `equipment` table using values from the `equipment_ib_data` table.
 {{% /expand %}}
@@ -40,7 +40,7 @@ Inserts rows into the `equipment` table using values from `equipment_telemetry` 
 ### Referenced Stored Procedures
 - dnac_equipment_update_prc
 - [equipment_apic_data_merge_prc]({{< ILink href="/database/stored-procedures/equipment_apic_data_merge_prc" >}})
-- equipment_meraki_data_merge_prc
+- [equipment_meraki_data_merge_prc]({{< ILink href="/database/stored-procedures/equipment_meraki_data_merge_prc" >}})
 - equipment_dcc_data_merge_prc
 - ib_equipment_update_prc
 - [log_msg_prc]({{< ILink href="/database/stored-procedures/log_msg_prc" >}})
