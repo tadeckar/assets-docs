@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>xaas_asset_process_wrap_prc :: CX Assets Wiki</title>
+    <title>networkelement_data_merge_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645715202" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_process_wrap_prc/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_data_merge_prc/">
     <nav id="sidebar" class="">
 
 
@@ -1093,7 +1093,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_data_merge_prc/" title="networkelement_data_merge_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_data_merge_prc/" title="networkelement_data_merge_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_data_merge_prc/">
         networkelement_data_merge_prc
         
@@ -1240,7 +1240,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_process_wrap_prc/" title="xaas_asset_process_wrap_prc" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_process_wrap_prc/" title="xaas_asset_process_wrap_prc" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_process_wrap_prc/">
         xaas_asset_process_wrap_prc
         
@@ -2268,7 +2268,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > xaas_asset_process_wrap_prc
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > networkelement_data_merge_prc
           
         
           
@@ -2309,7 +2309,7 @@
           
             <h1>
               
-              xaas_asset_process_wrap_prc
+              networkelement_data_merge_prc
             </h1>
           
 
@@ -2317,7 +2317,7 @@
 
 
 <h3 id="what-does-it-do">What does it do?</h3>
-<p>Call stored procedures to create summary views for XAAS assets.
+<p>Inserts rows into <code>networkelement</code> using values from various other tables.
 
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
@@ -2331,26 +2331,79 @@
     </div>
     <div class="expand-content" style="display: none;">
         <ol>
-<li>Get a count of the rows in the <code>customer_wfid_info</code> table that match <strong>customerId</strong>/<strong>wfId</strong> where
+<li>Get a cursor over rows in the <code>base_table_partition_info</code> table where
 <ul>
-<li><strong>module</strong> is <code>DCC_SUB</code> and</li>
-<li><strong>wfIdStatus</strong> is <code>I</code></li>
+<li><strong>customerId</strong> matches input and</li>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>DNAC</code> and</li>
+<li><strong>dnacId</strong> and <strong>customerId</strong> is in row of the <code>active_dnac_ne</code> table and</li>
+<li><strong>partitionValue</strong> is not equal to the <strong>wfId</strong> input parameter</li>
 </ul>
 </li>
-<li>If the count is 0, then insert a row.</li>
-<li>Call stored procedures
-<ol>
-<li>Call the <code>xaas_sub_data_process_prc</code> stored procedure</li>
-<li>Call the <code>xaas_sub_license_prc</code> stored procedure</li>
+<li>Delete all rows for the given <strong>customerId</strong>/<strong>wfId</strong> from the <code>networkelement</code> table.</li>
+<li>Get a count of rows in <code>asset_inventory_notification</code> that match <strong>customerId</strong>/<strong>wfId</strong> where
+<ul>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>CSDFIB</code></li>
+</ul>
+</li>
+<li>If the count is &gt; 0, call the <code>upd_contract_cxLevel_and_coverage_prc</code> stored procedure.</li>
+<li>Get the <strong>wfId</strong> from rows in <code>base_table_partition_info</code> that match <strong>customerId</strong> where
+<ul>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>CSDFIB</code></li>
+</ul>
+</li>
+<li>Get a count of the rows in <code>base_table_partition_info</code> that match <strong>customerId</strong> where
+<ul>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>APIC</code></li>
+</ul>
+</li>
+<li>If the count is &gt; 0, call the <code>networkelement_apic_data_merge_prc</code> stored procedure.</li>
+<li>Get a count of the rows in <code>base_table_partition_info</code> that match <strong>customerId</strong> where
+<ul>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>MERAKI</code></li>
+</ul>
+</li>
+<li>If the count is &gt; 0, call the <code>networkelement_meraki_data_merge_prc</code> stored procedure.</li>
+<li>Get a count of the rows in <code>base_table_partition_info</code> that match <strong>customerId</strong> where</li>
 </ol>
-</li>
-<li>Delete any row from the <code>customer_wfid_info</code> table matching <strong>customerId</strong>/<strong>wfId</strong> where <strong>wfIdStatus</strong> is <code>A</code>.</li>
-<li>Update <strong>wfIdStatus</strong> to <code>A</code> for any row from the <code>customer_wfid_info</code> table matching <strong>customerId</strong>/<strong>wfId</strong> where <strong>wfIdStatus</strong> is <code>I</code>.</li>
-<li>Delete any rows from the following tables that match <strong>customerId</strong> but don&rsquo;t match <strong>wfId</strong>:
 <ul>
-<li><code>networkelement_sub_stg</code></li>
-<li><code>subscription_stg</code></li>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>DCC</code></li>
 </ul>
+<ol start="11">
+<li>If the count is &gt; 0, call the <code>networkelement_dcc_data_merge_prc</code> stored procedure.</li>
+<li>Get a count of rows in <code>base_table_partition_info</code> that match <strong>customerId</strong> where</li>
+</ol>
+<ul>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>DNAC</code> and</li>
+<li><strong>dnacId</strong> and <strong>customerId</strong> is in row of the <code>active_dnac_ne</code> table</li>
+</ul>
+<ol start="13">
+<li>If the count it &gt; 0, call the <code>networkelement_cxc_data_merge_prc</code> stored procedure.</li>
+<li>If the <strong>wfId</strong> from step 5 is not null:
+<ol>
+<li>Get a count of rows in the <code>asset_inventory_notification</code> table matching <strong>customerId</strong>/<strong>wfId</strong> where <strong>mgmtSystemType</strong> is <code>CSDFIB</code>.</li>
+<li>If the count it &gt; 0, call the following stored procedures:
+<ul>
+<li>ib_advisory_update_prc</li>
+<li>ib_networkelement_update_prc</li>
+<li>athena_ib_stg_data_process_prc</li>
+</ul>
+</li>
+<li>Insert rows into <code>networkelement</code> using values from <code>networkelement_ib_data</code>.</li>
+</ol>
 </li>
 </ol>
 
@@ -2358,19 +2411,25 @@
 </div></p>
 <h3 id="referenced-tables">Referenced Tables</h3>
 <ul>
-<li>amp_data_merge_logs</li>
-<li>customer_wfid_info</li>
-<li>networkelement_sub_stg</li>
-<li>subscription_stg</li>
+<li>active_dnac_ne</li>
+<li>asset_inventory_notification</li>
+<li>base_table_partition_info</li>
+<li>data_merge_logs</li>
+<li>networkelement</li>
+<li>networkelement_ib_data</li>
 </ul>
 <h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
 <ul>
-<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc
-">amp_log_msg_prc</a></li>
+<li>athena_ib_stg_data_process_prc</li>
+<li>ib_advisory_update_prc</li>
+<li>ib_networkelement_update_prc</li>
 <li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc
 ">log_msg_prc</a></li>
-<li>xaas_sub_data_process_prc</li>
-<li>xaas_sub_license_prc</li>
+<li>networkelement_apic_data_merge_prc</li>
+<li>networkelement_cxc_data_merge_prc</li>
+<li>networkelement_dcc_data_merge_prc</li>
+<li>networkelement_meraki_data_merge_prc</li>
+<li>upd_contract_cxLevel_and_coverage_prc</li>
 </ul>
 
 
@@ -3165,6 +3224,26 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -3272,23 +3351,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -3299,9 +3361,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
