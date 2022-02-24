@@ -34,15 +34,15 @@ Insert rows into the `asset_inventory_alert_hweox` table using values from vario
    - **partitionTag** is `BASE` and
    - **mgmtSystemType** is `MERAKI`
 9. If the count is > 0: 
-   1. Get the **wfId** from rows of count in step 6.
+   1. Get the **wfId** from rows of count in step 8.
    2. Insert rows into the `asset_inventory_alert_hweox` table using values from the `alert_hweox_meraki` table.
 10. If the **wfId** from step 3 is not null, insert rows into the `asset_inventory_alert_hweox` table using values from the `alert_hweox_ib_data` table.
 11. Get a count of the rows in `base_table_partition_info` that match **customerId** where
-   - **partitionStatus** is `A` (Active) and
-   - **partitionTag** is `BASE` and
-   - **mgmtSystemType** is `DCC`
+    - **partitionStatus** is `A` (Active) and
+    - **partitionTag** is `BASE` and
+    - **mgmtSystemType** is `DCC`
 12. If the count is > 0: 
-   1. Get the **wfId** from rows of count in step 6.
+   1. Get the **wfId** from rows of count in step 11.
    2. Insert rows into the `asset_inventory_alert_hweox` table using values from the `alert_hweox_dcc` table.
 {{% /expand %}}
 
