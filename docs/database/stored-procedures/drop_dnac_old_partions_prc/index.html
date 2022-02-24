@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>stale_inprogress_data_cleanup_prc :: CX Assets Wiki</title>
+    <title>drop_dnac_old_partions_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645721307" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/stale_inprogress_data_cleanup_prc/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/drop_dnac_old_partions_prc/">
     <nav id="sidebar" class="">
 
 
@@ -610,7 +610,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/drop_dnac_old_partions_prc/" title="drop_dnac_old_partions_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/drop_dnac_old_partions_prc/" title="drop_dnac_old_partions_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/drop_dnac_old_partions_prc/">
         drop_dnac_old_partions_prc
         
@@ -1177,7 +1177,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/stale_inprogress_data_cleanup_prc/" title="stale_inprogress_data_cleanup_prc" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/stale_inprogress_data_cleanup_prc/" title="stale_inprogress_data_cleanup_prc" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/stale_inprogress_data_cleanup_prc/">
         stale_inprogress_data_cleanup_prc
         
@@ -2331,7 +2331,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > stale_inprogress_data_cleanup_prc
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > drop_dnac_old_partions_prc
           
         
           
@@ -2372,20 +2372,15 @@
           
             <h1>
               
-              stale_inprogress_data_cleanup_prc
+              drop_dnac_old_partions_prc
             </h1>
           
 
         
 
 
-
-<div class="notices note" ><p>This procedure runs every 30 minutes.</p>
-</div>
-
 <h3 id="what-does-it-do">What does it do?</h3>
-<p>Updates the <strong>processingStatus</strong> from <code>INPROGRESS</code> to <code>SUCCESS</code> for rows in the <code>asset_inventory_notification</code> table that started over 1 hour ago when <strong>partitionStatus</strong> in the <code>customer_partition_info</code> table is <code>A</code> (Active.)</p>
-<p>Also updates the <strong>processingStatus</strong> from <code>INPROGRESS</code> to <code>SUCCESS</code> for rows in the <code>asset_inventory_notification</code> table that were started over 6 hours ago and are not found in <code>customer_partition_info</code> or <code>base_table_partition_info</code>.
+<p>Drops partitions using the <code>drop_partions_prc</code> stored procedure given a set of parameters.
 
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
@@ -2399,38 +2394,20 @@
     </div>
     <div class="expand-content" style="display: none;">
         <ol>
-<li>Get a cursor over <code>asset_inventory_notification</code> where
-<ul>
-<li><strong>processingStart</strong> is over 1 hour ago, also not null/undefined, and</li>
-<li><strong>processingStatus</strong> is <code>INPROGRESS</code></li>
-<li><strong>partitionStatus</strong> from <code>customer_partition_info</code> table is <code>A</code> (Active)</li>
-</ul>
-</li>
-<li>Open a read loop on the cursor that updates the <strong>processingStatus</strong> to <code>SUCCESS</code> and sets <strong>processingEnd</strong> to the current time.</li>
-<li>Set <strong>processingStatus</strong> to <code>SUCCESS</code> for all rows of the <code>asset_inventory_notification</code> table where
-<ul>
-<li><strong>processingStatus</strong> is <code>INPROGRESS</code> and</li>
-<li><strong>processingStart</strong> is over 6 hours ago, also not null/undefined, and</li>
-<li><strong>wfId</strong> is not found in <code>customer_partition_info</code> and</li>
-<li><strong>wfId</strong> is not found in <code>base_table_partition_info</code> with <strong>partitionStatus</strong> as <code>I</code> and</li>
-<li><strong>processingEnd</strong> is 0</li>
-</ul>
-</li>
+<li>Gets a cursor over <code>base_table_partition_info</code> where <strong>customerId</strong>, <strong>dnacId</strong>, <strong>partitionStatus</strong>, <strong>partitionTag</strong>, and <strong>mgmtSystemType</strong>  match the given parameters.</li>
+<li>Create a read loop on the cursor that calls <a href="/pages/tadeckar/assets-docs/database/stored-procedures/drop_partions_prc">drop_partions_prc</a> with arguments from each row.</li>
 </ol>
 
     </div>
 </div></p>
 <h3 id="referenced-tables">Referenced Tables</h3>
 <ul>
-<li>asset_inventory_notification</li>
 <li>base_table_partition_info</li>
-<li>customer_partition_info</li>
-<li>data_merge_logs</li>
 </ul>
 <h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
 <ul>
-<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc
-">log_msg_prc</a></li>
+<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/drop_partions_prc
+">drop_partions_prc</a></li>
 </ul>
 
 
@@ -2857,6 +2834,26 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -3288,26 +3285,6 @@
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
