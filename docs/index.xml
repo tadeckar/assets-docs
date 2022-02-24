@@ -845,6 +845,15 @@ Referenced Tables  data_merge_logs  Referenced Stored Procedures  all_assets_tra
     </item>
     
     <item>
+      <title>update_sum_data_process_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/update_sum_data_process_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/update_sum_data_process_prc/</guid>
+      <description>What does it do? Transitions partitionStatus of rows in customer_partition_info.   More Details    Get a count of rows in the customer_partition_info table where  customerId/wfId matches input and partitionStatus is I (Inprogress) and partitionTag matches input   If the count is &amp;gt; 0:  Update customerId/wfId matching rows from partitionStatus A (Active) to P (Previous). Update customerId/wfId matching rows from partitionStatus I (Active) to A (Previous).</description>
+    </item>
+    
+    <item>
       <title>xaas_asset_notification_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
