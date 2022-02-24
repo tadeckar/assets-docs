@@ -414,6 +414,15 @@ Referenced Tables  base_table_partition_info  Referenced Stored Procedures  drop
     </item>
     
     <item>
+      <title>equipment_meraki_data_merge_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/equipment_meraki_data_merge_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/equipment_meraki_data_merge_prc/</guid>
+      <description>What does it do? Inserts rows into the equipment table using values from the equipment_dcn table.   More Details    Count the rows in the asset_inventory_notification table matching customerId/wfId where mgmtSystemType is MERAKI. If the count is &amp;gt; 0, call the meraki_equipment_update_prc stored procedure. Count the rows in the base_table_partition_info table matching customerId where  mgmtSystemType is MERAKI and partitionTag is BASE   If the count is &amp;gt; 0:  Get the wfId from the counted rows.</description>
+    </item>
+    
+    <item>
       <title>Equipments</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/equipments/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
