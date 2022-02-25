@@ -26,7 +26,7 @@ Inserts rows into `networkelement` using values from various other tables.
    - **partitionStatus** is `A` (Active) and
    - **partitionTag** is `BASE` and
    - **mgmtSystemType** is `APIC`
-7. If the count is > 0, call the `networkelement_apic_data_merge_prc` stored procedure.
+7. If the count is > 0, call the [networkelement_apic_data_merge_prc]({{< ILink href="/database/stored-procedures/networkelement_apic_data_merge_prc" >}}) stored procedure.
 8. Get a count of the rows in `base_table_partition_info` that match **customerId** where
    - **partitionStatus** is `A` (Active) and
    - **partitionTag** is `BASE` and
@@ -65,7 +65,7 @@ Inserts rows into `networkelement` using values from various other tables.
 - ib_advisory_update_prc
 - ib_networkelement_update_prc
 - [log_msg_prc]({{< ILink href="/database/stored-procedures/log_msg_prc" >}})
-- networkelement_apic_data_merge_prc
+- [networkelement_apic_data_merge_prc]({{< ILink href="/database/stored-procedures/networkelement_apic_data_merge_prc" >}})
 - networkelement_cxc_data_merge_prc
 - networkelement_dcc_data_merge_prc
 - networkelement_meraki_data_merge_prc
