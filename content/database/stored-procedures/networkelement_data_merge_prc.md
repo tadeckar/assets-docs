@@ -42,7 +42,7 @@ Inserts rows into `networkelement` using values from various other tables.
    - **partitionTag** is `BASE` and
    - **mgmtSystemType** is `DNAC` and
    - **dnacId** and **customerId** is in row of the `active_dnac_ne` table
-13. If the count it > 0, call the `networkelement_cxc_data_merge_prc` stored procedure.
+13. If the count it > 0, call the [networkelement_cxc_data_merge_prc]({{< ILink href="/database/stored-procedures/networkelement_cxc_data_merge_prc" >}}) stored procedure.
 14. If the **wfId** from step 5 is not null:
     1. Get a count of rows in the `asset_inventory_notification` table matching **customerId**/**wfId** where **mgmtSystemType** is `CSDFIB`.
     2. If the count it > 0, call the following stored procedures:
@@ -66,7 +66,7 @@ Inserts rows into `networkelement` using values from various other tables.
 - ib_networkelement_update_prc
 - [log_msg_prc]({{< ILink href="/database/stored-procedures/log_msg_prc" >}})
 - [networkelement_apic_data_merge_prc]({{< ILink href="/database/stored-procedures/networkelement_apic_data_merge_prc" >}})
-- networkelement_cxc_data_merge_prc
+- [networkelement_cxc_data_merge_prc]({{< ILink href="/database/stored-procedures/networkelement_cxc_data_merge_prc" >}})
 - networkelement_dcc_data_merge_prc
 - networkelement_meraki_data_merge_prc
 - upd_contract_cxLevel_and_coverage_prc
