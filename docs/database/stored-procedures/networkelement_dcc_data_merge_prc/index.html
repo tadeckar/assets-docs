@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>cp-asset-csv-data-loader :: CX Assets Wiki</title>
+    <title>networkelement_dcc_data_merge_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645802962" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/ingestion/lambdas/cp-asset-csv-data-loader/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_dcc_data_merge_prc/">
     <nav id="sidebar" class="">
 
 
@@ -93,7 +93,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/" title="Database" class="dd-item
-        
+        parent
         
         
         ">
@@ -164,7 +164,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/" title="Stored Procedures" class="dd-item
-        
+        parent
         
         
         ">
@@ -1240,7 +1240,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_dcc_data_merge_prc/" title="networkelement_dcc_data_merge_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_dcc_data_merge_prc/" title="networkelement_dcc_data_merge_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_dcc_data_merge_prc/">
         networkelement_dcc_data_merge_prc
         
@@ -1551,7 +1551,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/" title="Ingestion" class="dd-item
-        parent
+        
         
         
         ">
@@ -1580,7 +1580,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/lambdas/" title="Lambdas" class="dd-item
-        parent
+        
         
         
         ">
@@ -1606,7 +1606,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/lambdas/cp-asset-csv-data-loader/" title="cp-asset-csv-data-loader" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/ingestion/lambdas/cp-asset-csv-data-loader/" title="cp-asset-csv-data-loader" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/ingestion/lambdas/cp-asset-csv-data-loader/">
         cp-asset-csv-data-loader
         
@@ -2541,7 +2541,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/ingestion/'>Ingestion</a> > <a href='/pages/tadeckar/assets-docs/ingestion/lambdas/'>Lambdas</a> > cp-asset-csv-data-loader
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > networkelement_dcc_data_merge_prc
           
         
           
@@ -2560,8 +2560,9 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#csdf_amp_tele">CSDF_AMP_TELE</a></li>
-        <li><a href="#csdf_subscription">CSDF_SUBSCRIPTION</a></li>
+        <li><a href="#what-does-it-do">What does it do?</a></li>
+        <li><a href="#referenced-tables">Referenced Tables</a></li>
+        <li><a href="#referenced-stored-procedures">Referenced Stored Procedures</a></li>
       </ul>
     </li>
   </ul>
@@ -2581,65 +2582,73 @@
           
             <h1>
               
-              cp-asset-csv-data-loader
+              networkelement_dcc_data_merge_prc
             </h1>
           
 
         
 
 
-<a href="https://www-github3.cisco.com/cxe/cp-asset-data-pipeline/blob/505d1b955f2ccf5f2038b8023535327d4b532fda/lambda/cp-asset-csv-data-loader/lambda_function.py">
-  <i class="fab fa-github"></i>
-  View Source
-</a>
+<h3 id="what-does-it-do">What does it do?</h3>
+<p>Inserts rows into the <code>networkelement</code> table using values from the <code>networkelement_dcc</code> table.
 
-<p>Loads CSV files for the <code>CSDF_AMP_TELE</code> and <code>CSDF_SUBSCRIPTION</code> <strong>recordType</strong>s.</p>
-<h3 id="csdf_amp_tele">CSDF_AMP_TELE</h3>
-<table>
-<thead>
-<tr>
-<th><strong>CSV File</strong></th>
-<th><strong>Staging Table</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>amp_connector_monthly_trend.csv</td>
-<td>iso_connector_monthly_trend_stg</td>
-</tr>
-<tr>
-<td>amp_consumption_trend.csv</td>
-<td>iso_consumption_trend_stg</td>
-</tr>
-<tr>
-<td>amp_deployment_details.csv</td>
-<td>iso_depolyment_details_stg</td>
-</tr>
-<tr>
-<td>amp_user_login_details.csv</td>
-<td>iso_user_login_details_stg</td>
-</tr>
-<tr>
-<td>amp_user_login_trend.csv</td>
-<td>iso_user_login_trend_stg</td>
-</tr>
-</tbody>
-</table>
-<h3 id="csdf_subscription">CSDF_SUBSCRIPTION</h3>
-<table>
-<thead>
-<tr>
-<th><strong>CSV File</strong></th>
-<th><strong>Staging Table</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CSDFSubscription.csv</td>
-<td>iso_subscription_stg</td>
-</tr>
-</tbody>
-</table>
+<div class="expand">
+    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
+        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
+        <span>
+        
+    	
+    	More Details
+    	
+    	</span>
+    </div>
+    <div class="expand-content" style="display: none;">
+        <ol>
+<li>Count rows in the <code>asset_inventory_notification</code> table that match <strong>customerId</strong>/<strong>wfId</strong> where <strong>mgmtSystemType</strong> is <code>DCC</code>.</li>
+<li>If the count is &gt; 0, call the following stored procedures in sequence:
+<ul>
+<li>dcc_advisory_update_prc</li>
+<li>dcc_networkelement_update_prc</li>
+<li>athena_dcc_stg_data_process_prc</li>
+</ul>
+</li>
+<li>Count rows in the <code>base_table_partition_info</code> table that match <strong>customerId</strong> where
+<ul>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>DCC</code></li>
+</ul>
+</li>
+<li>If the count is &gt; 0, insert rows into the <code>networkelement</code> table using values from the <code>networkelement_dcc</code> table.</li>
+<li>If the count from step 1 is &gt; 0:
+<ol>
+<li>Delete rows from the <code>device_license_view</code> table that match column values from rows in the <code>networkelement_dcc</code> table.</li>
+<li>Insert rows into <code>device_license_view</code> using values from <code>networkelement_dcc</code> for all devices with full data present.</li>
+<li>Update the <strong>licenseType</strong> and <strong>licenseName</strong> for rows in the <code>device_license_view</code> table based on values of other columns in the row.</li>
+<li>Insert rows into <code>device_license_view</code> again for any row where <strong>licenseType</strong> is <code>Intersight</code>, but also has a non-empty <strong>licenseStatus</strong>.</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+</div></p>
+<h3 id="referenced-tables">Referenced Tables</h3>
+<ul>
+<li>asset_inventory_notification</li>
+<li>base_table_partition_info</li>
+<li>device_license_view</li>
+<li>data_merge_logs</li>
+<li>networkelement</li>
+<li>networkelement_dcc</li>
+</ul>
+<h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
+<ul>
+<li>athena_dcc_stg_data_process_prc</li>
+<li>dcc_advisory_update_prc</li>
+<li>dcc_networkelement_update_prc</li>
+<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc
+">log_msg_prc</a></li>
+</ul>
 
 
 <footer class="footline">
@@ -2677,8 +2686,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -2694,6 +2701,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2726,6 +2736,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -2739,6 +2750,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3540,6 +3554,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -3555,6 +3570,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3769,7 +3787,6 @@
             
             
                 
-                    
                     
                 
                 
@@ -3786,7 +3803,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -3799,7 +3815,6 @@
             
             
                 
-                    
                     
                 
                 
@@ -3816,9 +3831,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
