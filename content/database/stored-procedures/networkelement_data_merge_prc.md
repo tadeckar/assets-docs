@@ -36,7 +36,7 @@ Inserts rows into `networkelement` using values from various other tables.
    - **partitionStatus** is `A` (Active) and
    - **partitionTag** is `BASE` and
    - **mgmtSystemType** is `DCC`
-11. If the count is > 0, call the `networkelement_dcc_data_merge_prc` stored procedure.
+11. If the count is > 0, call the [networkelement_dcc_data_merge_prc]({{< ILink href="/database/stored-procedures/networkelement_dcc_data_merge_prc" >}}) stored procedure.
 12. Get a count of rows in `base_table_partition_info` that match **customerId** where
    - **partitionStatus** is `A` (Active) and
    - **partitionTag** is `BASE` and
@@ -67,6 +67,6 @@ Inserts rows into `networkelement` using values from various other tables.
 - [log_msg_prc]({{< ILink href="/database/stored-procedures/log_msg_prc" >}})
 - [networkelement_apic_data_merge_prc]({{< ILink href="/database/stored-procedures/networkelement_apic_data_merge_prc" >}})
 - [networkelement_cxc_data_merge_prc]({{< ILink href="/database/stored-procedures/networkelement_cxc_data_merge_prc" >}})
-- networkelement_dcc_data_merge_prc
+- [networkelement_dcc_data_merge_prc]({{< ILink href="/database/stored-procedures/networkelement_dcc_data_merge_prc" >}})
 - networkelement_meraki_data_merge_prc
 - upd_contract_cxLevel_and_coverage_prc
