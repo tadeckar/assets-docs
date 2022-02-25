@@ -13,7 +13,7 @@ Calls stored procedures related to updating summary tables.
    - fn_alert_sum_vw_prc
    - hweox_alert_sum_vw_prc
    - sweox_alert_sum_vw_prc
-   - all_assets_vw_prc
+   - [all_assets_vw_prc]({{< ILink href="/database/stored-procedures/all_assets_vw_prc" >}})
    - all_assets_track_vw_prc
    - default_group_device_sum_prc
    - contract_group_device_sum_upl_prc
@@ -26,7 +26,7 @@ Calls stored procedures related to updating summary tables.
 
 ### Referenced Stored Procedures
 - all_assets_track_vw_prc
-- all_assets_vw_prc
+- [all_assets_vw_prc]({{< ILink href="/database/stored-procedures/all_assets_vw_prc" >}})
 - all_csdf_contract_view_prc
 - contract_group_device_sum_upl_prc
 - contractcoverage_sum_vw_prc
