@@ -764,6 +764,15 @@ Schema Staging Tables  networkelement_dcc networkelement_dcn networkelement_ib_d
     </item>
     
     <item>
+      <title>networkelement_meraki_data_merge_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_meraki_data_merge_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_meraki_data_merge_prc/</guid>
+      <description>What does it do? Inserts rows into the networkelement table using values from the networkelement_meraki table.   More Details    Count rows in the asset_inventory_notification table that match customerId/wfId where mgmtSystemType is MERAKI. If the count is &amp;gt; 0, call the following stored procedures in sequence:  meraki_advisory_update_prc meraki_networkelement_update_prc   Count rows in the base_table_partition_info table that match customerId where  partitionStatus is A (Active) and partitionTag is BASE and mgmtSystemType is MERAKI   If the count is &amp;gt; 0, insert rows into the networkelement table using values from the networkelement_meraki table.</description>
+    </item>
+    
+    <item>
       <title>NotificationManager</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/notification-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
