@@ -782,6 +782,16 @@ Schema Staging Tables  networkelement_dcc networkelement_dcn networkelement_ib_d
     </item>
     
     <item>
+      <title>networkelement_sum_vw_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_sum_vw_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_sum_vw_prc/</guid>
+      <description>What does it do?  This procedure will call itself recursively if a deadlock error occurs.
+ Inserts rows into the networkelement_sum_vw table using values from the networkelement table.   More Details    Count the rows in networkelement_sum_vw matching customerId/wfId from input. If the count is &amp;gt; 0, delete those rows. Insert rows into the networkelement_sum_vw using values from the networkelement table. Update the solution, usecase, and solutionInfo values on rows in the networkelement_sum_vw using values from the pid_solution_mapping table.</description>
+    </item>
+    
+    <item>
       <title>NotificationManager</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/notification-manager/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

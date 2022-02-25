@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>xaas_sub_data_process_prc :: CX Assets Wiki</title>
+    <title>networkelement_sum_vw_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645805384" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_sub_data_process_prc/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_sum_vw_prc/">
     <nav id="sidebar" class="">
 
 
@@ -1303,7 +1303,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_sum_vw_prc/" title="networkelement_sum_vw_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_sum_vw_prc/" title="networkelement_sum_vw_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_sum_vw_prc/">
         networkelement_sum_vw_prc
         
@@ -1555,7 +1555,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_sub_data_process_prc/" title="xaas_sub_data_process_prc" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_sub_data_process_prc/" title="xaas_sub_data_process_prc" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/xaas_sub_data_process_prc/">
         xaas_sub_data_process_prc
         
@@ -2604,7 +2604,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > xaas_sub_data_process_prc
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > networkelement_sum_vw_prc
           
         
           
@@ -2645,7 +2645,7 @@
           
             <h1>
               
-              xaas_sub_data_process_prc
+              networkelement_sum_vw_prc
             </h1>
           
 
@@ -2653,7 +2653,11 @@
 
 
 <h3 id="what-does-it-do">What does it do?</h3>
-<p>Inserts rows into the <code>all_asset_view</code> table using values from other various tables.
+<p>
+<div class="notices warning" ><p>This procedure will call itself recursively if a deadlock error occurs.</p>
+</div>
+
+Inserts rows into the <code>networkelement_sum_vw</code> table using values from the <code>networkelement</code> table.
 
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
@@ -2667,59 +2671,25 @@
     </div>
     <div class="expand-content" style="display: none;">
         <ol>
-<li>If the <strong>wfType</strong> is <code>DCC_SUB</code>:
-<ol>
-<li>Count rows in the <code>customer_partition_info</code> table that match the <strong>customerId</strong> input where <strong>partitionStatus</strong> is <code>A</code> (Active).</li>
-<li>If the count is 1:
-<ol>
-<li>Call the following stored procedures in sequence:
-<ul>
-<li>xaas_neId_update_pr</li>
-<li>athena_xaas_assetCategory_update_prc</li>
-</ul>
-</li>
-<li>Insert rows into the <code>all_asset_view</code> table using values from the <code>networkelement_sub_stg</code> and <code>subscription_stg</code> tables.</li>
-<li>Get a count of rows in the <code>asset_group_master</code> table matching <strong>customerId</strong>/<strong>wfId</strong> that does not have a corresponding row in the <code>asset_group_device</code> table.</li>
-<li>If the count is &gt; 0, insert rows into <code>asset_group_device</code> using values from <code>asset_group_master</code> and <code>networkelement_sub_stg</code>.</li>
-<li>Delete all rows from <code>contract_group_device_summary</code> that match <strong>customerId</strong> and <strong>neId</strong> from rows in the <code>networkelement_sub_stg</code> table.</li>
-<li>Insert rows into <code>contract_group_device_summary</code> using values from <code>networkelement_sub_stg</code>, <code>asset_group_device</code>, and <code>subscription_stg</code> tables.</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>If the <strong>wfType</strong> is <em>not</em> <code>DCC_SUB</code>:
-<ol>
-<li>Count rows in the <code>networkelement_sub_stg</code> table that match the <strong>customerId</strong> input.</li>
-<li>If the count is &gt; 0:
-<ol>
-<li>Insert rows into the <code>all_asset_view</code> table using values from the <code>networkelement_sub_stg</code> and <code>subscription_stg</code> tables.</li>
-<li>Call the <code>xaas_all_asset_track_prc</code> stored procedure.</li>
-</ol>
-</li>
-</ol>
-</li>
+<li>Count the rows in <code>networkelement_sum_vw</code> matching <strong>customerId</strong>/<strong>wfId</strong> from input.</li>
+<li>If the count is &gt; 0, delete those rows.</li>
+<li>Insert rows into the <code>networkelement_sum_vw</code> using values from the <code>networkelement</code> table.</li>
+<li>Update the <strong>solution</strong>, <strong>usecase</strong>, and <strong>solutionInfo</strong> values on rows in the <code>networkelement_sum_vw</code> using values from the <code>pid_solution_mapping</code> table.</li>
 </ol>
 
     </div>
 </div></p>
 <h3 id="referenced-tables">Referenced Tables</h3>
 <ul>
-<li>all_asset_view</li>
-<li>amp_data_merge_logs</li>
-<li>asset_group_device</li>
-<li>asset_group_master</li>
-<li>contract_group_device_summary</li>
-<li>customer_partition_info</li>
-<li>networkelement_sub_stg</li>
-<li>subscription_stg</li>
+<li>data_merge_logs</li>
+<li>networkelement</li>
+<li>networkelement_sum_vw</li>
+<li>pid_solution_mapping</li>
 </ul>
 <h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
 <ul>
-<li>athena_xaas_assetCategory_update_prc</li>
 <li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc
-">amp_log_msg_prc</a></li>
-<li>xaas_all_asset_track_prc</li>
-<li>xaas_neId_update_prc</li>
+">log_msg_prc</a></li>
 </ul>
 
 
@@ -3674,6 +3644,26 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -3865,26 +3855,6 @@
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
