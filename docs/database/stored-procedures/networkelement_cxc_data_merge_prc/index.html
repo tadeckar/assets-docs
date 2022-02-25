@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>cleanup_longrunning_iso_data_prc :: CX Assets Wiki</title>
+    <title>networkelement_cxc_data_merge_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645801940" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/cleanup_longrunning_iso_data_prc/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_cxc_data_merge_prc/">
     <nav id="sidebar" class="">
 
 
@@ -526,7 +526,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/cleanup_longrunning_iso_data_prc/" title="cleanup_longrunning_iso_data_prc" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/cleanup_longrunning_iso_data_prc/" title="cleanup_longrunning_iso_data_prc" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/cleanup_longrunning_iso_data_prc/">
         cleanup_longrunning_iso_data_prc
         
@@ -1198,7 +1198,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_cxc_data_merge_prc/" title="networkelement_cxc_data_merge_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_cxc_data_merge_prc/" title="networkelement_cxc_data_merge_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_cxc_data_merge_prc/">
         networkelement_cxc_data_merge_prc
         
@@ -2520,7 +2520,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > cleanup_longrunning_iso_data_prc
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > networkelement_cxc_data_merge_prc
           
         
           
@@ -2561,19 +2561,15 @@
           
             <h1>
               
-              cleanup_longrunning_iso_data_prc
+              networkelement_cxc_data_merge_prc
             </h1>
           
 
         
 
 
-
-<div class="notices note" ><p>This procedure runs every 4 hours.</p>
-</div>
-
 <h3 id="what-does-it-do">What does it do?</h3>
-<p>Checks for rows of <code>asset_data_load_notification</code> that have been <code>INPROGRESS</code> for over 2 hours. Updates the status of those rows to <code>SUBMITTED</code>. Also, updates rows that have been <code>SCHEDULED</code> for over 2 hours to <code>RECEIVED</code>.
+<p>Inserts rows into the <code>networkelement</code> table using values from the <code>networkelement_telemetry</code> and <code>networkelement_ib_data</code> tables.
 
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
@@ -2587,22 +2583,35 @@
     </div>
     <div class="expand-content" style="display: none;">
         <ol>
-<li>Get a cursor over the <code>asset_data_load_notification</code> where
+<li>Get a cursor over rows in the <code>base_table_partition_info</code> table where
 <ul>
-<li><strong>processingStart</strong> is over 2 hours ago, also not null/undefined, and</li>
-<li><strong>processingStatus</strong> is <code>INPROGRESS</code></li>
+<li><strong>customerId</strong> matches input and</li>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>DNAC</code> and</li>
+<li><strong>dnacId</strong> and <strong>customerId</strong> is in row of the <code>active_dnac_ne</code> table</li>
 </ul>
 </li>
-<li>Get a count of rows in the <code>asset_data_load_notification</code> table where
+<li>Get the <strong>wfId</strong> from rows in <code>base_table_partition_info</code> that match <strong>customerId</strong> where
 <ul>
-<li><strong>processingStart</strong> is over 2 hours ago, also not null/undefined, and</li>
-<li><strong>processingStatus</strong> is <code>INPROGRESS</code> or <code>SCHEDULED</code></li>
+<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
+<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
+<li><strong>mgmtSystemType</strong> is <code>CSDFIB</code></li>
 </ul>
 </li>
-<li>If the count is &gt; 0, open a read loop on the cursor that
+<li>Count the rows in <code>asset_inventory_notification</code> that match <strong>customerId</strong>/<strong>wfId</strong> where <strong>mgmtSystemType</strong> is <code>DNAC</code> .</li>
+<li>If the count is &gt; 0, call the following stored procedures in sequence:
+<ul>
+<li>dnac_advisory_update_prc</li>
+<li>dnac_networkelement_update_prc</li>
+</ul>
+</li>
+<li>Open a read loop on the cursor that inserts rows into the <code>networkelement</code> table using values from the <code>networkelement_telemetry</code> table.</li>
+<li>If  the <strong>wfId</strong> from step 2 is not null:
 <ol>
-<li>Update the <strong>processingStatus</strong> to <code>SUBMITTED</code> and the <strong>processingEnd</strong> to the current time for any <code>INPROGRESS</code> rows that were started over 2 hours ago.</li>
-<li>Update the <strong>processingStatus</strong> to <code>RECEIVED</code> and the <strong>processingEnd</strong> to the current time for any <code>SCHEDULED</code> rows that were started over 2 hours ago.</li>
+<li>Create a temporary table with distinct columns from the <code>networkelement_ib_data</code> table.</li>
+<li>Update columns of the <code>networkelement</code> table using values from the newly created temp table.</li>
+<li>Drop the temp table.</li>
 </ol>
 </li>
 </ol>
@@ -2611,13 +2620,20 @@
 </div></p>
 <h3 id="referenced-tables">Referenced Tables</h3>
 <ul>
-<li>asset_data_load_notification</li>
+<li>active_dnac_ne</li>
+<li>asset_inventory_notification</li>
+<li>base_table_partition_info</li>
 <li>data_merge_logs</li>
+<li>networkelement</li>
+<li>networkelement_ib_data</li>
+<li>networkelement_telemetry</li>
 </ul>
 <h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
 <ul>
-<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc
-">amp_log_msg_prc</a></li>
+<li>dnac_advisory_update_prc</li>
+<li>dnac_networkelement_update_prc</li>
+<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc
+">log_msg_prc</a></li>
 </ul>
 
 
@@ -2980,26 +2996,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -3511,6 +3507,26 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 

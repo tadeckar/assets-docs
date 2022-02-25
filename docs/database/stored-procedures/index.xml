@@ -459,6 +459,15 @@ Referenced Tables  data_merge_logs  </description>
     </item>
     
     <item>
+      <title>networkelement_cxc_data_merge_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_cxc_data_merge_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_cxc_data_merge_prc/</guid>
+      <description>What does it do? Inserts rows into the networkelement table using values from the networkelement_telemetry and networkelement_ib_data tables.   More Details    Get a cursor over rows in the base_table_partition_info table where  customerId matches input and partitionStatus is A (Active) and partitionTag is BASE and mgmtSystemType is DNAC and dnacId and customerId is in row of the active_dnac_ne table   Get the wfId from rows in base_table_partition_info that match customerId where  partitionStatus is A (Active) and partitionTag is BASE and mgmtSystemType is CSDFIB   Count the rows in asset_inventory_notification that match customerId/wfId where mgmtSystemType is DNAC .</description>
+    </item>
+    
+    <item>
       <title>networkelement_data_merge_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/networkelement_data_merge_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
