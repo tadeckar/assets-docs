@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>iso_contract_sum_prc :: CX Assets Wiki</title>
+    <title>all_assets_vw_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1645804669" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/iso_contract_sum_prc/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/all_assets_vw_prc/">
     <nav id="sidebar" class="">
 
 
@@ -253,7 +253,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/all_assets_vw_prc/" title="all_assets_vw_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/all_assets_vw_prc/" title="all_assets_vw_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/all_assets_vw_prc/">
         all_assets_vw_prc
         
@@ -883,7 +883,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/iso_contract_sum_prc/" title="iso_contract_sum_prc" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/iso_contract_sum_prc/" title="iso_contract_sum_prc" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_contract_sum_prc/">
         iso_contract_sum_prc
         
@@ -2583,7 +2583,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > iso_contract_sum_prc
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > all_assets_vw_prc
           
         
           
@@ -2624,7 +2624,7 @@
           
             <h1>
               
-              iso_contract_sum_prc
+              all_assets_vw_prc
             </h1>
           
 
@@ -2632,7 +2632,7 @@
 
 
 <h3 id="what-does-it-do">What does it do?</h3>
-<p>Syncs data from master tables to the <code>iso_contract_view</code>.
+<p>Inserts rows into the <code>all_asset_view</code> table using values from the <code>networkelement_sum_vw</code> and <code>contractcoverage_sum_vw</code> tables.
 
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
@@ -2646,16 +2646,20 @@
     </div>
     <div class="expand-content" style="display: none;">
         <ol>
-<li>Delete all rows from <code>iso_contract_view</code> matching <strong>customerId</strong>/<strong>wfId</strong>.</li>
-<li>Insert rows from <code>aav_subscriptions</code> (and <code>iso_pid_master</code> for <strong>licenseType</strong>) into the <code>iso_contract_view</code> table.</li>
-<li>Update rows in <code>iso_contract_view</code> using values from <code>csdf_contracts</code>.</li>
-<li>Update rows in <code>iso_contract_view</code> using values from <code>pid_solution_mapping</code> (set <strong>useCaseIds</strong> and <strong>solutionIds</strong>.)</li>
-<li>Get a count of rows in <code>iso_contract_view</code> that are not in <code>iso_summary_view</code> (i.e. get new contracts.)</li>
-<li>If count is &gt; 0:
-<ol>
-<li>Get a count of active partitions in <code>customer_wfid_info</code> where <strong>module</strong> is <code>CSDF_AMP_TELE</code>.</li>
-<li>If count is &gt; 0, call the <a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_subscription_upd_prc">iso_subscription_upd_prc</a> and <a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_neid_update_prc">amp_neid_update_prc</a> stored procedures.</li>
-</ol>
+<li>Get a cursor over rows in the <code>contractcoverage_sum_vw</code> grouped by <strong>neId</strong> and <strong>serialNumber</strong> where
+<ul>
+<li><strong>customerId</strong>/<strong>wfId</strong> match input and</li>
+<li><strong>serialNumber</strong> is not null</li>
+</ul>
+</li>
+<li>Delete all rows from the <code>all_asset_view</code> table that match the <strong>customerId</strong>/<strong>wfId</strong>.</li>
+<li>Insert rows into the <code>all_asset_view</code> table using values from the <code>contractcoverage_sum_vw</code> and <code>networkelement_sum_vw</code> tables.</li>
+<li>Update the <strong>lastScanDate</strong> field for rows in the <code>all_asset_view</code> table.</li>
+<li>Call the following stored procedures in sequence:
+<ul>
+<li>amp_neid_update_prc</li>
+<li>xaas_sub_data_process_prc</li>
+</ul>
 </li>
 </ol>
 
@@ -2663,23 +2667,18 @@
 </div></p>
 <h3 id="referenced-tables">Referenced Tables</h3>
 <ul>
-<li>aav_subscriptions</li>
-<li>amp_data_merge_logs</li>
-<li>csdf_contracts</li>
-<li>customer_wfid_info</li>
-<li>iso_contract_view</li>
-<li>iso_pid_master</li>
-<li>iso_summary_view</li>
-<li>pid_solution_mapping</li>
+<li>all_asset_view</li>
+<li>contractcoverage_sum_vw</li>
+<li>data_merge_logs</li>
+<li>networkelement_sum_vw</li>
+<li>pfm_diag_request</li>
 </ul>
 <h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
 <ul>
+<li>amp_neid_update_prc</li>
 <li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc
-">amp_log_msg_prc</a></li>
-<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/amp_neid_update_prc
-">amp_neid_update_prc</a></li>
-<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/iso_subscription_upd_prc
-">iso_subscription_upd_prc</a></li>
+">log_msg_prc</a></li>
+<li>xaas_sub_data_process_prc</li>
 </ul>
 
 
@@ -2834,6 +2833,26 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -3313,26 +3332,6 @@
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
