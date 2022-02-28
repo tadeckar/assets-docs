@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>feature_data_merge_prc :: CX Assets Wiki</title>
+    <title>contract_group_device_sum_prc :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1646066623" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/feature_data_merge_prc/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/contract_group_device_sum_prc/">
     <nav id="sidebar" class="">
 
 
@@ -610,7 +610,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/contract_group_device_sum_prc/" title="contract_group_device_sum_prc" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/contract_group_device_sum_prc/" title="contract_group_device_sum_prc" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/contract_group_device_sum_prc/">
         contract_group_device_sum_prc
         
@@ -862,7 +862,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/feature_data_merge_prc/" title="feature_data_merge_prc" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/feature_data_merge_prc/" title="feature_data_merge_prc" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/feature_data_merge_prc/">
         feature_data_merge_prc
         
@@ -2667,7 +2667,7 @@
             
           
           
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > feature_data_merge_prc
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > contract_group_device_sum_prc
           
         
           
@@ -2708,7 +2708,7 @@
           
             <h1>
               
-              feature_data_merge_prc
+              contract_group_device_sum_prc
             </h1>
           
 
@@ -2716,7 +2716,7 @@
 
 
 <h3 id="what-does-it-do">What does it do?</h3>
-<p>Insert rows into the <code>asset_feature</code> table using values from the <code>asset_feature_telemetry</code> table.
+<p>Inserts rows into the <code>contract_group_device_summary</code> table using values from other various tables.
 
 <div class="expand">
     <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
@@ -2730,37 +2730,44 @@
     </div>
     <div class="expand-content" style="display: none;">
         <ol>
-<li>Get a cursor over rows in the <code>base_table_partition_info</code> table where
-<ul>
-<li><strong>customerId</strong> matches input and</li>
-<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
-<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
-<li><strong>mgmtSystemType</strong> is <code>DNAC</code> and</li>
-<li><strong>dnacId</strong> and <strong>customerId</strong> is in row of the <code>active_dnac_ne</code> table</li>
-</ul>
+<li>If the <strong>transactionType</strong> is <code>DELETE</code>/<code>UPDATE</code>, delete rows matching <strong>customerId</strong>/<strong>groupId</strong> from the <code>contract_group_device_summary</code> table. Otherwise, if the  <strong>transactionType</strong> is <code>EDIT</code>, delete rows matching <strong>customerId</strong>/<strong>neId</strong>.</li>
+<li>If the <strong>transactionType</strong> is <code>INSERT</code>/<code>UPDATE</code>:
+<ol>
+<li>Create a temporary table <code>contractgrpdevice_tmp</code> using values from <code>contractcoverage_sum_vw</code>.</li>
+<li>Insert rows into the <code>contract_group_device_summary</code> table using values from the <code>contractgrpdevice_tmp</code> and <code>networkelement_sum_vw</code> tables.</li>
+<li>Drop the <code>contractgrpdevice_tmp</code> table.</li>
+<li>Count the rows matching <strong>customerId</strong> in the <code>iso_summary_view</code> table.</li>
+<li>If the count is &gt; 0, insert rows into the <code>contract_group_device_summary</code> table using values from the <code>iso_summary_view</code>, <code>asset_group_device</code>, and <code>iso_contract_view</code> tables.</li>
+<li>Count the rows matching <strong>customerId</strong> in the <code>networkelement_sub_stg</code> table.</li>
+<li>If the count is &gt; 0, insert rows into the <code>contract_group_device_summary</code> table using values from the <code>networkelement_sub_stg</code>, <code>asset_group_device</code>, and <code>subscription_stg</code> tables.</li>
+</ol>
 </li>
-<li>Delete all rows for the given <strong>customerId</strong>/<strong>wfId</strong> from the <code>asset_feature</code> table.</li>
-<li>Get a count of rows in <code>base_table_partition_info</code> that match <strong>customerId</strong>/<strong>wfId</strong> where
-<ul>
-<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
-<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
-<li><strong>mgmtSystemType</strong> is <code>DNAC</code> and</li>
-<li><strong>dnacId</strong> and <strong>customerId</strong> is in row of the <code>active_dnac_ne</code> table</li>
-</ul>
+<li>If the <strong>transactionType</strong> is <code>EDIT</code>:
+<ol>
+<li>Create a temporary table <code>contractgrpdevice_tmp</code> using values from <code>contractcoverage_sum_vw</code>.</li>
+<li>Insert rows into the <code>contract_group_device_summary</code> table using values from the <code>contractgrpdevice_tmp</code>, <code>asset_group_device</code>, and <code>networkelement_sum_vw</code> tables.</li>
+<li>Drop the <code>contractgrpdevice_tmp</code> table.</li>
+<li>Count the rows matching <strong>customerId</strong> in the <code>iso_summary_view</code> table.</li>
+<li>If the count is &gt; 0, insert rows into the <code>contract_group_device_summary</code> table using values from the <code>iso_summary_view</code>, <code>asset_group_device</code>, and <code>iso_contract_view</code> tables.</li>
+<li>Count the rows matching <strong>customerId</strong> in the <code>networkelement_sub_stg</code> table.</li>
+<li>If the count is &gt; 0, insert rows into the <code>contract_group_device_summary</code> table using values from the <code>networkelement_sub_stg</code>, <code>asset_group_device</code>, and <code>subscription_stg</code> tables.</li>
+</ol>
 </li>
-<li>If the count is &gt; 0, open a read loop on the cursor that inserts rows into the <code>asset_feature</code> table using values from the <code>asset_feature_telemetry</code> table.</li>
 </ol>
 
     </div>
 </div></p>
 <h3 id="referenced-tables">Referenced Tables</h3>
 <ul>
-<li>active_dnac_ne</li>
-<li>asset_feature</li>
-<li>base_table_partition_info</li>
+<li>asset_group_device</li>
+<li>contract_group_device_summary</li>
+<li>contractcoverage_sum_vw</li>
 <li>data_merge_logs</li>
-<li>asset_feature_telemetry</li>
-<li>networkelement</li>
+<li>iso_contract_view</li>
+<li>iso_summary_view</li>
+<li>networkelement_sub_stg</li>
+<li>networkelement_sum_vw</li>
+<li>subscription_stg</li>
 </ul>
 <h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
 <ul>
@@ -3192,6 +3199,26 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
                 
                 
 
@@ -3383,26 +3410,6 @@
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 

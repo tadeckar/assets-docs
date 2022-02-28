@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/pages/tadeckar/assets-docs/images/favicon.png" type="image/png">
 
-    <title>feature_data_merge_prc :: CX Assets Wiki</title>
+    <title>Auxiliary Tables :: CX Assets Wiki</title>
 
     
     <link href="/pages/tadeckar/assets-docs/css/nucleus.css?1646066623" rel="stylesheet">
@@ -41,7 +41,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/pages/tadeckar/assets-docs/database/stored-procedures/feature_data_merge_prc/">
+  <body class="" data-url="/pages/tadeckar/assets-docs/database/aux-tables/">
     <nav id="sidebar" class="">
 
 
@@ -121,7 +121,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/aux-tables/" title="Auxiliary Tables" class="dd-item ">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/aux-tables/" title="Auxiliary Tables" class="dd-item active">
         <a href="/pages/tadeckar/assets-docs/database/aux-tables/">
         Auxiliary Tables
         
@@ -185,7 +185,7 @@
   
     
     <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/" title="Stored Procedures" class="dd-item
-        parent
+        
         
         
         ">
@@ -862,7 +862,7 @@
  
   
     
-      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/feature_data_merge_prc/" title="feature_data_merge_prc" class="dd-item active">
+      <li data-nav-id="/pages/tadeckar/assets-docs/database/stored-procedures/feature_data_merge_prc/" title="feature_data_merge_prc" class="dd-item ">
         <a href="/pages/tadeckar/assets-docs/database/stored-procedures/feature_data_merge_prc/">
         feature_data_merge_prc
         
@@ -2663,13 +2663,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > <a href='/pages/tadeckar/assets-docs/database/stored-procedures/'>Stored Procedures</a> > feature_data_merge_prc
-          
-        
+            <a href='/pages/tadeckar/assets-docs/'>Home</a> > <a href='/pages/tadeckar/assets-docs/database/'>Database</a> > Auxiliary Tables
           
         
           
@@ -2682,17 +2676,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#what-does-it-do">What does it do?</a></li>
-        <li><a href="#referenced-tables">Referenced Tables</a></li>
-        <li><a href="#referenced-stored-procedures">Referenced Stored Procedures</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
     </div>
 </div>
 
@@ -2708,65 +2692,70 @@
           
             <h1>
               
-              feature_data_merge_prc
+              Auxiliary Tables
             </h1>
           
 
         
 
 
-<h3 id="what-does-it-do">What does it do?</h3>
-<p>Insert rows into the <code>asset_feature</code> table using values from the <code>asset_feature_telemetry</code> table.
 
-<div class="expand">
-    <div class="expand-label" style="cursor: pointer;" onclick="$h = $(this);$h.next('div').slideToggle(100,function () {$h.children('i').attr('class',function () {return $h.next('div').is(':visible') ? 'fas fa-chevron-down' : 'fas fa-chevron-right';});});">
-        <i style="font-size:x-small;" class="fas fa-chevron-right"></i>
-        <span>
-        
-    	
-    	More Details
-    	
-    	</span>
-    </div>
-    <div class="expand-content" style="display: none;">
-        <ol>
-<li>Get a cursor over rows in the <code>base_table_partition_info</code> table where
-<ul>
-<li><strong>customerId</strong> matches input and</li>
-<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
-<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
-<li><strong>mgmtSystemType</strong> is <code>DNAC</code> and</li>
-<li><strong>dnacId</strong> and <strong>customerId</strong> is in row of the <code>active_dnac_ne</code> table</li>
-</ul>
-</li>
-<li>Delete all rows for the given <strong>customerId</strong>/<strong>wfId</strong> from the <code>asset_feature</code> table.</li>
-<li>Get a count of rows in <code>base_table_partition_info</code> that match <strong>customerId</strong>/<strong>wfId</strong> where
-<ul>
-<li><strong>partitionStatus</strong> is <code>A</code> (Active) and</li>
-<li><strong>partitionTag</strong> is <code>BASE</code> and</li>
-<li><strong>mgmtSystemType</strong> is <code>DNAC</code> and</li>
-<li><strong>dnacId</strong> and <strong>customerId</strong> is in row of the <code>active_dnac_ne</code> table</li>
-</ul>
-</li>
-<li>If the count is &gt; 0, open a read loop on the cursor that inserts rows into the <code>asset_feature</code> table using values from the <code>asset_feature_telemetry</code> table.</li>
-</ol>
+<div class="mermaid" align="center">
+graph LR;
+  aav_subscriptions
+  active_dnac_ne
+  alert_pas_hw_eox_bulletin
+  alert_pas_sw_eox_bulletin
+  all_asset_track_view
+  all_asset_view
+  amp_data_merge_logs
+  amp_ne_sol_map_tmp
+  asset_contract_notification
+  asset_data_load_notification
+  asset_feature
+  asset_group_device
+  asset_group_master
+  asset_inventory_alert_fn
+  asset_inventory_alert_hweox
+  asset_inventory_alert_psirt
+  asset_inventory_alert_sweox
+  asset_inventory_notification
+  asset_priority_bugs
+  base_table_partition_info
+  contract_group_device_summary
+  contractcoverage_sum_vw
+  csdf_contracts
+  customer_partition_info
+  customer_wfid_info
+  data_merge_logs
+  device_license_view
+  equipment
+  iso_component_master
+  iso_contract_view
+  iso_daily_consumption_trend
+  iso_daily_login_trend
+  iso_feature_insight_trend
+  iso_feature_master
+  iso_feature_usage
+  iso_monthly_consumption_trend
+  iso_monthly_login_trend
+  iso_pid_master
+  iso_quarterly_consumption_trend
+  iso_quarterly_login_trend
+  iso_summary_view
+  iso_weekly_consumption_trend
+  iso_weekly_login_trend
+  license_sum_view
+  meraki_license_sum_view_stage
+  networkelement
+  networkelement_sum_vw
+  partition_automation_logs
+  pfm_diag_request
+  pid_solution_mapping
+  service_level_info
+  upd_or_async_prop_master
+</div>
 
-    </div>
-</div></p>
-<h3 id="referenced-tables">Referenced Tables</h3>
-<ul>
-<li>active_dnac_ne</li>
-<li>asset_feature</li>
-<li>base_table_partition_info</li>
-<li>data_merge_logs</li>
-<li>asset_feature_telemetry</li>
-<li>networkelement</li>
-</ul>
-<h3 id="referenced-stored-procedures">Referenced Stored Procedures</h3>
-<ul>
-<li><a href="/pages/tadeckar/assets-docs/database/stored-procedures/log_msg_prc
-">log_msg_prc</a></li>
-</ul>
 
 
 <footer class="footline">
@@ -2820,8 +2809,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -2833,52 +2820,6 @@
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
                         
             
@@ -2927,9 +2868,6 @@
                     
                     
 
-                    
-            
-        
                     
                         
             
@@ -3384,6 +3322,21 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -3401,8 +3354,37 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
                     
                 
                 

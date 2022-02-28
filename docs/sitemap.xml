@@ -34,6 +34,8 @@
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/athena_license_assetcategory_update_prc/</loc>
   </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/aux-tables/</loc>
+  </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/bulletins/</loc>
@@ -57,6 +59,8 @@
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/config/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/contract_data_merge_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/contract_group_device_sum_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/contracts/</loc>
   </url><url>

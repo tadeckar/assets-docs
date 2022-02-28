@@ -189,6 +189,15 @@ Referenced Tables  asset_inventory_notification data_merge_logs  Referenced Stor
     </item>
     
     <item>
+      <title>contract_group_device_sum_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/contract_group_device_sum_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/contract_group_device_sum_prc/</guid>
+      <description>What does it do? Inserts rows into the contract_group_device_summary table using values from other various tables.   More Details    If the transactionType is DELETE/UPDATE, delete rows matching customerId/groupId from the contract_group_device_summary table. Otherwise, if the transactionType is EDIT, delete rows matching customerId/neId. If the transactionType is INSERT/UPDATE:  Create a temporary table contractgrpdevice_tmp using values from contractcoverage_sum_vw. Insert rows into the contract_group_device_summary table using values from the contractgrpdevice_tmp and networkelement_sum_vw tables.</description>
+    </item>
+    
+    <item>
       <title>data_merge_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/data_merge_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
