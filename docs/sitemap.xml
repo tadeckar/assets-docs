@@ -12,7 +12,11 @@
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/alerts_master_data_merge_prc/</loc>
   </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/all_assets_track_vw_prc/</loc>
+  </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/all_assets_vw_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/all_csdf_contract_view_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc/</loc>
   </url><url>
@@ -21,6 +25,8 @@
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_subscription_notification_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_upload_notification_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/apic_advisory_update_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/athena_asset_notification_prc/</loc>
   </url><url>
@@ -33,6 +39,8 @@
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/athena_ib_stg_data_process_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/athena_license_assetcategory_update_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/athena_xaas_assetcategory_update_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/aux-tables/</loc>
   </url><url>
@@ -62,6 +70,10 @@
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/contract_group_device_sum_prc/</loc>
   </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/contract_group_device_sum_upl_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/contractcoverage_sum_vw_prc/</loc>
+  </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/contracts/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/contracts/</loc>
@@ -84,7 +96,49 @@
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcc_advisory_update_prc/</loc>
   </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcc_alert_pas_hw_eox_bulletin_merge_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcc_alert_pas_sw_eox_bulletin_merge_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcc_equipment_update_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcc_fn_bulletin_master_merge_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcc_license_status_update_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcc_networkelement_update_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcc_sa_bulletin_master_merge_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcn_alert_pas_hw_eox_bulletin_merge_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcn_alert_pas_sw_eox_bulletin_merge_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcn_equipment_update_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcn_fn_bulletin_master_merge_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcn_networkelement_update_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcn_sa_bulletin_master_merge_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/default_group_device_sum_prc/</loc>
+  </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/delete_raw_data_wfid_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dnac_advisory_update_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dnac_alert_pas_hw_eox_bulletin_merge_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dnac_alert_pas_sw_eox_bulletin_merge_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dnac_equipment_update_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dnac_fn_bulletin_master_merge_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dnac_networkelement_update_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dnac_sa_bulletin_master_merge_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/drop_dnac_old_partions_prc/</loc>
   </url><url>
@@ -102,17 +156,25 @@
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/equipment_meraki_data_merge_prc/</loc>
   </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/equipment_sum_vw_prc/</loc>
+  </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/equipments/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/equipments/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/feature_data_merge_prc/</loc>
   </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/features_sum_vw_prc/</loc>
+  </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/file-types/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/fn_alert_sum_vw_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/fn_alerts_data_merge_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/hweox_alert_sum_vw_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/hweox_alerts_data_merge_prc/</loc>
   </url><url>
@@ -121,6 +183,20 @@
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/hybrid-subscriptions/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/hybrid-subscription-data-load-manager/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/ib_advisory_update_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/ib_alert_pas_hw_eox_bulletin_merge_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/ib_alert_pas_sw_eox_bulletin_merge_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/ib_equipment_update_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/ib_fn_bulletin_master_merge_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/ib_networkelement_update_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/ib_sa_bulletin_master_merge_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/</loc>
   </url><url>
@@ -164,11 +240,25 @@
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/</loc>
   </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_advisory_update_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_alert_pas_hw_eox_bulletin_merge_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_alert_pas_sw_eox_bulletin_merge_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_equipment_update_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_fn_bulletin_master_merge_prc/</loc>
+  </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_lic_process_wrap_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_license_notification_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_license_sum_view_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_networkelement_update_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_sa_bulletin_master_merge_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/network-elements/</loc>
   </url><url>
@@ -189,6 +279,8 @@
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/notification-manager/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/managers/parquet-inv-data-load-manager/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/psirt_alert_sum_vw_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/psirt_alerts_data_merge_prc/</loc>
   </url><url>
@@ -216,11 +308,17 @@
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sum_table_data_update_prc/</loc>
   </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sweox_alert_sum_vw_prc/</loc>
+  </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sweox_alerts_data_merge_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/tags/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/upd_athena_xaas_solutionid_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/upd_contract_cxlevel_and_coverage_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/update_raw_data_process_prc/</loc>
   </url><url>
@@ -228,9 +326,13 @@
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/workflow/</loc>
   </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_all_asset_track_prc/</loc>
+  </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_process_wrap_prc/</loc>
+  </url><url>
+    <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_neid_update_prc/</loc>
   </url><url>
     <loc>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_sub_data_process_prc/</loc>
   </url><url>

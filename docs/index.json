@@ -32,7 +32,14 @@
 	"title": "alerts_master_data_merge_prc",
 	"tags": [],
 	"description": "",
-	"content": "What does it do? Calls stored procedures related to alerts data merge.   More Details    Calls the following stored procedures sequentially, based on mgmtSystemType:    mgmtSystemType Stored Procedure Calls     DNAC dnac_sa_bulletin_master_merge_prc   DNAC dnac_fn_bulletin_master_merge_prc   DNAC dnac_alert_pas_hw_eox_bulletin_merge_prc   DNAC dnac_alert_pas_sw_eox_bulletin_merge_prc   CSDFIB ib_sa_bulletin_master_merge_prc   CSDFIB ib_fn_bulletin_master_merge_prc   CSDFIB ib_alert_pas_hw_eox_bulletin_merge_prc   CSDFIB ib_alert_pas_sw_eox_bulletin_merge_prc   APIC dcn_sa_bulletin_master_merge_prc   APIC dcn_fn_bulletin_master_merge_prc   APIC dcn_alert_pas_hw_eox_bulletin_merge_prc   APIC dcn_alert_pas_sw_eox_bulletin_merge_prc   MERAKI meraki_sa_bulletin_master_merge_prc   MERAKI meraki_fn_bulletin_master_merge_prc   MERAKI meraki_alert_pas_hw_eox_bulletin_merge_prc   MERAKI meraki_alert_pas_sw_eox_bulletin_merge_prc   DCC dcc_sa_bulletin_master_merge_prc   DCC dcc_fn_bulletin_master_merge_prc   DCC dcc_alert_pas_hw_eox_bulletin_merge_prc   DCC dcc_alert_pas_sw_eox_bulletin_merge_prc       \nReferenced Tables  data_merge_logs  Referenced Stored Procedures  dnac_alert_pas_sw_eox_bulletin_merge_prc dcc_alert_pas_hw_eox_bulletin_merge_prc dcc_alert_pas_sw_eox_bulletin_merge_prc dcc_fn_bulletin_master_merge_prc dcc_sa_bulletin_master_merge_prc dcn_alert_pas_hw_eox_bulletin_merge_prc dcn_alert_pas_sw_eox_bulletin_merge_prc dcn_fn_bulletin_master_merge_prc dcn_sa_bulletin_master_merge_prc dnac_alert_pas_hw_eox_bulletin_merge_prc dnac_fn_bulletin_master_merge_prc dnac_sa_bulletin_master_merge_prc ib_alert_pas_hw_eox_bulletin_merge_prc ib_alert_pas_sw_eox_bulletin_merge_prc ib_fn_bulletin_master_merge_prc ib_sa_bulletin_master_merge_prc log_msg_prc meraki_alert_pas_hw_eox_bulletin_merge_prc meraki_alert_pas_sw_eox_bulletin_merge_prc meraki_fn_bulletin_master_merge_prc meraki_sa_bulletin_master_merge_prc  "
+	"content": "What does it do? Calls stored procedures related to alerts data merge.   More Details    Calls the following stored procedures sequentially, based on mgmtSystemType:    mgmtSystemType Stored Procedure Calls     DNAC [dnac_sa_bulletin_master_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/dnac_sa_bulletin_master_merge_prc   )    DNAC [dnac_fn_bulletin_master_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/dnac_fn_bulletin_master_merge_prc   )    DNAC [dnac_alert_pas_hw_eox_bulletin_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/dnac_alert_pas_hw_eox_bulletin_merge_prc   )    DNAC [dnac_alert_pas_sw_eox_bulletin_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/dnac_alert_pas_sw_eox_bulletin_merge_prc   )    CSDFIB [ib_sa_bulletin_master_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/ib_sa_bulletin_master_merge_prc   )    CSDFIB [ib_fn_bulletin_master_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/ib_fn_bulletin_master_merge_prc   )    CSDFIB [ib_alert_pas_hw_eox_bulletin_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/ib_alert_pas_hw_eox_bulletin_merge_prc   )    CSDFIB [ib_alert_pas_sw_eox_bulletin_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/ib_alert_pas_sw_eox_bulletin_merge_prc   )    APIC [dcn_sa_bulletin_master_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/dcn_sa_bulletin_master_merge_prc   )    APIC [dcn_fn_bulletin_master_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/dcn_fn_bulletin_master_merge_prc   )    APIC [dcn_alert_pas_hw_eox_bulletin_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/dcn_alert_pas_hw_eox_bulletin_merge_prc   )    APIC [dcn_alert_pas_sw_eox_bulletin_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/dcn_alert_pas_sw_eox_bulletin_merge_prc   )    MERAKI [meraki_sa_bulletin_master_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/meraki_sa_bulletin_master_merge_prc   )    MERAKI [meraki_fn_bulletin_master_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/meraki_fn_bulletin_master_merge_prc   )    MERAKI [meraki_alert_pas_hw_eox_bulletin_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/meraki_alert_pas_hw_eox_bulletin_merge_prc   )    MERAKI [meraki_alert_pas_sw_eox_bulletin_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/meraki_alert_pas_sw_eox_bulletin_merge_prc   )    DCC [dcc_sa_bulletin_master_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/dcc_sa_bulletin_master_merge_prc   )    DCC [dcc_fn_bulletin_master_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/dcc_fn_bulletin_master_merge_prc   )    DCC [dcc_alert_pas_hw_eox_bulletin_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/dcc_alert_pas_hw_eox_bulletin_merge_prc   )    DCC [dcc_alert_pas_sw_eox_bulletin_merge_prc](/pages/tadeckar/assets-docs/database/stored-procedures/dcc_alert_pas_sw_eox_bulletin_merge_prc   )        \nReferenced Tables  data_merge_logs  Referenced Stored Procedures  dnac_alert_pas_sw_eox_bulletin_merge_prc dcc_alert_pas_hw_eox_bulletin_merge_prc dcc_alert_pas_sw_eox_bulletin_merge_prc dcc_fn_bulletin_master_merge_prc dcc_sa_bulletin_master_merge_prc dcn_alert_pas_hw_eox_bulletin_merge_prc dcn_alert_pas_sw_eox_bulletin_merge_prc dcn_fn_bulletin_master_merge_prc dcn_sa_bulletin_master_merge_prc dnac_alert_pas_hw_eox_bulletin_merge_prc dnac_fn_bulletin_master_merge_prc dnac_sa_bulletin_master_merge_prc ib_alert_pas_hw_eox_bulletin_merge_prc ib_alert_pas_sw_eox_bulletin_merge_prc ib_fn_bulletin_master_merge_prc ib_sa_bulletin_master_merge_prc log_msg_prc meraki_alert_pas_hw_eox_bulletin_merge_prc meraki_alert_pas_sw_eox_bulletin_merge_prc meraki_fn_bulletin_master_merge_prc meraki_sa_bulletin_master_merge_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/all_assets_track_vw_prc/",
+	"title": "all_assets_track_vw_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  all_asset_track_view all_asset_view data_merge_logs  Referenced Stored Procedures  log_msg_prc  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/all_assets_vw_prc/",
@@ -40,6 +47,13 @@
 	"tags": [],
 	"description": "",
 	"content": "What does it do? Inserts rows into the all_asset_view table using values from the networkelement_sum_vw and contractcoverage_sum_vw tables.   More Details    Get a cursor over rows in the contractcoverage_sum_vw grouped by neId and serialNumber where  customerId/wfId match input and serialNumber is not null   Delete all rows from the all_asset_view table that match the customerId/wfId. Insert rows into the all_asset_view table using values from the contractcoverage_sum_vw and networkelement_sum_vw tables. Update the lastScanDate field for rows in the all_asset_view table. Call the following stored procedures in sequence:  amp_neid_update_prc xaas_sub_data_process_prc     \nReferenced Tables  all_asset_view contractcoverage_sum_vw data_merge_logs networkelement_sum_vw pfm_diag_request  Referenced Stored Procedures  amp_neid_update_prc log_msg_prc xaas_sub_data_process_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/all_csdf_contract_view_prc/",
+	"title": "all_csdf_contract_view_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  all_asset_view all_contract_view csdf_contracts cspi_contracts customer_partition_info data_merge_logs iso_contract_view  Referenced Stored Procedures  log_msg_prc  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/amp_log_msg_prc/",
@@ -68,6 +82,13 @@
 	"tags": [],
 	"description": "",
 	"content": " This procedure runs every 30 seconds.\n What does it do? Checks for rows in asset_data_load_notification in SUBMITTED state where dataSource is CSDF_AMP_TELE. Transitions the rows to INPROGRESS state and calls the iso_data_process_wrap_prc stored procedure. Afterwards, updates the state of the rows to SUCCESS.   More Details    Get a cursor over the asset_data_load_notification table where:  processingStatus is SUBMITTED and dataSource is CSDF_AMP_TELE and None of the rows for same customerId are INPROGRESS   Get a counts for  SUBMITTED notifications and INPROGRESS notifications   Get the max parallel limit of amp uploads from the upd_or_async_prop_master table. If the SUBMITTED count is \u0026gt; 0 and INPROGRESS count is less than the max parallel limit, open a read loop that:  Counts the number of INPROGRESS rows for the given customerId If the count is 0 (none INPROGRESS), get the wfId from a SUBMITTED row. Update the status to INPROGRESS of SUBMITTED rows with the wfId from the previous step. Call the iso_data_process_wrap_prc stored procedure with input data from the row. Update the status to SUCCESS on the affected rows.     \nReferenced Tables  asset_data_load_notification amp_data_merge_logs upd_or_async_prop_master  Referenced Stored Procedures  amp_log_msg_prc iso_data_process_wrap_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/apic_advisory_update_prc/",
+	"title": "apic_advisory_update_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  alert_fn_dcn alert_hweox_dcn alert_pas_hw_eox_bulletin alert_pas_sw_eox_bulletin alert_sweox_dcn alert_psirt_dcn asset_priority_bugs data_merge_logs networkelement_dcn  Referenced Stored Procedures  log_msg_prc  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/athena_asset_notification_prc/",
@@ -112,11 +133,18 @@
 	"content": "What does it do? Updates assetCategory to Cisco Plus for rows in the iso_subscription_stg table where subscription_product_family is UCSBFC.   More Details    Update assetCategory to Cisco Plus for rows in iso_subscription_stg where  customerId/wfId match input and subscription_reference_id is found in the iso_subscription_stg table where  customerId/wfId match input and subscription_product_family is UCSBFC       \nReferenced Tables  amp_data_merge_logs iso_subscription_stg  Referenced Stored Procedures  amp_log_msg_prc  "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/athena_xaas_assetcategory_update_prc/",
+	"title": "athena_xaas_assetCategory_update_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  amp_data_merge_logs networkelement_sub_stg subscription_stg  Referenced Stored Procedures  amp_log_msg_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/aux-tables/",
 	"title": "Auxiliary Tables",
 	"tags": [],
 	"description": "",
-	"content": " graph LR; aav_subscriptions active_dnac_ne alert_pas_hw_eox_bulletin alert_pas_sw_eox_bulletin all_asset_track_view all_asset_view amp_data_merge_logs amp_ne_sol_map_tmp asset_contract_notification asset_data_load_notification asset_feature asset_group_device asset_group_master asset_inventory_alert_fn asset_inventory_alert_hweox asset_inventory_alert_psirt asset_inventory_alert_sweox asset_inventory_notification asset_priority_bugs base_table_partition_info contract_group_device_summary contractcoverage_sum_vw csdf_contracts customer_partition_info customer_wfid_info data_merge_logs device_license_view equipment iso_component_master iso_contract_view iso_daily_consumption_trend iso_daily_login_trend iso_feature_insight_trend iso_feature_master iso_feature_usage iso_monthly_consumption_trend iso_monthly_login_trend iso_pid_master iso_quarterly_consumption_trend iso_quarterly_login_trend iso_summary_view iso_weekly_consumption_trend iso_weekly_login_trend license_sum_view meraki_license_sum_view_stage networkelement networkelement_sum_vw partition_automation_logs pfm_diag_request pid_solution_mapping service_level_info upd_or_async_prop_master  "
+	"content": "Logs graph LR; amp_data_merge_logs data_merge_logs partition_automation_logs  Others graph LR; aav_subscriptions active_dnac_ne alert_pas_hw_eox_bulletin alert_pas_sw_eox_bulletin all_asset_track_view all_asset_view amp_ne_sol_map_tmp asset_contract_notification asset_data_load_notification asset_feature asset_group_device asset_group_master asset_inventory_alert_fn asset_inventory_alert_hweox asset_inventory_alert_psirt asset_inventory_alert_sweox asset_inventory_notification asset_priority_bugs base_table_partition_info contract_group_device_summary contractcoverage_sum_vw csdf_contracts customer_partition_info customer_wfid_info device_license_view equipment iso_component_master iso_contract_view iso_daily_consumption_trend iso_daily_login_trend iso_feature_insight_trend iso_feature_master iso_feature_usage iso_monthly_consumption_trend iso_monthly_login_trend iso_pid_master iso_quarterly_consumption_trend iso_quarterly_login_trend iso_summary_view iso_weekly_consumption_trend iso_weekly_login_trend license_sum_view meraki_license_sum_view_stage networkelement networkelement_sum_vw pfm_diag_request pid_solution_mapping service_level_info upd_or_async_prop_master  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/bulletins/",
@@ -210,6 +238,20 @@
 	"content": "What does it do? Inserts rows into the contract_group_device_summary table using values from other various tables.   More Details    If the transactionType is DELETE/UPDATE, delete rows matching customerId/groupId from the contract_group_device_summary table. Otherwise, if the transactionType is EDIT, delete rows matching customerId/neId. If the transactionType is INSERT/UPDATE:  Create a temporary table contractgrpdevice_tmp using values from contractcoverage_sum_vw. Insert rows into the contract_group_device_summary table using values from the contractgrpdevice_tmp and networkelement_sum_vw tables. Drop the contractgrpdevice_tmp table. Count the rows matching customerId in the iso_summary_view table. If the count is \u0026gt; 0, insert rows into the contract_group_device_summary table using values from the iso_summary_view, asset_group_device, and iso_contract_view tables. Count the rows matching customerId in the networkelement_sub_stg table. If the count is \u0026gt; 0, insert rows into the contract_group_device_summary table using values from the networkelement_sub_stg, asset_group_device, and subscription_stg tables.   If the transactionType is EDIT:  Create a temporary table contractgrpdevice_tmp using values from contractcoverage_sum_vw. Insert rows into the contract_group_device_summary table using values from the contractgrpdevice_tmp, asset_group_device, and networkelement_sum_vw tables. Drop the contractgrpdevice_tmp table. Count the rows matching customerId in the iso_summary_view table. If the count is \u0026gt; 0, insert rows into the contract_group_device_summary table using values from the iso_summary_view, asset_group_device, and iso_contract_view tables. Count the rows matching customerId in the networkelement_sub_stg table. If the count is \u0026gt; 0, insert rows into the contract_group_device_summary table using values from the networkelement_sub_stg, asset_group_device, and subscription_stg tables.     \nReferenced Tables  asset_group_device contract_group_device_summary contractcoverage_sum_vw data_merge_logs iso_contract_view iso_summary_view networkelement_sub_stg networkelement_sum_vw subscription_stg  Referenced Stored Procedures  log_msg_prc  "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/contract_group_device_sum_upl_prc/",
+	"title": "contract_group_device_sum_upl_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  asset_group_device base_table_partition_info contractcoverage_sum_vw contract_group_device_summary data_merge_logs networkelement_dcc networkelement_dcn networkelement_ib_data networkelement_meraki networkelement_telemetry  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/contractcoverage_sum_vw_prc/",
+	"title": "contractcoverage_sum_vw_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  contractcoverage contractcoverage_sum_vw data_merge_logs networkelement_sum_vw  Referenced Stored Procedures  log_msg_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/contracts/",
 	"title": "Contracts",
 	"tags": [],
@@ -287,11 +329,158 @@
 	"content": "What does it do?   More Details    Create a temporary table hweox_tmp using values from alert_pas_hw_eox_bulletin and alert_hweox_dcc tables grouped by neId. Update ldos values for rows in the networkelement_dcc table using values from hweox_tmp. Drop the hweox_tmp table. Create a temporary table critical_adv_cnt_tmp using values from the alert_psirt_dcc table grouped by neId. Update advisoryLevel, advisoryCount, hasSecurityAdvisory, and allPsirtCount values for rows in the networkelement_dcc table using values from critical_adv_cnt_tmp. Drop the critical_adv_cnt_tmp table. Call the dcc_license_status_update_prc stored procedure. Create a temporary table sweox_tmp using values from the alert_pas_sw_eox_bulletin and alert_sweox_dcc tables grouped by neId. Update endOfSwEoxDate values for rows in the networkelement_dcc table using values from sweox_tmp. Drop the sweox_tmp table. Create a temporary table fn_adv_cnt_tmp using values from the alert_fn_dcc table grouped by neId. Update fieldNoticeCount values for rows in the networkelement_dcc table using values from fn_adv_cnt_tmp. Drop the bug_cnt_tmp table. Create a temporary table bug_cnt_tmp using values from the asset_priority_bugs table grouped by neId. Update bugCount values for rows in the networkelement_dcc table using values from bug_cnt_tmp. Drop the bug_cnt_tmp table.    Referenced Tables  alert_fn_dcc alert_hweox_dcc alert_pas_hw_eox_bulletin alert_pas_sw_eox_bulletin alert_psirt_dcc alert_sweox_dcc asset_priority_bugs data_merge_logs networkelement_dcc  Referenced Stored Procedures  dcc_license_status_update_prc log_msg_prc  "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcc_alert_pas_hw_eox_bulletin_merge_prc/",
+	"title": "dcc_alert_pas_hw_eox_bulletin_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  alert_pas_hw_eox_bulletin alert_pas_hw_eox_bulletin_dcc data_merge_logs  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcc_alert_pas_sw_eox_bulletin_merge_prc/",
+	"title": "dcc_alert_pas_sw_eox_bulletin_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  alert_pas_sw_eox_bulletin alert_pas_sw_eox_bulletin_dcc data_merge_logs  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcc_equipment_update_prc/",
+	"title": "dcc_equipment_update_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  data_merge_logs equipment_dcc networkelement_dcc pid_solution_mapping  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcc_fn_bulletin_master_merge_prc/",
+	"title": "dcc_fn_bulletin_master_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  fn_bulletin_master fn_bulletin_master_dcc data_merge_logs  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcc_license_status_update_prc/",
+	"title": "dcc_license_status_update_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  data_merge_logs networkelement_dcc  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcc_networkelement_update_prc/",
+	"title": "dcc_networkelement_update_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  base_table_partition_info contractcoverage_ib_data data_merge_logs networkelement_dcc pid_solution_mapping  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcc_sa_bulletin_master_merge_prc/",
+	"title": "dcc_sa_bulletin_master_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  sa_bulletin_master sa_bulletin_master_dcc data_merge_logs  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcn_alert_pas_hw_eox_bulletin_merge_prc/",
+	"title": "dcn_alert_pas_hw_eox_bulletin_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  alert_pas_hw_eox_bulletin alert_pas_hw_eox_bulletin_dcn data_merge_logs  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcn_alert_pas_sw_eox_bulletin_merge_prc/",
+	"title": "dcn_alert_pas_sw_eox_bulletin_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  alert_pas_sw_eox_bulletin alert_pas_sw_eox_bulletin_dcn data_merge_logs  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcn_equipment_update_prc/",
+	"title": "dcn_equipment_update_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  data_merge_logs equipment_dcn networkelement_dcn pid_solution_mapping  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcn_fn_bulletin_master_merge_prc/",
+	"title": "dcn_fn_bulletin_master_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  data_merge_logs fn_bulletin_master fn_bulletin_master_dcn  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcn_networkelement_update_prc/",
+	"title": "dcn_networkelement_update_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  base_table_partition_info contractcoverage_ib_data data_merge_logs networkelement_dcn pid_solution_mapping  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcn_sa_bulletin_master_merge_prc/",
+	"title": "dcn_sa_bulletin_master_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  data_merge_logs sa_bulletin_master sa_bulletin_master_dcn  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/default_group_device_sum_prc/",
+	"title": "default_group_device_sum_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  all_asset_view asset_group_device asset_group_master data_merge_logs  Referenced Stored Procedures  log_msg_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/delete_raw_data_wfid_prc/",
 	"title": "delete_raw_data_wfid_prc",
 	"tags": [],
 	"description": "",
 	"content": "What does it do? Deletes rows matching customerId/wfId from tables based on a given mgmtSystemType.   More Details    Deletes rows that match customerId/wfId from base_table_partition_info. Deletes rows that match customerId/wfId from tables based on mgmtSystemType.  When mgmtSystemType is DNAC, deletes from tables:  active_dnac_ne alert_fn_telemetry alert_hweox_telemetry alert_pas_hw_eox_bulletin_dnac alert_pas_sw_eox_bulletin_dnac alert_psirt_telemetry alert_sweox_telemetry asset_feature_telemetry equipment_telemetry fn_bulletin_master_dnac networkelement_telemetry sa_bulletin_master_dnac   When mgmtSystemType is APIC, deletes from tables:  alert_fn_dcn alert_hweox_dcn alert_pas_hw_eox_bulletin_dcn alert_pas_sw_eox_bulletin_dcn alert_psirt_dcn alert_sweox_dcn equipment_dcn fn_bulletin_master_dcn networkelement_dcn sa_bulletin_master_dcn   When mgmtSystemType is CSDFIB, deletes from tables:  alert_fn_ib_data alert_hweox_ib_data alert_pas_hw_eox_bulletin_ib_data alert_pas_sw_eox_bulletin_ib_data alert_psirt_ib_data alert_sweox_ib_data contractcoverage_ib_data equipment_ib_data fn_bulletin_master_ib_data networkelement_ib_data sa_bulletin_master_ib_data   When mgmtSystemType is MERAKI, deletes from tables:  alert_fn_meraki alert_hweox_meraki alert_pas_hw_eox_bulletin_meraki alert_pas_sw_eox_bulletin_meraki alert_psirt_meraki alert_sweox_meraki contractcoverage_meraki equipment_meraki fn_bulletin_master_meraki networkelement_meraki sa_bulletin_master_meraki   When mgmtSystemType is DCC, deletes from tables:  alert_fn_dcc alert_hweox_dcc alert_pas_hw_eox_bulletin_dcc alert_pas_sw_eox_bulletin_dcc alert_psirt_dcc alert_sweox_dcc equipment_dcc fn_bulletin_master_dcc networkelement_dcc sa_bulletin_master_dcc       \nReferenced Tables  active_dnac_ne alert_fn_dcc alert_fn_dcn alert_fn_ib_data alert_fn_meraki alert_fn_telemetry alert_hweox_dcc alert_hweox_dcn alert_hweox_ib_data alert_hweox_meraki alert_hweox_telemetry alert_pas_hw_eox_bulletin_dcc alert_pas_hw_eox_bulletin_dcn alert_pas_hw_eox_bulletin_dnac alert_pas_hw_eox_bulletin_ib_data alert_pas_hw_eox_bulletin_meraki alert_pas_sw_eox_bulletin_dcc alert_pas_sw_eox_bulletin_dcn alert_pas_sw_eox_bulletin_dnac alert_pas_sw_eox_bulletin_ib_data alert_pas_sw_eox_bulletin_meraki alert_psirt_dcc alert_psirt_dcn alert_psirt_ib_data alert_psirt_meraki alert_psirt_telemetry alert_sweox_dcc alert_sweox_dcn alert_sweox_ib_data alert_sweox_meraki alert_sweox_telemetry asset_feature_telemetry base_table_partition_info contractcoverage_ib_data contractcoverage_meraki equipment_dcc equipment_dcn equipment_ib_data equipment_meraki equipment_telemetry fn_bulletin_master_dcc fn_bulletin_master_dcn fn_bulletin_master_dnac fn_bulletin_master_ib_data fn_bulletin_master_meraki networkelement_dcc networkelement_dcn networkelement_ib_data networkelement_meraki networkelement_telemetry sa_bulletin_master_dcc sa_bulletin_master_dcn sa_bulletin_master_dnac sa_bulletin_master_ib_data sa_bulletin_master_meraki  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dnac_advisory_update_prc/",
+	"title": "dnac_advisory_update_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  alert_fn_telemetry alert_hweox_telemetry alert_pas_hw_eox_bulletin alert_pas_sw_eox_bulletin alert_psirt_telemetry alert_sweox_telemetry asset_priority_bugs data_merge_logs networkelement_telemetry scan_eligibility  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dnac_alert_pas_hw_eox_bulletin_merge_prc/",
+	"title": "dnac_alert_pas_hw_eox_bulletin_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  alert_pas_hw_eox_bulletin alert_pas_hw_eox_bulletin_dnac data_merge_logs  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dnac_alert_pas_sw_eox_bulletin_merge_prc/",
+	"title": "dnac_alert_pas_sw_eox_bulletin_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  alert_pas_sw_eox_bulletin alert_pas_sw_eox_bulletin_dnac data_merge_logs  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dnac_equipment_update_prc/",
+	"title": "dnac_equipment_update_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  data_merge_logs equipment_telemetry pid_solution_mapping networkelement_telemetry  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dnac_fn_bulletin_master_merge_prc/",
+	"title": "dnac_fn_bulletin_master_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  data_merge_logs fn_bulletin_master fn_bulletin_master_dnac  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dnac_networkelement_update_prc/",
+	"title": "dnac_networkelement_update_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  base_table_partition_info contractcoverage_ib_data data_merge_logs networkelement_telemetry pid_solution_mapping  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dnac_sa_bulletin_master_merge_prc/",
+	"title": "dnac_sa_bulletin_master_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  data_merge_logs sa_bulletin_master sa_bulletin_master_dnac  Referenced Stored Procedures  log_msg_prc  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/drop_dnac_old_partions_prc/",
@@ -350,6 +539,13 @@
 	"content": "What does it do? Inserts rows into the equipment table using values from the equipment_meraki table.   More Details    Count the rows in the asset_inventory_notification table matching customerId/wfId where mgmtSystemType is MERAKI. If the count is \u0026gt; 0, call the meraki_equipment_update_prc stored procedure. Count the rows in the base_table_partition_info table matching customerId where  mgmtSystemType is MERAKI and partitionTag is BASE   If the count is \u0026gt; 0:  Get the wfId from the counted rows. Insert rows into the equipment table using values from the equipment_meraki table.     \nReferenced Tables  asset_inventory_notification base_table_partition_info data_merge_logs equipment equipment_meraki  Referenced Stored Procedures  log_msg_prc meraki_equipment_update_prc  "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/equipment_sum_vw_prc/",
+	"title": "equipment_sum_vw_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  data_merge_logs equipment equipment_sum_vw  Referenced Stored Procedures  log_msg_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/equipments/",
 	"title": "Equipments",
 	"tags": [],
@@ -371,11 +567,25 @@
 	"content": "What does it do? Insert rows into the asset_feature table using values from the asset_feature_telemetry table.   More Details    Get a cursor over rows in the base_table_partition_info table where  customerId matches input and partitionStatus is A (Active) and partitionTag is BASE and mgmtSystemType is DNAC and dnacId and customerId is in row of the active_dnac_ne table   Delete all rows for the given customerId/wfId from the asset_feature table. Get a count of rows in base_table_partition_info that match customerId/wfId where  partitionStatus is A (Active) and partitionTag is BASE and mgmtSystemType is DNAC and dnacId and customerId is in row of the active_dnac_ne table   If the count is \u0026gt; 0, open a read loop on the cursor that inserts rows into the asset_feature table using values from the asset_feature_telemetry table.   \nReferenced Tables  active_dnac_ne asset_feature base_table_partition_info data_merge_logs asset_feature_telemetry networkelement  Referenced Stored Procedures  log_msg_prc  "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/features_sum_vw_prc/",
+	"title": "features_sum_vw_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  asset_feature asset_feature_sum_vw data_merge_logs  Referenced Stored Procedures  log_msg_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/types/file-types/",
 	"title": "File Types",
 	"tags": [],
 	"description": "",
 	"content": " View Source  IBES_INV_UPLOAD = \u0026#39;INVENTORY_DATA_RECEIVED\u0026#39; CIBES_INV_UPLOAD = \u0026#39;CIBES_INVENTORY_DATA_RECEIVED\u0026#39; MERAKI_LICENSE = \u0026#39;MERAKI_LICENSE\u0026#39; CC_CONTACT_SUM_UPLOAD = \u0026#39;CC-CONTACT-SUM-UPLOAD\u0026#39; CIBES_XAAS_INVENTORY_UPLOAD = \u0026#39;XAAS_INVENTORY_DATA_RECEIVED\u0026#39; HYBRID_CLOUD =\u0026#39;ATHENA\u0026#39; DNAC_UPLOAD = \u0026#39;DNAC_DATA_RECEIVED\u0026#39; "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/fn_alert_sum_vw_prc/",
+	"title": "fn_alert_sum_vw_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  asset_inventory_alert_fn asset_inventory_alert_fn_sum_vw data_merge_logs networkelement_sum_vw  Referenced Stored Procedures  log_msg_prc  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/fn_alerts_data_merge_prc/",
@@ -390,6 +600,13 @@
 	"tags": [],
 	"description": "",
 	"content": "Table of Contents  Database   Ingestion   Services   "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/hweox_alert_sum_vw_prc/",
+	"title": "hweox_alert_sum_vw_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  asset_inventory_alert_hweox asset_inventory_alert_hweox_sum_vw data_merge_logs networkelement_sum_vw  Referenced Stored Procedures  log_msg_prc  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/hweox_alerts_data_merge_prc/",
@@ -418,6 +635,55 @@
 	"tags": [],
 	"description": "",
 	"content": " View Source  Loads data of the HYBRID_CLOUD File Type.\nFirstly, the HSDLM checks whether or not data for the given wfId has already been loaded. If the data has already been loaded, the data is cleared from the athena_subscription_stg staging table for the given customerId/wfId before execution proceeds to the next step.\nNext, a thread is spun up to load the data, executing the DataLoadManager, which in turn executes a Loader for the Hybrid Data Load Type.\nThe NotificationManager is also used record the data load processing start/end times, as well as to delete rows when wfId data has already been loaded.\n"
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/ib_advisory_update_prc/",
+	"title": "ib_advisory_update_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  alert_hweox_ib_data alert_pas_hw_eox_bulletin data_merge_logs networkelement_ib_data alert_fn_ib_data  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/ib_alert_pas_hw_eox_bulletin_merge_prc/",
+	"title": "ib_alert_pas_hw_eox_bulletin_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  alert_pas_hw_eox_bulletin alert_pas_hw_eox_bulletin_ib_data data_merge_logs  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/ib_alert_pas_sw_eox_bulletin_merge_prc/",
+	"title": "ib_alert_pas_sw_eox_bulletin_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  alert_pas_sw_eox_bulletin alert_pas_sw_eox_bulletin_ib_data data_merge_logs  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/ib_equipment_update_prc/",
+	"title": "ib_equipment_update_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  data_merge_logs equipment_ib_data pid_solution_mapping networkelement_ib_data  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/ib_fn_bulletin_master_merge_prc/",
+	"title": "ib_fn_bulletin_master_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  data_merge_logs fn_bulletin_master fn_bulletin_master_ib_data  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/ib_networkelement_update_prc/",
+	"title": "ib_networkelement_update_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  contractcoverage_ib_data data_merge_logs networkelement_ib_data pid_solution_mapping  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/ib_sa_bulletin_master_merge_prc/",
+	"title": "ib_sa_bulletin_master_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  data_merge_logs sa_bulletin_master sa_bulletin_master_ib_data  Referenced Stored Procedures  log_msg_prc  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/",
@@ -567,6 +833,41 @@
 	"content": "The main Glue function determines what to load using the file_type argument (see File Types). This argument is passed to a \u0026ldquo;Manager\u0026rdquo; to determine how the data is handled.\nThe DataFileManager is used in all scenarios. This contains logic to return a \u0026ldquo;Request Handler\u0026rdquo;, which is another \u0026ldquo;Manager\u0026rdquo; for a particular data type.\nThe \u0026ldquo;Request Handler\u0026rdquo; returned by the DataFileManager will be one of the following:\n InventoryDataLoadManager ParquetDataLoadManager LicenseDataLoadManager HybridSubscriptionDataLoadManager  Each of these implements a common interface:\nhandleRequest: Generic handler for loading data.\nsubmitDataLoadRequest: Begins the data loading job.\nprocessDataFile: Creates a thread pool to handle data loading.\nThe general flow of Manager execution is:\n handleRequest start.*Processing processDataFile submitDataLoadRequest  The submitDataLoadRequest function instantiates a DataLoadManager which returns a Loader class to further handle the request.\nMore Info  DataFileManager   DataLoadManager   HybridSubscriptionDataLoadManager   InventoryDataLoadManager   LicenseDataLoadManager   NotificationManager   ParquetInvDataLoadManager   "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_advisory_update_prc/",
+	"title": "meraki_advisory_update_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  alert_fn_meraki alert_hweox_meraki alert_pas_hw_eox_bulletin alert_pas_sw_eox_bulletin alert_psirt_meraki alert_sweox_meraki asset_priority_bugs contractcoverage_meraki data_merge_logs meraki_license_sum_view_stage networkelement_meraki  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_alert_pas_hw_eox_bulletin_merge_prc/",
+	"title": "meraki_alert_pas_hw_eox_bulletin_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  alert_pas_hw_eox_bulletin alert_pas_hw_eox_bulletin_meraki data_merge_logs  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_alert_pas_sw_eox_bulletin_merge_prc/",
+	"title": "meraki_alert_pas_sw_eox_bulletin_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  alert_pas_sw_eox_bulletin alert_pas_sw_eox_bulletin_meraki data_merge_logs  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_equipment_update_prc/",
+	"title": "meraki_equipment_update_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  data_merge_logs equipment_meraki networkelement_meraki pid_solution_mapping  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_fn_bulletin_master_merge_prc/",
+	"title": "meraki_fn_bulletin_master_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  data_merge_logs fn_bulletin_master fn_bulletin_master_meraki  Referenced Stored Procedures  log_msg_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_lic_process_wrap_prc/",
 	"title": "meraki_lic_process_wrap_prc",
 	"tags": [],
@@ -586,6 +887,20 @@
 	"tags": [],
 	"description": "",
 	"content": "What does it do? Inserts rows into the license_sum_view table using values from meraki_license_sum_view_stage.   More Details    Get a count of rows in customer_wfid_info where  customerId matches input parameter and module is CSDF_SUBSCRIPTION and wfIdStatus is A (Active)   If the count is \u0026gt; 0:  Get the wfId from a row in customer_wfid_info. Get a count of rows in license_sum_view where  customerId matches input and wfId matches result from previous step and solutionIds is |52517223| (Meraki solutionId?)   If count is \u0026gt; 0, delete related rows from the license_sum_view table.   If a wfId was retrieved from customer_wfid_info in previous step, use that as the main wfId. Otherwise, use wfId from the stored procedure\u0026rsquo;s input. Insert rows into license_sum_view using values from meraki_license_sum_view_stage.   \nReferenced Tables  amp_data_merge_logs customer_wfid_info license_sum_view meraki_license_sum_view_stage  Referenced Stored Procedures  amp_log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_networkelement_update_prc/",
+	"title": "meraki_networkelement_update_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  base_table_partition_info contractcoverage_ib_data data_merge_logs networkelement_meraki pid_solution_mapping  Referenced Stored Procedures  log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/meraki_sa_bulletin_master_merge_prc/",
+	"title": "meraki_sa_bulletin_master_merge_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  data_merge_logs sa_bulletin_master sa_bulletin_master_meraki  Referenced Stored Procedures  log_msg_prc  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/loaders/network-elements/",
@@ -658,6 +973,13 @@
 	"content": " View Source  Loads data of the CIBES_INV_UPLOAD and DNAC_UPLOAD File Types.\nFirstly, the PIDLM checks the SQS message for mgmtSystemType. If the value of this property is not DCC_SUB, PIDLM tries to create a partition using the add_base_table_partions_prc stored procedure. Otherwise, processing begins regardless.\nWhen mgmtSystemType === \u0026quot;DCC_SUB\u0026quot;, and the partition is created successfully, processing begins. If the partition already exists, the base table partitions are cleared using the delete_raw_data_wfid_prc stored procedure, then processing begins.\nNext, a thread is spun up to load the data, executing the DataLoadManager, which in turn executes a Loader of either XAAS, DNAC, or CIBES Data Load Types, dependent on the mgmtSystemType. See mapping below.\nWhen mgmtSystemType is \u0026quot;DCC_SUB\u0026quot;, Data Load Type is XAAS.\nWhen mgmtSystemType is \u0026quot;DNAC_DL\u0026quot;, Data Load Type is DNAC.\nWhen mgmtSystemType is neither \u0026quot;DCC_SUB\u0026quot; nor \u0026quot;DNAC_DL\u0026quot;, Data Load Type is CIBES.\nThe NotificationManager is also used record the data load processing start/end times.\n"
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/psirt_alert_sum_vw_prc/",
+	"title": "psirt_alert_sum_vw_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  asset_inventory_alert_psirt asset_inventory_alert_psirt_sum_vw data_merge_logs networkelement_sum_vw sa_bulletin_master  Referenced Stored Procedures  log_msg_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/psirt_alerts_data_merge_prc/",
 	"title": "psirt_alerts_data_merge_prc",
 	"tags": [],
@@ -718,7 +1040,7 @@
 	"title": "Stored Procedures",
 	"tags": [],
 	"description": "",
-	"content": "  add_base_table_partions_prc   add_sumview_table_partions_prc   alerts_master_data_merge_prc   all_assets_vw_prc   amp_log_msg_prc   amp_neid_update_prc   amp_subscription_notification_prc   amp_upload_notification_prc   athena_asset_notification_prc   athena_dcc_dcn_data_process_prc   athena_dcc_stg_data_process_prc   athena_dcn_stg_data_process_prc   athena_ib_stg_data_process_prc   athena_license_assetCategory_update_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   contract_data_merge_prc   contract_group_device_sum_prc   data_merge_prc   dcc_advisory_update_prc   delete_raw_data_wfid_prc   drop_dnac_old_partions_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   equipment_apic_data_merge_prc   equipment_data_merge_prc   equipment_dcc_data_merge_prc   equipment_meraki_data_merge_prc   feature_data_merge_prc   fn_alerts_data_merge_prc   hweox_alerts_data_merge_prc   inv_upload_notification_prc   iso_contract_sum_prc   iso_daily_trend_prc   iso_data_process_wrap_prc   iso_feature_insight_trend_prc   iso_feature_usage_prc   iso_subscription_prc   iso_subscription_upd_prc   iso_sum_table_deletion_prc   iso_summary_view_prc   iso_weekly_and_monthly_trend_prc   license_sum_view_prc   log_msg_prc   meraki_lic_process_wrap_prc   meraki_license_notification_prc   meraki_license_sum_view_prc   networkelement_apic_data_merge_prc   networkelement_cxc_data_merge_prc   networkelement_data_merge_prc   networkelement_dcc_data_merge_prc   networkelement_meraki_data_merge_prc   networkelement_sum_vw_prc   psirt_alerts_data_merge_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   sub_data_process_wrap_prc   sum_table_data_update_prc   sweox_alerts_data_merge_prc   update_raw_data_process_prc   update_sum_data_process_prc   xaas_asset_notification_prc   xaas_asset_process_wrap_prc   xaas_sub_data_process_prc   xaas_sub_license_prc   "
+	"content": "  add_base_table_partions_prc   add_sumview_table_partions_prc   alerts_master_data_merge_prc   all_assets_track_vw_prc   all_assets_vw_prc   all_csdf_contract_view_prc   amp_log_msg_prc   amp_neid_update_prc   amp_subscription_notification_prc   amp_upload_notification_prc   apic_advisory_update_prc   athena_asset_notification_prc   athena_dcc_dcn_data_process_prc   athena_dcc_stg_data_process_prc   athena_dcn_stg_data_process_prc   athena_ib_stg_data_process_prc   athena_license_assetCategory_update_prc   athena_xaas_assetCategory_update_prc   clean_invalid_status_prc   clean_invalid_wfId_status_sum_tables_prc   clean_stale_datamerge_prc   cleanup_longrunning_iso_data_prc   contract_data_merge_prc   contract_group_device_sum_prc   contract_group_device_sum_upl_prc   contractcoverage_sum_vw_prc   data_merge_prc   dcc_advisory_update_prc   dcc_alert_pas_hw_eox_bulletin_merge_prc   dcc_alert_pas_sw_eox_bulletin_merge_prc   dcc_equipment_update_prc   dcc_fn_bulletin_master_merge_prc   dcc_license_status_update_prc   dcc_networkelement_update_prc   dcc_sa_bulletin_master_merge_prc   dcn_alert_pas_hw_eox_bulletin_merge_prc   dcn_alert_pas_sw_eox_bulletin_merge_prc   dcn_equipment_update_prc   dcn_fn_bulletin_master_merge_prc   dcn_networkelement_update_prc   dcn_sa_bulletin_master_merge_prc   default_group_device_sum_prc   delete_raw_data_wfid_prc   dnac_advisory_update_prc   dnac_alert_pas_hw_eox_bulletin_merge_prc   dnac_alert_pas_sw_eox_bulletin_merge_prc   dnac_equipment_update_prc   dnac_fn_bulletin_master_merge_prc   dnac_networkelement_update_prc   dnac_sa_bulletin_master_merge_prc   drop_dnac_old_partions_prc   drop_partions_prc   drop_pending_wfid_status_sum_tables_prc   drop_stale_partions_prc   equipment_apic_data_merge_prc   equipment_data_merge_prc   equipment_dcc_data_merge_prc   equipment_meraki_data_merge_prc   equipment_sum_vw_prc   feature_data_merge_prc   features_sum_vw_prc   fn_alert_sum_vw_prc   fn_alerts_data_merge_prc   hweox_alert_sum_vw_prc   hweox_alerts_data_merge_prc   ib_advisory_update_prc   ib_alert_pas_hw_eox_bulletin_merge_prc   ib_alert_pas_sw_eox_bulletin_merge_prc   ib_equipment_update_prc   ib_fn_bulletin_master_merge_prc   ib_networkelement_update_prc   ib_sa_bulletin_master_merge_prc   inv_upload_notification_prc   iso_contract_sum_prc   iso_daily_trend_prc   iso_data_process_wrap_prc   iso_feature_insight_trend_prc   iso_feature_usage_prc   iso_subscription_prc   iso_subscription_upd_prc   iso_sum_table_deletion_prc   iso_summary_view_prc   iso_weekly_and_monthly_trend_prc   license_sum_view_prc   log_msg_prc   meraki_advisory_update_prc   meraki_alert_pas_hw_eox_bulletin_merge_prc   meraki_alert_pas_sw_eox_bulletin_merge_prc   meraki_equipment_update_prc   meraki_fn_bulletin_master_merge_prc   meraki_lic_process_wrap_prc   meraki_license_notification_prc   meraki_license_sum_view_prc   meraki_networkelement_update_prc   meraki_sa_bulletin_master_merge_prc   networkelement_apic_data_merge_prc   networkelement_cxc_data_merge_prc   networkelement_data_merge_prc   networkelement_dcc_data_merge_prc   networkelement_meraki_data_merge_prc   networkelement_sum_vw_prc   psirt_alert_sum_vw_prc   psirt_alerts_data_merge_prc   retry_failed_uploads_prc   stale_inprogress_data_cleanup_prc   stale_uploads_cleanup_prc   sub_data_process_wrap_prc   sum_table_data_update_prc   sweox_alert_sum_vw_prc   sweox_alerts_data_merge_prc   upd_athena_xaas_solutionId_prc   upd_contract_cxLevel_and_coverage_prc   update_raw_data_process_prc   update_sum_data_process_prc   xaas_all_asset_track_prc   xaas_asset_notification_prc   xaas_asset_process_wrap_prc   xaas_neId_update_prc   xaas_sub_data_process_prc   xaas_sub_license_prc   "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sub_data_process_wrap_prc/",
@@ -749,6 +1071,13 @@
 	"content": "What does it do? Calls stored procedures related to updating summary tables.   More Details    Calls the following stored procedures sequentially:  networkelement_sum_vw_prc equipment_sum_vw_prc contractcoverage_sum_vw_prc psirt_alert_sum_vw_prc fn_alert_sum_vw_prc hweox_alert_sum_vw_prc sweox_alert_sum_vw_prc all_assets_vw_prc all_assets_track_vw_prc default_group_device_sum_prc contract_group_device_sum_upl_prc all_csdf_contract_view_prc features_sum_vw_prc     \nReferenced Tables  data_merge_logs  Referenced Stored Procedures  all_assets_track_vw_prc all_assets_vw_prc all_csdf_contract_view_prc contract_group_device_sum_upl_prc contractcoverage_sum_vw_prc default_group_device_sum_prc equipment_sum_vw_prc features_sum_vw_prc fn_alert_sum_vw_prc hweox_alert_sum_vw_prc log_msg_prc networkelement_sum_vw_prc psirt_alert_sum_vw_prc sweox_alert_sum_vw_prc  "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sweox_alert_sum_vw_prc/",
+	"title": "sweox_alert_sum_vw_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  asset_inventory_alert_sweox asset_inventory_alert_sweox_sum_vw data_merge_logs networkelement_sum_vw  Referenced Stored Procedures  log_msg_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/sweox_alerts_data_merge_prc/",
 	"title": "sweox_alerts_data_merge_prc",
 	"tags": [],
@@ -768,6 +1097,20 @@
 	"tags": [],
 	"description": "",
 	"content": "  Data Load Types   File Types   "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/upd_athena_xaas_solutionid_prc/",
+	"title": "upd_athena_xaas_solutionId_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  amp_data_merge_logs device_license_view networkelement_sub_stg  Referenced Stored Procedures  amp_log_msg_prc  "
+},
+{
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/upd_contract_cxlevel_and_coverage_prc/",
+	"title": "upd_contract_cxLevel_and_coverage_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  contractcoverage_ib_data data_merge_logs service_level_info  Referenced Stored Procedures  log_msg_prc  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/update_raw_data_process_prc/",
@@ -791,6 +1134,13 @@
 	"content": " graph LR; subgraph Verify Data Load VDL{Verify Data load} end subgraph Notify Success VDL -- NS(Notify) end subgraph Notify Failure VDL -- NF(Notify) end subgraph IBES Data Loader LBM(Load Bulletin Master) -- VDL LNE(Load Network Element) -- VDL LE(Load Equipments) -- VDL LA(Load Alerts) -- VDL LC(Load Contracts) -- VDL LF(Load Features) -- VDL end subgraph Pre Processor P(Preprocess) -- LBM P(Preprocess) -- LNE P(Preprocess) -- LE P(Preprocess) -- LA P(Preprocess) -- LC P(Preprocess) -- LF end  The Glue workflow begins at the Pre Processor state. This state is type: Pass which allows for state that does not produce any work. Next, the IBES Data Loader state loads the data from S3 into the SQL DB. Finally, the Verify Data Load state checks that all tasks within the IBES Data Loader state were successful. Based on the results, state transitions to either Notify Success or Notify Failure, at which time the workflow is complete.\nSee Loaders for more information on the tasks within the IBES Data Loader state.\n"
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_all_asset_track_prc/",
+	"title": "xaas_all_asset_track_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  all_asset_track_view all_asset_view amp_data_merge_logs  Referenced Stored Procedures  amp_log_msg_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_asset_notification_prc/",
 	"title": "xaas_asset_notification_prc",
 	"tags": [],
@@ -805,11 +1155,18 @@
 	"content": "What does it do? Call stored procedures to create summary views for XAAS assets.   More Details    Get a count of the rows in the customer_wfid_info table that match customerId/wfId where  module is DCC_SUB and wfIdStatus is I   If the count is 0, then insert a row. Call stored procedures  Call the xaas_sub_data_process_prc stored procedure Call the xaas_sub_license_prc stored procedure   Delete any row from the customer_wfid_info table matching customerId/wfId where wfIdStatus is A. Update wfIdStatus to A for any row from the customer_wfid_info table matching customerId/wfId where wfIdStatus is I. Delete any rows from the following tables that match customerId but don\u0026rsquo;t match wfId:  networkelement_sub_stg subscription_stg     \nReferenced Tables  amp_data_merge_logs customer_wfid_info networkelement_sub_stg subscription_stg  Referenced Stored Procedures  amp_log_msg_prc log_msg_prc xaas_sub_data_process_prc xaas_sub_license_prc  "
 },
 {
+	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_neid_update_prc/",
+	"title": "xaas_neId_update_prc",
+	"tags": [],
+	"description": "",
+	"content": "What does it do? N/A   More Details    \nReferenced Tables  all_asset_track_view all_asset_view data_merge_logs networkelement_sub_stg pid_solution_mapping service_level_info  Referenced Stored Procedures  log_msg_prc  "
+},
+{
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_sub_data_process_prc/",
 	"title": "xaas_sub_data_process_prc",
 	"tags": [],
 	"description": "",
-	"content": "What does it do? Inserts rows into the all_asset_view table using values from other various tables.   More Details    If the wfType is DCC_SUB:  Count rows in the customer_partition_info table that match the customerId input where partitionStatus is A (Active). If the count is 1:  Call the following stored procedures in sequence:  xaas_neId_update_pr athena_xaas_assetCategory_update_prc   Insert rows into the all_asset_view table using values from the networkelement_sub_stg and subscription_stg tables. Get a count of rows in the asset_group_master table matching customerId/wfId that does not have a corresponding row in the asset_group_device table. If the count is \u0026gt; 0, insert rows into asset_group_device using values from asset_group_master and networkelement_sub_stg. Delete all rows from contract_group_device_summary that match customerId and neId from rows in the networkelement_sub_stg table. Insert rows into contract_group_device_summary using values from networkelement_sub_stg, asset_group_device, and subscription_stg tables.     If the wfType is not DCC_SUB:  Count rows in the networkelement_sub_stg table that match the customerId input. If the count is \u0026gt; 0:  Insert rows into the all_asset_view table using values from the networkelement_sub_stg and subscription_stg tables. Call the xaas_all_asset_track_prc stored procedure.       \nReferenced Tables  all_asset_view amp_data_merge_logs asset_group_device asset_group_master contract_group_device_summary customer_partition_info networkelement_sub_stg subscription_stg  Referenced Stored Procedures  athena_xaas_assetCategory_update_prc amp_log_msg_prc xaas_all_asset_track_prc xaas_neId_update_prc  "
+	"content": "What does it do? Inserts rows into the all_asset_view table using values from other various tables.   More Details    If the wfType is DCC_SUB:  Count rows in the customer_partition_info table that match the customerId input where partitionStatus is A (Active). If the count is 1:  Call the following stored procedures in sequence:  xaas_neId_update_prc athena_xaas_assetCategory_update_prc   Insert rows into the all_asset_view table using values from the networkelement_sub_stg and subscription_stg tables. Get a count of rows in the asset_group_master table matching customerId/wfId that does not have a corresponding row in the asset_group_device table. If the count is \u0026gt; 0, insert rows into asset_group_device using values from asset_group_master and networkelement_sub_stg. Delete all rows from contract_group_device_summary that match customerId and neId from rows in the networkelement_sub_stg table. Insert rows into contract_group_device_summary using values from networkelement_sub_stg, asset_group_device, and subscription_stg tables.     If the wfType is not DCC_SUB:  Count rows in the networkelement_sub_stg table that match the customerId input. If the count is \u0026gt; 0:  Insert rows into the all_asset_view table using values from the networkelement_sub_stg and subscription_stg tables. Call the xaas_all_asset_track_prc stored procedure.       \nReferenced Tables  all_asset_view amp_data_merge_logs asset_group_device asset_group_master contract_group_device_summary customer_partition_info networkelement_sub_stg subscription_stg  Referenced Stored Procedures  athena_xaas_assetCategory_update_prc amp_log_msg_prc xaas_all_asset_track_prc xaas_neId_update_prc  "
 },
 {
 	"uri": "https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/xaas_sub_license_prc/",
