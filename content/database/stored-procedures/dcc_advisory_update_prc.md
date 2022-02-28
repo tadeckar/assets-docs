@@ -10,7 +10,7 @@ title = "dcc_advisory_update_prc"
 4. Create a temporary table `critical_adv_cnt_tmp` using values from the `alert_psirt_dcc` table grouped by **neId**.
 5. Update **advisoryLevel**, **advisoryCount**, **hasSecurityAdvisory**, and **allPsirtCount** values for rows in the `networkelement_dcc` table using values from `critical_adv_cnt_tmp`.
 6. Drop the `critical_adv_cnt_tmp` table.
-7. Call the `dcc_license_status_update_prc` stored procedure.
+7. Call the [dcc_license_status_update_prc]({{< ILink href="/database/stored-procedures/dcc_license_status_update_prc" >}}) stored procedure.
 8. Create a temporary table `sweox_tmp` using values from the `alert_pas_sw_eox_bulletin` and `alert_sweox_dcc` tables grouped by **neId**.
 9. Update **endOfSwEoxDate** values for rows in the `networkelement_dcc` table using values from `sweox_tmp`.
 10. Drop the `sweox_tmp` table.
@@ -34,5 +34,5 @@ title = "dcc_advisory_update_prc"
 - networkelement_dcc
 
 ### Referenced Stored Procedures
-- dcc_license_status_update_prc
+- [dcc_license_status_update_prc]({{< ILink href="/database/stored-procedures/dcc_license_status_update_prc" >}})
 - [log_msg_prc]({{< ILink href="/database/stored-procedures/log_msg_prc" >}})

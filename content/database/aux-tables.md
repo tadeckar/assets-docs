@@ -2,6 +2,15 @@
 title = "Auxiliary Tables"
 +++
 
+### Logs
+{{< mermaid >}}
+graph LR;
+  amp_data_merge_logs
+  data_merge_logs
+  partition_automation_logs
+{{< /mermaid >}}
+
+### Others
 {{< mermaid >}}
 graph LR;
   aav_subscriptions
@@ -10,7 +19,6 @@ graph LR;
   alert_pas_sw_eox_bulletin
   all_asset_track_view
   all_asset_view
-  amp_data_merge_logs
   amp_ne_sol_map_tmp
   asset_contract_notification
   asset_data_load_notification
@@ -29,7 +37,6 @@ graph LR;
   csdf_contracts
   customer_partition_info
   customer_wfid_info
-  data_merge_logs
   device_license_view
   equipment
   iso_component_master
@@ -51,7 +58,6 @@ graph LR;
   meraki_license_sum_view_stage
   networkelement
   networkelement_sum_vw
-  partition_automation_logs
   pfm_diag_request
   pid_solution_mapping
   service_level_info

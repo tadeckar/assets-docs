@@ -7,8 +7,8 @@ Inserts rows into the `networkelement` table using values from the `networkeleme
 {{% expand "More Details" %}}
 1. Count rows in the `asset_inventory_notification` table that match **customerId**/**wfId** where **mgmtSystemType** is `MERAKI`.
 2. If the count is > 0, call the following stored procedures in sequence:
-   - meraki_advisory_update_prc
-   - meraki_networkelement_update_prc
+   - [meraki_advisory_update_prc]({{< ILink href="/database/stored-procedures/meraki_advisory_update_prc" >}})
+   - [meraki_networkelement_update_prc]({{< ILink href="/database/stored-procedures/meraki_networkelement_update_prc" >}})
 3. Count rows in the `base_table_partition_info` table that match **customerId** where
    - **partitionStatus** is `A` (Active) and
    - **partitionTag** is `BASE` and
@@ -25,5 +25,5 @@ Inserts rows into the `networkelement` table using values from the `networkeleme
 
 ### Referenced Stored Procedures
 - [log_msg_prc]({{< ILink href="/database/stored-procedures/log_msg_prc" >}})
-- meraki_advisory_update_prc
-- meraki_networkelement_update_prc
+- [meraki_advisory_update_prc]({{< ILink href="/database/stored-procedures/meraki_advisory_update_prc" >}})
+- [meraki_networkelement_update_prc]({{< ILink href="/database/stored-procedures/meraki_networkelement_update_prc" >}})

@@ -17,8 +17,8 @@ Inserts rows into the `networkelement` table using values from the `networkeleme
    - **mgmtSystemType** is `CSDFIB`
 3. Count the rows in `asset_inventory_notification` that match **customerId**/**wfId** where **mgmtSystemType** is `DNAC` .
 2. If the count is > 0, call the following stored procedures in sequence:
-   - dnac_advisory_update_prc
-   - dnac_networkelement_update_prc
+   - [dnac_advisory_update_prc]({{< ILink href="/database/stored-procedures/dnac_advisory_update_prc" >}})
+   - [dnac_networkelement_update_prc]({{< ILink href="/database/stored-procedures/dnac_networkelement_update_prc" >}})
 4. Open a read loop on the cursor that inserts rows into the `networkelement` table using values from the `networkelement_telemetry` table.
 5. If  the **wfId** from step 2 is not null:
    1. Create a temporary table with distinct columns from the `networkelement_ib_data` table.
@@ -36,6 +36,6 @@ Inserts rows into the `networkelement` table using values from the `networkeleme
 - networkelement_telemetry 
 
 ### Referenced Stored Procedures
-- dnac_advisory_update_prc
-- dnac_networkelement_update_prc
+- [dnac_advisory_update_prc]({{< ILink href="/database/stored-procedures/dnac_advisory_update_prc" >}})
+- [dnac_networkelement_update_prc]({{< ILink href="/database/stored-procedures/dnac_networkelement_update_prc" >}})
 - [log_msg_prc]({{< ILink href="/database/stored-procedures/log_msg_prc" >}})

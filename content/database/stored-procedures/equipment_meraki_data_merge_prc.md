@@ -6,7 +6,7 @@ title = "equipment_meraki_data_merge_prc"
 Inserts rows into the `equipment` table using values from the `equipment_meraki` table.
 {{% expand "More Details" %}}
 1. Count the rows in the `asset_inventory_notification` table matching **customerId**/**wfId** where **mgmtSystemType** is `MERAKI`.
-2. If the count is > 0, call the `meraki_equipment_update_prc` stored procedure.
+2. If the count is > 0, call the [meraki_equipment_update_prc]({{< ILink href="/database/stored-procedures/meraki_equipment_update_prc" >}}) stored procedure.
 3. Count the rows in the `base_table_partition_info` table matching **customerId** where
    - **mgmtSystemType** is `MERAKI` and
    - **partitionTag** is `BASE`
@@ -24,4 +24,4 @@ Inserts rows into the `equipment` table using values from the `equipment_meraki`
 
 ### Referenced Stored Procedures
 - [log_msg_prc]({{< ILink href="/database/stored-procedures/log_msg_prc" >}})
-- meraki_equipment_update_prc
+- [meraki_equipment_update_prc]({{< ILink href="/database/stored-procedures/meraki_equipment_update_prc" >}})
