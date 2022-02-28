@@ -357,6 +357,15 @@ ParquetInvDataLoadManager</description>
     </item>
     
     <item>
+      <title>dcc_advisory_update_prc</title>
+      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcc_advisory_update_prc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/dcc_advisory_update_prc/</guid>
+      <description>What does it do?   More Details    Create a temporary table hweox_tmp using values from alert_pas_hw_eox_bulletin and alert_hweox_dcc tables grouped by neId. Update ldos values for rows in the networkelement_dcc table using values from hweox_tmp. Drop the hweox_tmp table. Create a temporary table critical_adv_cnt_tmp using values from the alert_psirt_dcc table grouped by neId. Update advisoryLevel, advisoryCount, hasSecurityAdvisory, and allPsirtCount values for rows in the networkelement_dcc table using values from critical_adv_cnt_tmp.</description>
+    </item>
+    
+    <item>
       <title>delete_raw_data_wfid_prc</title>
       <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/stored-procedures/delete_raw_data_wfid_prc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
