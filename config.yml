@@ -1,4 +1,4 @@
-baseURL: "https://www-github3.cisco.com/pages/tadeckar/assets-docs/"
+baseURL: "https://tadeckar.github.io/assets-docs/"
 languageCode: en-us
 outputs:
   home: [ "HTML", "RSS", "JSON"]
@@ -8,6 +8,6 @@ params:
   themeVariant: assets
   disableNextPrev: true
   disableInlineCopyToClipBoard: true
-  landingPageURL: "/pages/tadeckar/assets-docs/"
+  landingPageURL: "/assets-docs/"
 title: CX Assets Wiki
 theme: hugo-theme-learn

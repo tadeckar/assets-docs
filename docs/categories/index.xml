@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on CX Assets Wiki</title>
-    <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/categories/</link>
+    <link>https://tadeckar.github.io/assets-docs/categories/</link>
     <description>Recent content in Categories on CX Assets Wiki</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://www-github3.cisco.com/pages/tadeckar/assets-docs/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://tadeckar.github.io/assets-docs/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

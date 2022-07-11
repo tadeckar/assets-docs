@@ -2,97 +2,97 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Schema on CX Assets Wiki</title>
-    <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/</link>
+    <link>https://tadeckar.github.io/assets-docs/ingestion/schema/</link>
     <description>Recent content in Schema on CX Assets Wiki</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://tadeckar.github.io/assets-docs/ingestion/schema/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Alerts Schema</title>
-      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/alerts/</link>
+      <link>https://tadeckar.github.io/assets-docs/ingestion/schema/alerts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/alerts/</guid>
+      <guid>https://tadeckar.github.io/assets-docs/ingestion/schema/alerts/</guid>
       <description> classDiagram class AlertsFn{ +Long createdAt +Long fieldNoticeId +Long updatedAt +String cavbuid +String caveat +String cavid +String createdBy +String customerId +String distributionCode +String equipmentType +String fieldNoticeName +String hostname +String hwId +String id +String managementAddress +String neId +String productFamily +String productId +String serialNumber +String softwareType +String updatedBy +String vulnerabilityReason +String vulnerabilityStatus +String wfId } class AlertsHwEox{ +Long createdAt +Long updatedAt +String bulletinName +String cavbuid +String cavid +String createdBy +String customerId +String equipmentType +String hardwareEoxId +String hostname +String hwId +String id +String managementAddress +String neId +String productId +String updatedBy +String wfId } class AlertsPsirt{ +Long createdAt +Long psirtId +Long updatedAt +String cavbuid +String caveat +String cavid +String createdBy +String customerId +String cveId +String cvssBaseScore +String cxLevel +String equipmentType +String headlineName +String hostname +String hwId +String id +String managementAddress +String neId +String productFamily +String productId +String publicReleaseInd +String severity +String softwareType +String softwareVersion +String solutionIds +String updatedBy +String usecaseIds +String vulnerabilityReason +String vulnerabilityStatus +String wfId } class AlertsSwEox{ +Long createdAt +Long updatedAt +String bulletinHeadline +String cavbuid +String cavid +String createdBy +String customerId +String equipmentType +String hostname +String id +String managementAddress +String neId +String productId +String softwareEoxId +String softwareType +String softwareVersion +String updatedBy +String wfId }  </description>
     </item>
     
     <item>
       <title>Bulletins Schema</title>
-      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/bulletins/</link>
+      <link>https://tadeckar.github.io/assets-docs/ingestion/schema/bulletins/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/bulletins/</guid>
+      <guid>https://tadeckar.github.io/assets-docs/ingestion/schema/bulletins/</guid>
       <description> classDiagram class FnBulletin{ +Long fieldNoticeId +Long firstPublishDate +Long lastRevisionDate +String background +String caveat +String distributionCode +String fieldNoticeName +String fieldNoticeTypeCode +String fieldNoticeUrl +String generatedAt +String hardwareLevels +String isSerialNumberAvailableCode +String problemDescription +String problemSymptoms +String publish_user_id +String recordType +String recordVersion +String status +String upgradeProgam +String workaround } class PasHwEoxBulletin{ +Date createdDate +Long currentMilestone +Long currentMilestoneDate +Long endOfBuEngineeringSupportTacDate +Long endOfHardwareNewServiceAttachmentDate +Long endOfHardwareRoutineFailureAnalysisDate +Long endOfHardwareServiceContractRenewalDate +Long endOfLastDateOfSupport +Long endOfLastHardwareShipDate +Long endOfLifeExternalAnnouncementDate +Long endOfLifeInternalAnnouncementDate +Long endOfSaleDate +Long endOfSignatureReleasesDate +Long endOfSoftwareAvailabilityDate +Long endOfSoftwareLicenseAvailabilityDate +Long endOfSoftwareMaintenanceReleasesDate +Long endOfSoftwareVulnerabilityOrSecuritySupportDate +Long hardwareEoXId +Long nextMilestone +Long nextMilestoneDate +Long postDate +String bulletinName +String bulletinNumber +String bulletinPid +String bulletinURL +String generatedAt +String migrationInfo +String milestoneInfo +String recordType +String recordVersion } class PasSwEoxBulletin{ +Date createdDate +Long currentMilestone +Long currentMilestoneDate +Long endOfBuEngineeringSupportTacDate +Long endOfEngineeringDate +Long endOfHardwareNewServiceAttachmentDate +Long endOfHardwareRoutineFailureAnalysisDate +Long endOfHardwareServiceContractRenewalDate +Long endOfLastDateOfSupport +Long endOfLastHardwareShipDate +Long endOfLifeDate +Long endOfLifeExternalAnnouncementDate +Long endOfLifeInternalAnnouncementDate +Long endOfSaleDate +Long endOfSignatureReleasesDate +Long endOfSoftwareAvailabilityDate +Long endOfSoftwareLicenseAvailabilityDate +Long endOfSoftwareMaintenanceReleasesDate +Long endOfSoftwareVulnerabilityOrSecuritySupportDate +Long nextMilestone +Long nextMilestoneDate +Long postDate +Long softwareEoXId +String bulletinHeadline +String bulletinNumber +String bulletinURL +String generatedAt +String migrationInfo +String milestoneInfo +String recordType +String recordVersion } class SaBulletin{ +Long createdDate +Long documentId +Long internalAnnounceDate +Long psirtId +Long publishDate +Long revisedDate +Long signatureReleaseDate +Long softwareReleaseDate +Long softwareVossDate +String advisoryId +String affectedImageName +String alertStatusCd +String announceTypeName +String caveat +String codeName +String cveId +String cvssBaseScore +String cvssTemporalScore +String defectId +String detailText +String generatedAt +String headlineName +String mappingStateName +String psirtUrlText +String publicReleaseInd +String recordType +String recordVersion +String revisionNum +String severity +String summaryText }  </description>
     </item>
     
     <item>
       <title>CLI Schema</title>
-      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/cli/</link>
+      <link>https://tadeckar.github.io/assets-docs/ingestion/schema/cli/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/cli/</guid>
+      <guid>https://tadeckar.github.io/assets-docs/ingestion/schema/cli/</guid>
       <description> classDiagram class Cli { +String commandName +String commandOutput }  </description>
     </item>
     
     <item>
       <title>Config Schema</title>
-      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/config/</link>
+      <link>https://tadeckar.github.io/assets-docs/ingestion/schema/config/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/config/</guid>
+      <guid>https://tadeckar.github.io/assets-docs/ingestion/schema/config/</guid>
       <description> classDiagram class Config{ +String config +String configName }  </description>
     </item>
     
     <item>
       <title>Contracts Schema</title>
-      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/contracts/</link>
+      <link>https://tadeckar.github.io/assets-docs/ingestion/schema/contracts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/contracts/</guid>
+      <guid>https://tadeckar.github.io/assets-docs/ingestion/schema/contracts/</guid>
       <description> classDiagram class ContractNE{ +Boolean isCollector +Long InstallationDate +Long contractEndDate +Long contractId +Long contractStartDate +Long coverageEndDate +Long coverageStartDate +Long generatedAt +Long instanceId +Long lastCoverageEndDate +Long warrantyEndDate +Long warrantyStartDate +String BillToCrPartyId +String CavBUName +String CavName +String ComponentType +String InstallAtCustomerName +String InstallAtSiteGuId +String InstallAtSiteGuName +String InstallAtSitePartyId +String InstallCustomerAddrLine3 +String InstallationQuantity +String InstanceCreationDtm +String InstanceLastUpdateDtm +String PartnerBeName +String ProductShipmentConfirmedDtm +String SalesOrderNumber +String ServiceLevel +String billToAddress1 +String billToAddress2 +String billToCity +String billToCountry +String billToPostalCode +String billToProvince +String billToSiteName +String billToState +String cavbuid +String cavid +String collectorId +String contractNumber +String contractOwner +String contractStatus +String coverageStatus +String createdAt +String createdBy +String customerId +String customerName +String cxLevel +String endOfSaleDate +String genPartyId +String hwId +String ibAvailabilityFlag +String id +String installAddress1 +String installAddress2 +String installCity +String installCountry +String installPostalCode +String installProvince +String installSiteName +String installState +String instanceStatus +String itemTypeCode +String lastDateOfSupport +String licenseTermInMonth +String managedNeId +String mgmtSystemAddr +String mgmtSystemHostname +String mgmtSystemId +String mgmtSystemType +String neId +String parentInstanceId +String parentSerialNumber +String partnerBeGeoId +String partnerBeGeoName +String partnerBeId +String prdtSetupClassificationCd +String productEndCrPartyIdInt +String productId +String serialNumber +String serviceLineStatus +String serviceProgram +String sfcFlag +String slaCode +String slaDescription +String sourceNeId +String telemetryAvailablityFlag +String termsAndContentCd +String updatedAt +String updatedBy +String warrantyType +String wfId }  </description>
     </item>
     
     <item>
       <title>Equipments Schema</title>
-      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/equipments/</link>
+      <link>https://tadeckar.github.io/assets-docs/ingestion/schema/equipments/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/equipments/</guid>
+      <guid>https://tadeckar.github.io/assets-docs/ingestion/schema/equipments/</guid>
       <description> classDiagram class Equipment{ +Boolean isCollector +Long createdAt +Long generatedAt +Long updatedAt +String cavbuid +String cavid +String collectedPid +String collectedSerialNum +String collectorId +String containingHwId +String createdBy +String customerId +String equipmentType +String genPartyId +String hostname +String hwId +String ibAvailabilityFlag +String id +String installProductType +String itemTypeCode +String managedNeId +String managementAddress +String manufacturer +String mgmtSystemAddr +String mgmtSystemHostname +String mgmtSystemId +String mgmtSystemType +String neId +String pceMultiPid +String pcePhysicalType +String pcePid +String pceProductDescription +String pceProductFamily +String pceProductName +String pceProductType +String pceRuleId +String prdtSetupClassificationCd +String productClass +String productDescription +String productFamily +String productId +String productName +String productType +String productsubtype +String serialNumber +String snasItemType +String snasProductFamily +String snasSerialNumber +String snasValidationCode +String snasValidationSource +String sourceNeId +String tags +String telemetryAvailablityFlag +String termsAndContentCd +String updatedBy +String wfId }  </description>
     </item>
     
     <item>
       <title>Hybrid Subscriptions Schema</title>
-      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/hybrid-subscriptions/</link>
+      <link>https://tadeckar.github.io/assets-docs/ingestion/schema/hybrid-subscriptions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/hybrid-subscriptions/</guid>
+      <guid>https://tadeckar.github.io/assets-docs/ingestion/schema/hybrid-subscriptions/</guid>
       <description> classDiagram class Subscription{ +Integer erpSalesOrderNumber +Integer licenseTermInMonths +Long subscriptionCreateDate +Long subscriptionProductQuantity +Long termEndDate +Long termStartDate +String contractEntitlementDescr +String contractNumber +String coverageStatus +String endCustomerGuAddressLine1 +String endCustomerGuAddressLine2 +String endCustomerGuAddressLine3 +String endCustomerGuAddressLine4 +String endCustomerGuCityName +String endCustomerGuCountry +String endCustomerGuPostalCd +String endCustomerGuState +String managedNeId +String monetizationTypeCd +String neId +String partnerBeGeoId +String partnerBeGeoName +String partnerBeId +String partnerBeName +String serviceLevel +String serviceLevelDescription +String serviceProgram +String subscriptionBillToSiteUseCustName +String subscriptionBillToSiteUseId +String subscriptionProductClass +String subscriptionReferenceId +String subscriptionStatus +String subscriptionType +String termsAndContentCd +String webOrderId } class HybridSubscription{ +Long deploymentEndDate +Long deploymentStartDate +Long subscriptionEndDate +Long subscriptionStartDate +String assetCategory +String cavBuId +String cavBuName +String cavId +String cavName +String deploymentId +String offerType +String portalCustomerId +String primaryDataRegion +String serialNumber +String subscriptionRefId +String technology +String usageStatus +String useCaseOrworkLoad }  </description>
     </item>
     
     <item>
       <title>Licenses Schema</title>
-      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/licenses/</link>
+      <link>https://tadeckar.github.io/assets-docs/ingestion/schema/licenses/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/licenses/</guid>
+      <guid>https://tadeckar.github.io/assets-docs/ingestion/schema/licenses/</guid>
       <description> classDiagram class License { +Boolean isPDL +Long generatedAt +Long licenseEndDate +Long purchasedQuantity +String cavBUId +String cavBUName +String cavId +String cavName +String customerId +String licenseLevel +String licenseStatus +String licenseType +String orgId +String orgName +String sourceLicenseStatus +String wfId }  </description>
     </item>
     
     <item>
       <title>Network Elements Schema</title>
-      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/network-elements/</link>
+      <link>https://tadeckar.github.io/assets-docs/ingestion/schema/network-elements/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/network-elements/</guid>
+      <guid>https://tadeckar.github.io/assets-docs/ingestion/schema/network-elements/</guid>
       <description> classDiagram class NetworkElement { +Boolean isCollector +Boolean isManagedNe +Boolean isPDL +Boolean isScanCapable +Integer nodeId +Long configUpdateCollTime +Long createdAt +Long generatedAt +Long installedMemory +Long lastReceivedDate +Long lastUpdateDate +Long ldos +Long licenseActivationDate +Long licenseEndDate +Long systemUpTime +Long timeOfLastReset +Long updatedAt +String CavBUName +String CavName +String OrganizationUnit_id +String S3ObjectDetails +String associatedWlcIp +String baseProductId +String cavbuid +String cavid +String collectorId +String createdBy +String customerId +String cxLevel +String datasource +String family +String genPartyId +String hostname +String ibAvailabilityFlag +String id +String imageName +String instanceStatus +String ipAddress +String itemTypeCode +String lastResetReason +String licenseLevel +String licenseStatus +String licenseType +String managedNeId +String managementAddress +String mgmtSystemAddr +String mgmtSystemHostname +String mgmtSystemId +String mgmtSystemName +String mgmtSystemTimeZone +String mgmtSystemType +String neId +String neName +String neRegistrationStatus +String networkId +String networkName +String networkUrl +String orgId +String orgName +String orgUrl +String partnerBeGeoId +String partnerBeGeoName +String partnerId +String partnerInfo +String partnerName +String prdtSetupClassificationCd +String productDescription +String productEndCrPartyIdInt +String productFamily +String productId +String productName +String productType +String reachabilityFailureReason +String reachabilityStatus +String registeredDeviceMoId +String role +String serialNumber +String serviceLevel +String siteHierarchy +String siteId +String siteNameHierarchy +String smartLicenseProductId +String smartLicenseVirtualAccountName +String softwareType +String softwareVersion +String solution +String solutionInfo +String sourceLicenseStatus +String sourceNeId +String subPartyId +String sysObjectId +String tagId +String tagName +String tags +String telemetryAvailabilityFlag +String termsAndContentCd +String udiProductIdentifier +String updatedBy +String usecase +String validatedImageName +String warrantyType +String wfId }  </description>
     </item>
     
     <item>
       <title>Subscriptions Schema</title>
-      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/subscriptions/</link>
+      <link>https://tadeckar.github.io/assets-docs/ingestion/schema/subscriptions/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/ingestion/schema/subscriptions/</guid>
+      <guid>https://tadeckar.github.io/assets-docs/ingestion/schema/subscriptions/</guid>
       <description> classDiagram class Subscription{ +Integer erpSalesOrderNumber +Integer licenseTermInMonths +Long subscriptionCreateDate +Long subscriptionProductQuantity +Long termEndDate +Long termStartDate +String contractEntitlementDescr +String contractNumber +String coverageStatus +String endCustomerGuAddressLine1 +String endCustomerGuAddressLine2 +String endCustomerGuAddressLine3 +String endCustomerGuAddressLine4 +String endCustomerGuCityName +String endCustomerGuCountry +String endCustomerGuPostalCd +String endCustomerGuState +String managedNeId +String monetizationTypeCd +String neId +String partnerBeGeoId +String partnerBeGeoName +String partnerBeId +String partnerBeName +String serviceLevel +String serviceLevelDescription +String serviceProgram +String subscriptionBillToSiteUseCustName +String subscriptionBillToSiteUseId +String subscriptionProductClass +String subscriptionReferenceId +String subscriptionStatus +String subscriptionType +String termsAndContentCd +String webOrderId }  </description>
     </item>
     

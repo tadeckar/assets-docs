@@ -2,34 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Database on CX Assets Wiki</title>
-    <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/</link>
+    <link>https://tadeckar.github.io/assets-docs/database/</link>
     <description>Recent content in Database on CX Assets Wiki</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://tadeckar.github.io/assets-docs/database/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Auxiliary Tables</title>
-      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/aux-tables/</link>
+      <link>https://tadeckar.github.io/assets-docs/database/aux-tables/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/aux-tables/</guid>
+      <guid>https://tadeckar.github.io/assets-docs/database/aux-tables/</guid>
       <description>Logs graph LR; amp_data_merge_logs data_merge_logs partition_automation_logs  Others graph LR; aav_subscriptions active_dnac_ne alert_pas_hw_eox_bulletin alert_pas_hw_eox_bulletin_dnac alert_pas_sw_eox_bulletin alert_pas_sw_eox_bulletin_dnac all_asset_track_view all_asset_view all_contract_view amp_ne_sol_map_tmp asset_contract_notification asset_data_load_notification asset_feature asset_feature_sum_vw asset_group_device asset_group_master asset_inventory_alert_fn asset_inventory_alert_fn_sum_vw asset_inventory_alert_hweox asset_inventory_alert_hweox_sum_vw asset_inventory_alert_psirt asset_inventory_alert_psirt_sum_vw asset_inventory_alert_sweox asset_inventory_alert_sweox_sum_vw asset_inventory_notification asset_priority_bugs base_table_partition_info contract_group_device_summary contractcoverage_sum_vw csdf_contracts cspi_contracts customer_partition_info customer_wfid_info device_license_view equipment equipment_sum_vw fn_bulletin_master fn_bulletin_master_dnac iso_component_master iso_contract_view iso_daily_consumption_trend iso_daily_login_trend iso_feature_insight_trend iso_feature_master iso_feature_usage iso_monthly_consumption_trend iso_monthly_login_trend iso_pid_master iso_quarterly_consumption_trend iso_quarterly_login_trend iso_summary_view iso_weekly_consumption_trend iso_weekly_login_trend license_sum_view meraki_license_sum_view_stage networkelement networkelement_sum_vw pfm_diag_request pid_solution_mapping sa_bulletin_master sa_bulletin_master_dnac scan_eligibility service_level_info upd_or_async_prop_master  </description>
     </item>
     
     <item>
       <title>Recurring Events</title>
-      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/recurring-events/</link>
+      <link>https://tadeckar.github.io/assets-docs/database/recurring-events/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/recurring-events/</guid>
+      <guid>https://tadeckar.github.io/assets-docs/database/recurring-events/</guid>
       <description>Event to Stored Procedure Mapping  athena_sub_process_01: athena_asset_notification_prc - every 10 seconds clean_base_part_invalid_status: clean_invalid_status_prc - every 1 day clean_stale_datamerge: clean_stale_datamerge_prc - every 30 minutes clean_stale_partitions: drop_stale_partions_prc - every 1 day clean_sum_part_invalid_status: clean_invalid_wfId_status_sum_tables_prc - every 1 day data_merge_process_01: inv_upload_notification_prc - every 20 seconds data_process_writer_cleanup_script: stale_uploads_cleanup_prc - every 1 day drop_pending_partitions: drop_pending_wfid_status_sum_tables_prc - every 1 day iso_data_merge_cleanup_process: cleanup_longrunning_iso_data_prc - every 4 hours iso_data_merge_process_01: amp_upload_notification_prc - every 30 seconds meraki_license_process_01: meraki_license_notification_prc - every 30 seconds retry_failed_data_process_writer: retry_failed_uploads_prc - every 12 hours stale_inprogress_upload_cleanup: stale_inprogress_data_cleanup_prc - every 30 minutes sub_data_merge_process_01: amp_subscription_notification_prc - every 30 seconds xass_asset_process_01: xaas_asset_notification_prc - every 30 seconds  </description>
     </item>
     
     <item>
       <title>Staging Tables</title>
-      <link>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/staging-tables/</link>
+      <link>https://tadeckar.github.io/assets-docs/database/staging-tables/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://www-github3.cisco.com/pages/tadeckar/assets-docs/database/staging-tables/</guid>
+      <guid>https://tadeckar.github.io/assets-docs/database/staging-tables/</guid>
       <description>Alerts  alert_fn_dcc alert_fn_dcn alert_fn_ib_data alert_fn_meraki alert_fn_telemetry alert_fn_telemetry alert_hweox_dcc alert_hweox_dcn alert_hweox_ib_data alert_hweox_meraki alert_hweox_telemetry alert_hweox_telemetry alert_psirt_dcc alert_psirt_dcn alert_psirt_ib_data alert_psirt_meraki alert_psirt_telemetry alert_sweox_dcc alert_sweox_dcn alert_sweox_ib_data alert_sweox_meraki alert_sweox_telemetry alert_sweox_telemetry  Bulletins  alert_pas_hw_eox_bulletin_dcc alert_pas_hw_eox_bulletin_dcn alert_pas_hw_eox_bulletin_ib_data alert_pas_hw_eox_bulletin_ib_data alert_pas_hw_eox_bulletin_meraki alert_pas_hw_eox_bulletin_telemetry alert_pas_sw_eox_bulletin_dcc alert_pas_sw_eox_bulletin_dcn alert_pas_sw_eox_bulletin_ib_data alert_pas_sw_eox_bulletin_meraki alert_pas_sw_eox_bulletin_telemetry fn_bulletin_master_dcc fn_bulletin_master_dcn fn_bulletin_master_ib_data fn_bulletin_master_meraki fn_bulletin_master_telemetry sa_bulletin_master_dcc sa_bulletin_master_dcn sa_bulletin_master_ib_data sa_bulletin_master_meraki sa_bulletin_master_telemetry  CLI  cli_telemetry  Config  config_telemetry  Contracts  contractcoverage contractcoverage_dcc contractcoverage_dcn contractcoverage_ib_data contractcoverage_meraki contractcoverage_telemetry  Equipments  equipment_dcc equipment_dcn equipment_ib_data equipment_meraki equipment_telemetry equipment_telemetry  Hybrid Subscriptions  athena_subscription_stg  Network Elements  networkelement_dcc networkelement_dcn networkelement_ib_data networkelement_meraki networkelement_sub_stg networkelement_telemetry  Subscriptions  subscription_stg  ISO  iso_connector_monthly_trend_stg iso_consumption_trend_stg iso_depolyment_details_stg iso_subscription_stg iso_user_login_details_stg iso_user_login_trend_stg  Other  asset_feature_dcc asset_feature_dcn asset_feature_meraki asset_feature_telemetry  </description>
     </item>
     
